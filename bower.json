@@ -1,0 +1,30 @@
+{
+  "name": "wp-enpii-core",
+  "authors": [
+    "Trac Nguyen <npbtrac@yahoo.com>"
+  ],
+  "description": "Packages for Enpii Core plugin",
+  "main": "bower",
+  "moduleType": [],
+  "license": "enpii",
+  "homepage": "",
+  "private": true,
+  "directory" : "assets",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bxslider-4" : "latest",
+    "modernizr" : "latest",
+    "detectizr" : "latest",
+    "imagesloaded" : "latest",
+    "jquery-colorbox" : "latest",
+    "slick-carousel": "latest",
+    "font-awesome": "latest",
+    "jquery.cookie": "latest"
+  }
+}

@@ -1,0 +1,44 @@
+# others
+cgi-bin
+
+# zip files
+*.zip
+*.tar.gz
+
+# sass
+.sass-cache
+
+# phpstorm project files
+.idea
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer itself is not needed
+composer.phar
+
+# Mac DS_Store Files
+.DS_Store
+__MACOSX/
+
+# phpunit itself is not needed
+phpunit.phar
+
+#robot file
+robots.txt
+
+#prepros file
+prepros.cfg
+
+# applications
+# CodeKit
+config.codekit
+.codekit-cache
