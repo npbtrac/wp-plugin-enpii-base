@@ -104,37 +104,37 @@ class NpWp
         foreach ($libs as $item) {
             switch ($item) {
                 case 'bootstrap-js':
-                    wp_enqueue_script('bootstrap-js', _NP_ASSETS_URL . '/bootstrap/dist/js/bootstrap.min.js', array(), _NP_PLUGIN_VER, true);
+                    wp_enqueue_script('bootstrap-js', ENPII_BASE_PLUGIN_ASSETS_URL . '/bootstrap/dist/js/bootstrap.min.js', array(), _NP_PLUGIN_VER, true);
                     break;
                 case 'bx-slider' :
-                    wp_enqueue_style('bx-slider-css', _NP_ASSETS_URL . '/bxslider-4/dist/jquery.bxslider.css', array(), _NP_PLUGIN_VER, true);
-                    wp_enqueue_script('bx-slider-js', _NP_ASSETS_URL . '/bxslider-4/dist/jquery.bxslider.min.js', array(), _NP_PLUGIN_VER, true);
-                    wp_enqueue_script('main-slider', _NP_ASSETS_URL . '/bxslider-4/dist/jquery.bxslider.min.js', array(), _NP_PLUGIN_VER, true);
+                    wp_enqueue_style('bx-slider-css', ENPII_BASE_PLUGIN_ASSETS_URL . '/bxslider-4/dist/jquery.bxslider.css', array(), _NP_PLUGIN_VER, true);
+                    wp_enqueue_script('bx-slider-js', ENPII_BASE_PLUGIN_ASSETS_URL . '/bxslider-4/dist/jquery.bxslider.min.js', array(), _NP_PLUGIN_VER, true);
+                    wp_enqueue_script('main-slider', ENPII_BASE_PLUGIN_ASSETS_URL . '/bxslider-4/dist/jquery.bxslider.min.js', array(), _NP_PLUGIN_VER, true);
                     break;
                 case 'detect-izr' :
-                    wp_enqueue_script('detect-izr', _NP_ASSETS_URL . '/detectizr/dist/detectizr.min.js', array(), _NP_PLUGIN_VER, true);
+                    wp_enqueue_script('detect-izr', ENPII_BASE_PLUGIN_ASSETS_URL . '/detectizr/dist/detectizr.min.js', array(), _NP_PLUGIN_VER, true);
                     break;
                 case 'modern-izr' :
-                    wp_enqueue_script('modern-izr', _NP_ASSETS_URL . '/modernizr/modernizr.min.js', array(), _NP_PLUGIN_VER, true);
+                    wp_enqueue_script('modern-izr', ENPII_BASE_PLUGIN_ASSETS_URL . '/modernizr/modernizr.min.js', array(), _NP_PLUGIN_VER, true);
                     break;
                 case 'font-awesome':
-                    wp_enqueue_style('font-awesome', _NP_ASSETS_URL . '/font-awesome/css/font-awesome.min.css', array(), _NP_PLUGIN_VER, true);
+                    wp_enqueue_style('font-awesome', ENPII_BASE_PLUGIN_ASSETS_URL . '/font-awesome/css/font-awesome.min.css', array(), _NP_PLUGIN_VER, true);
                     break;
                 case 'color-box':
-                    wp_enqueue_style('jquery-colorbox-css', _NP_ASSETS_URL . '/jquery-colorbox/example1/colorbox.css', array(), _NP_PLUGIN_VER, true);
-                    wp_enqueue_script('jquery-colorbox-js', _NP_ASSETS_URL . '/jquery-colorbox/jquery.colorbox.js', array(), _NP_PLUGIN_VER, true);
+                    wp_enqueue_style('jquery-colorbox-css', ENPII_BASE_PLUGIN_ASSETS_URL . '/jquery-colorbox/example1/colorbox.css', array(), _NP_PLUGIN_VER, true);
+                    wp_enqueue_script('jquery-colorbox-js', ENPII_BASE_PLUGIN_ASSETS_URL . '/jquery-colorbox/jquery.colorbox.js', array(), _NP_PLUGIN_VER, true);
                     break;
                 case 'owl-carousel':
-                    wp_enqueue_style('owl-carousel', _NP_ASSETS_URL . '/owl-carousel/owl.carousel.css', array(), _NP_THEME_VERSION);
-                    wp_enqueue_style('owl-theme', _NP_ASSETS_URL . '/owl-carousel/owl.theme.css', array(), _NP_THEME_VERSION);
-                    wp_enqueue_script('jquery-owl-carousel-js', _NP_ASSETS_URL . '/owl-carousel/owl.carousel.js', array(), _NP_THEME_VERSION, true);
+                    wp_enqueue_style('owl-carousel', ENPII_BASE_PLUGIN_ASSETS_URL . '/owl-carousel/owl.carousel.css', array(), _NP_THEME_VERSION);
+                    wp_enqueue_style('owl-theme', ENPII_BASE_PLUGIN_ASSETS_URL . '/owl-carousel/owl.theme.css', array(), _NP_THEME_VERSION);
+                    wp_enqueue_script('jquery-owl-carousel-js', ENPII_BASE_PLUGIN_ASSETS_URL . '/owl-carousel/owl.carousel.js', array(), _NP_THEME_VERSION, true);
                     break;
                 case 'packery':
-                    wp_enqueue_script('packery-js', _NP_ASSETS_URL . '/packery/dist/packery.pkgd.min.js', array(), _NP_PLUGIN_VER, true);
+                    wp_enqueue_script('packery-js', ENPII_BASE_PLUGIN_ASSETS_URL . '/packery/dist/packery.pkgd.min.js', array(), _NP_PLUGIN_VER, true);
                     break;
                 case 'slick':
-                    wp_enqueue_style('jquery-colorbox-css', _NP_ASSETS_URL . '/slick-carousel/slick/slick.css', array(), _NP_PLUGIN_VER, true);
-                    wp_enqueue_script('jquery-colorbox-js', _NP_ASSETS_URL . '/slick-carousel/slick/slick.min.js', array(), _NP_PLUGIN_VER, true);
+                    wp_enqueue_style('jquery-colorbox-css', ENPII_BASE_PLUGIN_ASSETS_URL . '/slick-carousel/slick/slick.css', array(), _NP_PLUGIN_VER, true);
+                    wp_enqueue_script('jquery-colorbox-js', ENPII_BASE_PLUGIN_ASSETS_URL . '/slick-carousel/slick/slick.min.js', array(), _NP_PLUGIN_VER, true);
                     break;
 
             }
@@ -145,7 +145,7 @@ class NpWp
     public static function getBlock($blockName, $params = array())
     {
         extract($params);
-        $blockDefaultPath = _NP_ENPII_PATH . DIRECTORY_SEPARATOR . 'default-block' . DIRECTORY_SEPARATOR . $blockName . '.php';
+        $blockDefaultPath = ENPII_BASE_PLUGIN_PATH . DIRECTORY_SEPARATOR . 'default-block' . DIRECTORY_SEPARATOR . $blockName . '.php';
         $blockThemePath = get_template_directory() . DIRECTORY_SEPARATOR . 'block' . DIRECTORY_SEPARATOR . $blockName . '.php';
         global $posts, $post, $wp_did_header, $wp_query, $wp_rewrite, $wpdb, $wp_version, $wp, $id, $comment, $user_ID;
         if (!empty($params)) {
@@ -638,7 +638,7 @@ class NpWp
     protected function registerStyleMainSlider($type = 1)
     {
         if ($type == 1) {
-            $styleDefaultUrl = _NP_ENPII_URL . '/assets/common/main-slider.css';
+            $styleDefaultUrl = ENPII_BASE_PLUGIN_URL . '/assets/common/main-slider.css';
             $styleThemePath = get_template_directory() . DIRECTORY_SEPARATOR . 'assets/common/main-slider.css';
             $styleThemeUrl = get_template_directory_uri() . DIRECTORY_SEPARATOR . 'assets/common/main-slider.css';
             if (file_exists($styleThemePath)) {
@@ -652,7 +652,7 @@ class NpWp
     protected function registerScriptMainSlider($type)
     {
         if ($type == 1) {
-            $scriptDefaultUrl = _NP_ENPII_URL . '/assets/common/main-slider.js';
+            $scriptDefaultUrl = ENPII_BASE_PLUGIN_URL . '/assets/common/main-slider.js';
             $scriptThemePath = get_template_directory() . DIRECTORY_SEPARATOR . 'assets/common/main-slider.js';
             $scriptThemeUrl = get_template_directory_uri() . DIRECTORY_SEPARATOR . 'assets/common/main-slider.js';
             if (file_exists($scriptThemePath)) {

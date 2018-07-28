@@ -1,11 +1,15 @@
 {
-  "name": "enpii/enpii-core",
-  "description": "Base Plugin for Wordpress Development in Enpii",
+  "name": "enpii/enpii-base",
+  "description": "The Base plugin for Theme and Plugin development. It requires ACF pro to work.",
   "type": "wordpress-plugin",
   "authors": [
     {
       "name": "Trac Nguyen",
       "email": "npbtrac@yahoo.com"
+    },
+    {
+      "name": "Enpii",
+      "email": "contact@enpii.com"
     }
   ],
   "require": {
@@ -13,7 +17,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Enpii\\Wp\\EnpiiCore\\": "src"
+      "Enpii\\Wp\\EnpiiBase\\": "src"
     }
   },
   "minimum-stability": "stable"
