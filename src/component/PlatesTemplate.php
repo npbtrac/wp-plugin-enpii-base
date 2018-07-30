@@ -31,4 +31,16 @@ class PlatesTemplate extends Component {
 			$this->plates_engine->addFolder('plugin', $this->plugin_template_path, true);
 		}
 	}
+
+	/**
+	 * Render a view
+	 * @param $name
+	 * @param array $data
+	 *
+	 * @return string
+	 */
+	public function render($name, array $data = array())
+	{
+		return $this->plates_engine->render($name, $data);
+	}
 }

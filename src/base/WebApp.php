@@ -8,13 +8,15 @@
 
 namespace Enpii\Wp\EnpiiBase\Base;
 
-use Dice\Dice;
+use Aura\Di\ContainerBuilder;
+use Aura\Di\Container;
 
 class WebApp {
 	/* @var static $_instance */
 	protected static $_instance = null;
 
-	/* @var Dice $_di */
+	// Find out more here https://github.com/auraphp/Aura.Di/blob/3.x/docs/index.md
+	/* @var Container $_di */
 	protected static $_di = null;
 
 	/* @var array $_container */
@@ -40,7 +42,8 @@ class WebApp {
 		}
 
 		if ( null === static::$_di ) {
-			static::$_di = new Dice();
+			$builder     = new ContainerBuilder();
+			static::$_di = $builder->newInstance();
 		}
 	}
 
@@ -58,29 +61,29 @@ class WebApp {
 
 	/**
 	 * Get component of application from container of components
-	 *
 	 * @param $component_name_to_get
 	 *
 	 * @return mixed
+	 * @throws \Exception
 	 */
 	public function __get( $component_name_to_get ) {
 		if ( ! isset( $this->_container[ $component_name_to_get ] ) || ! $this->_container[ $component_name_to_get ] ) {
+			$this->_container[ $component_name_to_get ] = null;
 			if ( isset( $this->_config['components'] ) && ( $components = $this->_config['components'] ) && ( isset( $components[ $component_name_to_get ] ) && $component_args = $components[ $component_name_to_get ] ) ) {
-				$dice            = static::$_di;
-				$component_class = isset( $component_args['class'] ) ? $component_args['class'] : '';
-				unset( $component_args['class'] );
+				if ( isset( $component_args['class'] ) && $component_class = $component_args['class'] ) {
+					unset( $component_args['class'] );
 
-				$rule = [
-					'shared'          => true,
-					'constructParams' => [ 'config' => $component_args ],
-				];
-				$dice->addRule( $component_class, $rule );
-				if ( class_exists( $component_class ) ) {
-					$this->_container[ $component_name_to_get ] = $dice->create( $component_class );
-				} else {
-					die( sprintf( 'Class `%s` does not exists', $component_class ) );
+					try {
+						// Todo: Refactor this to allow 1 config only
+						$builder     = new ContainerBuilder();
+						$di = $builder->newInstance();
+						$di->params[ $component_class ][0]          = $component_args;
+						$this->_container[ $component_name_to_get ] = $di->newInstance( $component_class );
+					} catch ( \Exception $e ) {
+						echo sprintf( 'Class `%s` initialized invalid', $component_class )."\n";
+						throw $e;
+					}
 				}
-
 			}
 		}
 

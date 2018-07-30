@@ -31,13 +31,12 @@ class WpTheme extends Component {
 	 */
 	public function __construct( $config ) {
 		parent::__construct( $config );
-
-		$this->initialize();
 	}
 
+	/**
+	 * Initialize theme with hooks
+	 */
 	public function initialize() {
-		echo '<pre> initialize: ';
-		print_r( 'wp theme initialize' );
-		echo "</pre>\n";
+
 	}
 }
