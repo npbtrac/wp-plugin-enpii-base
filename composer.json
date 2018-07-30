@@ -12,7 +12,14 @@
       "email": "contact@enpii.com"
     }
   ],
+  "repositories": [
+    {
+      "type": "git",
+      "url": "https://github.com/kkeiper1103/plates-for-wordpress"
+    }
+  ],
   "require": {
+    "kkeiper1103/plates-for-wordpress": "dev-master",
     "level-2/dice": "dev-master",
     "php": ">=5.6.0"
   },
@@ -21,5 +28,5 @@
       "Enpii\\Wp\\EnpiiBase\\": "src"
     }
   },
-  "minimum-stability": "dev"
+  "minimum-stability": "stable"
 }
