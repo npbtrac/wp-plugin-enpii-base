@@ -1,13 +1,13 @@
 <?php
 /**
-Plugin Name: Enpii Base
-Description: The Base plugin for Theme and Plugin development. It requires ACF pro to work.
-Version: 0.0.1
-Author: Enpii
-Author URI: http://www.enpii.com/wordpress-plugin-enpii-base
-License: GPLv2 or later
-Text Domain: enpii
-Domain Path: /languages/
+ * Plugin Name: Enpii Base
+ * Description: The Base plugin for Theme and Plugin development. It requires ACF pro to work.
+ * Version: 0.0.1
+ * Author: Enpii
+ * Author URI: http://www.enpii.com/wordpress-plugin-enpii-base
+ * License: GPLv2 or later
+ * Text Domain: enpii
+ * Domain Path: /languages/
  */
 
 defined( 'ENPII_BASE_PLUGIN_VER' ) || define( 'ENPII_BASE_PLUGIN_VER', 0.2 );
@@ -15,6 +15,10 @@ defined( 'ENPII_BASE_PLUGIN_FOLDER_NAME' ) || define( 'NP_PLUGIN_CORE_NAME', 'en
 defined( 'ENPII_BASE_PLUGIN_URL' ) || define( 'ENPII_BASE_PLUGIN_URL', plugins_url( NP_PLUGIN_CORE_NAME ) );
 defined( 'ENPII_BASE_PLUGIN_PATH' ) || define( 'ENPII_BASE_PLUGIN_PATH', __DIR__ );
 defined( 'ENPII_BASE_PLUGIN_ASSETS_URL' ) || define( 'ENPII_BASE_PLUGIN_ASSETS_URL', plugins_url( NP_PLUGIN_CORE_NAME ) . DIRECTORY_SEPARATOR . 'assets' );
+
+defined( 'YII_DEBUG' ) or define( 'YII_DEBUG', true );
+defined( 'YII_ENV' ) or define( 'YII_ENV', 'dev' );
+
 require_once __DIR__ . "/vendor/autoload.php";
 
 class EnpiiBase {

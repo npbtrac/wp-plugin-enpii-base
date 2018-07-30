@@ -1,3 +1,6 @@
+vendor/*
+!vendor/.gitkeep
+
 # others
 cgi-bin
 

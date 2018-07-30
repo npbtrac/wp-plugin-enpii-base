@@ -1,17 +1,15 @@
 <?php
 /**
  * Created by PhpStorm.
- * Author: npbtrac@yahoo.com
- * Date time: 12/16/17 12:06 PM
+ * User: tracnguyen
+ * Date: 7/30/18
+ * Time: 4:13 PM
  */
 
-namespace Enpii\Wp\EnpiiCore\Base;
+namespace Enpii\Wp\EnpiiBase\Base;
 
 
 class Component {
-
-	/* @var static singleton instance of this class */
-	protected static $_instance = null;
 
 	/**
 	 * Component constructor.
@@ -27,20 +25,5 @@ class Component {
 				}
 			}
 		}
-	}
-
-	/**
-	 * Singleton
-	 *
-	 * @param null $configs
-	 *
-	 * @return static
-	 */
-	public static function instance( $configs = null ) {
-		if ( null === static::$_instance ) {
-			static::$_instance = new static( $configs );
-		}
-
-		return static::$_instance;
 	}
 }

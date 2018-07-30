@@ -13,7 +13,8 @@
     }
   ],
   "require": {
-    "php": ">=5.4.0"
+    "level-2/dice": "dev-master",
+    "php": ">=7.0.0"
   },
   "autoload": {
     "psr-4": {
