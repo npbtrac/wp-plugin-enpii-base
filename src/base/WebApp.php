@@ -29,7 +29,9 @@ class WebApp {
 
 	/**
 	 * Initialize the singleton of application
+	 *
 	 * @param $config
+	 *
 	 * @return void
 	 */
 	public static function initialize( $config ) {
@@ -48,7 +50,7 @@ class WebApp {
 	 */
 	public static function instance() {
 		if ( null === static::$_instance ) {
-			die('WebApp singleton object not created yet. Please `initialize` it');
+			die( 'WebApp singleton object not created yet. Please `initialize` it' );
 		} else {
 			return static::$_instance;
 		}
@@ -56,6 +58,7 @@ class WebApp {
 
 	/**
 	 * Get component of application from container of components
+	 *
 	 * @param $component_name_to_get
 	 *
 	 * @return mixed
@@ -72,7 +75,12 @@ class WebApp {
 					'constructParams' => [ 'config' => $component_args ],
 				];
 				$dice->addRule( $component_class, $rule );
-				$this->_container[ $component_name_to_get ] = $dice->create( $component_class );
+				if ( class_exists( $component_class ) ) {
+					$this->_container[ $component_name_to_get ] = $dice->create( $component_class );
+				} else {
+					die( sprintf( 'Class `%s` does not exists', $component_class ) );
+				}
+
 			}
 		}
 
