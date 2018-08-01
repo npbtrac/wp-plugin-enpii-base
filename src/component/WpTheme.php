@@ -23,6 +23,9 @@ class WpTheme extends Component {
 	public $child_base_path;
 	public $child_base_url;
 
+	/* @var \Snscripts\HtmlHelper\Html $html_helper */
+	public $html_helper = null;
+
 	/**
 	 * Instance constructor.
 	 * Initialize values for object based on configuration array
@@ -31,6 +34,16 @@ class WpTheme extends Component {
 	 */
 	public function __construct( $config ) {
 		parent::__construct( $config );
+
+		// Init Html Helper
+		// Find out more here https://github.com/mikebarlow/html-helper
+		$this->html_helper = new \Snscripts\HtmlHelper\Html(
+			new \Snscripts\HtmlHelper\Helpers\Form(
+				new \Snscripts\HtmlHelper\Interfaces\BasicFormData()
+			),
+			new \Snscripts\HtmlHelper\Interfaces\BasicRouter(),
+			new \Snscripts\HtmlHelper\Interfaces\BasicAssets()
+		);
 	}
 
 	/**
