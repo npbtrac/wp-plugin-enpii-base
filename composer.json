@@ -21,7 +21,7 @@
     "psr-4": {
       "Enpii\\Wp\\EnpiiBase\\": "src",
       "Enpii\\Wp\\EnpiiBase\\Base\\": "src/base",
-      "Enpii\\Wp\\EnpiiBase\\Component\\": "src/component",
+      "Enpii\\Wp\\EnpiiBase\\Component\\": "src/component"
     }
   },
   "minimum-stability": "stable"
