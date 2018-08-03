@@ -41,6 +41,17 @@ class Wp {
 	}
 
 	/**
+	 * Escape a rich text field entered from Admin
+	 *
+	 * @param $content
+	 *
+	 * @return string
+	 */
+	public static function esc_editor_field( $content ) {
+		return wp_kses_post( $content );
+	}
+
+	/**
 	 * Load Font Awesome
 	 * @param bool $use_cdn
 	 */
@@ -82,6 +93,7 @@ class Wp {
 	 * @param bool $use_cdn
 	 */
 	public static function load_colorbox( $use_cdn = false ) {
+		wp_enqueue_style( 'colorbox', $use_cdn ? '//cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/example3/colorbox.css' : '//cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/example3/colorbox.css', array(), ENPII_BASE_PLUGIN_VER, 'screen' );
 		wp_enqueue_script( 'colorbox', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js' : ENPII_BASE_PLUGIN_ASSETS_URL . '/jquery-colorbox/jquery.colorbox-min.js', ['jquery'], ENPII_BASE_PLUGIN_VER, true );
 	}
 
