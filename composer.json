@@ -15,14 +15,13 @@
   "require": {
     "snscripts/html-helper": "1.*",
     "aura/di": "3.*",
-    "league/plates": "3.*",
     "php": ">=5.6.0"
   },
   "autoload": {
     "psr-4": {
       "Enpii\\Wp\\EnpiiBase\\": "src",
       "Enpii\\Wp\\EnpiiBase\\Base\\": "src/base",
-      "Enpii\\Wp\\EnpiiBase\\Component\\": "src/component"
+      "Enpii\\Wp\\EnpiiBase\\Component\\": "src/component",
     }
   },
   "minimum-stability": "stable"
