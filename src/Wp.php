@@ -97,8 +97,31 @@ class Wp {
 		wp_enqueue_script( 'colorbox', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js' : ENPII_BASE_PLUGIN_ASSETS_URL . '/jquery-colorbox/jquery.colorbox-min.js', ['jquery'], ENPII_BASE_PLUGIN_VER, true );
 	}
 
+	/**
+	 * Load css for animation
+	 * https://daneden.github.io/animate.css/
+	 *
+	 * @param bool $use_cdn
+	 */
 	public static function load_animate_css($use_cdn = false)
 	{
 		wp_enqueue_style( 'animate-css', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css' : '//cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css', array(), ENPII_BASE_PLUGIN_VER, 'screen' );
+	}
+
+	/**
+	 * Load isotope for sorting items arbitrary
+	 * https://isotope.metafizzy.co/
+	 *
+	 * @param bool $use_cdn
+	 */
+	public static function load_isotope($use_cdn = false)
+	{
+		wp_enqueue_script( 'isotope', $use_cdn ? '//npmcdn.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js' : '//npmcdn.com/isotope-layout@3.0.6/dist/isotope.pkgd.min.js', ['jquery'], ENPII_BASE_PLUGIN_VER, true );
+		wp_enqueue_script( 'isotope-fit-columns', $use_cdn ? '//npmcdn.com/isotope-fit-columns@1.1.4/fit-columns.js' : '//npmcdn.com/isotope-fit-columns@1.1.4/fit-columns.js', ['isotope'], ENPII_BASE_PLUGIN_VER, true );
+		wp_enqueue_script( 'isotope-horizontal', $use_cdn ? '//npmcdn.com/isotope-horizontal@2.0.1/horizontal.js' : '//npmcdn.com/isotope-horizontal@2.0.1/horizontal.js', ['isotope'], ENPII_BASE_PLUGIN_VER, true );
+		wp_enqueue_script( 'isotope-masonry-horizontal', $use_cdn ? '//npmcdn.com/isotope-masonry-horizontal@2.0.1/masonry-horizontal.js' : '//npmcdn.com/isotope-masonry-horizontal@2.0.1/masonry-horizontal.js', ['isotope'], ENPII_BASE_PLUGIN_VER, true );
+		wp_enqueue_script( 'isotope-cells-by-row', $use_cdn ? '//npmcdn.com/isotope-cells-by-row@1.1.4/cells-by-row.js' : '//npmcdn.com/isotope-cells-by-row@1.1.4/cells-by-row.js', ['isotope'], ENPII_BASE_PLUGIN_VER, true );
+		wp_enqueue_script( 'isotope-cells-by-column', $use_cdn ? '//npmcdn.com/isotope-cells-by-column@1.1.4/cells-by-column.js' : '//npmcdn.com/isotope-cells-by-column@1.1.4/cells-by-column.js', ['isotope'], ENPII_BASE_PLUGIN_VER, true );
+		wp_enqueue_script( 'isotope-packery', $use_cdn ? '//npmcdn.com/isotope-packery@2.0.1/packery-mode.pkgd.min.js' : '//npmcdn.com/isotope-packery@2.0.1/packery-mode.pkgd.min.js', ['isotope'], ENPII_BASE_PLUGIN_VER, true );
 	}
 }
