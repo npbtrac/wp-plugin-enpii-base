@@ -135,4 +135,15 @@ class Wp {
 		wp_enqueue_script( 'isotope-cells-by-column', $use_cdn ? '//npmcdn.com/isotope-cells-by-column@1.1.4/cells-by-column.js' : '//npmcdn.com/isotope-cells-by-column@1.1.4/cells-by-column.js', [ 'isotope' ], ENPII_BASE_PLUGIN_VER, true );
 		wp_enqueue_script( 'isotope-packery', $use_cdn ? '//npmcdn.com/isotope-packery@2.0.1/packery-mode.pkgd.min.js' : '//npmcdn.com/isotope-packery@2.0.1/packery-mode.pkgd.min.js', [ 'isotope' ], ENPII_BASE_PLUGIN_VER, true );
 	}
+
+	/**
+	 * Load fancybox 3 plugin
+	 * https://fancyapps.com/fancybox/3/
+	 *
+	 * @param bool $use_cdn
+	 */
+	public static function load_fancybox( $use_cdn = false ) {
+		wp_enqueue_style( 'fancybox', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css' : '//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css', array(), ENPII_BASE_PLUGIN_VER, 'screen' );
+		wp_enqueue_script( 'fancybox', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js' : '//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js', [ 'jquery' ], ENPII_BASE_PLUGIN_VER, true );
+	}
 }
