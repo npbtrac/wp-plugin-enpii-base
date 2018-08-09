@@ -25,12 +25,12 @@
     "bootstrap": ">= 3.3.2",
     "highlightjs": "~8.4.0"
   },
-  "version": "4.2.14",
-  "_release": "4.2.14",
+  "version": "4.2.15",
+  "_release": "4.2.15",
   "_resolution": {
     "type": "version",
-    "tag": "v4.2.14",
-    "commit": "761de30ae3d4128919ae3e2eb0f2fd4a061db76b"
+    "tag": "v4.2.15",
+    "commit": "a26c6d94bcef4d13d3fa063ed419fe14f1ef2935"
   },
   "_source": "https://github.com/wandoledzep/bxslider-4.git",
   "_target": "*",

@@ -1,12 +1,12 @@
 /*!
- * Packery v2.1.1
+ * Packery v2.1.2
  * Gapless, draggable grid layouts
  *
  * Licensed GPLv3 for open source use
  * or Packery Commercial License for commercial use
  *
  * http://packery.metafizzy.co
- * Copyright 2016 Metafizzy
+ * Copyright 2013-2018 Metafizzy
  */
 
 ( function( window, factory ) {
@@ -562,7 +562,8 @@ proto.itemDragMove = function( elem, x, y ) {
 
   // throttle
   var now = new Date();
-  if ( this._itemDragTime && now - this._itemDragTime < DRAG_THROTTLE_TIME ) {
+  var isThrottled = this._itemDragTime && now - this._itemDragTime < DRAG_THROTTLE_TIME;
+  if ( isThrottled ) {
     clearTimeout( this.dragTimeout );
     this.dragTimeout = setTimeout( onDrag, DRAG_THROTTLE_TIME );
   } else {

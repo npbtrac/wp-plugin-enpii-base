@@ -1,5 +1,5 @@
 /**
- * bxSlider v4.2.13
+ * bxSlider v4.2.1d
  * Copyright 2013-2017 Steven Wanderski
  * Written while drinking Belgian ales and listening to jazz
  * Licensed under MIT (http://opensource.org/licenses/MIT)
@@ -1132,7 +1132,7 @@
           slider.viewport.get(0).setPointerCapture(slider.pointerId);
         }
         // store original event data for click fixation
-        slider.originalClickTarget = orig.originalTarget;
+        slider.originalClickTarget = orig.originalTarget || orig.target;
         slider.originalClickButton = orig.button;
         slider.originalClickButtons = orig.buttons;
         slider.originalEventType = orig.type;

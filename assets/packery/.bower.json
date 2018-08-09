@@ -40,12 +40,12 @@
     "draggable"
   ],
   "license": "GPL-3.0",
-  "version": "2.1.1",
-  "_release": "2.1.1",
+  "version": "2.1.2",
+  "_release": "2.1.2",
   "_resolution": {
     "type": "version",
-    "tag": "v2.1.1",
-    "commit": "75bc0ae1e8d353a82be8c56c4936c3e3b3a9b545"
+    "tag": "v2.1.2",
+    "commit": "b2e0097a68bf30afa3b532b4e1b93ba1d11af775"
   },
   "_source": "https://github.com/metafizzy/packery.git",
   "_target": "*",
