@@ -77,7 +77,7 @@ class Wp {
 	 * @param bool $use_cdn
 	 */
 	public static function load_modernizr( $use_cdn = false ) {
-		wp_enqueue_script( 'modernizr', '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js', [], ENPII_BASE_PLUGIN_VER, true );
+		wp_enqueue_script( 'modernizr', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' : ENPII_BASE_PLUGIN_ASSETS_URL . '/modernizr/modernizr.js', [], ENPII_BASE_PLUGIN_VER, true );
 	}
 
 	/**
@@ -87,7 +87,7 @@ class Wp {
 	 */
 	public static function load_detectizr( $use_cdn = false ) {
 		static::load_modernizr( $use_cdn );
-		wp_enqueue_script( 'detectizr', '//cdnjs.cloudflare.com/ajax/libs/detectizr/2.2.0/detectizr.min.js', [ 'modernizr' ], ENPII_BASE_PLUGIN_VER, true );
+		wp_enqueue_script( 'detectizr', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/detectizr/2.2.0/detectizr.min.js' : ENPII_BASE_PLUGIN_ASSETS_URL . '/detectizr/dist/detectizr.min.js', [ 'modernizr' ], ENPII_BASE_PLUGIN_VER, true );
 	}
 
 	/**
@@ -96,7 +96,7 @@ class Wp {
 	 * @param bool $use_cdn
 	 */
 	public static function load_colorbox( $use_cdn = false ) {
-		wp_enqueue_style( 'colorbox', $use_cdn ? '//cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/example3/colorbox.css' : '//cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/example3/colorbox.css', array(), ENPII_BASE_PLUGIN_VER, 'screen' );
+		wp_enqueue_style( 'colorbox', $use_cdn ? '//cdn.jsdelivr.net/npm/jquery-colorbox@1.6.4/example3/colorbox.css' : ENPII_BASE_PLUGIN_ASSETS_URL . '/jquery-colorbox/example3/colorbox.css', [], ENPII_BASE_PLUGIN_VER, 'screen' );
 		wp_enqueue_script( 'colorbox', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/jquery.colorbox/1.6.4/jquery.colorbox-min.js' : ENPII_BASE_PLUGIN_ASSETS_URL . '/jquery-colorbox/jquery.colorbox-min.js', [ 'jquery' ], ENPII_BASE_PLUGIN_VER, true );
 	}
 
@@ -107,7 +107,7 @@ class Wp {
 	 * @param bool $use_cdn
 	 */
 	public static function load_animate_css( $use_cdn = false ) {
-		wp_enqueue_style( 'animate-css', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css' : '//cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css', array(), ENPII_BASE_PLUGIN_VER, 'screen' );
+		wp_enqueue_style( 'animate-css', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css' : ENPII_BASE_PLUGIN_ASSETS_URL . '/animate.css/animate.min.css', [], ENPII_BASE_PLUGIN_VER, 'screen' );
 	}
 
 	/**
@@ -127,7 +127,7 @@ class Wp {
 	 * @param bool $use_cdn
 	 */
 	public static function load_isotope( $use_cdn = false ) {
-		wp_enqueue_script( 'isotope', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js' : '//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js', [ 'jquery' ], ENPII_BASE_PLUGIN_VER, true );
+		wp_enqueue_script( 'isotope', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js' : ENPII_BASE_PLUGIN_ASSETS_URL . '/isotope/dist/isotope.pkgd.min.js', [ 'jquery' ], ENPII_BASE_PLUGIN_VER, true );
 		wp_enqueue_script( 'isotope-fit-columns', $use_cdn ? '//cdn.jsdelivr.net/npm/isotope-fit-columns@1.1.4/fit-columns.min.js' : '//cdn.jsdelivr.net/npm/isotope-fit-columns@1.1.4/fit-columns.min.js', [ 'isotope' ], ENPII_BASE_PLUGIN_VER, true );
 		wp_enqueue_script( 'isotope-horizontal', $use_cdn ? '//cdn.jsdelivr.net/npm/isotope-horizontal@2.0.1/horizontal.min.js' : '//cdn.jsdelivr.net/npm/isotope-horizontal@2.0.1/horizontal.min.js', [ 'isotope' ], ENPII_BASE_PLUGIN_VER, true );
 		wp_enqueue_script( 'isotope-masonry-horizontal', $use_cdn ? '//cdn.jsdelivr.net/npm/isotope-masonry-horizontal@2.0.1/masonry-horizontal.min.js' : '//cdn.jsdelivr.net/npm/isotope-masonry-horizontal@2.0.1/masonry-horizontal.min.js', [ 'isotope' ], ENPII_BASE_PLUGIN_VER, true );
@@ -143,7 +143,7 @@ class Wp {
 	 * @param bool $use_cdn
 	 */
 	public static function load_fancybox( $use_cdn = false ) {
-		wp_enqueue_style( 'fancybox', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css' : '//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css', array(), ENPII_BASE_PLUGIN_VER, 'screen' );
-		wp_enqueue_script( 'fancybox', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js' : '//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js', [ 'jquery' ], ENPII_BASE_PLUGIN_VER, true );
+		wp_enqueue_style( 'fancybox', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.css' : ENPII_BASE_PLUGIN_ASSETS_URL . '/fancybox/dist/jquery.fancybox.min.css', array(), ENPII_BASE_PLUGIN_VER, 'screen' );
+		wp_enqueue_script( 'fancybox', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/fancybox/3.3.5/jquery.fancybox.min.js' : ENPII_BASE_PLUGIN_ASSETS_URL . '/fancybox/dist/jquery.fancybox.min.js', [ 'jquery' ], ENPII_BASE_PLUGIN_VER, true );
 	}
 }

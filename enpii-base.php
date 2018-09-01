@@ -11,10 +11,10 @@
  */
 
 defined( 'ENPII_BASE_PLUGIN_VER' ) || define( 'ENPII_BASE_PLUGIN_VER', 0.2 );
-defined( 'ENPII_BASE_PLUGIN_FOLDER_NAME' ) || define( 'NP_PLUGIN_CORE_NAME', 'enpii-core' );
-defined( 'ENPII_BASE_PLUGIN_URL' ) || define( 'ENPII_BASE_PLUGIN_URL', plugins_url( NP_PLUGIN_CORE_NAME ) );
+defined( 'ENPII_BASE_PLUGIN_FOLDER_NAME' ) || define( 'ENPII_BASE_PLUGIN_FOLDER_NAME', 'enpii-base' );
+defined( 'ENPII_BASE_PLUGIN_URL' ) || define( 'ENPII_BASE_PLUGIN_URL', plugins_url( ENPII_BASE_PLUGIN_FOLDER_NAME ) );
 defined( 'ENPII_BASE_PLUGIN_PATH' ) || define( 'ENPII_BASE_PLUGIN_PATH', __DIR__ );
-defined( 'ENPII_BASE_PLUGIN_ASSETS_URL' ) || define( 'ENPII_BASE_PLUGIN_ASSETS_URL', plugins_url( NP_PLUGIN_CORE_NAME ) . DIRECTORY_SEPARATOR . 'assets' );
+defined( 'ENPII_BASE_PLUGIN_ASSETS_URL' ) || define( 'ENPII_BASE_PLUGIN_ASSETS_URL', plugins_url( ENPII_BASE_PLUGIN_FOLDER_NAME ) . DIRECTORY_SEPARATOR . 'assets' );
 
 ! file_exists(__DIR__ . "/vendor/autoload.php") || require_once (__DIR__ . "/vendor/autoload.php");
 
