@@ -10,8 +10,14 @@ namespace Enpii\Wp\EnpiiBase\Component;
 
 
 use Enpii\Wp\EnpiiBase\Base\Component;
+use Enpii\Wp\EnpiiBase\Base\ComponentTrait;
+use Enpii\Wp\EnpiiBase\Base\WebApp;
 
-class WpTheme extends Component {
+class WpTheme {
+	use ComponentTrait {
+		ComponentTrait::__construct as private __componentConstruct;
+	}
+
 	/* @var string represent current version of theme */
 	public $version;
 	/* @var string for theme translation */
@@ -33,17 +39,11 @@ class WpTheme extends Component {
 	 * @param array $config
 	 */
 	public function __construct( $config ) {
-		parent::__construct( $config );
+		$this->__componentConstruct( $config );
 
 		// Init Html Helper
 		// Find out more here https://github.com/mikebarlow/html-helper
-		$this->html_helper = new \Snscripts\HtmlHelper\Html(
-			new \Snscripts\HtmlHelper\Helpers\Form(
-				new \Snscripts\HtmlHelper\Interfaces\BasicFormData()
-			),
-			new \Snscripts\HtmlHelper\Interfaces\BasicRouter(),
-			new \Snscripts\HtmlHelper\Interfaces\BasicAssets()
-		);
+		$this->html_helper = WebApp::instance()->{$this->html_helper};
 	}
 
 	/**
