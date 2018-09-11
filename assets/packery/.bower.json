@@ -48,6 +48,6 @@
     "commit": "b2e0097a68bf30afa3b532b4e1b93ba1d11af775"
   },
   "_source": "https://github.com/metafizzy/packery.git",
-  "_target": "*",
+  "_target": "^2.0.0",
   "_originalSource": "packery"
 }

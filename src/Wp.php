@@ -77,7 +77,7 @@ class Wp {
 	 * @param bool $use_cdn
 	 */
 	public static function load_modernizr( $use_cdn = false ) {
-		wp_enqueue_script( 'modernizr', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' : ENPII_BASE_PLUGIN_ASSETS_URL . '/modernizr/modernizr.js', [], ENPII_BASE_PLUGIN_VER, true );
+		wp_enqueue_script( 'modernizr', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js' : ENPII_BASE_PLUGIN_ASSETS_URL . '/components-modernizr/modernizr.js', [], ENPII_BASE_PLUGIN_VER, true );
 	}
 
 	/**
@@ -128,12 +128,12 @@ class Wp {
 	 */
 	public static function load_isotope( $use_cdn = false ) {
 		wp_enqueue_script( 'isotope', $use_cdn ? '//cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js' : ENPII_BASE_PLUGIN_ASSETS_URL . '/isotope/dist/isotope.pkgd.min.js', [ 'jquery' ], ENPII_BASE_PLUGIN_VER, true );
-		wp_enqueue_script( 'isotope-fit-columns', $use_cdn ? '//cdn.jsdelivr.net/npm/isotope-fit-columns@1.1.4/fit-columns.min.js' : '//cdn.jsdelivr.net/npm/isotope-fit-columns@1.1.4/fit-columns.min.js', [ 'isotope' ], ENPII_BASE_PLUGIN_VER, true );
-		wp_enqueue_script( 'isotope-horizontal', $use_cdn ? '//cdn.jsdelivr.net/npm/isotope-horizontal@2.0.1/horizontal.min.js' : '//cdn.jsdelivr.net/npm/isotope-horizontal@2.0.1/horizontal.min.js', [ 'isotope' ], ENPII_BASE_PLUGIN_VER, true );
-		wp_enqueue_script( 'isotope-masonry-horizontal', $use_cdn ? '//cdn.jsdelivr.net/npm/isotope-masonry-horizontal@2.0.1/masonry-horizontal.min.js' : '//cdn.jsdelivr.net/npm/isotope-masonry-horizontal@2.0.1/masonry-horizontal.min.js', [ 'isotope' ], ENPII_BASE_PLUGIN_VER, true );
-		wp_enqueue_script( 'isotope-cells-by-row', $use_cdn ? '//cdn.jsdelivr.net/npm/isotope-cells-by-row@1.1.4/cells-by-row.min.js' : '//cdn.jsdelivr.net/npm/isotope-cells-by-row@1.1.4/cells-by-row.min.js', [ 'isotope' ], ENPII_BASE_PLUGIN_VER, true );
-		wp_enqueue_script( 'isotope-cells-by-column', $use_cdn ? '//cdn.jsdelivr.net/npm/isotope-cells-by-column@1.1.4/cells-by-column.min.js' : '//cdn.jsdelivr.net/npm/isotope-cells-by-column@1.1.4/cells-by-column.min.js', [ 'isotope' ], ENPII_BASE_PLUGIN_VER, true );
-		wp_enqueue_script( 'isotope-packery', $use_cdn ? '//cdn.jsdelivr.net/npm/isotope-packery@2.0.1/packery-mode.pkgd.min.js' : '//cdn.jsdelivr.net/npm/isotope-packery@2.0.1/packery-mode.pkgd.min.js', [ 'isotope' ], ENPII_BASE_PLUGIN_VER, true );
+		wp_enqueue_script( 'isotope-fit-columns', $use_cdn ? '//cdn.jsdelivr.net/npm/isotope-fit-columns@1.1.4/fit-columns.min.js' : ENPII_BASE_PLUGIN_ASSETS_URL . '/isotope-fit-columns/fit-columns.js', [ 'isotope' ], ENPII_BASE_PLUGIN_VER, true );
+		wp_enqueue_script( 'isotope-horizontal', $use_cdn ? '//cdn.jsdelivr.net/npm/isotope-horizontal@2.0.1/horizontal.min.js' : ENPII_BASE_PLUGIN_ASSETS_URL . '/isotope-horizontal/horizontal.js', [ 'isotope' ], ENPII_BASE_PLUGIN_VER, true );
+		wp_enqueue_script( 'isotope-masonry-horizontal', $use_cdn ? '//cdn.jsdelivr.net/npm/isotope-masonry-horizontal@2.0.1/masonry-horizontal.min.js' : ENPII_BASE_PLUGIN_ASSETS_URL . '/isotope-masonry-horizontal/masonry-horizontal.js', [ 'isotope' ], ENPII_BASE_PLUGIN_VER, true );
+		wp_enqueue_script( 'isotope-cells-by-row', $use_cdn ? '//cdn.jsdelivr.net/npm/isotope-cells-by-row@1.1.4/cells-by-row.min.js' : ENPII_BASE_PLUGIN_ASSETS_URL . '/isotope-cells-by-row/cells-by-row.js', [ 'isotope' ], ENPII_BASE_PLUGIN_VER, true );
+		wp_enqueue_script( 'isotope-cells-by-column', $use_cdn ? '//cdn.jsdelivr.net/npm/isotope-cells-by-column@1.1.4/cells-by-column.min.js' : ENPII_BASE_PLUGIN_ASSETS_URL . '/isotope-cells-by-column/cells-by-column.js', [ 'isotope' ], ENPII_BASE_PLUGIN_VER, true );
+		wp_enqueue_script( 'isotope-packery', $use_cdn ? '//cdn.jsdelivr.net/npm/isotope-packery@2.0.1/packery-mode.pkgd.min.js' : ENPII_BASE_PLUGIN_ASSETS_URL . '/isotope-packery/packery-mode.pkgd.min.js', [ 'isotope' ], ENPII_BASE_PLUGIN_VER, true );
 	}
 
 	/**

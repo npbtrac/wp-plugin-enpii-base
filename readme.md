@@ -1,2 +1,3 @@
 ###Installation
-- ```composer install```
+- ```composer install``` to install all dependencies
+- ``````
