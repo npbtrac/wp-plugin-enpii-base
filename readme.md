@@ -1,8 +1,8 @@
-###Introduction
+### Introduction
 - Since I needed to do a lot of WordPress projects and they have same formula so I decide to create this plugin as a base plugin for all of my WordPress development.
 - This plugin works as a composer package only (so you may need to use Bedrock WordPress for it) and requires Advanced Custom Fields Pro plugin to work.
 
-###Basic ideas
+### Basic ideas
 - It uses a singleton ```WebApp::instance()``` instance that accessible anywhere. Before using this singleton instance, you need to initialize it ```WebApp::initialize($config);``` where `$config` is an array.
 - Base namespace `Enpii\Wp\EnpiiBase`, where first segment is my team, second is platform name and third is project name.
 - Format of the config array is like following
@@ -56,9 +56,9 @@ $config = [
 ];
 ```
 
-###Usages
+### Usages
 - ```WebApp::initialize($config);``` to init the singleton instance
 - ```WebApp::instance()->wp_theme``` to get the component WpTheme to create your theme. Hooks created using ```WebApp::instance()->componennt_name->method_name()``` can be de-registered, e.g ```remove_action( $tag, [WebApp::instance()->componennt_name, 'method_name'])```  
 
-###Installation
+### Installation
 - ```composer install``` to install all dependencies
