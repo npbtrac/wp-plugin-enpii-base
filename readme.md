@@ -2,6 +2,9 @@
 - Since I needed to do a lot of WordPress projects and they have same formula so I decide to create this plugin as a base plugin for all of my WordPress development.
 - This plugin works as a composer package only (so you may need to use Bedrock WordPress for it) and requires Advanced Custom Fields Pro plugin to work.
 
+### Installation
+- ```composer install``` to install all dependencies
+
 ### Basic ideas
 - It uses a singleton ```WebApp::instance()``` instance that accessible anywhere. Before using this singleton instance, you need to initialize it ```WebApp::initialize($config);``` where `$config` is an array.
 - Base namespace `Enpii\Wp\EnpiiBase`, where first segment is my team, second is platform name and third is project name.
@@ -55,10 +58,28 @@ $config = [
 	],
 ];
 ```
+- Provide quick way to register popular client side asset like **font-awesome, bxslider, isotop, modernizr** ... to application (using local or via CDN assets)
 
 ### Usages
 - ```WebApp::initialize($config);``` to init the singleton instance
-- ```WebApp::instance()->wp_theme``` to get the component WpTheme to create your theme. Hooks created using ```WebApp::instance()->componennt_name->method_name()``` can be de-registered, e.g ```remove_action( $tag, [WebApp::instance()->componennt_name, 'method_name'])```  
+- ```WebApp::instance()->wp_theme``` to get the component WpTheme to create your theme. Hooks created using ```WebApp::instance()->componennt_name->method_name()``` can be de-registered, e.g ```remove_action( $tag, [WebApp::instance()->componennt_name, 'method_name'])```
+- For theme development you should put this to **functions.php**
+```$xslt
+use Enpii\Wp\EnpiiBase\Base\WebApp as WebApp;
 
-### Installation
-- ```composer install``` to install all dependencies
+// Autoload or you need to run `composer install`
+if (file_exists(__DIR__ . "/vendor/autoload.php")) {
+	require_once __DIR__ . "/vendor/autoload.php";
+}
+
+// Get config from child theme if exists, otherwise get config of parent theme
+$config_child = get_stylesheet_directory() . DS . 'config.php';
+$config       = file_exists( $config_child ) ? require_once( $config_child ) : require_once( __DIR__ . DS . 'config.php' );
+
+WebApp::initialize($config);
+
+// Below line is for PHP Storm to understand the component class 
+/* @var Enpii\Wp\EnpiiBase\Component\WpTheme $wp_theme */
+$wp_theme = WebApp::instance()->wp_theme;
+$wp_theme->initialize();
+```
