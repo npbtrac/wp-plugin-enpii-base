@@ -1,6 +1,8 @@
 ### Introduction
 - Since I needed to do a lot of WordPress projects and they have same formula so I decide to create this plugin as a base plugin for all of my WordPress development.
 - This plugin works as a composer package only (so you may need to use Bedrock WordPress for it) and requires Advanced Custom Fields Pro plugin to work.
+- It uses **bower** to manage client-side resources.
+- Aura Dependency Injection [http://auraphp.com/packages/2.x/Di.html](http://auraphp.com/packages/2.x/Di.html) from AuraPHP for managing dependencies and lazy loading component/service (meaning files included only when component/service invoked, this helps to keep good performance on application like current modern frameworks).
 
 ### Installation
 - ```composer install``` to install all dependencies
