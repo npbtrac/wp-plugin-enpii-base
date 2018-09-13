@@ -35,6 +35,10 @@
     "isotope-masonry-horizontal": "^2.0.1",
     "isotope-fit-columns": "^1.1.4",
     "isotope-cells-by-column": "^1.1.4",
-    "isotope-cells-by-row": "^1.1.4"
+    "isotope-cells-by-row": "^1.1.4",
+    "bootstrap": "4"
+  },
+  "resolutions": {
+    "bootstrap": "4"
   }
 }
