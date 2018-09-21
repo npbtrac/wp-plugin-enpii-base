@@ -1,7 +1,7 @@
 {
   "name": "enpii/enpii-base",
   "description": "The Base plugin for Theme and Plugin development. It requires ACF pro to work.",
-  "type": "wordpress-plugin",
+  "type": "wordpress-muplugin",
   "authors": [
     {
       "name": "Trac Nguyen",
