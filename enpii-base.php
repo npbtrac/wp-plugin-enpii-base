@@ -22,14 +22,7 @@ class EnpiiBase {
 
 	static function activate() {
 		// do not generate any output
-
-		// Require ACF pro
-		$plugin = 'advanced-custom-fields-pro/acf.php';
-		if ( ! is_plugin_active( $plugin ) ) {
-			deactivate_plugins( plugin_basename( __FILE__ ) );
-			die( __( 'Enpii Base plugin requires ACF pro', static::$text_domain ) );
-		}
-	}
+    }
 }
 
 register_activation_hook( __FILE__, array( 'EnpiiBase', 'activate' ) );
