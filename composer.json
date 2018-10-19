@@ -14,7 +14,7 @@
   ],
   "require": {
     "snscripts/html-helper": "1.*",
-    "yii2mod/yii2-helpers": "*",
+    "kartik-v/yii2-helpers": "dev-master",
     "aura/di": "3.*",
     "php": ">=5.6.0"
   },
