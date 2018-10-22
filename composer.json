@@ -24,6 +24,5 @@
       "Enpii\\Wp\\EnpiiBase\\Base\\": "src/base",
       "Enpii\\Wp\\EnpiiBase\\Component\\": "src/component"
     }
-  },
-  "minimum-stability": "dev"
+  }
 }
