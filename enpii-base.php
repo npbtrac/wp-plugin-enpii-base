@@ -45,11 +45,7 @@ class EnpiiBase {
 					'html_helper' => 'html_helper',
 				],
 				'html_helper' => [
-					'class'                  => \Enpii\Wp\EnpiiBase\Component\HtmlHelper::class,
-					'form_class'             => \Snscripts\HtmlHelper\Helpers\Form::class,
-					'basic_form_interface'   => \Snscripts\HtmlHelper\Interfaces\BasicFormData::class,
-					'basic_router_interface' => \Snscripts\HtmlHelper\Interfaces\BasicRouter::class,
-					'basic_assets_interface' => \Snscripts\HtmlHelper\Interfaces\BasicAssets::class,
+					'class' => Collective\Html\HtmlBuilder::class
 				],
 			],
 		];

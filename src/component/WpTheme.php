@@ -8,13 +8,11 @@
 
 namespace Enpii\Wp\EnpiiBase\Component;
 
-use Enpii\Wp\EnpiiBase\Base\ComponentTrait;
-use Enpii\Wp\EnpiiBase\Base\WebApp;
+use Collective\Html\HtmlBuilder;
+use Enpii\Wp\EnpiiBase\Base\BaseComponent;
+use Enpii\Wp\EnpiiBase\Base\WpApp;
 
-class WpTheme {
-	use ComponentTrait {
-		ComponentTrait::__construct as private __componentConstruct;
-	}
+class WpTheme extends BaseComponent {
 
 	/* @var string represent current version of theme */
 	public $version;
@@ -27,7 +25,7 @@ class WpTheme {
 	public $child_base_path;
 	public $child_base_url;
 
-	/* @var \Snscripts\HtmlHelper\Html $html_helper */
+	/* @var HtmlBuilder $html_helper */
 	public $html_helper = null;
 
 	/**
@@ -37,11 +35,16 @@ class WpTheme {
 	 * @param array $config
 	 */
 	public function __construct( $config ) {
-		$this->__componentConstruct( $config );
+		parent::__construct( $config );
+	}
 
+	/**
+	 * Initialize all dependencies
+	 */
+	public function init_all() {
 		// Init Html Helper
 		// Find out more here https://github.com/mikebarlow/html-helper
-		$this->html_helper = WebApp::instance()->{$this->html_helper};
+		$this->html_helper = WpApp::instance()->{$this->html_helper};
 	}
 
 	/**
@@ -49,6 +52,8 @@ class WpTheme {
 	 * Should be override by child class
 	 */
 	public function initialize() {
+		$this->init_all();
+
 		// For frontend
 		add_action( 'safe_style_css', [ $this, 'add_safe_style_css' ] );
 		add_filter( 'body_class', [ $this, 'add_site_id_to_body_class' ] );
@@ -63,6 +68,21 @@ class WpTheme {
 		// For both
 		add_action( 'upload_mimes', [ $this, 'allow_svg_upload' ] );
 
+	}
+
+	/**
+	 * Add more classes to body
+	 * @param array $classes
+	 * @return array
+	 */
+	public function add_site_id_to_body_class($classes) {
+		$classes[] = WpApp::instance()->id;
+		if (is_singular()) {
+			global $post;
+			$classes[] = $post->post_name;
+		}
+
+		return $classes;
 	}
 
 	/**
@@ -174,57 +194,5 @@ class WpTheme {
 		$styles[] = 'margin-right';
 
 		return $styles;
-	}
-
-	/**
-	 * Render a button taking data from button group declaration
-	 *
-	 * @param array $button_group
-	 * @param string $css_class
-	 *
-	 * @return string
-	 */
-	public function render_button( $button_group, $css_class = '' ) {
-		$extra_css_class = isset( $button_group['extra_css_class'] ) ? $button_group['extra_css_class'] : '';
-
-		$tmp_button_link = '';
-		if ( isset( $button_group['link_type'] ) ) {
-			$tmp_button_link = $button_group['link_type'] ? $button_group['button_custom_link'] : $button_group['button_internal_link'];
-		}
-
-
-		$allowed_tags_for_a = $GLOBALS['allowedposttags'];
-		unset( $allowed_tags_for_a['a'] );
-		$tmp_button_text = wp_kses( $button_group['button_text'], $allowed_tags_for_a );
-
-		$tmp_button_attributes = [
-			'href'  => $tmp_button_link,
-			'title' => strip_tags( $tmp_button_text ),
-		];
-
-		if ( isset( $button_group['link_target'] ) ) {
-			if ( $button_group['link_target'] == 1 ) {
-				$tmp_button_attributes['target'] = '_blank';
-				$tmp_button_attributes['rel']    = isset( $tmp_button_attributes['rel'] ) ? $tmp_button_attributes['rel'] . ' ' . 'noopener nofollow' : 'noopener nofollow';
-			} elseif ( $button_group['link_target'] ) {
-				$tmp_button_attributes['target'] = $button_group['link_target'];
-			}
-		}
-
-		$tmp_button_attributes['class'] = $css_class . ' ' . $extra_css_class;
-
-		if ( ! empty( $button_group['html_attributes'] ) ) {
-			foreach ( $button_group['html_attributes'] as $html_attribute ) {
-				$tmp_button_attributes[ $html_attribute['attribute_name'] ] = $html_attribute['attribute_value'];
-			}
-		}
-
-		if ( $tmp_button_attributes['href'] ) {
-			return $this->html_helper->tag( 'a', $tmp_button_attributes, $tmp_button_text, true );
-		} else {
-			unset( $tmp_button_attributes['href'], $tmp_button_attributes['title'], $tmp_button_attributes['target'] );
-
-			return $this->html_helper->div( wp_kses( $button_group['button_text'], $GLOBALS['allowedposttags'] ), $tmp_button_attributes );
-		}
 	}
 }
