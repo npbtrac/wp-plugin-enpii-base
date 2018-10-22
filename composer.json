@@ -13,8 +13,8 @@
     }
   ],
   "require": {
-    "laravelcollective/html":"^5.4.0",
-    "rappasoft/laravel-helpers":"dev-master",
+    "laravelcollective/html": "^5.4.0",
+    "rappasoft/laravel-helpers": "dev-master",
     "aura/di": "3.*",
     "php": ">=5.6.0"
   },
@@ -25,5 +25,5 @@
       "Enpii\\Wp\\EnpiiBase\\Component\\": "src/component"
     }
   },
-  "minimum-stability": "stable"
+  "minimum-stability": "dev"
 }
