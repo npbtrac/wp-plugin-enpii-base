@@ -11,7 +11,7 @@ namespace Enpii\Wp\EnpiiBase\Base;
 use Aura\Di\ContainerBuilder;
 use Aura\Di\Container;
 
-use yii\helpers\ArrayHelper as ArrayHelper;
+use Enpii\Wp\EnpiiBase\Helper\ArrayHelper as ArrayHelper;
 
 class WpApp {
 	/* @var [] config params of application */

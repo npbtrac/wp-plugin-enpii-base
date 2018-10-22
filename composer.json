@@ -14,7 +14,6 @@
   ],
   "require": {
     "laravelcollective/html": "^5.4.0",
-    "rappasoft/laravel-helpers": "dev-master",
     "aura/di": "3.*",
     "php": ">=5.6.0"
   },
@@ -22,6 +21,7 @@
     "psr-4": {
       "Enpii\\Wp\\EnpiiBase\\": "src",
       "Enpii\\Wp\\EnpiiBase\\Base\\": "src/base",
+      "Enpii\\Wp\\EnpiiBase\\Helper\\": "src/helper",
       "Enpii\\Wp\\EnpiiBase\\Component\\": "src/component"
     }
   }
