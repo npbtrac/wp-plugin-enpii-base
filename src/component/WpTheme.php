@@ -25,9 +25,6 @@ class WpTheme extends BaseComponent {
 	public $child_base_path;
 	public $child_base_url;
 
-	/* @var HtmlBuilder $html_helper */
-	public $html_helper = null;
-
 	/**
 	 * Instance constructor.
 	 * Initialize values for object based on configuration array
@@ -42,9 +39,7 @@ class WpTheme extends BaseComponent {
 	 * Initialize all dependencies
 	 */
 	public function init_all() {
-		// Init Html Helper
-		// Find out more here https://github.com/mikebarlow/html-helper
-		$this->html_helper = WpApp::instance()->{$this->html_helper};
+
 	}
 
 	/**
@@ -76,7 +71,7 @@ class WpTheme extends BaseComponent {
 	 * @return array
 	 */
 	public function add_site_id_to_body_class($classes) {
-		$classes[] = WpApp::instance()->id;
+		$classes[] = WpApp::instance()->getId();
 		if (is_singular()) {
 			global $post;
 			$classes[] = $post->post_name;

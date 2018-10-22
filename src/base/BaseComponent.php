@@ -9,7 +9,7 @@
 namespace Enpii\Wp\EnpiiBase\Base;
 
 
-class BaseComponent {
+abstract class BaseComponent {
 	use ComponentTrait {
 		ComponentTrait::__construct as private __componentConstruct;
 	}

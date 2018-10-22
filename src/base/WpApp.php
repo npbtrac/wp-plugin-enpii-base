@@ -11,9 +11,16 @@ namespace Enpii\Wp\EnpiiBase\Base;
 use Aura\Di\ContainerBuilder;
 use Aura\Di\Container;
 
+use Enpii\Wp\EnpiiBase\Component\WpTheme;
 use Enpii\Wp\EnpiiBase\Helper\ArrayHelper as ArrayHelper;
 
 class WpApp {
+	/* @var string $_id */
+	protected $_id = null;
+
+	/* @var string $_basePath */
+	protected $_basePath = null;
+
 	/* @var [] config params of application */
 	protected static $config = [];
 
@@ -25,6 +32,14 @@ class WpApp {
 	protected static $_di = null;
 
 	public function __construct( $config ) {
+		if ( isset( $config['id'] ) ) {
+			$this->_id = $config['id'];
+		}
+
+		if ( isset( $config['basePath'] ) ) {
+			$this->_basePath = $config['basePath'];
+		}
+
 		$di = static::$_di;
 
 		if ( isset( $config['components'] ) && is_array( $components = $config['components'] ) ) {
@@ -64,7 +79,7 @@ class WpApp {
 	 */
 	public static function instance() {
 		if ( null === static::$_instance ) {
-			die( 'WebApp singleton object not created yet. Please `initialize` it' );
+			die( 'WpApp singleton object not created yet. Please `initialize` it' );
 		} else {
 			return static::$_instance;
 		}
@@ -91,5 +106,29 @@ class WpApp {
 	 */
 	public static function load_config( $config ) {
 		static::$config = ArrayHelper::merge( static::$config, $config );
+	}
+
+	/**
+	 * Return id of the application
+	 * @return string
+	 */
+	public function getId() {
+		return $this->_id;
+	}
+
+	/**
+	 * Return base path of application
+	 * @return string
+	 */
+	public function get_base_path() {
+		return $this->_basePath;
+	}
+
+	/**
+	 * Return the WpTheme object
+	 * @return WpTheme
+	 */
+	public function get_wp_theme() {
+		return $this->wp_theme;
 	}
 }

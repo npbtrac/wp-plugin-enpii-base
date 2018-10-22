@@ -73,6 +73,6 @@ use Enpii\Wp\EnpiiBase\Base\WpApp as WpApp;
 
 // Below line is for PHP Storm to understand the component class 
 /* @var Enpii\Wp\EnpiiBase\Component\WpTheme $wp_theme */
-$wp_theme = WpApp::instance()->wp_theme;
+$wp_theme = WpApp::instance()->get_wp_theme();
 $wp_theme->initialize();
 ```
