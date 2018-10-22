@@ -11,16 +11,6 @@ namespace Enpii\Wp\EnpiiBase;
 
 class Wp {
 
-	public static $config = [];
-
-	/**
-	 * Load a config to the Enpii App config
-	 * @param $config
-	 */
-	public static function load_config($config){
-		static::$config = array_merge(static::$config, $config);
-	}
-
 	/**
 	 * Get content of a template block for the layout with params
 	 * Template file should be in `templates` folder of child theme, parent theme or of this plugin

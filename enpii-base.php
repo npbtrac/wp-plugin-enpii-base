@@ -10,8 +10,7 @@
  * Domain Path: /languages/
  */
 
-use Enpii\Wp\EnpiiBase\Wp as Wp;
-use Enpii\Wp\EnpiiBase\Base\WebApp as WpApp;
+use Enpii\Wp\EnpiiBase\Base\WpApp as WpApp;
 
 defined( 'ENPII_BASE_PLUGIN_VER' ) || define( 'ENPII_BASE_PLUGIN_VER', 0.2 );
 defined( 'ENPII_BASE_PLUGIN_FOLDER_NAME' ) || define( 'ENPII_BASE_PLUGIN_FOLDER_NAME', 'enpii-base' );
@@ -24,14 +23,34 @@ class EnpiiBase {
 
 	static function activate() {
 		// do not generate any output
-    }
+	}
 
 	static function get_default_config() {
-		$config       = [
-			'id' => 'enpii-base',
-			'basePath' => WP_CONTENT_DIR,
+		$config = [
+			'id'         => 'enpii-base',
+			'basePath'   => WP_CONTENT_DIR,
 			'components' => [
+				'wp_theme'    => [
+					'class'           => \Enpii\Wp\EnpiiBase\Component\WpTheme::class,
+					'version'         => '0.01',
+					'text_domain'     => 'enpii',
+					'use_cdn'         => false,
+					'base_path'       => get_template_directory(),
+					'base_url'        => get_template_directory_uri(),
 
+					// only set when child theme using
+					'child_base_path' => get_template_directory() === get_stylesheet_directory() ? null : get_stylesheet_directory(),
+					'child_base_url'  => get_template_directory_uri() === get_stylesheet_directory_uri() ? null : get_stylesheet_directory_uri(),
+
+					'html_helper' => 'html_helper',
+				],
+				'html_helper' => [
+					'class'                  => \Enpii\Wp\EnpiiBase\Component\HtmlHelper::class,
+					'form_class'             => \Snscripts\HtmlHelper\Helpers\Form::class,
+					'basic_form_interface'   => \Snscripts\HtmlHelper\Interfaces\BasicFormData::class,
+					'basic_router_interface' => \Snscripts\HtmlHelper\Interfaces\BasicRouter::class,
+					'basic_assets_interface' => \Snscripts\HtmlHelper\Interfaces\BasicAssets::class,
+				],
 			],
 		];
 
@@ -42,16 +61,29 @@ class EnpiiBase {
 	 * Init the Application after WordPress loaded
 	 */
 	static function init_app() {
-		Wp::load_config(static::get_default_config());
+		WpApp::load_config( static::get_default_config() );
 
-		WpApp::initialize(Wp::$config);
+		// If a theme is being used
+		if ( defined( 'WP_USE_THEMES' ) && WP_USE_THEMES ) {
+			$child_theme_config_file_path = get_stylesheet_directory() . DIRECTORY_SEPARATOR . 'enpii-config.php';
+			$main_theme_config_file_path  = get_template_directory() . DIRECTORY_SEPARATOR . 'enpii-config.php';
+
+			if ( ( $main_theme_config_file_path !== $child_theme_config_file_path ) && file_exists( $child_theme_config_file_path ) ) {
+				WpApp::load_config( require( $child_theme_config_file_path ) );
+			}
+
+			if ( file_exists( $main_theme_config_file_path ) ) {
+				WpApp::load_config( require( $main_theme_config_file_path ) );
+			}
+		}
+		WpApp::initialize();
 	}
 }
 
 register_activation_hook( __FILE__, array( 'EnpiiBase', 'activate' ) );
 
 // After WP fully loaded and before handling request
-add_action( 'wp_loaded', ['EnpiiBase', 'init_app'] );
+add_action( 'plugins_loaded', [ 'EnpiiBase', 'init_app' ] );
 
 
 
