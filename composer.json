@@ -13,8 +13,8 @@
     }
   ],
   "require": {
-    "snscripts/html-helper": "1.*",
-    "kartik-v/yii2-helpers": "dev-master",
+    "laravelcollective/html":"^5.4.0",
+    "rappasoft/laravel-helpers":"dev-master",
     "aura/di": "3.*",
     "php": ">=5.6.0"
   },
