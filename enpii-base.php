@@ -55,7 +55,7 @@ class EnpiiBase {
 		WpApp::load_config( static::get_default_config() );
 
 		// If a theme is being used
-		if ( defined( 'WP_USE_THEMES' ) && WP_USE_THEMES ) {
+		if ( (defined( 'WP_USE_THEMES' ) && WP_USE_THEMES) || (defined( 'WP_ADMIN' ) && WP_ADMIN) ) {
 			$child_theme_config_file_path = get_stylesheet_directory() . DIRECTORY_SEPARATOR . 'enpii-config.php';
 			$main_theme_config_file_path  = get_template_directory() . DIRECTORY_SEPARATOR . 'enpii-config.php';
 
