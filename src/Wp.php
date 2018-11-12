@@ -41,6 +41,77 @@ class Wp {
 	}
 
 	/**
+	 * Turn a post content to complete output like `the_content`
+	 *
+	 * @param string $post_content
+	 */
+	public static function get_post_content( $content ) {
+		/**
+		 * Filters the post content.
+		 *
+		 * @since 0.71
+		 *
+		 * @param string $content Content of the current post.
+		 */
+		$content = apply_filters( 'the_content', $content );
+		$content = str_replace( ']]>', ']]&gt;', $content );
+
+		return $content;
+	}
+
+	/**
+	 * Highlight the occurrence of words in a string in a text
+	 *
+	 * @param string $text_to_highlight
+	 * @param null|string $search_term
+	 */
+	public static function highlight_keyword( $text_to_highlight, $search_query = null, $regex_replacement = "<i class='found-text'>$0</i>" ) {
+		$search_query        = trim( $search_query );
+		$arr_tmp             = array_unique( preg_split( '/\s+/', $search_query ) );
+		$arr_keyword_pattern = array_map( function ( $search_term ) {
+			return "/\p{L}*?" . preg_quote( $search_term ) . "\p{L}*/ui";
+		}, $arr_tmp );
+
+		return preg_replace( $arr_keyword_pattern, $regex_replacement, $text_to_highlight );
+	}
+
+	/**
+	 * Shorten a text with highlighted keywords and some words around it
+	 * @param $text_to_highlight
+	 * @param null $search_query
+	 * @param int $character_count
+	 * @param string $str_ellipsis
+	 * @param string $regex_replacement
+	 *
+	 * @return string
+	 */
+	public static function get_keyword_highlighted_text( $text_to_highlight, $search_query = null, $character_count = 36, $str_ellipsis = ' ... ', $regex_replacement = "<i class='found-text'>$0</i>" ) {
+		$search_query      = trim( $search_query );
+		$text_to_highlight = preg_replace( '/[\s]+/', ' ', $text_to_highlight );
+
+		$arr_tmp             = array_unique( preg_split( '/\s+/', $search_query ) );
+		$arr_keyword_pattern = array_map( function ( $search_term ) {
+			return "/\p{L}*?" . preg_quote( $search_term ) . "\p{L}*/ui";
+		}, $arr_tmp );
+
+		$arr_text_to_return = [];
+
+		foreach ( $arr_tmp as $index_arr => $search_term ) {
+			if ( preg_match( '/[\s].{1,' . $character_count . '}(' . $search_term . ').{1,' . $character_count . '}[\s]/s', $text_to_highlight, $match ) ) {
+				$text_with_keyword = $match[0];
+			} else {
+				$text_with_keyword = '';
+			}
+
+			if ( $tmp_text = preg_replace( $arr_keyword_pattern, $regex_replacement, $text_with_keyword ) ) {
+				$arr_text_to_return[] = $tmp_text;
+			}
+		}
+
+		return ! empty( $arr_text_to_return ) ? $str_ellipsis . implode( $str_ellipsis, $arr_text_to_return ) . $str_ellipsis : $str_ellipsis;
+	}
+
+	/**
 	 * Escape a rich text field entered from Admin
 	 *
 	 * @param $content
