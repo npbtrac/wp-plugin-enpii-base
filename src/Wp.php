@@ -77,6 +77,7 @@ class Wp {
 
 	/**
 	 * Shorten a text with highlighted keywords and some words around it
+	 *
 	 * @param $text_to_highlight
 	 * @param null $search_query
 	 * @param int $character_count
@@ -86,6 +87,7 @@ class Wp {
 	 * @return string
 	 */
 	public static function get_keyword_highlighted_text( $text_to_highlight, $search_query = null, $character_count = 36, $str_ellipsis = ' ... ', $regex_replacement = "<i class='found-text'>$0</i>" ) {
+
 		$search_query      = trim( $search_query );
 		$text_to_highlight = preg_replace( '/[\s]+/', ' ', $text_to_highlight );
 
@@ -97,7 +99,7 @@ class Wp {
 		$arr_text_to_return = [];
 
 		foreach ( $arr_tmp as $index_arr => $search_term ) {
-			if ( preg_match( '/[\s].{1,' . $character_count . '}(' . $search_term . ').{1,' . $character_count . '}[\s]/s', $text_to_highlight, $match ) ) {
+			if ( preg_match( '/[\s].{1,' . $character_count . '}(' . $search_term . ').{1,' . $character_count . '}[\s]/is', $text_to_highlight, $match ) ) {
 				$text_with_keyword = $match[0];
 			} else {
 				$text_with_keyword = '';

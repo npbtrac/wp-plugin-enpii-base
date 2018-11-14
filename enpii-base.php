@@ -21,11 +21,11 @@ defined( 'ENPII_BASE_PLUGIN_ASSETS_URL' ) || define( 'ENPII_BASE_PLUGIN_ASSETS_U
 class EnpiiBase {
 	public static $text_domain = 'enpii';
 
-	static function activate() {
+	public static function activate() {
 		// do not generate any output
 	}
 
-	static function get_default_config() {
+	public static function get_default_config() {
 		$config = [
 			'id'         => 'enpii-base',
 			'basePath'   => WP_CONTENT_DIR,
@@ -51,7 +51,7 @@ class EnpiiBase {
 	/**
 	 * Init the Application after WordPress loaded
 	 */
-	static function init_app() {
+	public static function init_app() {
 		WpApp::load_config( static::get_default_config() );
 
 		// If a theme is being used
@@ -75,6 +75,3 @@ register_activation_hook( __FILE__, array( 'EnpiiBase', 'activate' ) );
 
 // After WP fully loaded and before handling request
 add_action( 'plugins_loaded', [ 'EnpiiBase', 'init_app' ] );
-
-
-
