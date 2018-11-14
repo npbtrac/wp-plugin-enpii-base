@@ -40,6 +40,7 @@ class WpApp {
 			$this->_basePath = $config['basePath'];
 		}
 
+		/* @var Container $di */
 		$di = static::$_di;
 
 		if ( isset( $config['components'] ) && is_array( $components = $config['components'] ) ) {
@@ -47,8 +48,13 @@ class WpApp {
 				if ( isset( $component_args['class'] ) && $component_class = $component_args['class'] ) {
 					unset( $component_args['class'] );
 
-					// params needs to match the constructor
-					$di->set( $component_name, $di->lazyNew( $component_class, [ 'config' => $component_args ] ) );
+					try {
+						$component_args['appInstance'] = $this;
+						// params needs to match the constructor
+						$di->set( $component_name, $di->lazyNew( $component_class, [ 'config' => $component_args ] ) );
+					} catch ( \Exception $e ) {
+
+					}
 				}
 			}
 		}
@@ -99,6 +105,24 @@ class WpApp {
 		return $di->get( $component_name_to_get );
 	}
 
+
+	/**
+	 * Get component of application from container of components
+	 *
+	 * @param $component_name
+	 *
+	 * @return bool| object | BaseComponent
+	 */
+	public function get_component( $component_name ) {
+		$di = static::$_di;
+
+		try {
+			return $di->get( $component_name );
+		} catch ( \Exception $e ) {
+			return null;
+		}
+	}
+
 	/**
 	 * Load a config to the Enpii App config
 	 *
@@ -112,7 +136,7 @@ class WpApp {
 	 * Return id of the application
 	 * @return string
 	 */
-	public function getId() {
+	public function get_id() {
 		return $this->_id;
 	}
 

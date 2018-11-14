@@ -67,12 +67,14 @@ class WpTheme extends BaseComponent {
 
 	/**
 	 * Add more classes to body
+	 *
 	 * @param array $classes
+	 *
 	 * @return array
 	 */
-	public function add_site_id_to_body_class($classes) {
-		$classes[] = WpApp::instance()->getId();
-		if (is_singular()) {
+	public function add_site_id_to_body_class( $classes ) {
+		$classes[] = WpApp::instance()->get_id();
+		if ( is_singular() ) {
 			global $post;
 			$classes[] = $post->post_name;
 		}
