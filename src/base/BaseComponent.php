@@ -48,12 +48,21 @@ abstract class BaseComponent {
 	}
 
 	/**
+	 * Get app instance for the component
+	 *
+	 * @return WpApp | null
+	 */
+	public function get_app_instance() {
+		return $this->appInstance;
+	}
+
+	/**
 	 * @param $component_name
 	 *
 	 * @return object|BaseComponent|null
 	 */
 	public function get_component( $component_name ) {
-		return $this->appInstance ? $this->appInstance->get_component( $component_name ) : null;
+		return $this->appInstance ? $this->get_app_instance()->get_component( $component_name ) : null;
 	}
 
 	/**
