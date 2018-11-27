@@ -121,6 +121,8 @@ class Wp {
 	 * @return string
 	 */
 	public static function esc_editor_field( $content ) {
+		$content = static::get_post_content( $content );
+
 		return wp_kses_post( $content );
 	}
 
