@@ -65,14 +65,14 @@ class Wp {
 	 * @param string $text_to_highlight
 	 * @param null|string $search_term
 	 */
-	public static function highlight_keyword( $text_to_highlight, $search_query = null, $regex_replacement = "<i class='found-text'>$0</i>" ) {
+	public static function highlight_keyword( $text_to_highlight, $search_query = null, $regex_replacement = "<i class='found-text'>$0</i>", &$text_replaced_count = null ) {
 		$search_query        = trim( $search_query );
 		$arr_tmp             = array_unique( preg_split( '/\s+/', $search_query ) );
 		$arr_keyword_pattern = array_map( function ( $search_term ) {
 			return "/\p{L}*?" . preg_quote( $search_term ) . "\p{L}*/ui";
 		}, $arr_tmp );
 
-		return preg_replace( $arr_keyword_pattern, $regex_replacement, $text_to_highlight );
+		return preg_replace( $arr_keyword_pattern, $regex_replacement, $text_to_highlight, $text_replaced_count );
 	}
 
 	/**
