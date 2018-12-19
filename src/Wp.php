@@ -65,14 +65,14 @@ class Wp {
 	 * @param string $text_to_highlight
 	 * @param null|string $search_term
 	 */
-	public static function highlight_keyword( $text_to_highlight, $search_query = null, $regex_replacement = "<i class='found-text'>$0</i>", &$text_replaced_count = null ) {
+	public static function highlight_keyword( $text_to_highlight, $search_query = null, $regex_replacement = "<i class='found-text'>$0</i>", &$text_replaced_count = 0 ) {
 		$search_query        = trim( $search_query );
 		$arr_tmp             = array_unique( preg_split( '/\s+/', $search_query ) );
 		$arr_keyword_pattern = array_map( function ( $search_term ) {
 			return "/\p{L}*?" . preg_quote( $search_term ) . "\p{L}*/ui";
 		}, $arr_tmp );
 
-		return preg_replace( $arr_keyword_pattern, $regex_replacement, $text_to_highlight, $text_replaced_count );
+		return preg_replace( $arr_keyword_pattern, $regex_replacement, $text_to_highlight, - 1, $text_replaced_count );
 	}
 
 	/**
@@ -86,7 +86,7 @@ class Wp {
 	 *
 	 * @return string
 	 */
-	public static function get_keyword_highlighted_text( $text_to_highlight, $search_query = null, $character_count = 36, $str_ellipsis = ' ... ', $regex_replacement = "<i class='found-text'>$0</i>" ) {
+	public static function get_keyword_highlighted_text( $text_to_highlight, $search_query = null, $character_count = 36, $str_ellipsis = ' ... ', $regex_replacement = "<i class='found-text'>$0</i>", &$text_replaced_count = 0 ) {
 
 		$search_query      = trim( $search_query );
 		$text_to_highlight = preg_replace( '/[\s]+/', ' ', $text_to_highlight );
@@ -98,6 +98,7 @@ class Wp {
 
 		$arr_text_to_return = [];
 
+		$text_replaced_count = 0;
 		foreach ( $arr_tmp as $index_arr => $search_term ) {
 			if ( preg_match( '/[\s].{1,' . $character_count . '}(' . $search_term . ').{1,' . $character_count . '}[\s]/is', $text_to_highlight, $match ) ) {
 				$text_with_keyword = $match[0];
@@ -105,8 +106,10 @@ class Wp {
 				$text_with_keyword = '';
 			}
 
-			if ( $tmp_text = preg_replace( $arr_keyword_pattern, $regex_replacement, $text_with_keyword ) ) {
+			$text_replaced_count_tmp = 0;
+			if ( $tmp_text = preg_replace( $arr_keyword_pattern, $regex_replacement, $text_with_keyword, - 1, $text_replaced_count_tmp ) ) {
 				$arr_text_to_return[] = $tmp_text;
+				$text_replaced_count  += $text_replaced_count_tmp;
 			}
 		}
 
