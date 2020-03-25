@@ -10,68 +10,124 @@
  * Domain Path: /languages/
  */
 
-use Enpii\Wp\EnpiiBase\Base\WpApp as WpApp;
+use Enpii\Wp\EnpiiBase\Libs\WpApp;
+use Enpii\Wp\EnpiiBase\Helpers\ArrayHelper;
 
-defined( 'ENPII_BASE_PLUGIN_VER' ) || define( 'ENPII_BASE_PLUGIN_VER', 0.2 );
-defined( 'ENPII_BASE_PLUGIN_FOLDER_NAME' ) || define( 'ENPII_BASE_PLUGIN_FOLDER_NAME', 'enpii-base' );
-defined( 'ENPII_BASE_PLUGIN_URL' ) || define( 'ENPII_BASE_PLUGIN_URL', plugins_url( ENPII_BASE_PLUGIN_FOLDER_NAME ) );
+defined( 'ENPII_BASE_PLUGIN_VER' ) || define( 'ENPII_BASE_PLUGIN_VER', 0.3 );
 defined( 'ENPII_BASE_PLUGIN_PATH' ) || define( 'ENPII_BASE_PLUGIN_PATH', __DIR__ );
-defined( 'ENPII_BASE_PLUGIN_ASSETS_URL' ) || define( 'ENPII_BASE_PLUGIN_ASSETS_URL', plugins_url( ENPII_BASE_PLUGIN_FOLDER_NAME ) . DIRECTORY_SEPARATOR . 'assets' );
+defined( 'ENPII_BASE_PLUGIN_FOLDER_NAME' ) || define( 'ENPII_BASE_PLUGIN_FOLDER_NAME', 'enpii-base' );
+defined( 'ENPII_BASE_PLUGIN_URL' ) || define( 'ENPII_BASE_PLUGIN_URL', plugins_url( null, ENPII_BASE_PLUGIN_PATH ) );
 
-class EnpiiBase {
-	public static $text_domain = 'enpii';
+if ( ! class_exists( Illuminate\Foundation\Application::class ) ) {
+	require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
+}
 
-	public static function activate() {
-		// do not generate any output
-	}
-
-	public static function get_default_config() {
-		$config = [
-			'id'         => 'enpii-base',
-			'basePath'   => WP_CONTENT_DIR,
-			'components' => [
-				'wp_theme'    => [
-					'class'           => \Enpii\Wp\EnpiiBase\Component\WpTheme::class,
-					'version'         => '0.01',
-					'text_domain'     => 'enpii',
-					'use_cdn'         => false,
-					'base_path'       => get_template_directory(),
-					'base_url'        => get_template_directory_uri(),
-
-					// only set when child theme using
-					'child_base_path' => get_template_directory() === get_stylesheet_directory() ? null : get_stylesheet_directory(),
-					'child_base_url'  => get_template_directory_uri() === get_stylesheet_directory_uri() ? null : get_stylesheet_directory_uri(),
-				],
-			],
-		];
-
-		return $config;
-	}
-
+if ( ! function_exists( 'wp_app' ) ) {
 	/**
-	 * Init the Application after WordPress loaded
+	 * Get the available container instance for WordPress App
+	 *
+	 * @param null $make
+	 * @param array $parameters
+	 *
+	 * @return WpApp|mixed
+	 * @throws \Illuminate\Contracts\Container\BindingResolutionException
 	 */
-	public static function init_app() {
-		WpApp::load_config( static::get_default_config() );
-
-		// If a theme is being used
-		if ( (defined( 'WP_USE_THEMES' ) && WP_USE_THEMES) || (defined( 'WP_ADMIN' ) && WP_ADMIN) ) {
-			$child_theme_config_file_path = get_stylesheet_directory() . DIRECTORY_SEPARATOR . 'enpii-config.php';
-			$main_theme_config_file_path  = get_template_directory() . DIRECTORY_SEPARATOR . 'enpii-config.php';
-
-			if ( ( $main_theme_config_file_path !== $child_theme_config_file_path ) && file_exists( $child_theme_config_file_path ) ) {
-				WpApp::load_config( require( $child_theme_config_file_path ) );
-			}
-
-			if ( file_exists( $main_theme_config_file_path ) ) {
-				WpApp::load_config( require( $main_theme_config_file_path ) );
-			}
+	function wp_app( $make = null, array $parameters = [] ) {
+		if ( is_null( $make ) ) {
+			return WpApp::getInstance();
 		}
-		WpApp::initialize();
+
+		return WpApp::getInstance()->make( $make, $parameters );
 	}
 }
 
-register_activation_hook( __FILE__, array( 'EnpiiBase', 'activate' ) );
+/**
+ * Apply a global Application instance when all plugins loaded
+ */
+add_action( 'plugins_loaded', function () {
+	$config = require_once( ENPII_BASE_PLUGIN_PATH . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'wp-app.php' );
+	$config = apply_filters( 'enpii-base/wp-app-config', $config );
+	$wp_app = new WpApp();
+	$wp_app->init( $config );
+} );
 
-// After WP fully loaded and before handling request
-add_action( 'plugins_loaded', [ 'EnpiiBase', 'init_app' ] );
+/**
+ * Apply initial configs to app
+ */
+add_filter( 'enpii-base/wp-app-config', function ( $config ) {
+	return ArrayHelper::merge( $config, [
+		'text_domain' => 'enpii',
+	] );
+}, 10, 1 );
+
+//echo '<pre> $app: ';
+//print_r( WpApp::getInstance() );
+//echo '</pre>';
+//die( 'asdf' );
+
+//add_action( 'shutdown', function () {
+//	echo '<pre> $app: ';
+//	print_r( wp_app() );
+//	echo '</pre>';
+//	app();
+//
+//	die( 'asdf' );
+//} );
+
+//class EnpiiBase {
+//	public static $text_domain = 'enpii';
+//
+//	public static function activate() {
+//		// do not generate any output
+//	}
+//
+//	public static function get_default_config() {
+//		$config = [
+//			'id'         => 'enpii-base',
+//			'basePath'   => WP_CONTENT_DIR,
+//			'components' => [
+//				'wp_theme' => [
+//					'class'           => \Enpii\Wp\EnpiiBase\Component\WpTheme::class,
+//					'version'         => '0.01',
+//					'text_domain'     => 'enpii',
+//					'use_cdn'         => false,
+//					'base_path'       => get_template_directory(),
+//					'base_url'        => get_template_directory_uri(),
+//
+//					// only set when child theme using
+//					'child_base_path' => get_template_directory() === get_stylesheet_directory() ? null : get_stylesheet_directory(),
+//					'child_base_url'  => get_template_directory_uri() === get_stylesheet_directory_uri() ? null : get_stylesheet_directory_uri(),
+//				],
+//			],
+//		];
+//
+//		return $config;
+//	}
+//
+//	/**
+//	 * Init the Application after WordPress loaded
+//	 */
+//	public static function init_app() {
+//		WpApp::load_config( static::get_default_config() );
+//
+//		// If a theme is being used
+//		if ( ( defined( 'WP_USE_THEMES' ) && WP_USE_THEMES ) || ( defined( 'WP_ADMIN' ) && WP_ADMIN ) ) {
+//			$child_theme_config_file_path = get_stylesheet_directory() . DIRECTORY_SEPARATOR . 'enpii-config.php';
+//			$main_theme_config_file_path  = get_template_directory() . DIRECTORY_SEPARATOR . 'enpii-config.php';
+//
+//			if ( ( $main_theme_config_file_path !== $child_theme_config_file_path ) && file_exists( $child_theme_config_file_path ) ) {
+//				WpApp::load_config( require( $child_theme_config_file_path ) );
+//			}
+//
+//			if ( file_exists( $main_theme_config_file_path ) ) {
+//				WpApp::load_config( require( $main_theme_config_file_path ) );
+//			}
+//		}
+//		WpApp::initialize();
+//	}
+//}
+//
+//register_activation_hook( __FILE__, array( 'EnpiiBase', 'activate' ) );
+//
+//// After WP fully loaded and before handling request
+//add_action( 'plugins_loaded', [ 'EnpiiBase', 'init_app' ] );
