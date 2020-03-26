@@ -3,20 +3,16 @@
 
 namespace Enpii\Wp\EnpiiBase\Libs;
 
-use Enpii\Wp\EnpiiBase\Libs\Traits\ComponentTrait;
-use Illuminate\Container\Container;
-use Illuminate\Events\EventServiceProvider;
-use Illuminate\Filesystem\Filesystem;
+use Enpii\Wp\EnpiiBase\Libs\Traits\ServiceTrait;
+use Enpii\Wp\EnpiiBase\ServiceProviders\BaseServiceProvider;
 use Illuminate\Foundation\Application;
-use Illuminate\Foundation\Mix;
-use Illuminate\Foundation\PackageManifest;
-use Illuminate\Log\LogServiceProvider;
-use Illuminate\Routing\RoutingServiceProvider;
+use Illuminate\Config\Repository as ConfigRepository;
+
 
 class WpApp extends Application {
-	use ComponentTrait;
+	use ServiceTrait;
 
-	protected static $_instance = null;
+	protected $config = null;
 
 	/**
 	 * WpApp constructor.
@@ -27,9 +23,16 @@ class WpApp extends Application {
 		parent::__construct( $base_path );
 	}
 
-	public function init( $config = null ) {
-		$this->init_config( $config );
-		static::setInstance( $this );
+	public function init_config( $config = null ) {
+		$this->singleton( 'config', function ( $app ) use ( $config ) {
+			return new ConfigRepository( $config );
+		} );
+
+		$this->registerKeyServiceProviders();
+	}
+
+	protected function registerKeyServiceProviders() {
+		$this->register(new BaseServiceProvider($this));
 	}
 
 	/**
@@ -43,6 +46,8 @@ class WpApp extends Application {
 
 		$this->instance( 'app', $this );
 
+//		$this->alias('config', \Illuminate\Config\Repository::class);
+//		$this->alias('config', \Illuminate\Contracts\Config\Repository::class);
 	}
 
 	/**

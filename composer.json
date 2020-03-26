@@ -14,6 +14,8 @@
   ],
   "require": {
     "laravel/framework": "~7.2.2",
+    "laravel/socialite": "~4.3.2",
+    "laravelcollective/html": "~6.1.0",
     "php": ">=7.2.0"
   },
   "require-dev": {
@@ -31,6 +33,8 @@
       "Enpii\\Wp\\EnpiiBase\\Helpers\\": "src/helpers",
       "Enpii\\Wp\\EnpiiBase\\Helpers\\Interfaces\\": "src/helpers/interfaces",
       "Enpii\\Wp\\EnpiiBase\\Helpers\\Traits\\": "src/helpers/traits",
+      "Enpii\\Wp\\EnpiiBase\\ServiceProviders\\": "src/service-providers",
+      "Enpii\\Wp\\EnpiiBase\\Services\\": "src/services",
       "Enpii\\Wp\\EnpiiBase\\Base\\": "src/base",
       "Enpii\\Wp\\EnpiiBase\\Helper\\": "src/helper",
       "Enpii\\Wp\\EnpiiBase\\Component\\": "src/component"

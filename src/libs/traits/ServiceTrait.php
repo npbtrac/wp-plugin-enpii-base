@@ -4,7 +4,7 @@
 namespace Enpii\Wp\EnpiiBase\Libs\Traits;
 
 
-trait ComponentTrait {
+trait ServiceTrait {
 	/**
 	 * @var string
 	 */

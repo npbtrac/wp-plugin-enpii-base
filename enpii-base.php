@@ -22,33 +22,14 @@ if ( ! class_exists( Illuminate\Foundation\Application::class ) ) {
 	require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 }
 
-if ( ! function_exists( 'wp_app' ) ) {
-	/**
-	 * Get the available container instance for WordPress App
-	 *
-	 * @param null $make
-	 * @param array $parameters
-	 *
-	 * @return WpApp|mixed
-	 * @throws \Illuminate\Contracts\Container\BindingResolutionException
-	 */
-	function wp_app( $make = null, array $parameters = [] ) {
-		if ( is_null( $make ) ) {
-			return WpApp::getInstance();
-		}
-
-		return WpApp::getInstance()->make( $make, $parameters );
-	}
-}
-
 /**
- * Apply a global Application instance when all plugins loaded
+ * Apply a global Application instance when all plugins, theme loaded and user authentication applied
  */
-add_action( 'plugins_loaded', function () {
+add_action( 'init', function () {
 	$config = require_once( ENPII_BASE_PLUGIN_PATH . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'wp-app.php' );
 	$config = apply_filters( 'enpii-base/wp-app-config', $config );
 	$wp_app = new WpApp();
-	$wp_app->init( $config );
+	$wp_app->init_config( $config );
 } );
 
 /**
@@ -60,19 +41,18 @@ add_filter( 'enpii-base/wp-app-config', function ( $config ) {
 	] );
 }, 10, 1 );
 
-//echo '<pre> $app: ';
-//print_r( WpApp::getInstance() );
-//echo '</pre>';
-//die( 'asdf' );
-
-//add_action( 'shutdown', function () {
-//	echo '<pre> $app: ';
-//	print_r( wp_app() );
+add_action( 'shutdown', function () {
+	echo view('test');
+//	$view = app();
+//	$wp_user_service = resolve(\Enpii\Wp\EnpiiBase\Services\WpUserService::class);
+//	$wp_user_service = app()->makeWith(\Enpii\Wp\EnpiiBase\Services\WpUserService::class, [
+//		'enable_site_manager_role' => 234,
+//	]);
+//	echo '<pre> $view: ';
+//	print_r( $view );
 //	echo '</pre>';
-//	app();
-//
-//	die( 'asdf' );
-//} );
+	die( 'asdf' );
+} );
 
 //class EnpiiBase {
 //	public static $text_domain = 'enpii';
