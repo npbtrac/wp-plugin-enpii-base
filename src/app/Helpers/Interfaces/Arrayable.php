@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Enpii\Wp\EnpiiBase\Helpers\Interfaces;
+namespace Enpii\Wp\EnpiiBase\App\Helpers\Interfaces;
 
 
 /**
@@ -17,8 +17,7 @@ namespace Enpii\Wp\EnpiiBase\Helpers\Interfaces;
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-interface Arrayable
-{
+interface Arrayable {
 	/**
 	 * Returns the list of fields that should be returned by default by [[toArray()]] when no specific fields are specified.
 	 *
@@ -83,7 +82,8 @@ interface Arrayable
 	 * Fields not specified in [[extraFields()]] will be ignored. If this parameter is empty, no extra fields
 	 * will be returned.
 	 * @param bool $recursive whether to recursively return array representation of embedded objects.
+	 *
 	 * @return array the array representation of the object
 	 */
-	public function toArray(array $fields = [], array $expand = [], $recursive = true);
+	public function toArray( array $fields = [], array $expand = [], $recursive = true );
 }

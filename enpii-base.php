@@ -22,37 +22,69 @@ if ( ! class_exists( Illuminate\Foundation\Application::class ) ) {
 	require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 }
 
-/**
- * Apply a global Application instance when all plugins, theme loaded and user authentication applied
- */
-add_action( 'init', function () {
-	$config = require_once( ENPII_BASE_PLUGIN_PATH . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'wp-app.php' );
-	$config = apply_filters( 'enpii-base/wp-app-config', $config );
-	$wp_app = new WpApp();
-	$wp_app->init_config( $config );
-} );
+// Script start
+global $rustart;
+$rustart = getrusage();
 
-/**
- * Apply initial configs to app
- */
-add_filter( 'enpii-base/wp-app-config', function ( $config ) {
-	return ArrayHelper::merge( $config, [
-		'text_domain' => 'enpii',
-	] );
-}, 10, 1 );
+if ( ! function_exists( 'enpii_base_init_wp_app' ) ) {
+	/**
+	 * Apply a global Application instance when all plugins, theme loaded and user authentication applied
+	 */
+	function enpii_base_init_wp_app() {
+		$config = require_once( ENPII_BASE_PLUGIN_PATH . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'wp-app.php' );
+		$config = apply_filters( 'enpii-base/wp-app-config', $config );
+		$wp_app = new WpApp( $config['basePath'] );
+		$wp_app->initAppWithConfig( $config );
+	}
+}
+add_action( 'muplugins_loaded', 'enpii_base_init_wp_app', 100 );
 
-add_action( 'shutdown', function () {
-	echo view('test');
+if ( ! function_exists( 'enpii_base_setup_wp_app_for_theme' ) ) {
+	/**
+	 * Apply a global Application instance when all plugins, theme loaded and user authentication applied
+	 */
+	function enpii_base_setup_wp_app_for_theme() {
+		WpApp::getInstance()->setWpThemeViewPaths();
+	}
+}
+add_action( 'after_setup_theme', 'enpii_base_setup_wp_app_for_theme', 10 );
+
+
+function enpii_base_test() {
+	//	echo view();
 //	$view = app();
 //	$wp_user_service = resolve(\Enpii\Wp\EnpiiBase\Services\WpUserService::class);
 //	$wp_user_service = app()->makeWith(\Enpii\Wp\EnpiiBase\Services\WpUserService::class, [
 //		'enable_site_manager_role' => 234,
 //	]);
-//	echo '<pre> $view: ';
-//	print_r( $view );
+//	echo '<pre> WpApp::config(): ';
+//	print_r( WpApp::config() );
 //	echo '</pre>';
-	die( 'asdf' );
-} );
+
+	global $rustart;
+
+// Code ...
+
+// Script end
+	function rutime( $ru, $rus, $index ) {
+		return ( $ru["ru_$index.tv_sec"] * 1000 + intval( $ru["ru_$index.tv_usec"] / 1000 ) )
+		       - ( $rus["ru_$index.tv_sec"] * 1000 + intval( $rus["ru_$index.tv_usec"] / 1000 ) );
+	}
+
+	$ru = getrusage();
+	echo "This process used " . rutime( $ru, $rustart, "utime" ) .
+	     " ms for its computations\n";
+	echo "It spent " . rutime( $ru, $rustart, "stime" ) .
+	     " ms in system calls\n";
+
+	$mem = memory_get_usage();
+	echo '<pre> memory_get_usage: ';
+	\Enpii\Wp\EnpiiBase\Helpers\VarDumperHelper::dump( $mem );
+	echo '</pre>';
+
+	die( 'end of debug' );
+}
+//add_action( 'init', 'enpii_base_test', 1000 );
 
 //class EnpiiBase {
 //	public static $text_domain = 'enpii';

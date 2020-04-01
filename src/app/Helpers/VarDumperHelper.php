@@ -1,14 +1,14 @@
 <?php
 
 
-namespace Enpii\Wp\EnpiiBase\Helpers;
+namespace Enpii\Wp\EnpiiBase\App\Helpers;
 
 use UnexpectedValueException;
 use ReflectionFunction;
 use Closure;
 use Exception;
 use IteratorAggregate;
-use Enpii\Wp\EnpiiBase\Helpers\Interfaces\Arrayable;
+use Enpii\Wp\EnpiiBase\App\Helpers\Interfaces\Arrayable;
 
 class VarDumperHelper {
 	private static $_objects;

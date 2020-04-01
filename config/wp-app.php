@@ -1,16 +1,18 @@
 <?php
 return [
-	'app' => [
+	'basePath'         => defined( 'APP_BASE_PATH' ) ? APP_BASE_PATH : ENPII_BASE_PLUGIN_PATH,
+	'cachedConfigPath' => WP_CONTENT_DIR . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR . 'wp-app' . DIRECTORY_SEPARATOR . 'cache-config',
+	'app'              => [
 		/*
-	|--------------------------------------------------------------------------
-	| Application Name
-	|--------------------------------------------------------------------------
-	|
-	| This value is the name of your application. This value is used when the
-	| framework needs to place the application's name in a notification or
-	| any other location as required by the application or its packages.
-	|
-	*/
+		|--------------------------------------------------------------------------
+		| Application Name
+		|--------------------------------------------------------------------------
+		|
+		| This value is the name of your application. This value is used when the
+		| framework needs to place the application's name in a notification or
+		| any other location as required by the application or its packages.
+		|
+		*/
 
 		'name' => defined( 'APP_NAME' ) ? APP_NAME : 'Enpii Base',
 
@@ -79,7 +81,7 @@ return [
 		|
 		*/
 
-		'locale' => isset( $GLOBALS['wp_locale'] ) ? $GLOBALS['wp_locale'] : 'en_US',
+		'locale' => get_locale(),
 
 		/*
 		|--------------------------------------------------------------------------
@@ -134,7 +136,36 @@ return [
 		*/
 
 		'providers' => [
+			/*
+	         * Laravel Framework Service Providers
+	         */
+			Illuminate\Broadcasting\BroadcastServiceProvider::class,
+			Illuminate\Bus\BusServiceProvider::class,
+			Illuminate\Cache\CacheServiceProvider::class,
+			Illuminate\Cookie\CookieServiceProvider::class,
+			Illuminate\Database\DatabaseServiceProvider::class,
+			Illuminate\Encryption\EncryptionServiceProvider::class,
+			Illuminate\Filesystem\FilesystemServiceProvider::class,
+			Illuminate\Foundation\Providers\FoundationServiceProvider::class,
+			Illuminate\Hashing\HashServiceProvider::class,
+			Illuminate\Notifications\NotificationServiceProvider::class,
+			Illuminate\Pagination\PaginationServiceProvider::class,
+			Illuminate\Pipeline\PipelineServiceProvider::class,
+			Illuminate\Queue\QueueServiceProvider::class,
+			Illuminate\Redis\RedisServiceProvider::class,
+			Illuminate\Session\SessionServiceProvider::class,
+			Illuminate\Validation\ValidationServiceProvider::class,
 
+			/**
+			 * Laravel partners Service Providers
+			 */
+			Collective\Html\HtmlServiceProvider::class,
+
+			/**
+			 * Custom Providers
+			 */
+			Enpii\Wp\EnpiiBase\App\Providers\WordPressServiceProvider::class,
+			Enpii\Wp\EnpiiBase\App\Providers\ViewServiceProvider::class,
 		],
 
 		/*
@@ -149,71 +180,139 @@ return [
 		*/
 
 		'aliases' => [
-			'App' => Illuminate\Support\Facades\App::class,
-			'Arr' => Illuminate\Support\Arr::class,
-			'Artisan' => Illuminate\Support\Facades\Artisan::class,
-			'Auth' => Illuminate\Support\Facades\Auth::class,
-			'Blade' => Illuminate\Support\Facades\Blade::class,
-			'Broadcast' => Illuminate\Support\Facades\Broadcast::class,
-			'Bus' => Illuminate\Support\Facades\Bus::class,
-			'Cache' => Illuminate\Support\Facades\Cache::class,
-			'Config' => Illuminate\Support\Facades\Config::class,
-			'Cookie' => Illuminate\Support\Facades\Cookie::class,
-			'Crypt' => Illuminate\Support\Facades\Crypt::class,
-			'DB' => Illuminate\Support\Facades\DB::class,
-			'Eloquent' => Illuminate\Database\Eloquent\Model::class,
-			'Event' => Illuminate\Support\Facades\Event::class,
-			'File' => Illuminate\Support\Facades\File::class,
-			'Gate' => Illuminate\Support\Facades\Gate::class,
-			'Hash' => Illuminate\Support\Facades\Hash::class,
-			'Http' => Illuminate\Support\Facades\Http::class,
-			'Lang' => Illuminate\Support\Facades\Lang::class,
-			'Log' => Illuminate\Support\Facades\Log::class,
-			'Mail' => Illuminate\Support\Facades\Mail::class,
+			'App'          => Illuminate\Support\Facades\App::class,
+			'Arr'          => Illuminate\Support\Arr::class,
+			'Artisan'      => Illuminate\Support\Facades\Artisan::class,
+			'Auth'         => Illuminate\Support\Facades\Auth::class,
+			'Blade'        => Illuminate\Support\Facades\Blade::class,
+			'Broadcast'    => Illuminate\Support\Facades\Broadcast::class,
+			'Bus'          => Illuminate\Support\Facades\Bus::class,
+			'Cache'        => Illuminate\Support\Facades\Cache::class,
+			'Config'       => Illuminate\Support\Facades\Config::class,
+			'Cookie'       => Illuminate\Support\Facades\Cookie::class,
+			'Crypt'        => Illuminate\Support\Facades\Crypt::class,
+			'DB'           => Illuminate\Support\Facades\DB::class,
+			'Eloquent'     => Illuminate\Database\Eloquent\Model::class,
+			'Event'        => Illuminate\Support\Facades\Event::class,
+			'File'         => Illuminate\Support\Facades\File::class,
+			'Gate'         => Illuminate\Support\Facades\Gate::class,
+			'Hash'         => Illuminate\Support\Facades\Hash::class,
+			'Http'         => Illuminate\Support\Facades\Http::class,
+			'Lang'         => Illuminate\Support\Facades\Lang::class,
+			'Log'          => Illuminate\Support\Facades\Log::class,
+			'Mail'         => Illuminate\Support\Facades\Mail::class,
 			'Notification' => Illuminate\Support\Facades\Notification::class,
-			'Password' => Illuminate\Support\Facades\Password::class,
-			'Queue' => Illuminate\Support\Facades\Queue::class,
-			'Redirect' => Illuminate\Support\Facades\Redirect::class,
-			'Redis' => Illuminate\Support\Facades\Redis::class,
-			'Request' => Illuminate\Support\Facades\Request::class,
-			'Response' => Illuminate\Support\Facades\Response::class,
-			'Route' => Illuminate\Support\Facades\Route::class,
-			'Schema' => Illuminate\Support\Facades\Schema::class,
-			'Session' => Illuminate\Support\Facades\Session::class,
-			'Storage' => Illuminate\Support\Facades\Storage::class,
-			'Str' => Illuminate\Support\Str::class,
-			'URL' => Illuminate\Support\Facades\URL::class,
-			'Validator' => Illuminate\Support\Facades\Validator::class,
-			'View' => Illuminate\Support\Facades\View::class,
-			'Form' => Collective\Html\FormFacade::class,
-			'Html' => Collective\Html\HtmlFacade::class,
-			'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+			'Password'     => Illuminate\Support\Facades\Password::class,
+			'Queue'        => Illuminate\Support\Facades\Queue::class,
+			'Redirect'     => Illuminate\Support\Facades\Redirect::class,
+			'Redis'        => Illuminate\Support\Facades\Redis::class,
+			'Request'      => Illuminate\Support\Facades\Request::class,
+			'Response'     => Illuminate\Support\Facades\Response::class,
+			'Route'        => Illuminate\Support\Facades\Route::class,
+			'Schema'       => Illuminate\Support\Facades\Schema::class,
+			'Session'      => Illuminate\Support\Facades\Session::class,
+			'Storage'      => Illuminate\Support\Facades\Storage::class,
+			'Str'          => Illuminate\Support\Str::class,
+			'URL'          => Illuminate\Support\Facades\URL::class,
+			'Validator'    => Illuminate\Support\Facades\Validator::class,
+			'View'         => Illuminate\Support\Facades\View::class,
+			'Form'         => Collective\Html\FormFacade::class,
+			'Html'         => Collective\Html\HtmlFacade::class,
+			'Socialite'    => Laravel\Socialite\Facades\Socialite::class,
 		],
 	],
 
+	'view' => [
+
+		/*
+		|--------------------------------------------------------------------------
+		| View Storage Paths
+		|--------------------------------------------------------------------------
+		|
+		| Most templating systems load templates from disk. Here you may specify
+		| an array of paths that should be checked for your views. Of course
+		| the usual Laravel view path has already been registered for you.
+		|
+		*/
+
+//		'paths' => [
+//		],
+
+		/*
+		|--------------------------------------------------------------------------
+		| Compiled View Path
+		|--------------------------------------------------------------------------
+		|
+		| This option determines where all the compiled Blade templates will be
+		| stored for your application. Typically, this is within the storage
+		| directory. However, as usual, you are free to change this value.
+		|
+		*/
+
+		'compiled' => null,
+
+		/*
+		 |--------------------------------------------------------------------------
+		 | Blade View Modification Checking
+		 |--------------------------------------------------------------------------
+		 |
+		 | On every request the framework will check to see if a view has expired
+		 | to determine if it needs to be recompiled. If you are in production
+		 | and precompiling views this feature may be disabled to save time.
+		 |
+		 */
+
+		'expires' => env('VIEW_CHECK_EXPIRATION', true),
+
+	],
+
 	// Extra config for services to load
-	'services' => [
+	'singletons'       => [
+//		\Enpii\Wp\EnpiiBase\Services\WpUserService::class => [
+//			'enable_site_manager_role' => true,
+//		],\Enpii\Wp\EnpiiBase\Services\WpUserService::class => [
+//			'enable_site_manager_role' => true,
+//		],
+//		\Enpii\Wp\EnpiiBase\Libs\View::class              => [
+//			'factory' => \Illuminate\View\Factory::class,
+//			'engine'  => \Illuminate\Contracts\View\Factory::class,
+//			/*
+//			|--------------------------------------------------------------------------
+//			| View Storage Paths
+//			|--------------------------------------------------------------------------
+//			|
+//			| Most templating systems load templates from disk. Here you may specify
+//			| an array of paths that should be checked for your views. Of course
+//			| the usual Laravel view path has already been registered for you.
+//			|
+//			*/
+//
+//			'paths' => [
+//				get_stylesheet_directory(),
+//			],
+//		],
+	],
+	'aliases'          => [
+		'view' => [ \Illuminate\View\Factory::class, \Illuminate\Contracts\View\Factory::class ],
+	],
+	'bindings'         => [
 
-			\Enpii\Wp\EnpiiBase\Services\WpUserService::class => [
-				'enable_site_manager_role' => true,
+		\Enpii\Wp\EnpiiBase\Libs\View::class => [
+			/*
+			|--------------------------------------------------------------------------
+			| View Storage Paths
+			|--------------------------------------------------------------------------
+			|
+			| Most templating systems load templates from disk. Here you may specify
+			| an array of paths that should be checked for your views. Of course
+			| the usual Laravel view path has already been registered for you.
+			|
+			*/
+
+			'paths' => [
+				get_stylesheet_directory(),
 			],
-
-			\Enpii\Wp\EnpiiBase\Libs\View::class => [
-				/*
-			    |--------------------------------------------------------------------------
-			    | View Storage Paths
-			    |--------------------------------------------------------------------------
-			    |
-			    | Most templating systems load templates from disk. Here you may specify
-			    | an array of paths that should be checked for your views. Of course
-			    | the usual Laravel view path has already been registered for you.
-			    |
-			    */
-
-				'paths' => [
-					get_stylesheet_directory(),
-				],
-			],
+		],
 
 	],
 ];

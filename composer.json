@@ -28,12 +28,12 @@
   "autoload": {
     "psr-4": {
       "Enpii\\Wp\\EnpiiBase\\": "src",
+      "Enpii\\Wp\\EnpiiBase\\App\\": "src/app",
       "Enpii\\Wp\\EnpiiBase\\Libs\\": "src/libs",
       "Enpii\\Wp\\EnpiiBase\\Libs\\Traits\\": "src/libs/traits",
       "Enpii\\Wp\\EnpiiBase\\Helpers\\": "src/helpers",
       "Enpii\\Wp\\EnpiiBase\\Helpers\\Interfaces\\": "src/helpers/interfaces",
       "Enpii\\Wp\\EnpiiBase\\Helpers\\Traits\\": "src/helpers/traits",
-      "Enpii\\Wp\\EnpiiBase\\ServiceProviders\\": "src/service-providers",
       "Enpii\\Wp\\EnpiiBase\\Services\\": "src/services",
       "Enpii\\Wp\\EnpiiBase\\Base\\": "src/base",
       "Enpii\\Wp\\EnpiiBase\\Helper\\": "src/helper",
