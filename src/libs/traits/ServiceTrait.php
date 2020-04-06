@@ -13,7 +13,7 @@ trait ServiceTrait {
 	/**
 	 * @param null $config
 	 */
-	protected function init_config( $config = null ) {
+	protected function initWithConfig( $config = null ) {
 		if ( ! empty( $config ) ) {
 			foreach ( (array) $config as $key => $value ) {
 				if ( property_exists( get_class( $this ), $key ) ) {

@@ -79,7 +79,7 @@ class WpApp extends Application {
 	 * @return string
 	 */
 	public function getCachedServicesPath() {
-		return WP_CONTENT_DIR . '/cache/wp-app/cache/services.php';
+		return config( 'cachedConfigPath' ) . '/services.php';
 	}
 
 	/**
@@ -88,7 +88,7 @@ class WpApp extends Application {
 	 * @return string
 	 */
 	public function getCachedPackagesPath() {
-		return WP_CONTENT_DIR . '/cache/wp-app/cache/packages.php';
+		return config( 'cachedConfigPath' ) . '/packages.php';
 	}
 
 	/**
@@ -97,7 +97,7 @@ class WpApp extends Application {
 	 * @return string
 	 */
 	public function getCachedConfigPath() {
-		return WP_CONTENT_DIR . '/cache/wp-app/cache/config.php';
+		return config( 'cachedConfigPath' ) . '/config.php';
 	}
 
 	/**
@@ -106,7 +106,7 @@ class WpApp extends Application {
 	 * @return string
 	 */
 	public function getCachedRoutesPath() {
-		return WP_CONTENT_DIR . '/cache/wp-app/cache/routes-v7.php';
+		return config( 'cachedConfigPath' ) . '/routes-v7.php';
 	}
 
 	/**
@@ -115,7 +115,7 @@ class WpApp extends Application {
 	 * @return string
 	 */
 	public function getCachedEventsPath() {
-		return WP_CONTENT_DIR . '/cache/wp-app/cache/events.php';
+		return config( 'cachedConfigPath' ) . '/events.php';
 	}
 
 	/**

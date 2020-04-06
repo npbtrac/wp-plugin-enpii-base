@@ -11,20 +11,17 @@
  */
 
 use Enpii\Wp\EnpiiBase\Libs\WpApp;
-use Enpii\Wp\EnpiiBase\Helpers\ArrayHelper;
+use Enpii\Wp\EnpiiBase\App\Services\WpCli;
 
 defined( 'ENPII_BASE_PLUGIN_VER' ) || define( 'ENPII_BASE_PLUGIN_VER', 0.3 );
 defined( 'ENPII_BASE_PLUGIN_PATH' ) || define( 'ENPII_BASE_PLUGIN_PATH', __DIR__ );
 defined( 'ENPII_BASE_PLUGIN_FOLDER_NAME' ) || define( 'ENPII_BASE_PLUGIN_FOLDER_NAME', 'enpii-base' );
 defined( 'ENPII_BASE_PLUGIN_URL' ) || define( 'ENPII_BASE_PLUGIN_URL', plugins_url( null, ENPII_BASE_PLUGIN_PATH ) );
 
+// Use autoload if Laravel not loaded
 if ( ! class_exists( Illuminate\Foundation\Application::class ) ) {
 	require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 }
-
-// Script start
-global $rustart;
-$rustart = getrusage();
 
 if ( ! function_exists( 'enpii_base_init_wp_app' ) ) {
 	/**
@@ -49,6 +46,10 @@ if ( ! function_exists( 'enpii_base_setup_wp_app_for_theme' ) ) {
 }
 add_action( 'after_setup_theme', 'enpii_base_setup_wp_app_for_theme', 10 );
 
+// WP_CLI
+if ( class_exists( WP_CLI::class ) ) {
+	WP_CLI::add_command( 'enpii-base', [ WpCli::class, 'runCommands' ] );
+}
 
 function enpii_base_test() {
 	//	echo view();

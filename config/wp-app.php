@@ -164,7 +164,7 @@ return [
 			/**
 			 * Custom Providers
 			 */
-			Enpii\Wp\EnpiiBase\App\Providers\WordPressServiceProvider::class,
+//			Enpii\Wp\EnpiiBase\App\Providers\WordPressServiceProvider::class,
 			Enpii\Wp\EnpiiBase\App\Providers\ViewServiceProvider::class,
 		],
 
@@ -222,7 +222,7 @@ return [
 		],
 	],
 
-	'view' => [
+	'view'       => [
 
 		/*
 		|--------------------------------------------------------------------------
@@ -235,8 +235,8 @@ return [
 		|
 		*/
 
-//		'paths' => [
-//		],
+		'paths' => [
+		],
 
 		/*
 		|--------------------------------------------------------------------------
@@ -262,57 +262,20 @@ return [
 		 |
 		 */
 
-		'expires' => env('VIEW_CHECK_EXPIRATION', true),
+		'expires' => true,
 
 	],
 
-	// Extra config for services to load
-	'singletons'       => [
-//		\Enpii\Wp\EnpiiBase\Services\WpUserService::class => [
-//			'enable_site_manager_role' => true,
-//		],\Enpii\Wp\EnpiiBase\Services\WpUserService::class => [
-//			'enable_site_manager_role' => true,
-//		],
-//		\Enpii\Wp\EnpiiBase\Libs\View::class              => [
-//			'factory' => \Illuminate\View\Factory::class,
-//			'engine'  => \Illuminate\Contracts\View\Factory::class,
-//			/*
-//			|--------------------------------------------------------------------------
-//			| View Storage Paths
-//			|--------------------------------------------------------------------------
-//			|
-//			| Most templating systems load templates from disk. Here you may specify
-//			| an array of paths that should be checked for your views. Of course
-//			| the usual Laravel view path has already been registered for you.
-//			|
-//			*/
-//
-//			'paths' => [
-//				get_stylesheet_directory(),
-//			],
-//		],
+	// Extra singleton services to load
+	'singletons' => [
 	],
-	'aliases'          => [
-		'view' => [ \Illuminate\View\Factory::class, \Illuminate\Contracts\View\Factory::class ],
+
+	// Extra binding services
+	'bindings'   => [
 	],
-	'bindings'         => [
 
-		\Enpii\Wp\EnpiiBase\Libs\View::class => [
-			/*
-			|--------------------------------------------------------------------------
-			| View Storage Paths
-			|--------------------------------------------------------------------------
-			|
-			| Most templating systems load templates from disk. Here you may specify
-			| an array of paths that should be checked for your views. Of course
-			| the usual Laravel view path has already been registered for you.
-			|
-			*/
-
-			'paths' => [
-				get_stylesheet_directory(),
-			],
-		],
-
+	// Extra aliases
+	'aliases'    => [
 	],
+
 ];
