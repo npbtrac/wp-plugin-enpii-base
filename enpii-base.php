@@ -23,13 +23,24 @@ if ( ! class_exists( Illuminate\Foundation\Application::class ) ) {
 	require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 }
 
+if ( ! function_exists( 'enpii_base_init_wp_app_config' ) ) {
+	/**
+	 * Apply a global Application instance when all plugins, theme loaded and user authentication applied
+	 */
+	function enpii_base_init_wp_app_config() {
+		$config_file_path = ENPII_BASE_PLUGIN_PATH . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'wp-app.php';
+		$config           = file_exists( $config_file_path ) ? require_once( $config_file_path ) : [];
+
+		return apply_filters( 'enpii-base/wp-app-config', $config );
+	}
+}
+
 if ( ! function_exists( 'enpii_base_init_wp_app' ) ) {
 	/**
 	 * Apply a global Application instance when all plugins, theme loaded and user authentication applied
 	 */
 	function enpii_base_init_wp_app() {
-		$config = require_once( ENPII_BASE_PLUGIN_PATH . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'wp-app.php' );
-		$config = apply_filters( 'enpii-base/wp-app-config', $config );
+		$config = enpii_base_init_wp_app_config();
 		$wp_app = new WpApp( $config['basePath'] );
 		$wp_app->initAppWithConfig( $config );
 	}
@@ -46,10 +57,36 @@ if ( ! function_exists( 'enpii_base_setup_wp_app_for_theme' ) ) {
 }
 add_action( 'after_setup_theme', 'enpii_base_setup_wp_app_for_theme', 10 );
 
-// WP_CLI
-if ( class_exists( WP_CLI::class ) ) {
-	WP_CLI::add_command( 'enpii-base', [ WpCli::class, 'runCommands' ] );
+if ( ! function_exists( 'enpii_base_init_wp_cli_pre' ) ) {
+	/**
+	 * Initialize all WP_CLI stuffs before App initialized
+	 *
+	 * @throws Exception
+	 */
+	function enpii_base_init_wp_cli_pre() {
+		// WP_CLI
+		if ( class_exists( WP_CLI::class ) ) {
+			WP_CLI::add_command( 'enpii-base-prepare-files', [ WpCli::class, 'prepareWritableFoldersAndFiles' ] );
+		}
+	}
 }
+add_action( 'muplugins_loaded', 'enpii_base_init_wp_cli_pre', 1 );
+
+if ( ! function_exists( 'enpii_base_init_wp_cli_post' ) ) {
+	/**
+	 * Initialize all WP_CLI stuffs post App initialized
+	 *
+	 * @throws Exception
+	 */
+	function enpii_base_init_wp_cli_post() {
+		// WP_CLI
+		if ( class_exists( WP_CLI::class ) ) {
+			WP_CLI::add_command( 'enpii-base', [ WpCli::class, 'runCommands' ] );
+		}
+	}
+}
+add_action( 'muplugins_loaded', 'enpii_base_init_wp_cli_post', 101 );
+
 
 function enpii_base_test() {
 	//	echo view();

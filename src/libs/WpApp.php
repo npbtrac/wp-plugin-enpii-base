@@ -74,51 +74,6 @@ class WpApp extends Application {
 	}
 
 	/**
-	 * Get the path to the cached services.php file.
-	 *
-	 * @return string
-	 */
-	public function getCachedServicesPath() {
-		return config( 'cachedConfigPath' ) . '/services.php';
-	}
-
-	/**
-	 * Get the path to the cached packages.php file.
-	 *
-	 * @return string
-	 */
-	public function getCachedPackagesPath() {
-		return config( 'cachedConfigPath' ) . '/packages.php';
-	}
-
-	/**
-	 * Get the path to the configuration cache file.
-	 *
-	 * @return string
-	 */
-	public function getCachedConfigPath() {
-		return config( 'cachedConfigPath' ) . '/config.php';
-	}
-
-	/**
-	 * Get the path to the routes cache file.
-	 *
-	 * @return string
-	 */
-	public function getCachedRoutesPath() {
-		return config( 'cachedConfigPath' ) . '/routes-v7.php';
-	}
-
-	/**
-	 * Get the path to the events cache file.
-	 *
-	 * @return string
-	 */
-	public function getCachedEventsPath() {
-		return config( 'cachedConfigPath' ) . '/events.php';
-	}
-
-	/**
 	 * Set the view paths on runtime
 	 *
 	 * @param array $paths

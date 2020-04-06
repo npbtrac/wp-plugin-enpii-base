@@ -5,6 +5,7 @@ namespace Enpii\Wp\EnpiiBase\App\Services;
 
 
 use Enpii\Wp\EnpiiBase\Libs\Traits\ServiceTrait;
+use Enpii\Wp\EnpiiBase\Libs\WpApp;
 use WP_CLI;
 use Exception;
 
@@ -28,25 +29,46 @@ class WpCli {
 	}
 
 	/**
-	 * @param $args
-	 * @param $assoc_args
+	 * Try to create a file and make a file writable
 	 *
-	 * @throws WP_CLI\ExitException
+	 * @param $file_path
 	 */
-	protected static function setup( $args = null, $assoc_args = null ) {
-		static::prepareWritableFolders();
+	public static function createFileWritable( $file_path ) {
+		@chmod( dirname( $file_path ), 0777 );
+		if ( ! file_exists( $file_path ) ) {
+			wp_mkdir_p( dirname( $file_path ) );
+			$fh = fopen( $file_path, 'w+' );
+			fclose( $fh );
+			WP_CLI::log( "\n" . sprintf( 'Create file or folder successfully: %s', $file_path ) );
+		}
+		@chmod( $file_path, 0777 );
 	}
 
 	/**
+	 * Make all cached config files writable
+	 *
 	 * @throws WP_CLI\ExitException
 	 */
-	protected static function prepareWritableFolders() {
-		WP_CLI::log( "\n" . sprintf( 'Create and make cached Config Path writable: %s', config( 'cachedConfigPath' ) ) );
-		if ( wp_mkdir_p( config( 'cachedConfigPath' ) ) ) {
-			WP_CLI::success( 'Done' );
-		} else {
-			WP_CLI::error( 'Failed' );
-		}
+	public static function prepareWritableFoldersAndFiles() {
+		WP_CLI::log( '--' );
+		WP_CLI::log( sprintf( 'Create and make cached Config Files writable' ) );
+
+		$config = enpii_base_init_wp_app_config();
+		$wp_app = new WpApp( $config['basePath'] );
+		static::createFileWritable( $wp_app->getCachedConfigPath() );
+		static::createFileWritable( $wp_app->getCachedEventsPath() );
+		static::createFileWritable( $wp_app->getCachedPackagesPath() );
+		static::createFileWritable( $wp_app->getCachedRoutesPath() );
+		static::createFileWritable( $wp_app->getCachedServicesPath() );
+
+		WP_CLI::success( 'Done' );
 		WP_CLI::log( "\n" );
+	}
+
+	/**
+	 * A test method to check WpCli class working properly
+	 */
+	public static function foo() {
+		WP_CLI::success( 'Foo' );
 	}
 }

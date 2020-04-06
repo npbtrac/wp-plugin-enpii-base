@@ -1,7 +1,6 @@
 <?php
 return [
-	'basePath'         => defined( 'APP_BASE_PATH' ) ? APP_BASE_PATH : ENPII_BASE_PLUGIN_PATH,
-	'cachedConfigPath' => WP_CONTENT_DIR . DIRECTORY_SEPARATOR . 'cache' . DIRECTORY_SEPARATOR . 'wp-app' . DIRECTORY_SEPARATOR . 'cache-config',
+	'basePath'         => ENPII_BASE_PLUGIN_PATH,
 	'app'              => [
 		/*
 		|--------------------------------------------------------------------------
@@ -164,7 +163,7 @@ return [
 			/**
 			 * Custom Providers
 			 */
-//			Enpii\Wp\EnpiiBase\App\Providers\WordPressServiceProvider::class,
+			Enpii\Wp\EnpiiBase\App\Providers\WordPressServiceProvider::class,
 			Enpii\Wp\EnpiiBase\App\Providers\ViewServiceProvider::class,
 		],
 
