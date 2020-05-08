@@ -1,9 +1,9 @@
 {
-  "name": "wp-enpii-core",
+  "name": "wp-enpii-base-assets",
   "authors": [
     "Trac Nguyen <npbtrac@yahoo.com>"
   ],
-  "description": "Packages for Enpii Base plugin",
+  "description": "Assets for Enpii Base plugin",
   "main": "bower",
   "moduleType": [],
   "license": "enpii",

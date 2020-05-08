@@ -28,6 +28,6 @@
     "commit": "8b618dec9c35bcecb6c8568f6c2668a879f54e76"
   },
   "_source": "https://github.com/desandro/get-size.git",
-  "_target": "^2.0.0",
+  "_target": "^2.0.2",
   "_originalSource": "get-size"
 }
