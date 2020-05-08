@@ -39,7 +39,7 @@ if ( ! function_exists( 'enpii_base_init_wp_app' ) ) {
 	 * Get application instance
 	 */
 	function enpii_base_init_wp_app() {
-		$wp_app = require ENPII_BASE_PLUGIN_PATH.'/bootstrap/app.php';
+		$wp_app = require ENPII_BASE_PLUGIN_PATH . '/bootstrap/app.php';
 	}
 }
 add_action( 'muplugins_loaded', 'enpii_base_init_wp_app', 100 );
