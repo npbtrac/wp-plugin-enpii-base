@@ -1,5 +1,6 @@
-vendor/*
-!vendor/.gitkeep
+# package management
+vendor
+node_modules
 
 # others
 cgi-bin

@@ -6,7 +6,7 @@
   "description": "Assets for Enpii Base plugin",
   "main": "bower",
   "moduleType": [],
-  "license": "enpii",
+  "license": "GPL-3.0",
   "homepage": "",
   "private": true,
   "directory": "assets",
