@@ -7,7 +7,6 @@ use Enpii\Wp\EnpiiBase\App\Helpers\Interfaces\Arrayable;
 use Closure;
 use Exception;
 use Traversable;
-use Enpii\Wp\EnpiiBase\App\Helpers\StringHelper;
 
 /**
  * Class ArrayHelper

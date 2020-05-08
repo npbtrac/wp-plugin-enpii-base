@@ -1,7 +1,7 @@
 <?php
 return [
-	'basePath'         => ENPII_BASE_PLUGIN_PATH,
-	'app'              => [
+	'basePath' => ENPII_BASE_PLUGIN_PATH,
+	'app'      => [
 		/*
 		|--------------------------------------------------------------------------
 		| Application Name
@@ -138,27 +138,15 @@ return [
 			/*
 	         * Laravel Framework Service Providers
 	         */
-			Illuminate\Broadcasting\BroadcastServiceProvider::class,
-			Illuminate\Bus\BusServiceProvider::class,
 			Illuminate\Cache\CacheServiceProvider::class,
-			Illuminate\Cookie\CookieServiceProvider::class,
-			Illuminate\Database\DatabaseServiceProvider::class,
-			Illuminate\Encryption\EncryptionServiceProvider::class,
 			Illuminate\Filesystem\FilesystemServiceProvider::class,
 			Illuminate\Foundation\Providers\FoundationServiceProvider::class,
-			Illuminate\Hashing\HashServiceProvider::class,
-			Illuminate\Notifications\NotificationServiceProvider::class,
-			Illuminate\Pagination\PaginationServiceProvider::class,
-			Illuminate\Pipeline\PipelineServiceProvider::class,
-			Illuminate\Queue\QueueServiceProvider::class,
-			Illuminate\Redis\RedisServiceProvider::class,
-			Illuminate\Session\SessionServiceProvider::class,
 			Illuminate\Validation\ValidationServiceProvider::class,
 
 			/**
 			 * Laravel partners Service Providers
 			 */
-			Collective\Html\HtmlServiceProvider::class,
+//			Collective\Html\HtmlServiceProvider::class,
 
 			/**
 			 * Custom Providers
@@ -215,13 +203,114 @@ return [
 			'URL'          => Illuminate\Support\Facades\URL::class,
 			'Validator'    => Illuminate\Support\Facades\Validator::class,
 			'View'         => Illuminate\Support\Facades\View::class,
+
+			// External
 			'Form'         => Collective\Html\FormFacade::class,
 			'Html'         => Collective\Html\HtmlFacade::class,
 			'Socialite'    => Laravel\Socialite\Facades\Socialite::class,
 		],
 	],
 
-	'view'       => [
+	'cache' => [
+		/*
+	    |--------------------------------------------------------------------------
+	    | Default Cache Store
+	    |--------------------------------------------------------------------------
+	    |
+	    | This option controls the default cache connection that gets used while
+	    | using this caching library. This connection is used when another is
+	    | not explicitly specified when executing a given caching function.
+	    |
+	    | Supported: "apc", "array", "database", "file",
+	    |            "memcached", "redis", "dynamodb"
+	    |
+	    */
+
+		'default' => defined( 'CACHE_DRIVER' ) ? CACHE_DRIVER : 'file',
+
+		/*
+		|--------------------------------------------------------------------------
+		| Cache Stores
+		|--------------------------------------------------------------------------
+		|
+		| Here you may define all of the cache "stores" for your application as
+		| well as their drivers. You may even define multiple stores for the
+		| same cache driver to group types of items stored in your caches.
+		|
+		*/
+
+		'stores' => [
+
+			'apc' => [
+				'driver' => 'apc',
+			],
+
+			'array' => [
+				'driver'    => 'array',
+				'serialize' => false,
+			],
+
+			'database' => [
+				'driver'     => 'database',
+				'table'      => 'cache',
+				'connection' => null,
+			],
+
+			'file' => [
+				'driver' => 'file',
+				'path'   => storage_path( 'framework/cache/data' ),
+			],
+
+			'memcached' => [
+				'driver'        => 'memcached',
+				'persistent_id' => defined( 'MEMCACHED_PERSISTENT_ID' ) ? MEMCACHED_PERSISTENT_ID : null,
+				'sasl'          => [
+					defined( 'MEMCACHED_USERNAME' ) ? MEMCACHED_USERNAME : null,
+					defined( 'MEMCACHED_PASSWORD' ) ? MEMCACHED_PASSWORD : null,
+				],
+				'options'       => [
+//					 Memcached::OPT_CONNECT_TIMEOUT => 2000,
+				],
+				'servers'       => [
+					[
+						'host'   => defined( 'MEMCACHED_HOST' ) ? MEMCACHED_HOST : '127.0.0.1',
+						'port'   => defined( 'MEMCACHED_PORT' ) ? MEMCACHED_PORT : 11211,
+						'weight' => 100,
+					],
+				],
+			],
+
+			'redis' => [
+				'driver'     => 'redis',
+				'connection' => 'cache',
+			],
+
+			'dynamodb' => [
+				'driver'   => 'dynamodb',
+				'key'      => defined( 'AWS_ACCESS_KEY_ID' ) ? AWS_ACCESS_KEY_ID : null,
+				'secret'   => defined( 'AWS_SECRET_ACCESS_KEY' ) ? AWS_SECRET_ACCESS_KEY : null,
+				'region'   => defined( 'AWS_DEFAULT_REGION' ) ? AWS_DEFAULT_REGION : null,
+				'table'    => defined( 'DYNAMODB_CACHE_TABLE' ) ? DYNAMODB_CACHE_TABLE : 'cache',
+				'endpoint' => defined( 'DYNAMODB_ENDPOINT' ) ? DYNAMODB_ENDPOINT : null,
+			],
+
+		],
+
+		/*
+		|--------------------------------------------------------------------------
+		| Cache Key Prefix
+		|--------------------------------------------------------------------------
+		|
+		| When utilizing a RAM based store such as APC or Memcached, there might
+		| be other applications utilizing the same cache. So, we'll specify a
+		| value to get prefixed to all our keys so we can avoid collisions.
+		|
+		*/
+
+		'prefix' => env( 'CACHE_PREFIX', \Illuminate\Support\Str::slug( env( 'APP_NAME', 'laravel' ), '_' ) . '_cache' ),
+	],
+
+	'view' => [
 
 		/*
 		|--------------------------------------------------------------------------
@@ -264,17 +353,4 @@ return [
 		'expires' => true,
 
 	],
-
-	// Extra singleton services to load
-	'singletons' => [
-	],
-
-	// Extra binding services
-	'bindings'   => [
-	],
-
-	// Extra aliases
-	'aliases'    => [
-	],
-
 ];

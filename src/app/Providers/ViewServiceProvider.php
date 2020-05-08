@@ -13,8 +13,7 @@ class ViewServiceProvider extends ConcreteViewServiceProvider {
 	 *
 	 * @return void
 	 */
-	public function register()
-	{
+	public function register() {
 		$this->registerFactory();
 
 		$this->registerViewFinder();

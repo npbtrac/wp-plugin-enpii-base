@@ -7,13 +7,6 @@ use Enpii\Wp\EnpiiBase\App\Helpers\ArrayHelper;
 use Enpii\Wp\EnpiiBase\Libs\Traits\ServiceTrait;
 use Illuminate\Foundation\Application;
 use Illuminate\Config\Repository as ConfigRepository;
-use Illuminate\Contracts\Debug\ExceptionHandler;
-use Illuminate\Contracts\Http\Kernel as ContractHttpKernel;
-use Illuminate\Contracts\Console\Kernel as ContractConsoleKernel;
-use Enpii\Wp\EnpiiBase\App\Http\Kernel as HttpKernel;
-use Enpii\Wp\EnpiiBase\App\Console\Kernel as ConsoleKernel;
-use Enpii\Wp\EnpiiBase\App\Exceptions\Handler as AppExceptionHandler;
-
 
 class WpApp extends Application {
 	use ServiceTrait;
@@ -36,23 +29,6 @@ class WpApp extends Application {
 	 */
 	public function initAppWithConfig( $config = null ) {
 		$this->initConfig( $config );
-
-		$this->singleton(
-			ContractHttpKernel::class,
-			HttpKernel::class
-		);
-
-		$this->singleton(
-			ContractConsoleKernel::class,
-			ConsoleKernel::class
-		);
-
-		$this->singleton(
-			ExceptionHandler::class,
-			AppExceptionHandler::class
-		);
-
-		$this->registerConfiguredProviders();
 	}
 
 	/**
@@ -95,7 +71,10 @@ class WpApp extends Application {
 	 * Set up view paths with WordPress child and parent theme paths
 	 */
 	public static function setWpThemeViewPaths() {
-		static::getInstance()->runtimeViewPaths = [ get_stylesheet_directory(), get_template_directory() ];
+		static::getInstance()->runtimeViewPaths = array(
+			get_stylesheet_directory(),
+			get_template_directory(),
+		);
 	}
 
 	/**
