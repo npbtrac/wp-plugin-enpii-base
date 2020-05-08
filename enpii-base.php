@@ -18,7 +18,7 @@ defined( 'ENPII_BASE_PLUGIN_FOLDER_NAME' ) || define( 'ENPII_BASE_PLUGIN_FOLDER_
 defined( 'ENPII_BASE_PLUGIN_URL' ) || define( 'ENPII_BASE_PLUGIN_URL', plugins_url( null, ENPII_BASE_PLUGIN_PATH ) );
 
 // Use autoload if Laravel not loaded
-if ( ! class_exists( Illuminate\Foundation\Application::class ) ) {
+if ( ! class_exists( \Illuminate\Foundation\Application::class ) ) {
 	require_once __DIR__ . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 }
 
