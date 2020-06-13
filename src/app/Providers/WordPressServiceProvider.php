@@ -44,6 +44,21 @@ class WordPressServiceProvider extends ServiceProvider {
 	}
 
 	/**
+	 * Allow more safe attributes
+	 *
+	 * @param string[] $attr
+	 *
+	 * @return array
+	 */
+	public function add_safe_style_css( $attr ) {
+		$attr = array_merge( $attr, [
+			'display',
+		] );
+
+		return $attr;
+	}
+
+	/**
 	 * Allow svg file to be uploaded as a media file
 	 *
 	 * @param $mimes

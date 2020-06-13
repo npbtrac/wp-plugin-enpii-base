@@ -34,7 +34,7 @@ $wp_app = new \Enpii\Wp\EnpiiBase\Libs\WpApp(
 |
 */
 $config = enpii_base_init_wp_app_config();
-\Symfony\Component\VarDumper\VarDumper::dump($config);
+
 $wp_app->initAppWithConfig( $config );
 $wp_app->registerConfiguredProviders();
 
