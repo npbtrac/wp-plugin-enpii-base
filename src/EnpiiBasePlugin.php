@@ -12,7 +12,7 @@ class EnpiiBasePlugin extends WpPluginModule {
 	/**
 	 * @inheritDoc
 	 */
-	protected function initPlugin() {
+	protected function initPlugin(): void {
 		// For frontend
 		add_action( 'safe_style_css', [ $this, 'addSafeStyleCss' ] );
 		add_filter( 'body_class', [ $this, 'addSiteIDToBodyClass' ] );

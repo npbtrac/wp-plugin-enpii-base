@@ -18,15 +18,16 @@ abstract class WpPluginModule extends WpModule {
 	/**
 	 * Execute all needed things to init the plugin
 	 *
-	 * @return mixed
+	 * @return void
 	 */
-	abstract protected function initPlugin();
+	abstract protected function initPlugin(): void;
 
 	/**
 	 * Initialize the plugin instance, provided that, config file is in place
 	 *
 	 * @param $base_path
 	 *
+	 * @noinspection PhpFullyQualifiedNameUsageInspection
 	 * @throws \yii\base\InvalidConfigException
 	 */
 	public static function initInstanceWithPath( $base_path ) {

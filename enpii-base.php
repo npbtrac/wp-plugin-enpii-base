@@ -16,7 +16,7 @@ use Enpii\Wp\EnpiiBase\EnpiiBasePlugin;
 use yii\base\Application;
 use yii\base\InvalidConfigException;
 
-defined( 'ENPII_BASE_PLUGIN_VER' ) || define( 'ENPII_BASE_PLUGIN_VER', 0.3 );
+defined( 'ENPII_BASE_PLUGIN_VER' ) || define( 'ENPII_BASE_PLUGIN_VER', '0.4.0' );
 defined( 'ENPII_BASE_CONFIG_APP_FILENAME' ) || define( 'ENPII_BASE_CONFIG_APP_FILENAME', 'wp-app.php' );
 
 // For Yii2
@@ -66,7 +66,7 @@ if ( ! function_exists( 'enpii_base_setup_wp_app_for_theme' ) ) {
 	 * Make Laravel view paths working with WordPress theme system
 	 */
 	function enpii_base_setup_wp_app_for_theme() {
-//		dump(EnpiiBasePlugin::instance());
+//		dump(wp_app()->modules);
 //		die();
 	}
 }

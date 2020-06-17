@@ -14,6 +14,7 @@ $config = [
 	'basePath'    => $base_path,
 	'base_path'   => $base_path,
 	'base_url'    => $base_url,
+	'version'     => '0.4.0',
 	'components'  => [
 		Acf::class => [
 			'__class'     => Acf::class,
