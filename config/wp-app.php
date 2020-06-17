@@ -1,5 +1,8 @@
 <?php
 
+use yii\caching\FileCache;
+use yii\swiftmailer\Mailer;
+
 $config = [
 	'id'         => 'enpii-base',
 	'basePath'   => dirname( __DIR__ ),
@@ -9,25 +12,18 @@ $config = [
 		'@npm'   => '@vendor/npm-asset',
 	],
 	'components' => [
-		'request'      => [
-// !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-			'cookieValidationKey' => '',
-		],
 		'cache'        => [
-			'class' => 'yii\caching\FileCache',
-		],
-		'user'         => [
-			'identityClass'   => 'app\models\User',
-			'enableAutoLogin' => true,
+			'class' => FileCache::class,
 		],
 		'errorHandler' => [
 			'errorAction' => 'site/error',
 		],
 		'mailer'       => [
-			'class'            => 'yii\swiftmailer\Mailer',
-// send all mails to a file by default. You have to set
-// 'useFileTransport' to false and configure a transport
-// for the mailer to send real emails.
+			'class'            => Mailer::class,
+
+			// send all mails to a file by default. You have to set
+			// 'useFileTransport' to false and configure a transport
+			// for the mailer to send real emails.
 			'useFileTransport' => true,
 		],
 		'log'          => [
@@ -60,9 +56,9 @@ if ( YII_ENV_DEV ) {
 }
 
 $config = [
-	'id'         => 'enpii-base',
+	'id'         => 'wp-app',
 	'basePath'   => dirname( __DIR__ ),
-	'bootstrap'  => [ 'log' ],
+	'bootstrap'  => [],
 	'aliases'    => [
 		'@bower' => '@vendor/bower-asset',
 		'@npm'   => '@vendor/npm-asset',

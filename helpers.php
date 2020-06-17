@@ -15,10 +15,4 @@ if ( ! defined( 'ENPII_BASE_USE_HELPERS' ) || ! ENPII_BASE_USE_HELPERS ) {
 			return in_array( php_sapi_name(), [ 'cli', 'phpdbg' ] );
 		}
 	}
-
-	if ( ! function_exists( 'dump_var' ) ) {
-		function dump_var( $var ) {
-			return \Symfony\Component\VarDumper\VarDumper::dump( $var );
-		}
-	}
 }
