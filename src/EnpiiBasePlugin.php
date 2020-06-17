@@ -8,10 +8,10 @@ use Enpii\Wp\EnpiiBase\Components\Acf;
 use Enpii\Wp\EnpiiBase\Yii2\Base\WpPluginModule;
 
 class EnpiiBasePlugin extends WpPluginModule {
-	public function init_plugin() {
-		// TODO: Implement init_plugin() method.
-	}
 
+	/**
+	 * @inheritDoc
+	 */
 	protected function initPlugin() {
 		// For frontend
 		add_action( 'safe_style_css', [ $this, 'addSafeStyleCss' ] );
@@ -19,14 +19,8 @@ class EnpiiBasePlugin extends WpPluginModule {
 
 		// For both
 		add_action( 'upload_mimes', [ $this, 'allowMoreMimeTypesUpload' ] );
+		add_action( 'init', [ $this, 'registerAcfRules' ] );
 	}
-
-//	public static function initInstance() {
-//		$module_class_name = get_called_class();
-//		/** @var static $plugin */
-//		$plugin = wp_app()->getModule( $module_class_name );
-//		$plugin->initPlugin();
-//	}
 
 	/**
 	 * Allow more safe attributes
@@ -38,6 +32,16 @@ class EnpiiBasePlugin extends WpPluginModule {
 	public function addSafeStyleCss( $attr ) {
 		$attr = array_merge( $attr, [
 			'display',
+			'position',
+			'z-index',
+			'top',
+			'left',
+			'right',
+			'bottom',
+			'margin-top',
+			'margin-left',
+			'margin-bottom',
+			'margin-right',
 		] );
 
 		return $attr;
@@ -51,6 +55,7 @@ class EnpiiBasePlugin extends WpPluginModule {
 	 * @return array
 	 */
 	public function addSiteIDToBodyClass( $classes ) {
+
 		$classes[] = 'site-' . get_current_blog_id();
 		if ( is_singular() ) {
 			global $post;
@@ -62,8 +67,6 @@ class EnpiiBasePlugin extends WpPluginModule {
 
 	/**
 	 * Add more MIME Types to uploading
-	 *
-	 * @throws \yii\base\InvalidConfigException
 	 */
 	public function allowMoreMimeTypesUpload() {
 		$mimes['svg']  = 'image/svg+xml';
@@ -72,9 +75,10 @@ class EnpiiBasePlugin extends WpPluginModule {
 		return $mimes;
 	}
 
+
 	/**
 	 * Register needed Acf Rules
-	 *
+	 * @noinspection PhpFullyQualifiedNameUsageInspection
 	 * @throws \yii\base\InvalidConfigException
 	 */
 	public function registerAcfRules() {
