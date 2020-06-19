@@ -55,6 +55,13 @@ if ( YII_ENV_DEV ) {
 	];
 }
 
+$wp_upload_dir = wp_upload_dir();
+
+/** @var WP_Theme $wp_theme */
+$wp_theme      = wp_get_theme();
+//dump( $wp_theme );
+//die();
+
 $config = [
 	'id'         => 'wp-app',
 	'basePath'   => dirname( __DIR__ ),
@@ -64,6 +71,16 @@ $config = [
 		'@npm'   => '@vendor/npm-asset',
 	],
 	'components' => [
+		'assetManager' => [
+			'basePath' => $wp_upload_dir['basedir'] . DIRECTORY_SEPARATOR . 'assets',
+			'baseUrl'  => $wp_upload_dir['baseurl'] . '/assets',
+			'bundles'  => [
+				// you can override AssetBundle configs here
+			],
+		],
+//		'view'         => [
+//			'theme' => $wp_theme->get_stylesheet(),
+//		]
 	],
 ];
 

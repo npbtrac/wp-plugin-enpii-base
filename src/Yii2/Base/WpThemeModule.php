@@ -34,6 +34,11 @@ abstract class WpThemeModule extends WpModule {
 	abstract protected function initTheme(): void;
 
 	/**
+	 * Initialize view component of app and set basic view path
+	 */
+	abstract public static function initView(): void;
+
+	/**
 	 * Initialize the plugin instance, provided that, config file is in place
 	 *
 	 * @param $base_path
