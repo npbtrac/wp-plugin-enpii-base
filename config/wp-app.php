@@ -70,12 +70,61 @@ $config = [
 		'@bower' => '@vendor/bower-asset',
 		'@npm'   => '@vendor/npm-asset',
 	],
+	'controllerMap' => [
+		// declares "account" controller using a class name
+		'site' => [
+			'class'                => \Enpii\Wp\EnpiiBase\Controllers\SiteController::class,
+			'enableCsrfValidation' => false,
+		],
+	],
 	'components' => [
+		// We need to define request component for making Form working
+		'request' => [
+			'enableCookieValidation' => true,
+			'enableCsrfValidation' => true,
+			'cookieValidationKey' => AUTH_KEY,
+		],
 		'assetManager' => [
 			'basePath' => $wp_upload_dir['basedir'] . DIRECTORY_SEPARATOR . 'assets',
 			'baseUrl'  => $wp_upload_dir['baseurl'] . '/assets',
 			'bundles'  => [
 				// you can override AssetBundle configs here
+			],
+		],
+		'db' => [
+			'__class' => yii\db\Connection::class,
+			'dsn' => 'mysql:host='.DB_HOST.';dbname='.DB_NAME,
+			'username' => DB_USER,
+			'password' => DB_PASSWORD,
+			'charset' => DB_CHARSET,
+			'tablePrefix' => DB_TABLE_PREFIX,
+
+			// Schema cache options (for production environment)
+			//'enableSchemaCache' => true,
+			//'schemaCacheDuration' => 60,
+			//'schemaCache' => 'cache',
+		],
+		'urlManager' => [
+			'enablePrettyUrl' => true,
+			'showScriptName' => false,
+			'enableStrictParsing' => true,
+			'baseUrl' => 'wp-app',
+//			'normalizer' => [
+//				'class' => 'yii\web\UrlNormalizer',
+//				// use temporary redirection instead of permanent for debugging
+//				'action' => \yii\web\UrlNormalizer::ACTION_REDIRECT_TEMPORARY,
+//			],
+			'rules' => [
+				[
+					'pattern' => 'wp-app',
+					'route' => 'site/index',
+				],
+				[
+					'pattern' => 'wp-app',
+					'route' => 'site/index',
+					'suffix' => '/',
+				],
+
 			],
 		],
 //		'view'         => [

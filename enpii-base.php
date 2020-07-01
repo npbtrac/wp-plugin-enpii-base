@@ -20,7 +20,7 @@ defined( 'ENPII_BASE_PLUGIN_VER' ) || define( 'ENPII_BASE_PLUGIN_VER', '0.4.0' )
 defined( 'ENPII_BASE_CONFIG_APP_FILENAME' ) || define( 'ENPII_BASE_CONFIG_APP_FILENAME', 'wp-app.php' );
 
 // For Yii2
-defined( 'YII_DEBUG' ) or define( 'YII_DEBUG', defined( 'WP_DEBUG' ) ? WP_DEBUG : false );
+defined( 'YII_DEBUG' ) or define( 'YII_DEBUG', ( defined( 'WP_DEBUG' ) ? WP_DEBUG : false ) );
 defined( 'YII_ENV' ) or define( 'YII_ENV', defined( 'WP_ENV' ) ? WP_ENV : 'production' );
 
 // Use autoload if Yii not loaded
@@ -59,15 +59,42 @@ if ( ! function_exists( 'enpii_base_init_wp_app' ) ) {
 		EnpiiBasePlugin::initInstanceWithPath( __DIR__ );
 	}
 }
-add_action( 'muplugins_loaded', 'enpii_base_init_wp_app', 100 );
+add_action( 'muplugins_loaded', 'enpii_base_init_wp_app', 1000 );
+
+if ( ! function_exists( 'enpii_base_setup_wp_app_rewrite_rules' ) ) {
+	/**
+	 * Make `wp-app` to work with Yii
+	 */
+	function enpii_base_setup_wp_app_rewrite_rules() {
+		add_rewrite_rule( "^wp-app(/?)(.*)/?$", [
+			'is_wp_app_request' => 1,
+			'wp_app_route'      => '$matches[2]',
+		], 'top' );
+	}
+}
+add_action( 'init', 'enpii_base_setup_wp_app_rewrite_rules', 1 );
 
 if ( ! function_exists( 'enpii_base_setup_wp_app_for_theme' ) ) {
 	/**
 	 * Make Laravel view paths working with WordPress theme system
 	 */
 	function enpii_base_setup_wp_app_for_theme() {
-//		dump(wp_app()->modules);
-//		die();
 	}
 }
-add_action( 'after_setup_theme', 'enpii_base_setup_wp_app_for_theme', 10 );
+add_action( 'init', 'enpii_base_setup_wp_app_for_theme' );
+
+function add_query_vars_filter( $vars ) {
+	$vars[] = "is_wp_app_request";
+	$vars[] = "wp_app_route";
+
+	return $vars;
+}
+
+add_filter( 'query_vars', 'add_query_vars_filter' );
+
+add_action( 'wp', function () {
+	if ( ! empty ( get_query_var( 'is_wp_app_request' ) ) ) {
+		wp_app()->run();
+		exit();
+	}
+} );

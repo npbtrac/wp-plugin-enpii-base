@@ -68,7 +68,7 @@ class EnpiiBasePlugin extends WpPluginModule {
 	/**
 	 * Add more MIME Types to uploading
 	 */
-	public function allowMoreMimeTypesUpload() {
+	public function allowMoreMimeTypesUpload( $mimes ) {
 		$mimes['svg']  = 'image/svg+xml';
 		$mimes['webp'] = 'image/webp';
 
