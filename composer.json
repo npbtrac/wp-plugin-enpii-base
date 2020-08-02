@@ -1,7 +1,7 @@
 {
   "name": "enpii/enpii-base",
-  "description": "The Base plugin for Theme and Plugin development. It requires ACF pro to work.",
-  "type": "wordpress-muplugin",
+  "description": "The Base plugin for Theme and Plugin development.",
+  "type": "wordpress-plugin",
   "authors": [
     {
       "name": "Trac Nguyen",
@@ -14,31 +14,33 @@
   ],
   "require": {
     "laravel/framework": "~7.2.2",
-    "laravel/socialite": "~4.3.2",
     "laravelcollective/html": "~6.1.0",
-    "symfony/var-dumper": "~5.0.8",
+	"ezyang/htmlpurifier": "~4.6",
     "php": ">=7.2.0"
   },
   "require-dev": {
-    "squizlabs/php_codesniffer": "~3.5.1",
-    "mockery/mockery": "~1.3.1",
-    "symfony/var-dumper": "~5.0.5",
-    "ezyang/htmlpurifier": "~4.6",
-    "codeception/codeception": "^4.0"
+	"inpsyde/php-coding-standards": "^0.13",
+	"johnpbloch/wordpress-core": "^5.3",
+	"codeception/codeception": "^4.1",
+	"codeception/module-asserts": "^1.0.0",
+	"codeception/aspect-mock": "*",
+	"mockery/mockery": "~1.3.1",
+	"brain/monkey": "^2.2",
+	"symfony/var-dumper": "^5.1"
+  },
+  "replace": {
+	"phpunit/phunit": "~8.0.0"
   },
   "autoload": {
     "psr-4": {
-      "Enpii\\Wp\\EnpiiBase\\": "src",
-      "Enpii\\Wp\\EnpiiBase\\App\\": "src/app",
-      "Enpii\\Wp\\EnpiiBase\\Libs\\": "src/libs",
-      "Enpii\\Wp\\EnpiiBase\\Libs\\Traits\\": "src/libs/traits",
-      "Enpii\\Wp\\EnpiiBase\\Helpers\\": "src/helpers",
-      "Enpii\\Wp\\EnpiiBase\\Helpers\\Interfaces\\": "src/helpers/interfaces",
-      "Enpii\\Wp\\EnpiiBase\\Helpers\\Traits\\": "src/helpers/traits",
-      "Enpii\\Wp\\EnpiiBase\\Services\\": "src/services",
-      "Enpii\\Wp\\EnpiiBase\\Base\\": "src/base",
-      "Enpii\\Wp\\EnpiiBase\\Helper\\": "src/helper",
-      "Enpii\\Wp\\EnpiiBase\\Component\\": "src/component"
+      "Enpiicom\\WpPlugin\\EnpiiBase\\": "src",
+      "Enpiicom\\WpPlugin\\EnpiiBase\\App\\": "src/app",
+      "Enpiicom\\WpPlugin\\EnpiiBase\\Libs\\": "src/libs"
     }
+  },
+  "autoload-dev": {
+	"psr-4": {
+	  "Enpiicom\\WpPlugin\\EnpiiBase\\Tests\\": "tests"
+	}
   }
 }

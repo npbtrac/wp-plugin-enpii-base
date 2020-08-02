@@ -1,6 +1,8 @@
 # package management
 vendor
 node_modules
+docker-compose.override.yml
+.env
 
 # others
 cgi-bin
