@@ -1,9 +1,9 @@
 <?php
 
 
-namespace Enpii\Wp\EnpiiBase\App\Helpers;
+namespace Enpiicom\WpPlugin\EnpiiBase\Helpers;
 
-use \Exception;
+use Exception;
 
 class ReplaceArrayValue {
 	/**

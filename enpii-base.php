@@ -10,3 +10,58 @@
  * Domain Path: /languages/
  */
 
+declare(strict_types=1);
+
+use Enpiicom\WpPlugin\EnpiiBase\EnpiiBasePlugin;
+use Enpiicom\WpPlugin\EnpiiBase\Base\WpApp;
+use Enpiicom\WpPlugin\EnpiiBase\Helpers\ConfigHelper;
+use Illuminate\Config\Repository as ConfigRepository;
+
+// Use autoload if it isn't loaded before.
+if (!class_exists(EnpiiBasePlugin::class)) {
+    require_once __DIR__.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'autoload.php';
+}
+
+if (!function_exists('enpii_base_init_wp_app_config')) {
+    /**
+     * Initialize global configuration
+     */
+    function enpii_base_init_wp_app_config(): array
+    {
+        $config = require_once(__DIR__.DIRECTORY_SEPARATOR.'config'.DIRECTORY_SEPARATOR.'wp-app.php');
+
+        return apply_filters('enpii-base/wp-app-config', $config);
+    }
+}
+
+if (!function_exists('enpii_base_apply_plugin_config')) {
+    /**
+     * Initialize global configuration
+     *
+     * @param array Configurations
+     *
+     * @return array
+     */
+    function enpii_base_apply_plugin_config(array $config): array
+    {
+        $config = ConfigHelper::setPluginConfig($config, [
+            EnpiiBasePlugin::class => require_once(__DIR__.DIRECTORY_SEPARATOR.'config.php'),
+        ]);
+
+        return $config;
+    }
+}
+add_filter('enpii-base/wp-app-config', 'enpii_base_apply_plugin_config');
+
+if (!function_exists('enpii_base_init_wp_app')) {
+    function enpii_base_init_wp_app()
+    {
+        $config = enpii_base_init_wp_app_config();
+        $wpApp = new WpApp();
+        $wpApp->singleton('config', function (WpApp $app) use ($config) : ConfigRepository {
+            return new ConfigRepository($config);
+        });
+        $wpApp->registerPlugins();
+    }
+}
+add_action('wp_loaded', 'enpii_base_init_wp_app');

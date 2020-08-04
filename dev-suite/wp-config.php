@@ -67,8 +67,8 @@ $table_prefix = getenv('DB_TABLE_PREFIX') ? : 'wp_';
 
 /* That's all, stop editing! Happy blogging. */
 define('WP_DEBUG', true);
-define('WP_DEBUG_LOG', true);
-define('WP_DEBUG_DISPLAY', false);
+define('WP_DEBUG_LOG', false);
+define('WP_DEBUG_DISPLAY', true);
 
 // For using multiple domain
 if ( isset( $_SERVER['HTTP_HOST'] ) ) {

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ruleset name="EnpiiBasePlugin">
+	<description>EnpiiBasePlugin Rules</description>
+
+	<file>./src</file>
+	<exclude-pattern>./dev-suite/</exclude-pattern>
+	<exclude-pattern>./storage/</exclude-pattern>
+	<exclude-pattern>./tests/</exclude-pattern>
+
+	<config name="text_domain" value="enpii"/>
+	<config name="testVersion" value="1.0"/>
+	<config name="ignore_warnings_on_exit" value="0"/>
+
+	<rule ref="Inpsyde">
+	</rule>
+</ruleset>

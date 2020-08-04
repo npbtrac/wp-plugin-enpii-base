@@ -3,20 +3,29 @@
   "description": "The Base plugin for Theme and Plugin development.",
   "type": "wordpress-plugin",
   "authors": [
-    {
-      "name": "Trac Nguyen",
-      "email": "npbtrac@yahoo.com"
-    },
-    {
-      "name": "Enpii",
-      "email": "contact@enpii.com"
-    }
+	{
+	  "name": "Trac Nguyen",
+	  "email": "npbtrac@yahoo.com"
+	},
+	{
+	  "name": "Enpii",
+	  "email": "contact@enpii.com"
+	}
+  ],
+  "repositories": [
+	{
+	  "type": "composer",
+	  "url": "https://packagist.org"
+	},
+	{
+	  "packagist": false
+	}
   ],
   "require": {
-    "laravel/framework": "~7.2.2",
-    "laravelcollective/html": "~6.1.0",
+	"laravel/framework": "~7.2.2",
+	"laravelcollective/html": "~6.1.0",
 	"ezyang/htmlpurifier": "~4.6",
-    "php": ">=7.2.0"
+	"php": ">=7.2.0"
   },
   "require-dev": {
 	"inpsyde/php-coding-standards": "^0.13",
@@ -32,11 +41,11 @@
 	"phpunit/phunit": "~8.0.0"
   },
   "autoload": {
-    "psr-4": {
-      "Enpiicom\\WpPlugin\\EnpiiBase\\": "src",
-      "Enpiicom\\WpPlugin\\EnpiiBase\\App\\": "src/app",
-      "Enpiicom\\WpPlugin\\EnpiiBase\\Libs\\": "src/libs"
-    }
+	"psr-4": {
+	  "Enpiicom\\WpPlugin\\EnpiiBase\\": "src",
+	  "Enpiicom\\WpPlugin\\EnpiiBase\\App\\": "src/app",
+	  "Enpiicom\\WpPlugin\\EnpiiBase\\Libs\\": "src/libs"
+	}
   },
   "autoload-dev": {
 	"psr-4": {
