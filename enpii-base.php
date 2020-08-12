@@ -53,15 +53,30 @@ if (!function_exists('enpii_base_apply_plugin_config')) {
 }
 add_filter('enpii-base/wp-app-config', 'enpii_base_apply_plugin_config');
 
+if ( ! function_exists( 'enpii_base_setup_wp_app_rewrite_rules' ) ) {
+    /**
+     * Make `wp-app` to work with Yii
+     */
+    function enpii_base_setup_wp_app_rewrite_rules() {
+        global $wp_query, $wp_rewrite;
+
+        dump($wp_query);
+        dump($wp_rewrite);
+
+        die('asdf');
+    }
+}
+//add_action( 'parse_query', 'enpii_base_setup_wp_app_rewrite_rules', 1 );
+
 if (!function_exists('enpii_base_init_wp_app')) {
     function enpii_base_init_wp_app()
     {
         $config = enpii_base_init_wp_app_config();
-        $wpApp = new WpApp();
+        $wpApp = new WpApp(__DIR__);
         $wpApp->singleton('config', function (WpApp $app) use ($config) : ConfigRepository {
             return new ConfigRepository($config);
         });
         $wpApp->registerPlugins();
     }
 }
-add_action('wp_loaded', 'enpii_base_init_wp_app');
+add_action('after_setup_theme', 'enpii_base_init_wp_app');

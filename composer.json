@@ -25,6 +25,7 @@
 	"laravel/framework": "~7.2.2",
 	"laravelcollective/html": "~6.1.0",
 	"ezyang/htmlpurifier": "~4.6",
+    "mcaskill/composer-exclude-files": "^1.2.0",
 	"php": ">=7.2.0"
   },
   "require-dev": {
@@ -45,7 +46,10 @@
 	  "Enpiicom\\WpPlugin\\EnpiiBase\\": "src",
 	  "Enpiicom\\WpPlugin\\EnpiiBase\\App\\": "src/app",
 	  "Enpiicom\\WpPlugin\\EnpiiBase\\Libs\\": "src/libs"
-	}
+	},
+    "exclude-from-files": [
+      "laravel/framework/Illuminate/Foundation/helpers.php"
+    ]
   },
   "autoload-dev": {
 	"psr-4": {
