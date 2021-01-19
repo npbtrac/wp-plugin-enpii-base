@@ -13,7 +13,7 @@
     }
   ],
   "require": {
-    "laravel/framework": "~7.2.2",
+    "laravel/framework": "~7.30.3",
     "laravel/socialite": "~4.3.2",
     "laravelcollective/html": "~6.1.0",
     "symfony/var-dumper": "~5.0.8",
