@@ -1,0 +1,80 @@
+# package management
+vendor
+node_modules
+
+# others
+cgi-bin
+
+# zip files
+*.zip
+*.tar.gz
+
+# sass
+.sass-cache
+
+# phpstorm project files
+.idea
+.DS_Store
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer itself is not needed
+composer.phar
+
+# Mac DS_Store Files
+.DS_Store
+__MACOSX/
+
+# phpunit itself is not needed
+phpunit.phar
+
+#robot file
+robots.txt
+
+#prepros file
+prepros.cfg
+
+# applications
+# CodeKit
+config.codekit
+.codekit-cache
+
+# Application
+web/app/plugins/*
+!web/app/plugins/.gitkeep
+web/app/mu-plugins/*/
+web/app/upgrade
+web/app/uploads/*
+!web/app/uploads/.gitkeep
+
+# WordPress
+web/wp
+web/.htaccess
+
+# Logs
+*.log
+
+# Dotenv
+.env
+.env.*
+!.env.example
+
+# WP-CLI
+wp-cli.local.yml
+
+# Docker compose
+docker-compose.override.yml
+docker-compose.local.yml
+
+assets
+!assets/src
+!assets/dist
