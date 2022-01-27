@@ -44,10 +44,10 @@ services:
       - mysql_db:/var/lib/mysql
       - './docker/mysql8/my.cnf:/etc/mysql/conf.d/my.cnf'
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_PASSWORD=123456
-      - MYSQL_USER=enpii
-      - MYSQL_DATABASE=enpii_base
+      - MYSQL_ROOT_PASSWORD=$DB_ROOT_PASSWORD
+      - MYSQL_DATABASE=$DB_NAME
+      - MYSQL_PASSWORD=$DB_PASSWORD
+      - MYSQL_USER=$DB_USER
   
   # mailhog:
   #   image: mailhog/mailhog
