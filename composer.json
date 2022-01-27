@@ -3,6 +3,34 @@
         "laravel/framework": "9.0.0-beta.4"
     },
     "require-dev": {
-        "johnpbloch/wordpress-core": "^5.9"
-    }
+        "johnpbloch/wordpress-core": "^5.9",
+        "wp-theme/storefront": "^3.9.1",
+        "wp-plugin/woocommerce": "^6.1.1"
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "wp-plugin/woocommerce",
+                "type": "wordpress-plugin",
+                "version": "6.1.1",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://downloads.wordpress.org/plugin/woocommerce.6.1.1.zip"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "wp-theme/storefront",
+                "type": "wordpress-theme",
+                "version": "3.9.1",
+                "dist": {
+                    "type": "zip",
+                    "url": "https://downloads.wordpress.org/theme/storefront.3.9.1.zip"
+                }
+            }
+        }
+    ]
 }

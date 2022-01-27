@@ -16,11 +16,11 @@ services:
     #   - ./docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf
     #   - ./docker/php/php-custom.ini:/usr/local/etc/php/conf.d/zz-php-custom.ini
       - ./vendor/johnpbloch/wordpress-core:/var/www/wordpress
-    #   - ./vendor/wp-plugin/woocommerce:/var/www/wordpress/wp-content/plugins/woocommerce
+      - ./vendor/wp-plugin/woocommerce:/var/www/wordpress/wp-content/plugins/woocommerce
     #   - ./vendor/wp-plugin/woo-checkout-field-editor-pro:/var/www/wordpress/wp-content/plugins/woo-checkout-field-editor-pro
-    #   - ./vendor/wp-theme/storefront:/var/www/wordpress/wp-content/themes/storefront
+      - ./vendor/wp-theme/storefront:/var/www/wordpress/wp-content/themes/storefront
     #   - ./docker/wordpress/wp-content/logs:/var/www/wordpress/wp-content/logs
-    #   - ./docker/wordpress/wp-config.php:/var/www/wp-config.php
+      - ./docker/wordpress/wp-config.php:/var/www/wp-config.php
     #   - ./:${PROJECT_MOUNT_PATH}
     env_file:
       - ./.env

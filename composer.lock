@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "af5939db154d07994d5d13a130054885",
+    "content-hash": "716525b4bcc7237331f85f7bd3d137cc",
     "packages": [
         {
             "name": "brick/math",
@@ -4264,6 +4264,24 @@
                 "wiki": "https://codex.wordpress.org/"
             },
             "time": "2022-01-25T20:28:49+00:00"
+        },
+        {
+            "name": "wp-plugin/woocommerce",
+            "version": "6.1.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/woocommerce.6.1.1.zip"
+            },
+            "type": "wordpress-plugin"
+        },
+        {
+            "name": "wp-theme/storefront",
+            "version": "3.9.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/theme/storefront.3.9.1.zip"
+            },
+            "type": "wordpress-theme"
         }
     ],
     "aliases": [],

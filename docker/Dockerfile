@@ -99,11 +99,11 @@ WORKDIR /var/www/wordpress
 # RUN sed -i 's|access_log /var/log/nginx/access.log|access_log /proc/self/fd/2|g' /etc/nginx/nginx.conf
 # RUN sed -i 's|error_log /var/log/nginx/error.log|error_log /proc/self/fd/2|g' /etc/nginx/nginx.conf
 
-# COPY ./vendor/johnpbloch/wordpress-core /var/www/wordpress
-# COPY ./vendor/wp-plugin/woocommerce /var/www/wordpress/wp-content/plugins/woocommerce
+COPY ./vendor/johnpbloch/wordpress-core /var/www/wordpress
+COPY ./vendor/wp-plugin/woocommerce /var/www/wordpress/wp-content/plugins/woocommerce
 # COPY ./vendor/wp-plugin/woo-checkout-field-editor-pro /var/www/wordpress/wp-content/plugins/woo-checkout-field-editor-pro
-# COPY ./vendor/wp-theme/storefront /var/www/wordpress/wp-content/themes/storefront
-# COPY ./docker/wordpress/wp-config.php /var/www/wp-config.php
+COPY ./vendor/wp-theme/storefront /var/www/wordpress/wp-content/themes/storefront
+COPY ./docker/wordpress/wp-config.php /var/www/wp-config.php
 
 # WORKDIR /var/www/wordpress
 
