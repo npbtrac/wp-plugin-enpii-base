@@ -83,11 +83,6 @@ define( 'WP_DEBUG', true );
 define( 'WP_DEBUG_DISPLAY', false );
 define( 'SAVEQUERIES', true );
 
-/**
- * File System
- */
-define( 'FS_METHOD', env( 'FS_METHOD', 'direct' ) );
-
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) )
 	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
