@@ -59,7 +59,7 @@ web/app/uploads/*
 # WordPress
 web/wp
 web/.htaccess
-./docker/wordpress/wp-config.php
+docker/wordpress/wp-config.php
 
 # Logs
 *.log

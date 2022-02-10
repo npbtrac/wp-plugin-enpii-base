@@ -10,6 +10,11 @@ RUN mkdir /var/www
 RUN mkdir /var/www/wordpress
 WORKDIR /var/www/wordpress
 
+RUN wget https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64 && \
+	chmod +x mhsendmail_linux_amd64 && \
+	mv mhsendmail_linux_amd64 /usr/local/bin/mhsendmail
+
+
 # RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # # persistent dependencies
