@@ -10,9 +10,11 @@ RUN mkdir /var/www
 RUN mkdir /var/www/wordpress
 WORKDIR /var/www/wordpress
 
-RUN wget https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64 && \
-	chmod +x mhsendmail_linux_amd64 && \
-	mv mhsendmail_linux_amd64 /usr/local/bin/mhsendmail
+COPY ./docker/wordpress/wp-config.php /var/www/wp-config.php
+
+# RUN wget https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64 && \
+# 	chmod +x mhsendmail_linux_amd64 && \
+# 	mv mhsendmail_linux_amd64 /usr/local/bin/mhsendmail
 
 
 # RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -104,10 +106,10 @@ RUN wget https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendma
 # RUN sed -i 's|access_log /var/log/nginx/access.log|access_log /proc/self/fd/2|g' /etc/nginx/nginx.conf
 # RUN sed -i 's|error_log /var/log/nginx/error.log|error_log /proc/self/fd/2|g' /etc/nginx/nginx.conf
 
-COPY ./vendor/johnpbloch/wordpress-core /var/www/wordpress
-COPY ./vendor/wp-plugin/woocommerce /var/www/wordpress/wp-content/plugins/woocommerce
+# COPY ./vendor/johnpbloch/wordpress-core /var/www/wordpress
+# COPY ./vendor/wp-plugin/woocommerce /var/www/wordpress/wp-content/plugins/woocommerce
 # COPY ./vendor/wp-plugin/woo-checkout-field-editor-pro /var/www/wordpress/wp-content/plugins/woo-checkout-field-editor-pro
-COPY ./vendor/wp-theme/storefront /var/www/wordpress/wp-content/themes/storefront
+# COPY ./vendor/wp-theme/storefront /var/www/wordpress/wp-content/themes/storefront
 COPY ./docker/wordpress/wp-config.php /var/www/wp-config.php
 
 # WORKDIR /var/www/wordpress

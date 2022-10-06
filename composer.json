@@ -1,36 +1,49 @@
 {
     "require": {
-        "laravel/framework": "9.0.0-beta.4"
+        "php": ">=7.3",
+        "laravel/framework": "^8.0"
     },
     "require-dev": {
-        "johnpbloch/wordpress-core": "^5.9",
-        "wp-theme/storefront": "^3.9.1",
-        "wp-plugin/woocommerce": "^6.1.1"
+        "johnpbloch/wordpress-core": "^6.0",
+        "wpackagist-theme/storefront": "^4.0",
+        "wpackagist-plugin/woocommerce": "^6.0"
     },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "repositories": [
         {
-            "type": "package",
-            "package": {
-                "name": "wp-plugin/woocommerce",
-                "type": "wordpress-plugin",
-                "version": "6.1.1",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://downloads.wordpress.org/plugin/woocommerce.6.1.1.zip"
-                }
-            }
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "wp-theme/storefront",
-                "type": "wordpress-theme",
-                "version": "3.9.1",
-                "dist": {
-                    "type": "zip",
-                    "url": "https://downloads.wordpress.org/theme/storefront.3.9.1.zip"
-                }
-            }
+            "type":"composer",
+            "url":"https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
         }
-    ]
+    ],
+    "config": {
+        "allow-plugins": {
+            "composer/installers": true,
+            "johnpbloch/wordpress-core-installer": true
+        },
+        "vendor-dir": "./vendor",
+        "sort-packages": true
+    },
+    "extra": {
+        "installer-paths": {
+            "docker/wordpress/wp-content/themes/{$name}/": [
+                "type:wordpress-theme"
+            ],
+            "docker/wordpress/wp-content/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ]
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "cp -r `find ./vendor/johnpbloch/wordpress-core -maxdepth 1 -mindepth 1 | cut -c3- | grep -v 'wp-content'` docker/wordpress" 
+        ],
+        "post-update-cmd": [
+            "cp -r `find ./vendor/johnpbloch/wordpress-core -maxdepth 1 -mindepth 1 | cut -c3- | grep -v 'wp-content'` docker/wordpress"
+        ]
+    }
 }

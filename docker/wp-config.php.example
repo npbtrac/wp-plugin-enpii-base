@@ -79,13 +79,15 @@ if ( isset( $_SERVER['HTTP_HOST'] ) ) {
     define( 'WP_SITEURL', $http_protocol . '://' . $_SERVER['HTTP_HOST'] );
 }
 
-define( 'WP_DEBUG', true );
-define( 'WP_DEBUG_DISPLAY', false );
-define( 'SAVEQUERIES', true );
-
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) )
 	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
+
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_DISPLAY', false );
+// set to 'true' means the default debug.log file would be wp-content/debug.log
+define( 'WP_DEBUG_LOG', ABSPATH . DIRECTORY_SEPARATOR . 'debug.log' ); 
+define( 'SAVEQUERIES', true );
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
