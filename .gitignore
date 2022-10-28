@@ -3,8 +3,6 @@
 .env
 .env.*
 !.env.example
-docker/wp-config.php
-docker/config
 
 # WP-CLI
 wp-cli.local.yml

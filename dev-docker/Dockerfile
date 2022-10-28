@@ -1,16 +1,60 @@
-FROM wyveo/nginx-php-fpm:php80
+FROM serversideup/php:8.0-fpm-nginx
 
-ENV DEBIAN_FRONTEND=noninteractive
-ENV TZ=Asia/Ho_Chi_Minh
+USER root
 
-RUN set -eux; \
-	apt-get update;
+RUN apt-get update \
+    && apt-get -y --no-install-recommends install \
+    # Ghostscript is required for rendering PDF previews
+    ghostscript \
+    php8.0-imagick \
+    php8.0-apcu \
+    php8.0-memcache \
+    curl
 
-RUN mkdir /var/www
-RUN mkdir /var/www/wordpress
-WORKDIR /var/www/wordpress
+# ENV DEBIAN_FRONTEND=noninteractive
+# ENV TZ=Asia/Ho_Chi_Minh
 
-COPY ./docker/wordpress/wp-config.php /var/www/wp-config.php
+# Disable force SSL https://github.com/serversideup/docker-php/tree/main#environment-variables
+ENV SSL_MODE="off"
+
+# RUN set -eux; \
+# 	apt-get update
+# RUN apt-get install curl
+
+RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+RUN chmod +x wp-cli.phar
+RUN mv wp-cli.phar /usr/local/bin/wp
+
+# Use default for nginx virtual host
+COPY ./dev-docker/config/nginx/default /etc/nginx/sites-available/ssl-off
+
+# Overrides PHP configs
+COPY ./dev-docker/config/php/cli/php-overrides.ini /etc/php/8.0/cli/conf.d/99-overrides.ini
+COPY ./dev-docker/config/php/fpm/php-overrides.ini /etc/php/8.0/fpm/conf.d/99-overrides.ini
+COPY ./dev-docker/config/php/fpm/pool.d/y-override-php-defaults.conf /etc/php/8.0/fpm/conf.d/pool.d/y-override-php-defaults.conf
+
+
+RUN mkdir -p /var/www/html/public >/dev/null 2>&1
+RUN mkdir -p /var/www/html/public/wp-content/mu-plugins >/dev/null 2>&1
+RUN mkdir -p /var/www/html/public/wp-content/cache >/dev/null 2>&1
+RUN mkdir -p /var/www/html/public/wp-content/uploads >/dev/null 2>&1
+RUN mkdir -p /var/www/html/public/wp-content/upgrades >/dev/null 2>&1
+RUN chown -R webuser:webgroup /var/www/html/public
+RUN chmod -R 777 /var/www/html/public/wp-content/uploads /var/www/html/public/wp-content/cache
+
+USER webuser
+
+COPY ./dev-docker/wordpress/ /var/www/html/public
+COPY ./dev-docker/config/wordpress/wp-config.php /var/www/html/wp-config.php
+
+USER root
+
+WORKDIR /var/www/html/public
+
+## For specific project
+USER webuser
+COPY ./dev-miscs/bedrock-autoloader.php /var/www/html/public/wp-content/mu-plugins/bedrock-autoloader.php
+USER root
 
 # RUN wget https://github.com/mailhog/mhsendmail/releases/download/v0.2.0/mhsendmail_linux_amd64 && \
 # 	chmod +x mhsendmail_linux_amd64 && \
@@ -110,7 +154,7 @@ COPY ./docker/wordpress/wp-config.php /var/www/wp-config.php
 # COPY ./vendor/wp-plugin/woocommerce /var/www/wordpress/wp-content/plugins/woocommerce
 # COPY ./vendor/wp-plugin/woo-checkout-field-editor-pro /var/www/wordpress/wp-content/plugins/woo-checkout-field-editor-pro
 # COPY ./vendor/wp-theme/storefront /var/www/wordpress/wp-content/themes/storefront
-COPY ./docker/wordpress/wp-config.php /var/www/wp-config.php
+# COPY ./docker/wordpress/wp-config.php /var/www/wp-config.php
 
 # WORKDIR /var/www/wordpress
 

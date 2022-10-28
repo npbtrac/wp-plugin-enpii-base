@@ -1,7 +1,7 @@
 {
     "require": {
-        "php": ">=7.3",
-        "laravel/framework": "^8.0"
+        "php": "^8.0.2",
+        "laravel/framework": "^9.0"
     },
     "require-dev": {
         "johnpbloch/wordpress-core": "^6.0",
@@ -30,20 +30,20 @@
     },
     "extra": {
         "installer-paths": {
-            "docker/wordpress/wp-content/themes/{$name}/": [
+            "dev-docker/wordpress/wp-content/themes/{$name}/": [
                 "type:wordpress-theme"
             ],
-            "docker/wordpress/wp-content/plugins/{$name}/": [
+            "dev-docker/wordpress/wp-content/plugins/{$name}/": [
                 "type:wordpress-plugin"
             ]
         }
     },
     "scripts": {
         "post-install-cmd": [
-            "cp -r `find ./vendor/johnpbloch/wordpress-core -maxdepth 1 -mindepth 1 | cut -c3- | grep -v 'wp-content'` docker/wordpress" 
+            "cp -r `find ./vendor/johnpbloch/wordpress-core -maxdepth 1 -mindepth 1 | cut -c3- | grep -v 'wp-content'` dev-docker/wordpress" 
         ],
         "post-update-cmd": [
-            "cp -r `find ./vendor/johnpbloch/wordpress-core -maxdepth 1 -mindepth 1 | cut -c3- | grep -v 'wp-content'` docker/wordpress"
+            "cp -r `find ./vendor/johnpbloch/wordpress-core -maxdepth 1 -mindepth 1 | cut -c3- | grep -v 'wp-content'` dev-docker/wordpress"
         ]
     }
 }
