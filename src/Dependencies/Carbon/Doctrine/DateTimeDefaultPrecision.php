@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ *
+ * (c) Brian Nesbitt <brian@nesbot.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Doctrine;
+
+class DateTimeDefaultPrecision
+{
+    private static $precision = 6;
+
+    /**
+     * Change the default Doctrine datetime and datetime_immutable precision.
+     *
+     * @param int $precision
+     */
+    public static function set(int $precision): void
+    {
+        self::$precision = $precision;
+    }
+
+    /**
+     * Get the default Doctrine datetime and datetime_immutable precision.
+     *
+     * @return int
+     */
+    public static function get(): int
+    {
+        return self::$precision;
+    }
+}

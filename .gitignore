@@ -3,6 +3,7 @@
 .env
 .env.*
 !.env.example
+phpcs.cache
 
 # WP-CLI
 wp-cli.local.yml
@@ -28,6 +29,9 @@ cgi-bin
 
 # sass
 .sass-cache
+
+# .vscode
+.vscode
 
 # phpstorm project files
 .idea
