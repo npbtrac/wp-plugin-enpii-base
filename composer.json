@@ -1,49 +1,103 @@
 {
-    "require": {
-        "php": "^8.0.2",
-        "laravel/framework": "^9.0"
-    },
-    "require-dev": {
-        "johnpbloch/wordpress-core": "^6.0",
-        "wpackagist-theme/storefront": "^4.0",
-        "wpackagist-plugin/woocommerce": "^6.0"
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type":"composer",
-            "url":"https://wpackagist.org",
-            "only": [
-                "wpackagist-plugin/*",
-                "wpackagist-theme/*"
-            ]
-        }
-    ],
-    "config": {
-        "allow-plugins": {
-            "composer/installers": true,
-            "johnpbloch/wordpress-core-installer": true
-        },
-        "vendor-dir": "./vendor",
-        "sort-packages": true
-    },
-    "extra": {
-        "installer-paths": {
-            "dev-docker/wordpress/wp-content/themes/{$name}/": [
-                "type:wordpress-theme"
-            ],
-            "dev-docker/wordpress/wp-content/plugins/{$name}/": [
-                "type:wordpress-plugin"
-            ]
-        }
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "cp -r `find ./vendor/johnpbloch/wordpress-core -maxdepth 1 -mindepth 1 | cut -c3- | grep -v 'wp-content'` dev-docker/wordpress" 
-        ],
-        "post-update-cmd": [
-            "cp -r `find ./vendor/johnpbloch/wordpress-core -maxdepth 1 -mindepth 1 | cut -c3- | grep -v 'wp-content'` dev-docker/wordpress"
-        ]
+  "name": "enpii/enpii-base",
+  "require": {
+    "php": "^7.2.5|^8.0",
+    "laravel/framework": "7.30.6",
+    "symfony/translation-contracts": "~2.5.2",
+    "symfony/translation": "~5.4.14",
+    "symfony/string": "~5.4.15",
+    "symfony/event-dispatcher-contracts": "~2.5.2",
+    "symfony/event-dispatcher": "~5.4.9",
+    "symfony/deprecation-contracts": "~2.5.2",
+    "symfony/css-selector": "~5.4.11"
+  },
+  "require-dev": {
+    "automattic/vipwpcs": "^2.3",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
+    "johnpbloch/wordpress-core": "^6.0",
+    "phpcompatibility/php-compatibility": "*",
+    "psr/log": "~1.1.4",
+    "ramsey/uuid": "~4.2.3",
+    "wpackagist-plugin/woocommerce": "^6.0",
+    "wpackagist-theme/storefront": "^4.0",
+    "wpackagist-theme/twentytwentythree": "^1.0.0"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org",
+      "only": [
+        "wpackagist-plugin/*",
+        "wpackagist-theme/*"
+      ]
     }
+  ],
+  "autoload": {
+    "files": [
+      "./src/Support/helpers-wp-app.php",
+      "./src/Support/helpers.php",
+      "./src/Dependencies/Symfony/Polyfill/Php80/bootstrap.php",
+      "./src/Dependencies/Illuminate/Foundation/helpers.php",
+      "./src/Dependencies/Illuminate/Support/helpers.php",
+      "./src/Dependencies/Symfony/Component/VarDumper/Resources/functions/dump.php"
+    ],
+    "psr-4": {
+      "Enpii\\Wp_Plugin\\Enpii_Base\\": "src"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "composer/installers": true,
+      "johnpbloch/wordpress-core-installer": true,
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    },
+    "vendor-dir": "./vendor",
+    "sort-packages": true
+  },
+  "extra": {
+    "installer-paths": {
+      "dev-docker/wordpress/wp-content/themes/{$name}/": [
+        "type:wordpress-theme"
+      ],
+      "dev-docker/wordpress/wp-content/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ]
+    },
+    "mozart": {
+      "dep_namespace": "Enpii\\Wp_Plugin\\Enpii_Base\\Dependencies\\",
+      "dep_directory": "/src/Dependencies/",
+      "classmap_directory": "/classes/dependencies/",
+      "classmap_prefix": "NpWpNPB_",
+      "packages": [
+        "laravel/framework"
+      ],
+      "excluded_packages": [],
+      "override_autoload": {},
+      "delete_vendor_directories": true
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "[ $COMPOSER_DEV_MODE -eq 0 ] || cp -r `find ./vendor/johnpbloch/wordpress-core -maxdepth 1 -mindepth 1 | cut -c3- | grep -v 'wp-content'` dev-docker/wordpress"
+    ],
+    "post-update-cmd": [
+      "[ $COMPOSER_DEV_MODE -eq 0 ] || cp -r `find ./vendor/johnpbloch/wordpress-core -maxdepth 1 -mindepth 1 | cut -c3- | grep -v 'wp-content'` dev-docker/wordpress"
+    ],
+    "dev-update": [
+      "@composer update --dev",
+      "cp -r `find ./vendor/johnpbloch/wordpress-core -maxdepth 1 -mindepth 1 | cut -c3- | grep -v 'wp-content'` dev-docker/wordpress"
+    ],
+    "phpcs": [
+      "./vendor/bin/phpcs"
+    ],
+    "phpunit": [
+      "./vendor/bin/phpunit"
+    ],
+    "test": [
+      "@phpcs",
+      "@phpunit"
+    ]
+  }
 }
