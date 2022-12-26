@@ -16,7 +16,9 @@ defined( 'ENPII_BASE_VERSION' ) || define( 'ENPII_BASE_PLUGIN_SLUG', '0.0.1' );
 defined( 'DIR_SEP' ) || define( 'DIR_SEP', DIRECTORY_SEPARATOR );
 
 // We include composer autoload here
-require_once __DIR__ . DIR_SEP . 'vendor' . DIR_SEP . 'autoload.php';
+if ( ! class_exists( Enpii\Wp_Plugin\Enpii_Base\Libs\Wp_Application::class ) ) {
+	require_once __DIR__ . DIR_SEP . 'vendor' . DIR_SEP . 'autoload.php';
+}
 
 // Plugin constants
 defined( 'ENPII_BASE_PLUGIN_SLUG' ) || define( 'ENPII_BASE_PLUGIN_SLUG', 'enpii-base' );
