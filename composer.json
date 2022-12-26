@@ -2,7 +2,6 @@
   "name": "enpii/enpii-base",
   "require": {
     "php": "^7.2.5|^8.0",
-    "laravel/framework": "7.30.6",
     "symfony/translation-contracts": "~2.5.2",
     "symfony/translation": "~5.4.14",
     "symfony/string": "~5.4.15",
