@@ -1,2 +1,5 @@
 *
+!mu-plugins/.gitignore
+!plugins/.gitignore
+!themes/.gitignore
 !.gitignore
