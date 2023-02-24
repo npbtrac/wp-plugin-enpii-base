@@ -20,6 +20,7 @@ if ( ! class_exists( Enpii\Wp_Plugin\Enpii_Base\Libs\Wp_Application::class ) ) {
 	require_once __DIR__ . DIR_SEP . 'vendor' . DIR_SEP . 'autoload.php';
 }
 
+
 // Plugin constants
 defined( 'ENPII_BASE_PLUGIN_SLUG' ) || define( 'ENPII_BASE_PLUGIN_SLUG', 'enpii-base' );
 defined( 'ENPII_BASE_WP_APP_PREFIX' ) || define( 'ENPII_BASE_WP_APP_PREFIX', env('ENPII_BASE_WP_APP_PREFIX', 'wp-app') );
