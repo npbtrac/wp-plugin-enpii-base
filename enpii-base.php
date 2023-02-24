@@ -10,7 +10,7 @@
  */
 
 // Update these constants whenever you bump the version
-defined( 'ENPII_BASE_VERSION' ) || define( 'ENPII_BASE_PLUGIN_SLUG', '0.0.1' );
+defined( 'ENPII_BASE_VERSION' ) || define( 'ENPII_BASE_PLUGIN_VERSION', '0.0.1' );
 
 // General fixed constants
 defined( 'DIR_SEP' ) || define( 'DIR_SEP', DIRECTORY_SEPARATOR );

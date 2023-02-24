@@ -34,7 +34,7 @@ The local website will work with http://127.0.0.1:10108/ (or the port you put in
     - Code sample here https://github.com/mguinea/laravel-ddd-example
     - More on DDD https://content-garden.com/domain-driven-design-ddd-principles-with-laravel
 	- More on CQRS https://tsh.io/blog/cqrs-event-sourcing-php/, https://github.com/artisansdk/cqrs
-    - Each hanlder is a class (1 class only for 1 handler). An action may contain many hanlders.
+    - Each handler is a class (1 class only for 1 handler). An action may contain many hanlders.
 
 ### Working with composer
 - We should use `~1.0.3` when require a package (only update if bugfixing released)
