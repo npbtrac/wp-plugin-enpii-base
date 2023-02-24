@@ -34,13 +34,15 @@ The local website will work with http://127.0.0.1:10108/ (or the port you put in
     - Code sample here https://github.com/mguinea/laravel-ddd-example
     - More on DDD https://content-garden.com/domain-driven-design-ddd-principles-with-laravel
 	- More on CQRS https://tsh.io/blog/cqrs-event-sourcing-php/, https://github.com/artisansdk/cqrs
-    - Each hanlder is a class (1 class only for 1 handler). An action may contain many hanlders.
+  - Each handler is a class (1 class only for 1 handler). An action may contain many hanlders.
 
 ### Working with composer
 - We should use `~1.0.3` when require a package (only update if bugfixing released)
 - We use `mozart` (https://packagist.org/packages/coenjacobs/mozart) package to put the dependencies to a separate folder for the plugin to avoid the conflicts
   - We should use `mozart` globally
   - After running `composer update`, you need to run `mozart compose` (this should be run manually). If issues found related to some composer issues e.g. wrong included files, wrong path (due to the moving of files) ... you need to run `composer update` (or `composer dump-autoload`) one more time after fixing `composer.json` file.
+- In case we want to upgrade laravel framework (it's a crazy thing), you need to add `"laravel/framework": "7.30.6"` to the dependencies then remove that line and `composer.lock` after running mozart then run `composer update` again.
+
 #### Process to perform the composer and mozart:
   - Remove the `autoload -> files` part in composer.json
   - `composer install` or `composer update`

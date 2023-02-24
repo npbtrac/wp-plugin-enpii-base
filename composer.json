@@ -1,5 +1,6 @@
 {
   "name": "enpii/enpii-base",
+  "type": "wordpress-muplugin",
   "require": {
     "php": "^7.2.5|^8.0",
     "laravel/framework": "7.30.6",
