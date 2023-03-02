@@ -14,6 +14,7 @@
   },
   "require-dev": {
     "automattic/vipwpcs": "^2.3",
+    "codeception/codeception": "^4.2",
     "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
     "johnpbloch/wordpress-core": "^6.0",
     "phpcompatibility/php-compatibility": "*",
