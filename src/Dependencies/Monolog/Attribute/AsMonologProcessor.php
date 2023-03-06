@@ -13,9 +13,9 @@ namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Attribute;
 
 /**
  * A reusable attribute to help configure a class or a method as a processor.
- * 
+ *
  * Using it offers no guarantee: it needs to be leveraged by a Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog third-party consumer.
- * 
+ *
  * Using it with the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog library only has no effect at all: processors should still be turned into a callable if
  * needed and manually pushed to the loggers and to the processable handlers.
  */
@@ -28,7 +28,7 @@ class AsMonologProcessor
     public $handler = null;
     /** @var string|null */
     public $method = null;
-    
+
     /**
      * @param string|null $channel  The logging channel the processor should be pushed to.
      * @param string|null $handler  The handler the processor should be pushed to.
@@ -43,4 +43,4 @@ class AsMonologProcessor
         $this->handler = $handler;
         $this->method = $method;
     }
-} 
+}

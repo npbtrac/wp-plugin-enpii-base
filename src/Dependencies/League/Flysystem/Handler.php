@@ -76,7 +76,7 @@ abstract class Handler
 
         return $this;
     }
-    
+
     /**
      * Retrieve the Filesystem object.
      *
