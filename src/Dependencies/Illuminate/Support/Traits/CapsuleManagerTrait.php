@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent;
 
 trait CapsuleManagerTrait
 {
@@ -17,14 +17,14 @@ trait CapsuleManagerTrait
     /**
      * The container instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
      */
     protected $container;
 
     /**
      * Setup the IoC container instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
      * @return void
      */
     protected function setupContainer(Container $container)
@@ -49,7 +49,7 @@ trait CapsuleManagerTrait
     /**
      * Get the IoC container instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
      */
     public function getContainer()
     {
@@ -59,7 +59,7 @@ trait CapsuleManagerTrait
     /**
      * Set the IoC container instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
      * @return void
      */
     public function setContainer(Container $container)

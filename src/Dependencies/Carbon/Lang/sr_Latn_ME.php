@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -15,7 +15,7 @@
  * - Milos Sakovic
  */
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
 
 return array_replace_recursive(require __DIR__.'/sr.php', [
     'month' => ':count mjesec|:count mjeseca|:count mjeseci',

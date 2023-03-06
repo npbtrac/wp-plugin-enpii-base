@@ -1,3 +1,3 @@
 <div class="table">
-{{ Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Markdown::parse($slot) }}
+{{ Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Markdown::parse($slot) }}
 </div>

@@ -12,17 +12,17 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid;
 
 use DateTimeInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Codec\CodecInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\NumberConverterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\TimeConverterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Fields\FieldsInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Lazy\LazyUuidFromString;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122\FieldsInterface as Rfc4122FieldsInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Hexadecimal;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Integer as IntegerObject;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Codec\CodecInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\NumberConverterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\TimeConverterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Fields\FieldsInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Lazy\LazyUuidFromString;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122\FieldsInterface as Rfc4122FieldsInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Hexadecimal;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Integer as IntegerObject;
 use NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_ValueError;
 
 use function assert;
@@ -239,7 +239,7 @@ class Uuid implements UuidInterface
      * UUID directly. Use the static methods, instead:
      *
      * ```
-     * use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Uuid;
+     * use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Uuid;
      *
      * $timeBasedUuid = Uuid::uuid1();
      * $namespaceMd5Uuid = Uuid::uuid3(Uuid::NAMESPACE_URL, 'http://php.net/');

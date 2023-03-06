@@ -1,31 +1,31 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem;
 
 use Aws\S3\S3Client;
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Factory as FactoryContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Factory as FactoryContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
 use InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Ftp as FtpAdapter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Local as LocalAdapter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\AdapterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\AwsS3v3\AwsS3Adapter as S3Adapter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Cached\CachedAdapter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Cached\Storage\Memory as MemoryStore;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Filesystem as Flysystem;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Sftp\SftpAdapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Ftp as FtpAdapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Local as LocalAdapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\AdapterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\AwsS3v3\AwsS3Adapter as S3Adapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Cached\CachedAdapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Cached\Storage\Memory as MemoryStore;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Filesystem as Flysystem;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Sftp\SftpAdapter;
 
 /**
- * @mixin \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
+ * @mixin \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
  */
 class FilesystemManager implements FactoryContract
 {
     /**
      * The application instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
      */
     protected $app;
 
@@ -46,7 +46,7 @@ class FilesystemManager implements FactoryContract
     /**
      * Create a new filesystem manager instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
      * @return void
      */
     public function __construct($app)
@@ -58,7 +58,7 @@ class FilesystemManager implements FactoryContract
      * Get a filesystem instance.
      *
      * @param  string|null  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
      */
     public function drive($name = null)
     {
@@ -69,7 +69,7 @@ class FilesystemManager implements FactoryContract
      * Get a filesystem instance.
      *
      * @param  string|null  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
      */
     public function disk($name = null)
     {
@@ -81,7 +81,7 @@ class FilesystemManager implements FactoryContract
     /**
      * Get a default cloud filesystem instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
      */
     public function cloud()
     {
@@ -94,7 +94,7 @@ class FilesystemManager implements FactoryContract
      * Attempt to get the disk from the local cache.
      *
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
      */
     protected function get($name)
     {
@@ -105,7 +105,7 @@ class FilesystemManager implements FactoryContract
      * Resolve the given disk.
      *
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
      *
      * @throws \InvalidArgumentException
      */
@@ -136,7 +136,7 @@ class FilesystemManager implements FactoryContract
      * Call a custom driver creator.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
      */
     protected function callCustomCreator(array $config)
     {
@@ -153,7 +153,7 @@ class FilesystemManager implements FactoryContract
      * Create an instance of the local driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
      */
     public function createLocalDriver(array $config)
     {
@@ -172,7 +172,7 @@ class FilesystemManager implements FactoryContract
      * Create an instance of the ftp driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
      */
     public function createFtpDriver(array $config)
     {
@@ -185,7 +185,7 @@ class FilesystemManager implements FactoryContract
      * Create an instance of the sftp driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
      */
     public function createSftpDriver(array $config)
     {
@@ -198,7 +198,7 @@ class FilesystemManager implements FactoryContract
      * Create an instance of the Amazon S3 driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Cloud
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Cloud
      */
     public function createS3Driver(array $config)
     {
@@ -235,9 +235,9 @@ class FilesystemManager implements FactoryContract
     /**
      * Create a Flysystem instance with the given adapter.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\AdapterInterface  $adapter
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\AdapterInterface  $adapter
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface
      */
     protected function createFlysystem(AdapterInterface $adapter, array $config)
     {
@@ -256,7 +256,7 @@ class FilesystemManager implements FactoryContract
      * Create a cache store instance.
      *
      * @param  mixed  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Cached\CacheInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Cached\CacheInterface
      *
      * @throws \InvalidArgumentException
      */
@@ -276,8 +276,8 @@ class FilesystemManager implements FactoryContract
     /**
      * Adapt the filesystem implementation.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface  $filesystem
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface  $filesystem
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
      */
     protected function adapt(FilesystemInterface $filesystem)
     {

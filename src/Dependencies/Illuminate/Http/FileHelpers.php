@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 
 trait FileHelpers
 {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Providers;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Providers;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\ValidatesWhenResolved;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Http\FormRequest;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Redirector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\ValidatesWhenResolved;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Http\FormRequest;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Redirector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
 
 class FormRequestServiceProvider extends ServiceProvider
 {

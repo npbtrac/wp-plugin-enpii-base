@@ -1,20 +1,20 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
 
 class DynamoDbLock extends Lock
 {
     /**
      * The DynamoDB client instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\DynamoDbStore
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\DynamoDbStore
      */
     protected $dynamo;
 
     /**
      * Create a new lock instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\DynamoDbStore  $dynamo
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\DynamoDbStore  $dynamo
      * @param  string  $name
      * @param  int  $seconds
      * @param  string|null  $owner

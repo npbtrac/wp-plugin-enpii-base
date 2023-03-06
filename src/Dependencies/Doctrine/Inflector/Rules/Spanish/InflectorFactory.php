@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Spanish;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Spanish;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\GenericLanguageInflectorFactory;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Ruleset;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\GenericLanguageInflectorFactory;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Ruleset;
 
 final class InflectorFactory extends GenericLanguageInflectorFactory
 {

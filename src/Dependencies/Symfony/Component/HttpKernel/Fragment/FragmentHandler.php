@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Fragment;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Fragment;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\RequestStack;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\StreamedResponse;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Controller\ControllerReference;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\RequestStack;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\StreamedResponse;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Controller\ControllerReference;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpException;
 
 /**
  * Renders a URI that represents a resource fragment.

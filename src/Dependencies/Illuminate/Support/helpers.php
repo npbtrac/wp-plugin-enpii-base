@@ -1,12 +1,12 @@
 <?php
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\DeferringDisplayableValue;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Htmlable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Env;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HigherOrderTapProxy;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Optional;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\DeferringDisplayableValue;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Htmlable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Env;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HigherOrderTapProxy;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Optional;
 
 if (! function_exists('append_config')) {
     /**
@@ -103,7 +103,7 @@ if (! function_exists('collect')) {
      * Create a collection from the given value.
      *
      * @param  mixed  $value
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     function collect($value = null)
     {
@@ -245,7 +245,7 @@ if (! function_exists('e')) {
     /**
      * Encode HTML special characters in a string.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\DeferringDisplayableValue|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Htmlable|string  $value
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\DeferringDisplayableValue|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Htmlable|string  $value
      * @param  bool  $doubleEncode
      * @return string
      */

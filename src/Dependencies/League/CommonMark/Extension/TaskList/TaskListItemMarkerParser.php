@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\TaskList;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\TaskList;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\ListItem;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\Paragraph;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Parser\InlineParserInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\InlineParserContext;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\ListItem;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\Paragraph;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Parser\InlineParserInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\InlineParserContext;
 
 final class TaskListItemMarkerParser implements InlineParserInterface
 {

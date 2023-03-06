@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Relations;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Relations;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
 
 class MorphToMany extends BelongsToMany
 {
@@ -34,8 +34,8 @@ class MorphToMany extends BelongsToMany
     /**
      * Create a new morph to many relationship instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $query
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model  $parent
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $query
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model  $parent
      * @param  string  $name
      * @param  string  $table
      * @param  string  $foreignPivotKey
@@ -103,10 +103,10 @@ class MorphToMany extends BelongsToMany
     /**
      * Add the constraints for a relationship count query.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $query
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $parentQuery
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $query
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $parentQuery
      * @param  array|mixed  $columns
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder
      */
     public function getRelationExistenceQuery(Builder $query, Builder $parentQuery, $columns = ['*'])
     {
@@ -118,7 +118,7 @@ class MorphToMany extends BelongsToMany
     /**
      * Get the pivot models that are currently attached.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     protected function getCurrentlyAttachedPivots()
     {
@@ -133,7 +133,7 @@ class MorphToMany extends BelongsToMany
     /**
      * Create a new query builder for the pivot table.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder
      */
     public function newPivotQuery()
     {
@@ -145,7 +145,7 @@ class MorphToMany extends BelongsToMany
      *
      * @param  array  $attributes
      * @param  bool  $exists
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Relations\Pivot
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Relations\Pivot
      */
     public function newPivot(array $attributes = [], $exists = false)
     {

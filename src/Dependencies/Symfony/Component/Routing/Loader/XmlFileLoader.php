@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Loader;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Loader;
 
 use Symfony\Component\Config\Loader\FileLoader;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\Config\Util\XmlUtils;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Loader\Configurator\Traits\HostTrait;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Loader\Configurator\Traits\LocalizedRouteTrait;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Loader\Configurator\Traits\PrefixTrait;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RouteCollection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Loader\Configurator\Traits\HostTrait;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Loader\Configurator\Traits\LocalizedRouteTrait;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Loader\Configurator\Traits\PrefixTrait;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RouteCollection;
 
 /**
  * XmlFileLoader loads XML routing files.

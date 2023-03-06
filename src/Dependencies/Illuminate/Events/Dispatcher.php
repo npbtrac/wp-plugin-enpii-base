@@ -1,17 +1,17 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Events;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Events;
 
 use Exception;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Factory as BroadcastFactory;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container as ContainerContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\ShouldQueue;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Factory as BroadcastFactory;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container as ContainerContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\ShouldQueue;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 use ReflectionClass;
 
 class Dispatcher implements DispatcherContract
@@ -21,7 +21,7 @@ class Dispatcher implements DispatcherContract
     /**
      * The IoC container instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
      */
     protected $container;
 
@@ -56,7 +56,7 @@ class Dispatcher implements DispatcherContract
     /**
      * Create a new event dispatcher instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container|null  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container|null  $container
      * @return void
      */
     public function __construct(ContainerContract $container = null)
@@ -289,7 +289,7 @@ class Dispatcher implements DispatcherContract
     /**
      * Broadcast the given event class.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\ShouldBroadcast  $event
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\ShouldBroadcast  $event
      * @return void
      */
     protected function broadcastEvent($event)
@@ -586,7 +586,7 @@ class Dispatcher implements DispatcherContract
     /**
      * Get the queue implementation from the resolver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue
      */
     protected function resolveQueue()
     {

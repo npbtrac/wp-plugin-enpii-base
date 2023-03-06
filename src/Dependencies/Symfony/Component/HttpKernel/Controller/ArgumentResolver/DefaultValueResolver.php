@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Controller\ArgumentResolver;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Controller\ArgumentResolver;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Controller\ArgumentValueResolverInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Controller\ArgumentValueResolverInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadata;
 
 /**
  * Yields the default value defined in the action signature when no value has been given.

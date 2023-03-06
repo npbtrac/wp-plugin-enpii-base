@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Php80;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Php80;
 
 /**
  * @author Fedonyuk Anton <info@ensostudio.ru>

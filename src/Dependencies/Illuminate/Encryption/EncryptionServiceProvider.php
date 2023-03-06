@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Encryption;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Encryption;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Opis\Closure\SerializableClosure;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Opis\Closure\SerializableClosure;
 use RuntimeException;
 
 class EncryptionServiceProvider extends ServiceProvider

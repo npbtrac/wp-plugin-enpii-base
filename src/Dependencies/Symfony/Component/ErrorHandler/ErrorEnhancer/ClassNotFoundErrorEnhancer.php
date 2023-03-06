@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\ErrorEnhancer;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\ErrorEnhancer;
 
 use Composer\Autoload\ClassLoader;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\DebugClassLoader;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\Error\ClassNotFoundError;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\Error\FatalError;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\DebugClassLoader;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\Error\ClassNotFoundError;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\Error\FatalError;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>

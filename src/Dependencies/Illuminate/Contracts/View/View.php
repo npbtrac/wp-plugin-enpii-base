@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Renderable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Renderable;
 
 interface View extends Renderable
 {

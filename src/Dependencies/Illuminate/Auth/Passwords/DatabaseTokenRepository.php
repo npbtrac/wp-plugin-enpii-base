@@ -1,26 +1,26 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Passwords;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Passwords;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Hashing\Hasher as HasherContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Hashing\Hasher as HasherContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 
 class DatabaseTokenRepository implements TokenRepositoryInterface
 {
     /**
      * The database connection instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionInterface
      */
     protected $connection;
 
     /**
      * The Hasher implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Hashing\Hasher
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Hashing\Hasher
      */
     protected $hasher;
 
@@ -55,8 +55,8 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
     /**
      * Create a new token repository instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionInterface  $connection
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Hashing\Hasher  $hasher
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionInterface  $connection
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Hashing\Hasher  $hasher
      * @param  string  $table
      * @param  string  $hashKey
      * @param  int  $expires
@@ -78,7 +78,7 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
     /**
      * Create a new token record.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword  $user
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword  $user
      * @return string
      */
     public function create(CanResetPasswordContract $user)
@@ -100,7 +100,7 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
     /**
      * Delete all existing reset tokens from the database.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword  $user
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword  $user
      * @return int
      */
     protected function deleteExisting(CanResetPasswordContract $user)
@@ -123,7 +123,7 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
     /**
      * Determine if a token record exists and is valid.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword  $user
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword  $user
      * @param  string  $token
      * @return bool
      */
@@ -152,7 +152,7 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
     /**
      * Determine if the given user recently created a password reset token.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword  $user
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword  $user
      * @return bool
      */
     public function recentlyCreatedToken(CanResetPasswordContract $user)
@@ -184,7 +184,7 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
     /**
      * Delete a token record by user.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword  $user
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword  $user
      * @return void
      */
     public function delete(CanResetPasswordContract $user)
@@ -217,7 +217,7 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
     /**
      * Get the database connection instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionInterface
      */
     public function getConnection()
     {
@@ -227,7 +227,7 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
     /**
      * Begin a new database query against the table.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder
      */
     protected function getTable()
     {
@@ -237,7 +237,7 @@ class DatabaseTokenRepository implements TokenRepositoryInterface
     /**
      * Get the hasher instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Hashing\Hasher
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Hashing\Hasher
      */
     public function getHasher()
     {

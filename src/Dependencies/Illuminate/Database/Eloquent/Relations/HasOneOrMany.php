@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Relations;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Relations;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
 
 abstract class HasOneOrMany extends Relation
 {
@@ -32,8 +32,8 @@ abstract class HasOneOrMany extends Relation
     /**
      * Create a new has one or many relationship instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $query
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model  $parent
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $query
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model  $parent
      * @param  string  $foreignKey
      * @param  string  $localKey
      * @return void
@@ -50,7 +50,7 @@ abstract class HasOneOrMany extends Relation
      * Create and return an un-saved instance of the related model.
      *
      * @param  array  $attributes
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model
      */
     public function make(array $attributes = [])
     {
@@ -63,7 +63,7 @@ abstract class HasOneOrMany extends Relation
      * Create and return an un-saved instances of the related models.
      *
      * @param  iterable  $records
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection
      */
     public function makeMany($records)
     {
@@ -109,7 +109,7 @@ abstract class HasOneOrMany extends Relation
      * Match the eagerly loaded results to their single parents.
      *
      * @param  array  $models
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection  $results
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection  $results
      * @param  string  $relation
      * @return array
      */
@@ -122,7 +122,7 @@ abstract class HasOneOrMany extends Relation
      * Match the eagerly loaded results to their many parents.
      *
      * @param  array  $models
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection  $results
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection  $results
      * @param  string  $relation
      * @return array
      */
@@ -135,7 +135,7 @@ abstract class HasOneOrMany extends Relation
      * Match the eagerly loaded results to their many parents.
      *
      * @param  array  $models
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection  $results
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection  $results
      * @param  string  $relation
      * @param  string  $type
      * @return array
@@ -176,7 +176,7 @@ abstract class HasOneOrMany extends Relation
     /**
      * Build model dictionary keyed by the relation's foreign key.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection  $results
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection  $results
      * @return array
      */
     protected function buildDictionary(Collection $results)
@@ -193,7 +193,7 @@ abstract class HasOneOrMany extends Relation
      *
      * @param  mixed  $id
      * @param  array  $columns
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model
      */
     public function findOrNew($id, $columns = ['*'])
     {
@@ -211,7 +211,7 @@ abstract class HasOneOrMany extends Relation
      *
      * @param  array  $attributes
      * @param  array  $values
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model
      */
     public function firstOrNew(array $attributes, array $values = [])
     {
@@ -229,7 +229,7 @@ abstract class HasOneOrMany extends Relation
      *
      * @param  array  $attributes
      * @param  array  $values
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model
      */
     public function firstOrCreate(array $attributes, array $values = [])
     {
@@ -245,7 +245,7 @@ abstract class HasOneOrMany extends Relation
      *
      * @param  array  $attributes
      * @param  array  $values
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model
      */
     public function updateOrCreate(array $attributes, array $values = [])
     {
@@ -259,8 +259,8 @@ abstract class HasOneOrMany extends Relation
     /**
      * Attach a model instance to the parent model.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model  $model
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model|false
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model  $model
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model|false
      */
     public function save(Model $model)
     {
@@ -288,7 +288,7 @@ abstract class HasOneOrMany extends Relation
      * Create a new instance of the related model.
      *
      * @param  array  $attributes
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model
      */
     public function create(array $attributes = [])
     {
@@ -303,7 +303,7 @@ abstract class HasOneOrMany extends Relation
      * Create a Collection of new instances of the related model.
      *
      * @param  iterable  $records
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection
      */
     public function createMany(iterable $records)
     {
@@ -319,7 +319,7 @@ abstract class HasOneOrMany extends Relation
     /**
      * Set the foreign ID for creating a related model.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model  $model
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model  $model
      * @return void
      */
     protected function setForeignAttributesForCreate(Model $model)
@@ -330,10 +330,10 @@ abstract class HasOneOrMany extends Relation
     /**
      * Add the constraints for a relationship query.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $query
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $parentQuery
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $query
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $parentQuery
      * @param  array|mixed  $columns
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder
      */
     public function getRelationExistenceQuery(Builder $query, Builder $parentQuery, $columns = ['*'])
     {
@@ -347,10 +347,10 @@ abstract class HasOneOrMany extends Relation
     /**
      * Add the constraints for a relationship query on the same table.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $query
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $parentQuery
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $query
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $parentQuery
      * @param  array|mixed  $columns
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder
      */
     public function getRelationExistenceQueryForSelfRelation(Builder $query, Builder $parentQuery, $columns = ['*'])
     {

@@ -1,20 +1,20 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap;
 
 use Exception;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Config\Repository;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Config\Repository as RepositoryContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Config\Repository;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Config\Repository as RepositoryContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application;
 use SplFileInfo;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Finder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Finder;
 
 class LoadConfiguration
 {
     /**
      * Bootstrap the given application.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
      * @return void
      */
     public function bootstrap(Application $app)
@@ -54,8 +54,8 @@ class LoadConfiguration
     /**
      * Load the configuration items from all of the files.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Config\Repository  $repository
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Config\Repository  $repository
      * @return void
      *
      * @throws \Exception
@@ -76,7 +76,7 @@ class LoadConfiguration
     /**
      * Get all of the configuration files for the application.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
      * @return array
      */
     protected function getConfigurationFiles(Application $app)

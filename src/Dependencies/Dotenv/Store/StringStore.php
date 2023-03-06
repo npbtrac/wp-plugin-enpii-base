@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Store;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Store;
 
 final class StringStore implements StoreInterface
 {

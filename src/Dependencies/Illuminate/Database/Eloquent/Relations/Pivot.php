@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Relations;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Relations;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Relations\Concerns\AsPivot;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Relations\Concerns\AsPivot;
 
 class Pivot extends Model
 {

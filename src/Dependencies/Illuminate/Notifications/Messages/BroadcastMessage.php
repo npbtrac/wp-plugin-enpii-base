@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Bus\Queueable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Bus\Queueable;
 
 class BroadcastMessage
 {

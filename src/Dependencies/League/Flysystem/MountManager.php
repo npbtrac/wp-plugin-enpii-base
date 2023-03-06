@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem;
 
 use InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Plugin\PluggableTrait;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Plugin\PluginNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Plugin\PluggableTrait;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Plugin\PluginNotFoundException;
 
 /**
  * Class MountManager.

@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
 
 use RuntimeException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
 
 /**
  * Handler send logs to Telegram using Telegram Bot API.
@@ -29,7 +29,7 @@ use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
  *
  * @author Mazur Alexandr <alexandrmazur96@gmail.com>
  *
- * @phpstan-import-type Record from \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger
+ * @phpstan-import-type Record from \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger
  */
 class TelegramBotHandler extends AbstractProcessingHandler
 {

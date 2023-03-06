@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\Handler;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\Handler;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Exception\InternalErrorException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Exception\SyntaxErrorException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\Reader;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\Token;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\Tokenizer\TokenizerEscaping;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\Tokenizer\TokenizerPatterns;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\TokenStream;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Exception\InternalErrorException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Exception\SyntaxErrorException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\Reader;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\Token;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\Tokenizer\TokenizerEscaping;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\Tokenizer\TokenizerPatterns;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\TokenStream;
 
 /**
  * CSS selector comment handler.

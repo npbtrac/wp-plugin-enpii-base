@@ -1,12 +1,12 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database;
 
 use Doctrine\DBAL\Driver\PDOPgSql\Driver as DoctrineDriver;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Grammars\PostgresGrammar as QueryGrammar;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Processors\PostgresProcessor;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars\PostgresGrammar as SchemaGrammar;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\PostgresBuilder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Grammars\PostgresGrammar as QueryGrammar;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Processors\PostgresProcessor;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars\PostgresGrammar as SchemaGrammar;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\PostgresBuilder;
 use PDO;
 
 class PostgresConnection extends Connection
@@ -40,7 +40,7 @@ class PostgresConnection extends Connection
     /**
      * Get the default query grammar instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Grammars\PostgresGrammar
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Grammars\PostgresGrammar
      */
     protected function getDefaultQueryGrammar()
     {
@@ -50,7 +50,7 @@ class PostgresConnection extends Connection
     /**
      * Get a schema builder instance for the connection.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\PostgresBuilder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\PostgresBuilder
      */
     public function getSchemaBuilder()
     {
@@ -64,7 +64,7 @@ class PostgresConnection extends Connection
     /**
      * Get the default schema grammar instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars\PostgresGrammar
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars\PostgresGrammar
      */
     protected function getDefaultSchemaGrammar()
     {
@@ -74,7 +74,7 @@ class PostgresConnection extends Connection
     /**
      * Get the default post processor instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Processors\PostgresProcessor
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Processors\PostgresProcessor
      */
     protected function getDefaultPostProcessor()
     {

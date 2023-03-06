@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel;
 
 use Symfony\Component\BrowserKit\AbstractBrowser;
 use Symfony\Component\BrowserKit\CookieJar;
 use Symfony\Component\BrowserKit\History;
 use Symfony\Component\BrowserKit\Request as DomRequest;
 use Symfony\Component\BrowserKit\Response as DomResponse;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\File\UploadedFile;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\File\UploadedFile;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response;
 
 /**
  * Simulates a browser and makes requests to an HttpKernel instance.
@@ -119,7 +119,7 @@ EOF;
         return <<<'EOF'
 $response = $kernel->handle($request);
 
-if ($kernel instanceof Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\TerminableInterface) {
+if ($kernel instanceof Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\TerminableInterface) {
     $kernel->terminate($request, $response);
 }
 

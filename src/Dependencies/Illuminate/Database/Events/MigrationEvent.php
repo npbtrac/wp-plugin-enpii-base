@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Events;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Events;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Database\Events\MigrationEvent as MigrationEventContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\Migration;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Database\Events\MigrationEvent as MigrationEventContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\Migration;
 
 abstract class MigrationEvent implements MigrationEventContract
 {
     /**
      * An migration instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\Migration
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\Migration
      */
     public $migration;
 
@@ -24,7 +24,7 @@ abstract class MigrationEvent implements MigrationEventContract
     /**
      * Create a new event instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\Migration  $migration
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\Migration  $migration
      * @param  string  $method
      * @return void
      */

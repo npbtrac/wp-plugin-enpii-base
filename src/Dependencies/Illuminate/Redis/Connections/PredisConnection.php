@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Connection as ConnectionContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Connection as ConnectionContract;
 use Predis\Command\ServerFlushDatabase;
 use Predis\Connection\Aggregate\ClusterInterface;
 

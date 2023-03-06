@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Engine;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Engine;
 
 class FileEngine implements Engine
 {

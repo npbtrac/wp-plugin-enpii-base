@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation;
 
 /**
  * Provides default implementation of ValidatesWhenResolved contract.
@@ -42,7 +42,7 @@ trait ValidatesWhenResolvedTrait
     /**
      * Get the validator instance for the request.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Validator
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Validator
      */
     protected function getValidatorInstance()
     {
@@ -62,10 +62,10 @@ trait ValidatesWhenResolvedTrait
     /**
      * Handle a failed validation attempt.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Validator  $validator
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Validator  $validator
      * @return void
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException
      */
     protected function failedValidation(Validator $validator)
     {
@@ -91,7 +91,7 @@ trait ValidatesWhenResolvedTrait
      *
      * @return void
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\UnauthorizedException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\UnauthorizedException
      */
     protected function failedAuthorization()
     {

@@ -1,15 +1,15 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Events;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Events;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event;
 
 class ScheduledTaskFinished
 {
     /**
      * The scheduled event that ran.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event
      */
     public $task;
 
@@ -23,7 +23,7 @@ class ScheduledTaskFinished
     /**
      * Create a new event instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $task
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $task
      * @param  float  $runtime
      * @return void
      */

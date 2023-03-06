@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis;
 
 use Exception;
 

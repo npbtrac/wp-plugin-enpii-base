@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\UrlMatcherInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\UrlMatcherInterface;
 
 /**
  * RouterInterface is the interface that all Router classes must implement.

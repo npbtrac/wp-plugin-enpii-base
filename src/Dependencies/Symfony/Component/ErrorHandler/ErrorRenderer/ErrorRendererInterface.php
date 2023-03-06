@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\ErrorRenderer;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\ErrorRenderer;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\Exception\FlattenException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\Exception\FlattenException;
 
 /**
  * Formats an exception to be used as response content.

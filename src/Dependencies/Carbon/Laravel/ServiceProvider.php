@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Laravel;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Laravel;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterval;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Events\Dispatcher;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon as IlluminateCarbon;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Date;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\EventDispatcher\EventDispatcher;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterval;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Events\Dispatcher;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon as IlluminateCarbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Date;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\EventDispatcher\EventDispatcher;
 use Throwable;
 
 class ServiceProvider extends \Illuminate\Support\ServiceProvider
@@ -80,7 +80,7 @@ class ServiceProvider extends \Illuminate\Support\ServiceProvider
                 $root = Date::getFacadeRoot();
                 $root->setLocale($locale);
             } catch (Throwable $e) {
-                // Non Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon class in use in Date facade
+                // Non Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon class in use in Date facade
             }
         }
     }

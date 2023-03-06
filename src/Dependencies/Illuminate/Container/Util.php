@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container;
 
 use Closure;
 use ReflectionNamedType;
@@ -10,7 +10,7 @@ class Util
     /**
      * If the given value is not an array and not null, wrap it in one.
      *
-     * From Arr::wrap() in Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support.
+     * From Arr::wrap() in Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support.
      *
      * @param  mixed  $value
      * @return array
@@ -27,7 +27,7 @@ class Util
     /**
      * Return the default value of the given value.
      *
-     * From global value() helper in Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support.
+     * From global value() helper in Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support.
      *
      * @param  mixed  $value
      * @return mixed
@@ -40,7 +40,7 @@ class Util
     /**
      * Get the class name of the given parameter's type, if possible.
      *
-     * From Reflector::getParameterClassName() in Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support.
+     * From Reflector::getParameterClassName() in Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support.
      *
      * @param  \ReflectionParameter  $parameter
      * @return string|null

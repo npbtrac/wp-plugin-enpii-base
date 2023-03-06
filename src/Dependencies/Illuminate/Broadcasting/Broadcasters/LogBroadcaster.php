@@ -1,22 +1,22 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting\Broadcasters;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting\Broadcasters;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
 
 class LogBroadcaster extends Broadcaster
 {
     /**
      * The logger implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      */
     protected $logger;
 
     /**
      * Create a new broadcaster instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface  $logger
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface  $logger
      * @return void
      */
     public function __construct(LoggerInterface $logger)

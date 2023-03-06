@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Tester;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Tester;
 
 use PHPUnit\Framework\Assert;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\ConsoleOutput;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\StreamOutput;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Tester\Constraint\CommandIsSuccessful;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\ConsoleOutput;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\StreamOutput;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Tester\Constraint\CommandIsSuccessful;
 
 /**
  * @author Amrouche Hamza <hamza.simperfit@gmail.com>

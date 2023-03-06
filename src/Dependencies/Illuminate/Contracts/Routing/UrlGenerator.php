@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing;
 
 interface UrlGenerator
 {

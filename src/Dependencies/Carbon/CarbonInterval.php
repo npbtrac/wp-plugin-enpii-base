@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,22 +9,22 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\BadFluentConstructorException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\BadFluentSetterException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidCastException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidIntervalException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\ParseErrorException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnitNotConfiguredException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownGetterException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownSetterException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownUnitException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits\IntervalRounding;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits\IntervalStep;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits\Mixin;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits\Options;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits\ToStringFormat;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\BadFluentConstructorException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\BadFluentSetterException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidCastException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidIntervalException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\ParseErrorException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnitNotConfiguredException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownGetterException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownSetterException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownUnitException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits\IntervalRounding;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits\IntervalStep;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits\Mixin;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits\Options;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits\ToStringFormat;
 use Closure;
 use DateInterval;
 use DateTimeInterface;
@@ -206,7 +206,7 @@ class CarbonInterval extends DateInterval implements CarbonConverterInterface
     /**
      * A translator to ... er ... translate stuff
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface
      */
     protected static $translator;
 
@@ -559,7 +559,7 @@ class CarbonInterval extends DateInterval implements CarbonConverterInterface
      * @param string      $format   Format of the $interval input string
      * @param string|null $interval Input string to convert into an interval
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\ParseErrorException when the $interval cannot be parsed as an interval.
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\ParseErrorException when the $interval cannot be parsed as an interval.
      *
      * @return static
      */
@@ -1625,7 +1625,7 @@ class CarbonInterval extends DateInterval implements CarbonConverterInterface
         $transId = $relativeToNow ? ($isFuture ? 'from_now' : 'ago') : ($isFuture ? 'after' : 'before');
         $declensionMode = null;
 
-        /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Translator $translator */
+        /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Translator $translator */
         $translator = $this->getLocalTranslator();
 
         $handleDeclensions = function ($unit, $count, $index = 0, $parts = 1) use ($interpolations, $transId, $translator, $altNumbers, $absolute, &$declensionMode) {

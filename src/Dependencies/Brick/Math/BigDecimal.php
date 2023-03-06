@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math\Exception\DivisionByZeroException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math\Exception\MathException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math\Exception\NegativeNumberException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math\Internal\Calculator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math\Exception\DivisionByZeroException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math\Exception\MathException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math\Exception\NegativeNumberException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math\Internal\Calculator;
 
 /**
  * Immutable, arbitrary-precision signed decimal numbers.

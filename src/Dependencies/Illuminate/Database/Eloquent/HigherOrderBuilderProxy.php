@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent;
 
 /**
- * @mixin \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder
+ * @mixin \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder
  */
 class HigherOrderBuilderProxy
 {
     /**
      * The collection being operated on.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder
      */
     protected $builder;
 
@@ -24,7 +24,7 @@ class HigherOrderBuilderProxy
     /**
      * Create a new proxy instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $builder
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder  $builder
      * @param  string  $method
      * @return void
      */

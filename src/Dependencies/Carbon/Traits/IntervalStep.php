@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
 use Closure;
 use DateTimeImmutable;
 use DateTimeInterface;
@@ -76,11 +76,11 @@ trait IntervalStep
     }
 
     /**
-     * Convert DateTimeImmutable instance to CarbonImmutable instance and DateTime instance to Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance.
+     * Convert DateTimeImmutable instance to CarbonImmutable instance and DateTime instance to Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance.
      *
      * @param DateTimeInterface $dateTime
      *
-     * @return Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable
+     * @return Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable
      */
     private function resolveCarbon(DateTimeInterface $dateTime)
     {

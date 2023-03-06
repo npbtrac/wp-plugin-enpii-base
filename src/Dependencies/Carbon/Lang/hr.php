@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -28,7 +28,7 @@
  * - Vanja Retkovac (vr00)
  */
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
 
 return [
     'year' => ':count godinu|:count godine|:count godina',

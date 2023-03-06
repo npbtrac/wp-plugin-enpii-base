@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Catalogue;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Catalogue;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception\LogicException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\MessageCatalogue;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\MessageCatalogueInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception\LogicException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\MessageCatalogue;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\MessageCatalogueInterface;
 
 /**
  * Base catalogues binary operation class.

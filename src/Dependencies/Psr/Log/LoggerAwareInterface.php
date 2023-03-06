@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log;
 
 /**
  * Describes a logger-aware instance.

@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler;
 
 use Composer\InstalledVersions;
 use Doctrine\Common\Persistence\Proxy as LegacyProxy;
@@ -20,7 +20,7 @@ use PHPUnit\Framework\MockObject\Matcher\StatelessInvocation;
 use PHPUnit\Framework\MockObject\MockObject;
 use Prophecy\Prophecy\ProphecySubjectInterface;
 use ProxyManager\Proxy\ProxyInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\Internal\TentativeTypes;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\Internal\TentativeTypes;
 
 /**
  * Autoloader checking if the class is really defined in the file found.
@@ -170,8 +170,8 @@ class DebugClassLoader
     public static function enable(): void
     {
         // Ensures we don't hit https://bugs.php.net/42098
-        class_exists(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\ErrorHandler::class);
-        class_exists(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel::class);
+        class_exists(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\ErrorHandler::class);
+        class_exists(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel::class);
 
         if (!\is_array($functions = spl_autoload_functions())) {
             return;

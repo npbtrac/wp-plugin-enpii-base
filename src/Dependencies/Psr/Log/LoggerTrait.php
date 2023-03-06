@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log;
 
 /**
  * This is a simple Logger trait that classes unable to extend AbstractLogger
@@ -136,7 +136,7 @@ trait LoggerTrait
      *
      * @return void
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\InvalidArgumentException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\InvalidArgumentException
      */
     abstract public function log($level, $message, array $context = array());
 }

@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Http\Middleware;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Http\Middleware;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag;
 
 class TransformsRequest
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @return mixed
      */
@@ -24,7 +24,7 @@ class TransformsRequest
     /**
      * Clean the request's data.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @return void
      */
     protected function clean($request)
@@ -41,7 +41,7 @@ class TransformsRequest
     /**
      * Clean the data in the parameter bag.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag  $bag
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag  $bag
      * @return void
      */
     protected function cleanParameterBag(ParameterBag $bag)

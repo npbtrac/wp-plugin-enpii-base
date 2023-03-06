@@ -1,22 +1,22 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\UrlRoutable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\ModelNotFoundException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Reflector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\UrlRoutable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\ModelNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Reflector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 
 class ImplicitRouteBinding
 {
     /**
      * Resolve the implicit route bindings for the given route.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container  $container
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
      * @return void
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\ModelNotFoundException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\ModelNotFoundException
      */
     public static function resolveForRoute($container, $route)
     {

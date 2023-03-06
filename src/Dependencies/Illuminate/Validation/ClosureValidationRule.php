@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\Rule as RuleContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\Rule as RuleContract;
 
 class ClosureValidationRule implements RuleContract
 {

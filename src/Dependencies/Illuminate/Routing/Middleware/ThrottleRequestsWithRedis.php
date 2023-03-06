@@ -1,17 +1,17 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Middleware;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Middleware;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory as Redis;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Limiters\DurationLimiter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory as Redis;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Limiters\DurationLimiter;
 
 class ThrottleRequestsWithRedis extends ThrottleRequests
 {
     /**
      * The Redis factory implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory
      */
     protected $redis;
 
@@ -32,7 +32,7 @@ class ThrottleRequestsWithRedis extends ThrottleRequests
     /**
      * Create a new request throttler.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory  $redis
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory  $redis
      * @return void
      */
     public function __construct(Redis $redis)
@@ -43,14 +43,14 @@ class ThrottleRequestsWithRedis extends ThrottleRequests
     /**
      * Handle an incoming request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @param  int|string  $maxAttempts
      * @param  float|int  $decayMinutes
      * @param  string  $prefix
      * @return mixed
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpException
      */
     public function handle($request, Closure $next, $maxAttempts = 60, $decayMinutes = 1, $prefix = '')
     {

@@ -45,7 +45,7 @@
       "./src/Dependencies/Symfony/Component/VarDumper/Resources/functions/dump.php"
     ],
     "psr-4": {
-      "Enpii\\Wp_Plugin\\Enpii_Base\\": "src"
+      "Enpii\\WP_Plugin\\Enpii_Base\\": "src"
     }
   },
   "config": {
@@ -67,7 +67,7 @@
       ]
     },
     "mozart": {
-      "dep_namespace": "Enpii\\Wp_Plugin\\Enpii_Base\\Dependencies\\",
+      "dep_namespace": "Enpii\\WP_Plugin\\Enpii_Base\\Dependencies\\",
       "dep_directory": "/src/Dependencies/",
       "classmap_directory": "/classes/dependencies/",
       "classmap_prefix": "NpWpNPB_",

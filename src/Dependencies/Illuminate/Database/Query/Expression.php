@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query;
 
 class Expression
 {

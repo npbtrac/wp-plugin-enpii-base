@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Broadcast;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Broadcast;
 
 trait InteractsWithSockets
 {

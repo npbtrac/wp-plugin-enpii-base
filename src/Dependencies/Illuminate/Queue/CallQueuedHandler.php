@@ -1,13 +1,13 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
 
 use Exception;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Bus\Dispatcher;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\ModelNotFoundException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Pipeline\Pipeline;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Bus\Dispatcher;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\ModelNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Pipeline\Pipeline;
 use ReflectionClass;
 
 class CallQueuedHandler
@@ -15,22 +15,22 @@ class CallQueuedHandler
     /**
      * The bus dispatcher implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Bus\Dispatcher
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Bus\Dispatcher
      */
     protected $dispatcher;
 
     /**
      * The container instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
      */
     protected $container;
 
     /**
      * Create a new handler instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Bus\Dispatcher  $dispatcher
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Bus\Dispatcher  $dispatcher
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
      * @return void
      */
     public function __construct(Dispatcher $dispatcher, Container $container)
@@ -42,7 +42,7 @@ class CallQueuedHandler
     /**
      * Handle the queued job.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @param  array  $data
      * @return void
      */
@@ -70,7 +70,7 @@ class CallQueuedHandler
     /**
      * Dispatch the given job / command through its specified middleware.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @param  mixed  $command
      * @return mixed
      */
@@ -88,7 +88,7 @@ class CallQueuedHandler
     /**
      * Resolve the handler for the given command.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @param  mixed  $command
      * @return mixed
      */
@@ -106,7 +106,7 @@ class CallQueuedHandler
     /**
      * Set the job instance of the given class if necessary.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @param  mixed  $instance
      * @return mixed
      */
@@ -135,7 +135,7 @@ class CallQueuedHandler
     /**
      * Handle a model not found exception.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @param  \Throwable  $e
      * @return void
      */

@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark;
 
 class MarkdownConverter extends Converter
 {

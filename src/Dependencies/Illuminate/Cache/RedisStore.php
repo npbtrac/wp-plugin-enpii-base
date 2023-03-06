@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\LockProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory as Redis;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\LockProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory as Redis;
 
 class RedisStore extends TaggableStore implements LockProvider
 {
     /**
      * The Redis factory implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory
      */
     protected $redis;
 
@@ -31,7 +31,7 @@ class RedisStore extends TaggableStore implements LockProvider
     /**
      * Create a new Redis store.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory  $redis
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory  $redis
      * @param  string  $prefix
      * @param  string  $connection
      * @return void
@@ -177,7 +177,7 @@ class RedisStore extends TaggableStore implements LockProvider
      * @param  string  $name
      * @param  int  $seconds
      * @param  string|null  $owner
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Lock
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Lock
      */
     public function lock($name, $seconds = 0, $owner = null)
     {
@@ -189,7 +189,7 @@ class RedisStore extends TaggableStore implements LockProvider
      *
      * @param  string  $name
      * @param  string  $owner
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Lock
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Lock
      */
     public function restoreLock($name, $owner)
     {
@@ -223,7 +223,7 @@ class RedisStore extends TaggableStore implements LockProvider
      * Begin executing a new tags operation.
      *
      * @param  array|mixed  $names
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\RedisTaggedCache
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\RedisTaggedCache
      */
     public function tags($names)
     {
@@ -235,7 +235,7 @@ class RedisStore extends TaggableStore implements LockProvider
     /**
      * Get the Redis connection instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection
      */
     public function connection()
     {
@@ -256,7 +256,7 @@ class RedisStore extends TaggableStore implements LockProvider
     /**
      * Get the Redis database instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory
      */
     public function getRedis()
     {

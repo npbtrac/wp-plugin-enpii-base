@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Pagination;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Pagination;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Htmlable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\ForwardsCalls;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Htmlable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\ForwardsCalls;
 
 /**
- * @mixin \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+ * @mixin \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
  */
 abstract class AbstractPaginator implements Htmlable
 {
@@ -19,7 +19,7 @@ abstract class AbstractPaginator implements Htmlable
     /**
      * All of the items being paginated.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     protected $items;
 
@@ -512,7 +512,7 @@ abstract class AbstractPaginator implements Htmlable
     /**
      * Get an instance of the view factory from the resolver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory
      */
     public static function viewFactory()
     {
@@ -617,7 +617,7 @@ abstract class AbstractPaginator implements Htmlable
     /**
      * Get the paginator's underlying collection.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     public function getCollection()
     {
@@ -627,7 +627,7 @@ abstract class AbstractPaginator implements Htmlable
     /**
      * Set the paginator's underlying collection.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection  $collection
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection  $collection
      * @return $this
      */
     public function setCollection(Collection $collection)

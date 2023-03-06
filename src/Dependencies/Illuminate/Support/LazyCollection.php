@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
 
 use ArrayIterator;
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\EnumeratesValues;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\EnumeratesValues;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 use IteratorAggregate;
 use stdClass;
 

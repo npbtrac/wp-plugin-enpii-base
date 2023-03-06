@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Testing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Testing;
 
 use Faker\Factory;
 use Faker\Generator;

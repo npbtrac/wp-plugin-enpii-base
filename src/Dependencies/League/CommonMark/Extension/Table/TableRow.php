@@ -13,11 +13,11 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Table;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Table;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractBlock;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Cursor;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Node\Node;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractBlock;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Cursor;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Node\Node;
 
 final class TableRow extends AbstractBlock
 {

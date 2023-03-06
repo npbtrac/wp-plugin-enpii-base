@@ -12,17 +12,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element as BlockElement;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Parser as BlockParser;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Renderer as BlockRenderer;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\ConfigurableEnvironmentInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Delimiter\Processor\EmphasisDelimiterProcessor;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element as InlineElement;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Parser as InlineParser;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Renderer as InlineRenderer;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\ConfigurationInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element as BlockElement;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Parser as BlockParser;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Renderer as BlockRenderer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\ConfigurableEnvironmentInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Delimiter\Processor\EmphasisDelimiterProcessor;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element as InlineElement;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Parser as InlineParser;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Renderer as InlineRenderer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\ConfigurationInterface;
 
 final class CommonMarkCoreExtension implements ExtensionInterface
 {

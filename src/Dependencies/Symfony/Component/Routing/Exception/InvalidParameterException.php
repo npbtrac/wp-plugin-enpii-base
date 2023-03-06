@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception;
 
 /**
  * Exception thrown when a parameter is not valid.

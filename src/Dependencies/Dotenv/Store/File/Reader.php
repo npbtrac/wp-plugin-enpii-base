@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Store\File;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Store\File;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Option;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Option;
 
 class Reader
 {
@@ -40,13 +40,13 @@ class Reader
      *
      * @param string $filePath
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Option<string>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Option<string>
      */
     private static function readFromFile($filePath)
     {
         $content = @file_get_contents($filePath);
 
-        /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Option<string> */
+        /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Option<string> */
         return Option::fromValue($content, false);
     }
 }

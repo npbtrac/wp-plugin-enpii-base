@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem;
 use InvalidArgumentException;
 
 abstract class Compiler
@@ -10,7 +10,7 @@ abstract class Compiler
     /**
      * The Filesystem instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem
      */
     protected $files;
 
@@ -24,7 +24,7 @@ abstract class Compiler
     /**
      * Create a new compiler instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem  $files
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem  $files
      * @param  string  $cachePath
      * @return void
      *

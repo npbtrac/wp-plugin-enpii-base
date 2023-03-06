@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Console;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Console;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository as Cache;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\InteractsWithTime;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository as Cache;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\InteractsWithTime;
 
 class RestartCommand extends Command
 {
@@ -27,14 +27,14 @@ class RestartCommand extends Command
     /**
      * The cache store implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
      */
     protected $cache;
 
     /**
      * Create a new queue restart command.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository  $cache
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository  $cache
      * @return void
      */
     public function __construct(Cache $cache)

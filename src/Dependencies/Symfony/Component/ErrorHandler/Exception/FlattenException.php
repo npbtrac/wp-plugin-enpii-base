@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\Exception;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\Exception;
 
 use Symfony\Component\HttpFoundation\Exception\RequestExceptionInterface;
 use Symfony\Component\HttpFoundation\Response;

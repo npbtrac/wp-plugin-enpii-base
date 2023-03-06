@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http;
 
 use ArrayAccess;
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 use RuntimeException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request as SymfonyRequest;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request as SymfonyRequest;
 
 /**
  * @method array validate(array $rules, ...$params)
@@ -27,7 +27,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
     /**
      * The decoded JSON content for the request.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag|null
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag|null
      */
     protected $json;
 
@@ -53,7 +53,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
     protected $routeResolver;
 
     /**
-     * Create a new Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate HTTP request from server variables.
+     * Create a new Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate HTTP request from server variables.
      *
      * @return static
      */
@@ -346,7 +346,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
      *
      * @param  string|null  $key
      * @param  mixed  $default
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag|mixed
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag|mixed
      */
     public function json($key = null, $default = null)
     {
@@ -364,7 +364,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
     /**
      * Get the input source for the request.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag
      */
     protected function getInputSource()
     {
@@ -378,8 +378,8 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
     /**
      * Create a new request instance from the given Laravel request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $from
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request|null  $to
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $from
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request|null  $to
      * @return static
      */
     public static function createFrom(self $from, $to = null)
@@ -416,9 +416,9 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
     }
 
     /**
-     * Create an Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate request from a Symfony instance.
+     * Create an Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate request from a Symfony instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request  $request
      * @return static
      */
     public static function createFromBase(SymfonyRequest $request)
@@ -473,7 +473,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
     /**
      * Get the session associated with the request.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
      *
      * @throws \RuntimeException
      */
@@ -489,7 +489,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
     /**
      * Get the session associated with the request.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store|null
      */
     public function getSession()
     {
@@ -499,7 +499,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
     /**
      * Set the session instance on the request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Session\Session  $session
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Session\Session  $session
      * @return void
      */
     public function setLaravelSession($session)
@@ -523,7 +523,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
      *
      * @param  string|null  $param
      * @param  mixed  $default
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route|object|string|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route|object|string|null
      */
     public function route($param = null, $default = null)
     {
@@ -558,7 +558,7 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
     /**
      * Set the JSON payload for the request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag  $json
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag  $json
      * @return $this
      */
     public function setJson($json)

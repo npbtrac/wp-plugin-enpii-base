@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\EventDispatcher;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\EventDispatcher;
 
 /**
  * An Event whose processing may be interrupted when the event has been handled.

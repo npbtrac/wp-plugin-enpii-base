@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Plugin;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Plugin;
 
 use InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\FileNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\FileNotFoundException;
 
 class GetWithMetadata extends AbstractPlugin
 {

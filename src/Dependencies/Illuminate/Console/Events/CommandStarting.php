@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Events;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Events;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
 
 class CommandStarting
 {
@@ -17,14 +17,14 @@ class CommandStarting
     /**
      * The console input implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface|null
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface|null
      */
     public $input;
 
     /**
      * The command output implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface|null
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface|null
      */
     public $output;
 
@@ -32,8 +32,8 @@ class CommandStarting
      * Create a new event instance.
      *
      * @param  string  $command
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface  $output
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface  $input
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface  $output
      * @return void
      */
     public function __construct($command, InputInterface $input, OutputInterface $output)

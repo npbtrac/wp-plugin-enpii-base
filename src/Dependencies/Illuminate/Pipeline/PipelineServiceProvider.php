@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Pipeline;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Pipeline;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Pipeline\Hub as PipelineHubContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\DeferrableProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Pipeline\Hub as PipelineHubContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\DeferrableProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
 
 class PipelineServiceProvider extends ServiceProvider implements DeferrableProvider
 {

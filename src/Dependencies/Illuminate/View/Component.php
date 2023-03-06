@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 use ReflectionClass;
 use ReflectionMethod;
 use ReflectionProperty;
@@ -42,21 +42,21 @@ abstract class Component
     /**
      * The component attributes.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\ComponentAttributeBag
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\ComponentAttributeBag
      */
     public $attributes;
 
     /**
      * Get the view / view contents that represent the component.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\View|\Closure|string
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\View|\Closure|string
      */
     abstract public function render();
 
     /**
      * Resolve the Blade view or view file that should be used when rendering the component.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\View|\Closure|string
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\View|\Closure|string
      */
     public function resolveView()
     {
@@ -83,7 +83,7 @@ abstract class Component
     /**
      * Create a Blade view with the raw component string content.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory  $factory
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory  $factory
      * @param  string  $contents
      * @return string
      */
@@ -200,7 +200,7 @@ abstract class Component
      * Create an invokable, toStringable variable for the given component method.
      *
      * @param  string  $method
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\InvokableComponentVariable
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\InvokableComponentVariable
      */
     protected function createInvokableVariable(string $method)
     {

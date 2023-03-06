@@ -1,19 +1,19 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Concerns;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Concerns;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
 use DateTimeInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Database\Eloquent\Castable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Database\Eloquent\CastsInboundAttributes;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\JsonEncodingException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Relations\Relation;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection as BaseCollection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Date;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Database\Eloquent\Castable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Database\Eloquent\CastsInboundAttributes;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\JsonEncodingException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Relations\Relation;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection as BaseCollection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Date;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 use LogicException;
 
 trait HasAttributes
@@ -121,7 +121,7 @@ trait HasAttributes
     public function attributesToArray()
     {
         // If an attribute is a date, we will cast it to a string after converting it
-        // to a DateTime / Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance. This is so we will get some consistent
+        // to a DateTime / Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance. This is so we will get some consistent
         // formatting while accessing attributes vs. arraying / JSONing a model.
         $attributes = $this->addDateAttributesToArray(
             $attributes = $this->getArrayableAttributes()
@@ -862,7 +862,7 @@ trait HasAttributes
      * Return a timestamp as DateTime object with time set to 00:00:00.
      *
      * @param  mixed  $value
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon
      */
     protected function asDate($value)
     {
@@ -873,12 +873,12 @@ trait HasAttributes
      * Return a timestamp as DateTime object.
      *
      * @param  mixed  $value
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon
      */
     protected function asDateTime($value)
     {
-        // If this value is already a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance, we shall just return it as is.
-        // This prevents us having to re-instantiate a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance when we know
+        // If this value is already a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance, we shall just return it as is.
+        // This prevents us having to re-instantiate a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance when we know
         // it already is one, which wouldn't be fulfilled by the DateTime check.
         if ($value instanceof CarbonInterface) {
             return Date::instance($value);
@@ -894,14 +894,14 @@ trait HasAttributes
         }
 
         // If this value is an integer, we will assume it is a UNIX timestamp's value
-        // and format a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon object from this timestamp. This allows flexibility
+        // and format a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon object from this timestamp. This allows flexibility
         // when defining your date fields as they might be UNIX timestamps here.
         if (is_numeric($value)) {
             return Date::createFromTimestamp($value);
         }
 
         // If the value is in simply year, month, day format, we will instantiate the
-        // Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instances from that format. Again, this provides for simple date
+        // Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instances from that format. Again, this provides for simple date
         // fields on the database, while still supporting Carbonized conversion.
         if ($this->isStandardDateFormat($value)) {
             return Date::instance(Carbon::createFromFormat('Y-m-d', $value)->startOfDay());
@@ -910,7 +910,7 @@ trait HasAttributes
         $format = $this->getDateFormat();
 
         // Finally, we will just assume this date is in the format used by default on
-        // the database connection and use that format to create the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon object
+        // the database connection and use that format to create the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon object
         // that is returned back out to the developers after we convert it here.
         if (Date::hasFormat($value, $format)) {
             return Date::createFromFormat($format, $value);

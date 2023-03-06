@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Intl\Grapheme as p;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Intl\Grapheme as p;
 
 if (!defined('GRAPHEME_EXTR_COUNT')) {
     define('GRAPHEME_EXTR_COUNT', 0);

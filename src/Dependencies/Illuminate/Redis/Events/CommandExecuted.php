@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Events;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Events;
 
 class CommandExecuted
 {
@@ -28,7 +28,7 @@ class CommandExecuted
     /**
      * The Redis connection instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection
      */
     public $connection;
 
@@ -45,7 +45,7 @@ class CommandExecuted
      * @param  string  $command
      * @param  array  $parameters
      * @param  float|null  $time
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection  $connection
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection  $connection
      * @return void
      */
     public function __construct($command, $parameters, $time, $connection)

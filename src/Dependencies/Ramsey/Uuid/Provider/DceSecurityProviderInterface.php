@@ -12,10 +12,10 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Provider;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Provider;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122\UuidV2;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Integer as IntegerObject;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122\UuidV2;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Integer as IntegerObject;
 
 /**
  * A DCE provider provides access to local domain identifiers for version 2,

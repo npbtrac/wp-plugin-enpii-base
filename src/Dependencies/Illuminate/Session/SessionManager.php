@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Manager;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Manager;
 
 class SessionManager extends Manager
 {
@@ -20,7 +20,7 @@ class SessionManager extends Manager
     /**
      * Create an instance of the "null" session driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
      */
     protected function createNullDriver()
     {
@@ -30,7 +30,7 @@ class SessionManager extends Manager
     /**
      * Create an instance of the "array" session driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
      */
     protected function createArrayDriver()
     {
@@ -42,7 +42,7 @@ class SessionManager extends Manager
     /**
      * Create an instance of the "cookie" session driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
      */
     protected function createCookieDriver()
     {
@@ -54,7 +54,7 @@ class SessionManager extends Manager
     /**
      * Create an instance of the file session driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
      */
     protected function createFileDriver()
     {
@@ -64,7 +64,7 @@ class SessionManager extends Manager
     /**
      * Create an instance of the file session driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
      */
     protected function createNativeDriver()
     {
@@ -78,7 +78,7 @@ class SessionManager extends Manager
     /**
      * Create an instance of the database session driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
      */
     protected function createDatabaseDriver()
     {
@@ -94,7 +94,7 @@ class SessionManager extends Manager
     /**
      * Get the database connection for the database driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
      */
     protected function getDatabaseConnection()
     {
@@ -106,7 +106,7 @@ class SessionManager extends Manager
     /**
      * Create an instance of the APC session driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
      */
     protected function createApcDriver()
     {
@@ -116,7 +116,7 @@ class SessionManager extends Manager
     /**
      * Create an instance of the Memcached session driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
      */
     protected function createMemcachedDriver()
     {
@@ -126,7 +126,7 @@ class SessionManager extends Manager
     /**
      * Create an instance of the Redis session driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
      */
     protected function createRedisDriver()
     {
@@ -142,7 +142,7 @@ class SessionManager extends Manager
     /**
      * Create an instance of the DynamoDB session driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
      */
     protected function createDynamodbDriver()
     {
@@ -153,7 +153,7 @@ class SessionManager extends Manager
      * Create an instance of a cache driven driver.
      *
      * @param  string  $driver
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
      */
     protected function createCacheBased($driver)
     {
@@ -164,7 +164,7 @@ class SessionManager extends Manager
      * Create the cache based session handler instance.
      *
      * @param  string  $driver
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\CacheBasedSessionHandler
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\CacheBasedSessionHandler
      */
     protected function createCacheHandler($driver)
     {
@@ -180,7 +180,7 @@ class SessionManager extends Manager
      * Build the session instance.
      *
      * @param  \SessionHandlerInterface  $handler
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
      */
     protected function buildSession($handler)
     {
@@ -193,7 +193,7 @@ class SessionManager extends Manager
      * Build the encrypted session instance.
      *
      * @param  \SessionHandlerInterface  $handler
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\EncryptedStore
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\EncryptedStore
      */
     protected function buildEncryptedSession($handler)
     {

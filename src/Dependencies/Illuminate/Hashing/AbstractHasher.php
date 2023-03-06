@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Hashing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Hashing;
 
 abstract class AbstractHasher
 {

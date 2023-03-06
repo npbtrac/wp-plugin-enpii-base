@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Loader;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Loader;
 
 use Symfony\Component\Config\Loader\FileLoader;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RouteCollection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RouteCollection;
 
 /**
  * GlobFileLoader loads files from a glob pattern.

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
 /**
  * Trait Macros.
  *
- * Allows users to register macros within the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon class.
+ * Allows users to register macros within the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon class.
  */
 trait Macro
 {

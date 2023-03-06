@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util\MimeType;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util\MimeType;
 use LogicException;
 
 use function strcmp;

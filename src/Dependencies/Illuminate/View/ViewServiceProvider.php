@@ -1,13 +1,13 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\BladeCompiler;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines\CompilerEngine;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines\EngineResolver;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines\FileEngine;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines\PhpEngine;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\BladeCompiler;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines\CompilerEngine;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines\EngineResolver;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines\FileEngine;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines\PhpEngine;
 
 class ViewServiceProvider extends ServiceProvider
 {
@@ -58,10 +58,10 @@ class ViewServiceProvider extends ServiceProvider
     /**
      * Create a new Factory Instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines\EngineResolver  $resolver
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\ViewFinderInterface  $finder
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher  $events
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Factory
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines\EngineResolver  $resolver
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\ViewFinderInterface  $finder
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher  $events
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Factory
      */
     protected function createFactory($resolver, $finder, $events)
     {
@@ -116,7 +116,7 @@ class ViewServiceProvider extends ServiceProvider
     /**
      * Register the file engine implementation.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines\EngineResolver  $resolver
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines\EngineResolver  $resolver
      * @return void
      */
     public function registerFileEngine($resolver)
@@ -129,7 +129,7 @@ class ViewServiceProvider extends ServiceProvider
     /**
      * Register the PHP engine implementation.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines\EngineResolver  $resolver
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines\EngineResolver  $resolver
      * @return void
      */
     public function registerPhpEngine($resolver)
@@ -142,7 +142,7 @@ class ViewServiceProvider extends ServiceProvider
     /**
      * Register the Blade engine implementation.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines\EngineResolver  $resolver
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines\EngineResolver  $resolver
      * @return void
      */
     public function registerBladeEngine($resolver)

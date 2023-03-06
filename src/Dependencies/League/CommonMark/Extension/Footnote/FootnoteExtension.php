@@ -12,25 +12,25 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\ConfigurableEnvironmentInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Event\DocumentParsedEvent;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\ExtensionInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Event\AnonymousFootnotesListener;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Event\GatherFootnotesListener;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Event\NumberFootnotesListener;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Node\Footnote;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Node\FootnoteBackref;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Node\FootnoteContainer;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Node\FootnoteRef;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Parser\AnonymousFootnoteRefParser;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Parser\FootnoteParser;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Parser\FootnoteRefParser;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Renderer\FootnoteBackrefRenderer;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Renderer\FootnoteContainerRenderer;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Renderer\FootnoteRefRenderer;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Renderer\FootnoteRenderer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\ConfigurableEnvironmentInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Event\DocumentParsedEvent;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\ExtensionInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Event\AnonymousFootnotesListener;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Event\GatherFootnotesListener;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Event\NumberFootnotesListener;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Node\Footnote;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Node\FootnoteBackref;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Node\FootnoteContainer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Node\FootnoteRef;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Parser\AnonymousFootnoteRefParser;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Parser\FootnoteParser;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Parser\FootnoteRefParser;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Renderer\FootnoteBackrefRenderer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Renderer\FootnoteContainerRenderer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Renderer\FootnoteRefRenderer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Renderer\FootnoteRenderer;
 
 final class FootnoteExtension implements ExtensionInterface
 {

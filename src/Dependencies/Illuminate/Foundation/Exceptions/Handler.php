@@ -1,37 +1,37 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Exceptions;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Exceptions;
 
 use Exception;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\AuthorizationException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\AuthenticationException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler as ExceptionHandlerContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Responsable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\ModelNotFoundException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Exceptions\HttpResponseException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\TokenMismatchException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Auth;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\View;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Reflector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ViewErrorBag;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Application as ConsoleApplication;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Exception\SuspiciousOperationException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\RedirectResponse as SymfonyRedirectResponse;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response as SymfonyResponse;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\AuthorizationException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\AuthenticationException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler as ExceptionHandlerContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Responsable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\ModelNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Exceptions\HttpResponseException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\TokenMismatchException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Auth;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\View;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Reflector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ViewErrorBag;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Application as ConsoleApplication;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\ErrorRenderer\HtmlErrorRenderer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Exception\SuspiciousOperationException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\RedirectResponse as SymfonyRedirectResponse;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response as SymfonyResponse;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 use Whoops\Handler\HandlerInterface;
 use Whoops\Run as Whoops;
@@ -41,7 +41,7 @@ class Handler implements ExceptionHandlerContract
     /**
      * The container implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
      */
     protected $container;
 
@@ -81,7 +81,7 @@ class Handler implements ExceptionHandlerContract
     /**
      * Create a new exception handler instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
      * @return void
      */
     public function __construct(Container $container)
@@ -182,9 +182,9 @@ class Handler implements ExceptionHandlerContract
     /**
      * Render an exception into an HTTP response.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  \Throwable  $e
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
      *
      * @throws \Throwable
      */
@@ -235,9 +235,9 @@ class Handler implements ExceptionHandlerContract
     /**
      * Convert an authentication exception into a response.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\AuthenticationException  $exception
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\AuthenticationException  $exception
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
      */
     protected function unauthenticated($request, AuthenticationException $exception)
     {
@@ -249,9 +249,9 @@ class Handler implements ExceptionHandlerContract
     /**
      * Create a response object from the given validation exception.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException  $e
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException  $e
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
      */
     protected function convertValidationExceptionToResponse(ValidationException $e, $request)
     {
@@ -267,9 +267,9 @@ class Handler implements ExceptionHandlerContract
     /**
      * Convert a validation exception into a response.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException  $exception
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException  $exception
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
      */
     protected function invalid($request, ValidationException $exception)
     {
@@ -281,9 +281,9 @@ class Handler implements ExceptionHandlerContract
     /**
      * Convert a validation exception into a JSON response.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException  $exception
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException  $exception
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse
      */
     protected function invalidJson($request, ValidationException $exception)
     {
@@ -296,9 +296,9 @@ class Handler implements ExceptionHandlerContract
     /**
      * Prepare a response for the given exception.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  \Throwable  $e
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
      */
     protected function prepareResponse($request, Throwable $e)
     {
@@ -319,7 +319,7 @@ class Handler implements ExceptionHandlerContract
      * Create a Symfony response for the given exception.
      *
      * @param  \Throwable  $e
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
      */
     protected function convertExceptionToResponse(Throwable $e)
     {
@@ -395,8 +395,8 @@ class Handler implements ExceptionHandlerContract
     /**
      * Render the given HttpException.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpExceptionInterface  $e
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpExceptionInterface  $e
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
      */
     protected function renderHttpException(HttpExceptionInterface $e)
     {
@@ -429,7 +429,7 @@ class Handler implements ExceptionHandlerContract
     /**
      * Get the view used to render HTTP exceptions.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpExceptionInterface  $e
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpExceptionInterface  $e
      * @return string
      */
     protected function getHttpExceptionView(HttpExceptionInterface $e)
@@ -438,11 +438,11 @@ class Handler implements ExceptionHandlerContract
     }
 
     /**
-     * Map the given exception into an Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate response.
+     * Map the given exception into an Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate response.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response  $response
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response  $response
      * @param  \Throwable  $e
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
      */
     protected function toIlluminateResponse($response, Throwable $e)
     {
@@ -462,9 +462,9 @@ class Handler implements ExceptionHandlerContract
     /**
      * Prepare a JSON response for the given exception.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  \Throwable  $e
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse
      */
     protected function prepareJsonResponse($request, Throwable $e)
     {
@@ -500,7 +500,7 @@ class Handler implements ExceptionHandlerContract
     /**
      * Render an exception to the console.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface  $output
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface  $output
      * @param  \Throwable  $e
      * @return void
      */

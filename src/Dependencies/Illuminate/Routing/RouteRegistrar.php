@@ -1,35 +1,35 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
 
 use BadMethodCallException;
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Reflector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Reflector;
 use InvalidArgumentException;
 
 /**
- * @method \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route get(string $uri, \Closure|array|string|null $action = null)
- * @method \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route post(string $uri, \Closure|array|string|null $action = null)
- * @method \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route put(string $uri, \Closure|array|string|null $action = null)
- * @method \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route delete(string $uri, \Closure|array|string|null $action = null)
- * @method \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route patch(string $uri, \Closure|array|string|null $action = null)
- * @method \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route options(string $uri, \Closure|array|string|null $action = null)
- * @method \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route any(string $uri, \Closure|array|string|null $action = null)
- * @method \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteRegistrar as(string $value)
- * @method \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteRegistrar domain(string $value)
- * @method \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteRegistrar middleware(array|string|null $middleware)
- * @method \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteRegistrar name(string $value)
- * @method \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteRegistrar namespace(string $value)
- * @method \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteRegistrar prefix(string  $prefix)
- * @method \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteRegistrar where(array  $where)
+ * @method \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route get(string $uri, \Closure|array|string|null $action = null)
+ * @method \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route post(string $uri, \Closure|array|string|null $action = null)
+ * @method \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route put(string $uri, \Closure|array|string|null $action = null)
+ * @method \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route delete(string $uri, \Closure|array|string|null $action = null)
+ * @method \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route patch(string $uri, \Closure|array|string|null $action = null)
+ * @method \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route options(string $uri, \Closure|array|string|null $action = null)
+ * @method \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route any(string $uri, \Closure|array|string|null $action = null)
+ * @method \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteRegistrar as(string $value)
+ * @method \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteRegistrar domain(string $value)
+ * @method \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteRegistrar middleware(array|string|null $middleware)
+ * @method \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteRegistrar name(string $value)
+ * @method \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteRegistrar namespace(string $value)
+ * @method \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteRegistrar prefix(string  $prefix)
+ * @method \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteRegistrar where(array  $where)
  */
 class RouteRegistrar
 {
     /**
      * The router instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router
      */
     protected $router;
 
@@ -70,7 +70,7 @@ class RouteRegistrar
     /**
      * Create a new route registrar instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router  $router
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router  $router
      * @return void
      */
     public function __construct(Router $router)
@@ -104,7 +104,7 @@ class RouteRegistrar
      * @param  string  $name
      * @param  string  $controller
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
      */
     public function resource($name, $controller, array $options = [])
     {
@@ -117,7 +117,7 @@ class RouteRegistrar
      * @param  string  $name
      * @param  string  $controller
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
      */
     public function apiResource($name, $controller, array $options = [])
     {
@@ -141,7 +141,7 @@ class RouteRegistrar
      * @param  array|string  $methods
      * @param  string  $uri
      * @param  \Closure|array|string|null  $action
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     public function match($methods, $uri, $action = null)
     {
@@ -154,7 +154,7 @@ class RouteRegistrar
      * @param  string  $method
      * @param  string  $uri
      * @param  \Closure|array|string|null  $action
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     protected function registerRoute($method, $uri, $action = null)
     {
@@ -198,7 +198,7 @@ class RouteRegistrar
      *
      * @param  string  $method
      * @param  array  $parameters
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route|$this
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route|$this
      *
      * @throws \BadMethodCallException
      */

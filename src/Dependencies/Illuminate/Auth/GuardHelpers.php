@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider;
 
 /**
  * These methods are typically the same across all guards.
@@ -13,23 +13,23 @@ trait GuardHelpers
     /**
      * The currently authenticated user.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable
      */
     protected $user;
 
     /**
      * The user provider implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider
      */
     protected $provider;
 
     /**
      * Determine if current user is authenticated. If not, throw an exception.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\AuthenticationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\AuthenticationException
      */
     public function authenticate()
     {
@@ -85,7 +85,7 @@ trait GuardHelpers
     /**
      * Set the current user.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable  $user
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable  $user
      * @return $this
      */
     public function setUser(AuthenticatableContract $user)
@@ -98,7 +98,7 @@ trait GuardHelpers
     /**
      * Get the user provider used by the guard.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider
      */
     public function getProvider()
     {
@@ -108,7 +108,7 @@ trait GuardHelpers
     /**
      * Set the user provider used by the guard.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider  $provider
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider  $provider
      * @return void
      */
     public function setProvider(UserProvider $provider)

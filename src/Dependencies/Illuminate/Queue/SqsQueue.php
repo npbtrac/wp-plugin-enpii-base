@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
 
 use Aws\Sqs\SqsClient;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue as QueueContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\SqsJob;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue as QueueContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\SqsJob;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 
 class SqsQueue extends Queue implements QueueContract
 {
@@ -122,7 +122,7 @@ class SqsQueue extends Queue implements QueueContract
      * Pop the next job off of the queue.
      *
      * @param  string|null  $queue
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job|null
      */
     public function pop($queue = null)
     {

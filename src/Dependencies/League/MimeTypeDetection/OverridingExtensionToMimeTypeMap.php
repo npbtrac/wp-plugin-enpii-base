@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\MimeTypeDetection;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\MimeTypeDetection;
 
 class OverridingExtensionToMimeTypeMap implements ExtensionToMimeTypeMap
 {

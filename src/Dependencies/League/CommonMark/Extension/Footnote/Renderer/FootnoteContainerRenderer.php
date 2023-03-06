@@ -12,15 +12,15 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Renderer;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Renderer;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractBlock;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Renderer\BlockRendererInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\ElementRendererInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Node\FootnoteContainer;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\HtmlElement;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\ConfigurationAwareInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\ConfigurationInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractBlock;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Renderer\BlockRendererInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\ElementRendererInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Footnote\Node\FootnoteContainer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\HtmlElement;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\ConfigurationAwareInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\ConfigurationInterface;
 
 final class FootnoteContainerRenderer implements BlockRendererInterface, ConfigurationAwareInterface
 {

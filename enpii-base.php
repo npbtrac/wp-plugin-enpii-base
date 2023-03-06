@@ -16,7 +16,7 @@ defined( 'ENPII_BASE_VERSION' ) || define( 'ENPII_BASE_PLUGIN_VERSION', '0.0.1' 
 defined( 'DIR_SEP' ) || define( 'DIR_SEP', DIRECTORY_SEPARATOR );
 
 // We include composer autoload here
-if ( ! class_exists( \Enpii\Wp_Plugin\Enpii_Base\Libs\Wp_Application::class ) ) {
+if ( ! class_exists( \Enpii\WP_Plugin\Enpii_Base\Libs\WP_Application::class ) ) {
 	require_once __DIR__ . DIR_SEP . 'vendor' . DIR_SEP . 'autoload.php';
 }
 
@@ -37,10 +37,10 @@ $wp_app_base_path = enpii_base_wp_app_get_base_path();
 $config = apply_filters( 'enpii_base_wp_app_prepare_config', [
 	'app' => require_once __DIR__ . DIR_SEP . 'wp-app-config' . DIR_SEP . 'app.php',
 ] );
-$wp_app = ( new \Enpii\Wp_Plugin\Enpii_Base\Libs\Wp_Application( $wp_app_base_path ) )->init_config( $config );
+$wp_app = ( new \Enpii\WP_Plugin\Enpii_Base\Libs\WP_Application( $wp_app_base_path ) )->init_config( $config );
 
 // We register Enpii_Base plugin as a Service Provider
-$enpii_base_plugin = new \Enpii\Wp_Plugin\Enpii_Base\Base\Plugin($wp_app);
+$enpii_base_plugin = new \Enpii\WP_Plugin\Enpii_Base\Base\Plugin($wp_app);
 $enpii_base_plugin->set_base_path(__DIR__);
 $enpii_base_plugin->set_base_url(plugin_dir_url( __FILE__ ));
 $wp_app->register( $enpii_base_plugin );

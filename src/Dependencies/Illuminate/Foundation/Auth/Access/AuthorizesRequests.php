@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Auth\Access;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Auth\Access;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Access\Gate;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Access\Gate;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 
 trait AuthorizesRequests
 {
@@ -12,9 +12,9 @@ trait AuthorizesRequests
      *
      * @param  mixed  $ability
      * @param  mixed|array  $arguments
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\Response
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\AuthorizationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\AuthorizationException
      */
     public function authorize($ability, $arguments = [])
     {
@@ -26,12 +26,12 @@ trait AuthorizesRequests
     /**
      * Authorize a given action for a user.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable|mixed  $user
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable|mixed  $user
      * @param  mixed  $ability
      * @param  mixed|array  $arguments
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\Response
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\AuthorizationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\AuthorizationException
      */
     public function authorizeForUser($user, $ability, $arguments = [])
     {
@@ -77,7 +77,7 @@ trait AuthorizesRequests
      * @param  string  $model
      * @param  string|null  $parameter
      * @param  array  $options
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request|null  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request|null  $request
      * @return void
      */
     public function authorizeResource($model, $parameter = null, array $options = [], $request = null)

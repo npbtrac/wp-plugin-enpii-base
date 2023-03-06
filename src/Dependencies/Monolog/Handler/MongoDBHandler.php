@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,23 +9,23 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
 
 use MongoDB\Driver\BulkWrite;
 use MongoDB\Driver\Manager;
 use MongoDB\Client;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FormatterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\MongoDBFormatter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FormatterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\MongoDBFormatter;
 
 /**
  * Logs to a MongoDB database.
  *
  * Usage example:
  *
- *   $log = new \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger('application');
+ *   $log = new \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger('application');
  *   $client = new \MongoDB\Client('mongodb://localhost:27017');
- *   $mongodb = new \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler\MongoDBHandler($client, 'logs', 'prod');
+ *   $mongodb = new \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\MongoDBHandler($client, 'logs', 'prod');
  *   $log->pushHandler($mongodb);
  *
  * The above examples uses the MongoDB PHP library's client class; however, the

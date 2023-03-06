@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption;
 
 use Traversable;
 

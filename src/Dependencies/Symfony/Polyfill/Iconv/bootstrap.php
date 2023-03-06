@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Iconv as p;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Iconv as p;
 
 if (extension_loaded('iconv')) {
     return;

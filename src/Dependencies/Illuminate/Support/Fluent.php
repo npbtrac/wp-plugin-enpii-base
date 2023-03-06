@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
 
 use ArrayAccess;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Jsonable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Jsonable;
 use JsonSerializable;
 
 class Fluent implements Arrayable, ArrayAccess, Jsonable, JsonSerializable

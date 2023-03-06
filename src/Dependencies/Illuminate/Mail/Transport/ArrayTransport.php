@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
 use Swift_Mime_SimpleMessage;
 
 class ArrayTransport extends Transport
@@ -10,7 +10,7 @@ class ArrayTransport extends Transport
     /**
      * The collection of Swift Messages.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     protected $messages;
 
@@ -39,7 +39,7 @@ class ArrayTransport extends Transport
     /**
      * Retrieve the collection of messages.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     public function messages()
     {
@@ -49,7 +49,7 @@ class ArrayTransport extends Transport
     /**
      * Clear all of the messages from the local collection.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     public function flush()
     {

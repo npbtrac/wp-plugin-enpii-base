@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Formatter\OutputFormatter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Question\ChoiceQuestion;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Question\ConfirmationQuestion;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Question\Question;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Style\SymfonyStyle;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Formatter\OutputFormatter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Question\ChoiceQuestion;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Question\ConfirmationQuestion;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Question\Question;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
  * Symfony Style Guide compliant question helper.

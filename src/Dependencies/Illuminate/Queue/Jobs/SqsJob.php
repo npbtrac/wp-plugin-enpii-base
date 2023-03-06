@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs;
 
 use Aws\Sqs\SqsClient;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job as JobContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job as JobContract;
 
 class SqsJob extends Job implements JobContract
 {
@@ -25,7 +25,7 @@ class SqsJob extends Job implements JobContract
     /**
      * Create a new job instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container  $container
      * @param  \Aws\Sqs\SqsClient  $sqs
      * @param  array  $job
      * @param  string  $connectionName

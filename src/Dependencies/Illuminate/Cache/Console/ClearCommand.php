@@ -1,12 +1,12 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Console;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Console;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheManager;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputArgument;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputOption;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheManager;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputArgument;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputOption;
 
 class ClearCommand extends Command
 {
@@ -27,22 +27,22 @@ class ClearCommand extends Command
     /**
      * The cache manager instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheManager
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheManager
      */
     protected $cache;
 
     /**
      * The filesystem instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem
      */
     protected $files;
 
     /**
      * Create a new cache clear command instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheManager  $cache
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem  $files
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheManager  $cache
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem  $files
      * @return void
      */
     public function __construct(CacheManager $cache, Filesystem $files)
@@ -100,7 +100,7 @@ class ClearCommand extends Command
     /**
      * Get the cache instance for the command.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
      */
     protected function cache()
     {

@@ -1,13 +1,13 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\CssSelector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\CssSelectorConverter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Exception\ExceptionInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css\Processor;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css\Property\Processor as PropertyProcessor;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css\Rule\Processor as RuleProcessor;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\CssSelector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\CssSelectorConverter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Exception\ExceptionInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css\Processor;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css\Property\Processor as PropertyProcessor;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css\Rule\Processor as RuleProcessor;
 
 class CssToInlineStyles
 {
@@ -15,7 +15,7 @@ class CssToInlineStyles
 
     public function __construct()
     {
-        if (class_exists('Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\CssSelectorConverter')) {
+        if (class_exists('Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\CssSelectorConverter')) {
             $this->cssConverter = new CssSelectorConverter();
         }
     }

@@ -12,16 +12,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractStringContainerBlock;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Delimiter\Delimiter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Delimiter\Processor\DelimiterProcessorInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\AdjacentTextMerger;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\Text;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Node\Node;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Reference\ReferenceMapInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\RegexHelper;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractStringContainerBlock;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Delimiter\Delimiter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Delimiter\Processor\DelimiterProcessorInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\AdjacentTextMerger;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\Text;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Node\Node;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Reference\ReferenceMapInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\RegexHelper;
 
 /**
  * @internal

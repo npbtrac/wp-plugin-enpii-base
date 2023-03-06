@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Node;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Node;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\Token;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\Token;
 
 /**
  * Represents a "<selector>:<name>(<arguments>)" node.

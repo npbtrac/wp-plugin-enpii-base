@@ -1,23 +1,23 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Middleware;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Middleware;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\Registrar;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\Registrar;
 
 class SubstituteBindings
 {
     /**
      * The router instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\Registrar
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\Registrar
      */
     protected $router;
 
     /**
      * Create a new bindings substitutor.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\Registrar  $router
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\Registrar  $router
      * @return void
      */
     public function __construct(Registrar $router)
@@ -28,7 +28,7 @@ class SubstituteBindings
     /**
      * Handle an incoming request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @return mixed
      */

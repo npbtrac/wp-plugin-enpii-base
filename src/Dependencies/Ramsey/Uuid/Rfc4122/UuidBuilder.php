@@ -12,17 +12,17 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Builder\UuidBuilderInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Codec\CodecInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\NumberConverterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\TimeConverterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Exception\UnableToBuildUuidException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Exception\UnsupportedOperationException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Nonstandard\UuidV6;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122\UuidInterface as Rfc4122UuidInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\UuidInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Builder\UuidBuilderInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Codec\CodecInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\NumberConverterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\TimeConverterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Exception\UnableToBuildUuidException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Exception\UnsupportedOperationException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Nonstandard\UuidV6;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122\UuidInterface as Rfc4122UuidInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\UuidInterface;
 use Throwable;
 
 /**

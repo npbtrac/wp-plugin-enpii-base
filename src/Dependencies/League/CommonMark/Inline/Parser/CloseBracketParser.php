@@ -12,23 +12,23 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Parser;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Parser;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Cursor;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Delimiter\DelimiterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\EnvironmentAwareInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\EnvironmentInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Mention\Mention;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\AdjacentTextMerger;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\AbstractWebResource;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\Image;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\Link;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\Text;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\InlineParserContext;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Reference\ReferenceInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Reference\ReferenceMapInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\LinkParserHelper;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\RegexHelper;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Cursor;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Delimiter\DelimiterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\EnvironmentAwareInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\EnvironmentInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Mention\Mention;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\AdjacentTextMerger;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\AbstractWebResource;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\Image;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\Link;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\Text;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\InlineParserContext;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Reference\ReferenceInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Reference\ReferenceMapInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\LinkParserHelper;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\RegexHelper;
 
 final class CloseBracketParser implements InlineParserInterface, EnvironmentAwareInterface
 {

@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
 
 /**
  * Logs to Cube.
  *
  * @link https://github.com/square/cube/wiki
  * @author Wan Chen <kami@kamisama.me>
- * @deprecated Since 2.8.0 and 3.2.0, Cube appears abandoned and thus we will drop this handler in Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog 4
+ * @deprecated Since 2.8.0 and 3.2.0, Cube appears abandoned and thus we will drop this handler in Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog 4
  */
 class CubeHandler extends AbstractProcessingHandler
 {

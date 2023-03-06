@@ -1,22 +1,22 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
 
 class RouteParameterBinder
 {
     /**
      * The route instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     protected $route;
 
     /**
      * Create a new Route parameter binder instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
      * @return void
      */
     public function __construct($route)
@@ -27,7 +27,7 @@ class RouteParameterBinder
     /**
      * Get the parameters for the route.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @return array
      */
     public function parameters($request)
@@ -49,7 +49,7 @@ class RouteParameterBinder
     /**
      * Get the parameter matches for the path portion of the URI.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @return array
      */
     protected function bindPathParameters($request)
@@ -64,7 +64,7 @@ class RouteParameterBinder
     /**
      * Extract the parameter list from the host part of the request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  array  $parameters
      * @return array
      */

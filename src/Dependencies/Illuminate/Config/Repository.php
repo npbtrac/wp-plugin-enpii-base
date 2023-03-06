@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Config;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Config;
 
 use ArrayAccess;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Config\Repository as ConfigContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Config\Repository as ConfigContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
 
 class Repository implements ArrayAccess, ConfigContract
 {

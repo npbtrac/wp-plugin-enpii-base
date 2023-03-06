@@ -12,7 +12,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type;
 
 /**
  * NumberInterface ensures consistency in numeric values returned by ramsey/uuid

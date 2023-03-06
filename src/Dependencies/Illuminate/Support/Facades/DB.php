@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
 /**
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionInterface connection(string $name = null)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder table(string $table, string $as = null)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Expression raw($value)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionInterface connection(string $name = null)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder table(string $table, string $as = null)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Expression raw($value)
  * @method static array getQueryLog()
  * @method static array prepareBindings(array $bindings)
  * @method static array pretend(\Closure $callback)
@@ -30,8 +30,8 @@ namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
  * @method static void rollBack(int $toLevel = null)
  * @method static void setDefaultConnection(string $name)
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\DatabaseManager
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\DatabaseManager
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
  */
 class DB extends Facade
 {

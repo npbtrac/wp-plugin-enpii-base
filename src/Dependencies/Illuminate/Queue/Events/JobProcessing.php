@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events;
 
 class JobProcessing
 {
@@ -14,7 +14,7 @@ class JobProcessing
     /**
      * The job instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job
      */
     public $job;
 
@@ -22,7 +22,7 @@ class JobProcessing
      * Create a new event instance.
      *
      * @param  string  $connectionName
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @return void
      */
     public function __construct($connectionName, $job)

@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
 use InvalidArgumentException;
 
 abstract class Seeder
@@ -12,14 +12,14 @@ abstract class Seeder
     /**
      * The container instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container
      */
     protected $container;
 
     /**
      * The console command instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command
      */
     protected $command;
 
@@ -72,7 +72,7 @@ abstract class Seeder
      * Resolve an instance of the given seeder class.
      *
      * @param  string  $class
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Seeder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Seeder
      */
     protected function resolve($class)
     {
@@ -94,7 +94,7 @@ abstract class Seeder
     /**
      * Set the IoC container instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container  $container
      * @return $this
      */
     public function setContainer(Container $container)
@@ -107,7 +107,7 @@ abstract class Seeder
     /**
      * Set the console command instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command  $command
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command  $command
      * @return $this
      */
     public function setCommand(Command $command)

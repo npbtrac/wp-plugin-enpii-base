@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\DataCollector;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\DataCollector;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\DataCollector\DataCollector;
 use Symfony\Component\HttpKernel\DataCollector\LateDataCollectorInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\DataCollectorTranslator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\DataCollectorTranslator;
 use Symfony\Component\VarDumper\Cloner\Data;
 
 /**

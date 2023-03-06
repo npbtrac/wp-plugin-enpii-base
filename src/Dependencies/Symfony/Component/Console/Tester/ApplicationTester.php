@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Tester;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Tester;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Application;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\ArrayInput;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Application;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\ArrayInput;
 
 /**
  * Eases the testing of console applications.

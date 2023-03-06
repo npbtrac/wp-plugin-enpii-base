@@ -13,13 +13,13 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Table;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Table;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractBlock;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractStringContainerBlock;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\InlineContainerInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\ContextInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Cursor;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractBlock;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractStringContainerBlock;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\InlineContainerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\ContextInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Cursor;
 
 final class Table extends AbstractStringContainerBlock implements InlineContainerInterface
 {

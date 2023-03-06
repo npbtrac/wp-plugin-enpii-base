@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Encryption;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Encryption;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\DecryptException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\Encrypter as EncrypterContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\EncryptException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\DecryptException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\Encrypter as EncrypterContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\EncryptException;
 use RuntimeException;
 
 class Encrypter implements EncrypterContract
@@ -77,7 +77,7 @@ class Encrypter implements EncrypterContract
      * @param  bool  $serialize
      * @return string
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\EncryptException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\EncryptException
      */
     public function encrypt($value, $serialize = true)
     {
@@ -115,7 +115,7 @@ class Encrypter implements EncrypterContract
      * @param  string  $value
      * @return string
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\EncryptException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\EncryptException
      */
     public function encryptString($value)
     {
@@ -129,7 +129,7 @@ class Encrypter implements EncrypterContract
      * @param  bool  $unserialize
      * @return mixed
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\DecryptException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\DecryptException
      */
     public function decrypt($payload, $unserialize = true)
     {
@@ -157,7 +157,7 @@ class Encrypter implements EncrypterContract
      * @param  string  $payload
      * @return string
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\DecryptException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\DecryptException
      */
     public function decryptString($payload)
     {
@@ -182,7 +182,7 @@ class Encrypter implements EncrypterContract
      * @param  string  $payload
      * @return array
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\DecryptException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\DecryptException
      */
     protected function getJsonPayload($payload)
     {

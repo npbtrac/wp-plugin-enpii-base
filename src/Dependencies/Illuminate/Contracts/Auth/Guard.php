@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth;
 
 interface Guard
 {
@@ -21,7 +21,7 @@ interface Guard
     /**
      * Get the currently authenticated user.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable|null
      */
     public function user();
 
@@ -43,7 +43,7 @@ interface Guard
     /**
      * Set the current user.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable  $user
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable  $user
      * @return void
      */
     public function setUser(Authenticatable $user);

@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Resources\Json;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Resources\Json;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Responsable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Responsable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
 
 class ResourceResponse implements Responsable
 {
@@ -29,8 +29,8 @@ class ResourceResponse implements Responsable
     /**
      * Create an HTTP response that represents the object.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse
      */
     public function toResponse($request)
     {

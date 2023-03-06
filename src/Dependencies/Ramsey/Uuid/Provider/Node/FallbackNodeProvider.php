@@ -12,11 +12,11 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Provider\Node;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Provider\Node;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Exception\NodeException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Provider\NodeProviderInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Hexadecimal;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Exception\NodeException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Provider\NodeProviderInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Hexadecimal;
 
 /**
  * FallbackNodeProvider retrieves the system node ID by stepping through a list

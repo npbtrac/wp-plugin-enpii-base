@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\InvalidEmail;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation\EmailValidation;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\InvalidEmail;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation\EmailValidation;
 
 class EmailValidator
 {

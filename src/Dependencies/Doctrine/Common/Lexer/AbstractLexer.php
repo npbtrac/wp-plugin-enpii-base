@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Common\Lexer;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Common\Lexer;
 
 use ReflectionClass;
 

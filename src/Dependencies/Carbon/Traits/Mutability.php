@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable;
 
 /**
  * Trait Mutability.
@@ -46,11 +46,11 @@ trait Mutability
     /**
      * Return a mutable copy of the instance.
      *
-     * @return Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon
+     * @return Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon
      */
     public function toMutable()
     {
-        /** @var Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon $date */
+        /** @var Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon $date */
         $date = $this->cast(Carbon::class);
 
         return $date;

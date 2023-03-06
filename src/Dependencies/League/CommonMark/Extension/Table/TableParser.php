@@ -13,16 +13,16 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Table;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Table;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\Document;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\Paragraph;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Parser\BlockParserInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Context;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\ContextInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Cursor;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\EnvironmentAwareInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\EnvironmentInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\Document;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\Paragraph;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Parser\BlockParserInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Context;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\ContextInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Cursor;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\EnvironmentAwareInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\EnvironmentInterface;
 
 final class TableParser implements BlockParserInterface, EnvironmentAwareInterface
 {

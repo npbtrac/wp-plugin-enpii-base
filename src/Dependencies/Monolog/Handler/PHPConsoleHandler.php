@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\LineFormatter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FormatterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\LineFormatter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FormatterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
 use PhpConsole\Connector;
 use PhpConsole\Handler as VendorPhpConsoleHandler;
 use PhpConsole\Helper;
 
 /**
- * Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog handler for Google Chrome extension "PHP Console"
+ * Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog handler for Google Chrome extension "PHP Console"
  *
  * Display PHP error/debug log messages in Google Chrome console and notification popups, executes PHP code remotely
  *
@@ -30,23 +30,23 @@ use PhpConsole\Helper;
  * 3. Install PHP Console library https://github.com/barbushin/php-console#installation
  * 4. Example (result will looks like http://i.hizliresim.com/vg3Pz4.png)
  *
- *      $logger = new \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger('all', array(new \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler\PHPConsoleHandler()));
- *      \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\ErrorHandler::register($logger);
+ *      $logger = new \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger('all', array(new \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\PHPConsoleHandler()));
+ *      \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\ErrorHandler::register($logger);
  *      echo $undefinedVar;
  *      $logger->debug('SELECT * FROM users', array('db', 'time' => 0.012));
  *      PC::debug($_SERVER); // PHP Console debugger for any type of vars
  *
  * @author Sergey Barbushin https://www.linkedin.com/in/barbushin
  *
- * @phpstan-import-type Record from \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger
- * @deprecated Since 2.8.0 and 3.2.0, PHPConsole is abandoned and thus we will drop this handler in Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog 4
+ * @phpstan-import-type Record from \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger
+ * @deprecated Since 2.8.0 and 3.2.0, PHPConsole is abandoned and thus we will drop this handler in Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog 4
  */
 class PHPConsoleHandler extends AbstractProcessingHandler
 {
     /** @var array<string, mixed> */
     private $options = [
         'enabled' => true, // bool Is PHP Console server enabled
-        'classesPartialsTraceIgnore' => ['Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\\'], // array Hide calls of classes started with...
+        'classesPartialsTraceIgnore' => ['Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\\'], // array Hide calls of classes started with...
         'debugTagsKeysInContext' => [0, 'tag'], // bool Is PHP Console server enabled
         'useOwnErrorsHandler' => false, // bool Enable errors handling
         'useOwnExceptionsHandler' => false, // bool Enable exceptions handling
@@ -71,7 +71,7 @@ class PHPConsoleHandler extends AbstractProcessingHandler
     private $connector;
 
     /**
-     * @param  array<string, mixed> $options   See \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler\PHPConsoleHandler::$options for more details
+     * @param  array<string, mixed> $options   See \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\PHPConsoleHandler::$options for more details
      * @param  Connector|null       $connector Instance of \PhpConsole\Connector class (optional)
      * @throws \RuntimeException
      */

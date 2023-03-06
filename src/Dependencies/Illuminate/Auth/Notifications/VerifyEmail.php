@@ -1,13 +1,13 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Notifications;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Notifications;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Config;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Lang;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\URL;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Config;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Lang;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\URL;
 
 class VerifyEmail extends Notification
 {
@@ -33,7 +33,7 @@ class VerifyEmail extends Notification
      * Build the mail representation of the notification.
      *
      * @param  mixed  $notifiable
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
     {

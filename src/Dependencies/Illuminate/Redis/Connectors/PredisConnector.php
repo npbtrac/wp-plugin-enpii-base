@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connectors;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connectors;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Connector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\PredisClusterConnection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\PredisConnection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Connector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\PredisClusterConnection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\PredisConnection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
 use Predis\Client;
 
 class PredisConnector implements Connector
@@ -15,7 +15,7 @@ class PredisConnector implements Connector
      *
      * @param  array  $config
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\PredisConnection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\PredisConnection
      */
     public function connect(array $config, array $options)
     {
@@ -32,7 +32,7 @@ class PredisConnector implements Connector
      * @param  array  $config
      * @param  array  $clusterOptions
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\PredisClusterConnection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\PredisClusterConnection
      */
     public function connectToCluster(array $config, array $clusterOptions, array $options)
     {

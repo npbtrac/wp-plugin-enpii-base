@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Passwords;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Passwords;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Notifications\ResetPassword as ResetPasswordNotification;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Notifications\ResetPassword as ResetPasswordNotification;
 
 trait CanResetPassword
 {

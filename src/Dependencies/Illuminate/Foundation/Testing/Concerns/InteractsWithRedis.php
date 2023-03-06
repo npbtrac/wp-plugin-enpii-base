@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Testing\Concerns;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Testing\Concerns;
 
 use Exception;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Application;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\RedisManager;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Env;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Application;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\RedisManager;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Env;
 
 trait InteractsWithRedis
 {
@@ -19,7 +19,7 @@ trait InteractsWithRedis
     /**
      * Redis manager instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\RedisManager[]
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\RedisManager[]
      */
     private $redis;
 

@@ -9,19 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\EventListener;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\EventListener;
 
 use Psr\Container\ContainerInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Cookie;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Session\Session;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Session\SessionInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Session\SessionUtils;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Event\FinishRequestEvent;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Event\RequestEvent;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Event\ResponseEvent;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\UnexpectedSessionUsageException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\KernelEvents;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Cookie;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Session\Session;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Session\SessionUtils;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Event\FinishRequestEvent;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Event\RequestEvent;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Event\ResponseEvent;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\UnexpectedSessionUsageException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Contracts\Service\ResetInterface;
 
 /**
@@ -159,7 +159,7 @@ abstract class AbstractSessionListener implements EventSubscriberInterface, Rese
                 $isSessionEmpty = $session->isEmpty() && empty($_SESSION); // checking $_SESSION to keep compatibility with native sessions
                 if ($requestSessionCookieId && $isSessionEmpty) {
                     // PHP internally sets the session cookie value to "deleted" when setcookie() is called with empty string $value argument
-                    // which happens in \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Session\Storage\Handler\AbstractSessionHandler::destroy
+                    // which happens in \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Session\Storage\Handler\AbstractSessionHandler::destroy
                     // when the session gets invalidated (for example on logout) so we must handle this case here too
                     // otherwise we would send two Set-Cookie headers back with the response
                     SessionUtils::popSessionCookie($sessionName, 'deleted');

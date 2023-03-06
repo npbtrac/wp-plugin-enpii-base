@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Testing\Concerns;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Testing\Concerns;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Application as ConsoleApplication;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Application as ConsoleApplication;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 trait InteractsWithExceptionHandling
@@ -13,7 +13,7 @@ trait InteractsWithExceptionHandling
     /**
      * The original exception handler.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler|null
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler|null
      */
     protected $originalExceptionHandler;
 
@@ -72,7 +72,7 @@ trait InteractsWithExceptionHandling
             /**
              * Create a new class instance.
              *
-             * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler  $originalHandler
+             * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler  $originalHandler
              * @param  array  $except
              * @return void
              */
@@ -109,9 +109,9 @@ trait InteractsWithExceptionHandling
             /**
              * Render an exception into an HTTP response.
              *
-             * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+             * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
              * @param  \Throwable  $e
-             * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+             * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
              *
              * @throws \Throwable
              */
@@ -135,7 +135,7 @@ trait InteractsWithExceptionHandling
             /**
              * Render an exception to the console.
              *
-             * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface  $output
+             * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface  $output
              * @param  \Throwable  $e
              * @return void
              */

@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Mention\Generator;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Mention\Generator;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Mention\Mention;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\AbstractInline;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Mention\Mention;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\AbstractInline;
 
 final class StringTemplateLinkGenerator implements MentionGeneratorInterface
 {

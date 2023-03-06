@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FlowdockFormatter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FormatterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FlowdockFormatter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FormatterInterface;
 
 /**
  * Sends notifications through the Flowdock push API
@@ -72,7 +72,7 @@ class FlowdockHandler extends SocketHandler
     public function setFormatter(FormatterInterface $formatter): HandlerInterface
     {
         if (!$formatter instanceof FlowdockFormatter) {
-            throw new \InvalidArgumentException('The FlowdockHandler requires an instance of Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FlowdockFormatter to function correctly');
+            throw new \InvalidArgumentException('The FlowdockHandler requires an instance of Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FlowdockFormatter to function correctly');
         }
 
         return parent::setFormatter($formatter);
@@ -83,7 +83,7 @@ class FlowdockHandler extends SocketHandler
      */
     protected function getDefaultFormatter(): FormatterInterface
     {
-        throw new \InvalidArgumentException('The FlowdockHandler must be configured (via setFormatter) with an instance of Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FlowdockFormatter to function correctly');
+        throw new \InvalidArgumentException('The FlowdockHandler must be configured (via setFormatter) with an instance of Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FlowdockFormatter to function correctly');
     }
 
     /**

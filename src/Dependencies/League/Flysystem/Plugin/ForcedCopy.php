@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Plugin;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Plugin;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\FileExistsException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\FileNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\FileExistsException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\FileNotFoundException;
 
 class ForcedCopy extends AbstractPlugin
 {

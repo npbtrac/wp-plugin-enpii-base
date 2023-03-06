@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Regex;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Regex;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Error;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Success;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Error;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Success;
 
 class Regex
 {
@@ -14,7 +14,7 @@ class Regex
      * @param string $pattern
      * @param string $subject
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<int,string>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<int,string>
      */
     public static function match($pattern, $subject)
     {
@@ -31,7 +31,7 @@ class Regex
      * @param string   $subject
      * @param int|null $limit
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<string,string>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<string,string>
      */
     public static function replace($pattern, $replacement, $subject, $limit = null)
     {
@@ -48,7 +48,7 @@ class Regex
      * @param string   $subject
      * @param int|null $limit
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<string,string>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<string,string>
      */
     public static function replaceCallback($pattern, callable $callback, $subject, $limit = null)
     {
@@ -63,7 +63,7 @@ class Regex
      * @param string $pattern
      * @param string $subject
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<string[],string>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<string[],string>
      */
     public static function split($pattern, $subject)
     {
@@ -81,7 +81,7 @@ class Regex
      * @param callable(string):V $operation
      * @param string             $subject
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<V,string>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<V,string>
      */
     private static function pregAndWrap(callable $operation, $subject)
     {

@@ -12,12 +12,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Renderer;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Renderer;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractBlock;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\BlockQuote;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\ElementRendererInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\HtmlElement;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractBlock;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\BlockQuote;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\ElementRendererInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\HtmlElement;
 
 final class BlockQuoteRenderer implements BlockRendererInterface
 {

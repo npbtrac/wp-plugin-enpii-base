@@ -1,15 +1,15 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionResolverInterface as Resolver;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionResolverInterface as Resolver;
 
 class DatabaseMigrationRepository implements MigrationRepositoryInterface
 {
     /**
      * The database connection resolver instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionResolverInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionResolverInterface
      */
     protected $resolver;
 
@@ -30,7 +30,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     /**
      * Create a new database migration repository instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionResolverInterface  $resolver
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionResolverInterface  $resolver
      * @param  string  $table
      * @return void
      */
@@ -172,7 +172,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     /**
      * Get a query builder for the migration table.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder
      */
     protected function table()
     {
@@ -182,7 +182,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     /**
      * Get the connection resolver instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionResolverInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionResolverInterface
      */
     public function getConnectionResolver()
     {
@@ -192,7 +192,7 @@ class DatabaseMigrationRepository implements MigrationRepositoryInterface
     /**
      * Resolve the database connection instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
      */
     public function getConnection()
     {

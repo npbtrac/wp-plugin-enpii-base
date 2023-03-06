@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache;
 
 interface LockProvider
 {
@@ -10,7 +10,7 @@ interface LockProvider
      * @param  string  $name
      * @param  int  $seconds
      * @param  string|null  $owner
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Lock
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Lock
      */
     public function lock($name, $seconds = 0, $owner = null);
 
@@ -19,7 +19,7 @@ interface LockProvider
      *
      * @param  string  $name
      * @param  string  $owner
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Lock
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Lock
      */
     public function restoreLock($name, $owner);
 }

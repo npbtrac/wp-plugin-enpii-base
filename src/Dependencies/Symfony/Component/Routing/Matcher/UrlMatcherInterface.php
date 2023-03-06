@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\MethodNotAllowedException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\NoConfigurationException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\ResourceNotFoundException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RequestContextAwareInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\MethodNotAllowedException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\NoConfigurationException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\ResourceNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RequestContextAwareInterface;
 
 /**
  * UrlMatcherInterface is the interface that all URL matcher classes must implement.

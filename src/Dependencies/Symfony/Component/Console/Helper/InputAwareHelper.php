@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputAwareInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputAwareInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface;
 
 /**
  * An implementation of InputAwareInterface for Helpers.

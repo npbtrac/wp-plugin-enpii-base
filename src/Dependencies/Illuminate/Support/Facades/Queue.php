@@ -1,12 +1,12 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes\QueueFake;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes\QueueFake;
 
 /**
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job|null pop(string $queue = null)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue setConnectionName(string $name)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job|null pop(string $queue = null)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue setConnectionName(string $name)
  * @method static int size(string $queue = null)
  * @method static mixed bulk(array $jobs, mixed $data = '', string $queue = null)
  * @method static mixed later(\DateTimeInterface|\DateInterval|int $delay, string|object $job, mixed $data = '', string $queue = null)
@@ -21,15 +21,15 @@ use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes\Que
  * @method static void assertPushedOn(string $queue, string $job, callable|int $callback = null)
  * @method static void assertPushedWithChain(string $job, array $expectedChain = [], callable $callback = null)
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Queue
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Queue
  */
 class Queue extends Facade
 {
     /**
      * Replace the bound instance with a fake.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes\QueueFake
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes\QueueFake
      */
     public static function fake()
     {

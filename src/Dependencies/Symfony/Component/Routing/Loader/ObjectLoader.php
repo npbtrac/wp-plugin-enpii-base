@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Loader;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Loader;
 
 use Symfony\Component\Config\Loader\Loader;
 use Symfony\Component\Config\Resource\FileResource;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RouteCollection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RouteCollection;
 
 /**
  * A route loader that calls a method on an object to load the routes.

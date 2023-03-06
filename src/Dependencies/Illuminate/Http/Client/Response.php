@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client;
 
 use ArrayAccess;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 use LogicException;
 
 class Response implements ArrayAccess
@@ -199,7 +199,7 @@ class Response implements ArrayAccess
      *
      * @return $this
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\RequestException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\RequestException
      */
     public function throw()
     {

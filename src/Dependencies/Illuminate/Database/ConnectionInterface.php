@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database;
 
 use Closure;
 
@@ -9,9 +9,9 @@ interface ConnectionInterface
     /**
      * Begin a fluent query against a database table.
      *
-     * @param  \Closure|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder|string  $table
+     * @param  \Closure|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder|string  $table
      * @param  string|null  $as
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder
      */
     public function table($table, $as = null);
 
@@ -19,7 +19,7 @@ interface ConnectionInterface
      * Get a new raw query expression.
      *
      * @param  mixed  $value
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Expression
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Expression
      */
     public function raw($value);
 

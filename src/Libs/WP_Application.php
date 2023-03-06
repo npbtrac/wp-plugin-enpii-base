@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Libs;
+namespace Enpii\WP_Plugin\Enpii_Base\Libs;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Config\Repository;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Application;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Config\Repository;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Application;
 use TypeError;
 
-class Wp_Application extends Application {
+class WP_Application extends Application {
 
 	/**
 	 * We want to use the array to load the config
 	 *
 	 * @param mixed $config
-	 * @return Wp_Application
+	 * @return WP_Application
 	 * @throws TypeError
 	 * @throws TypeError
 	 * @throws TypeError
 	 * @throws TypeError
 	 * @throws TypeError
-	 * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException
+	 * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException
 	 */
 	public function init_config( $config = null ): self {
 		$this->singleton(
@@ -34,7 +34,7 @@ class Wp_Application extends Application {
 	}
 
 	public function register_cache_service_provider(): void {
-		$this->register( \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheServiceProvider::class );
+		$this->register( \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheServiceProvider::class );
 	}
 
 	/**

@@ -1,14 +1,14 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\AnonymousNotifiable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\ChannelManager;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes\NotificationFake;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\AnonymousNotifiable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\ChannelManager;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes\NotificationFake;
 
 /**
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\ChannelManager locale(string|null $locale)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection sent(mixed $notifiable, string $notification, callable $callback = null)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\ChannelManager locale(string|null $locale)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection sent(mixed $notifiable, string $notification, callable $callback = null)
  * @method static bool hasSent(mixed $notifiable, string $notification)
  * @method static mixed channel(string|null $name = null)
  * @method static void assertNotSentTo(mixed $notifiable, string $notification, callable $callback = null)
@@ -16,17 +16,17 @@ use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes\Not
  * @method static void assertSentTo(mixed $notifiable, string $notification, callable $callback = null)
  * @method static void assertSentToTimes(mixed $notifiable, string $notification, int $times = 1)
  * @method static void assertTimesSent(int $expectedCount, string $notification)
- * @method static void send(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|array|mixed $notifiables, $notification)
- * @method static void sendNow(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|array|mixed $notifiables, $notification)
+ * @method static void send(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|array|mixed $notifiables, $notification)
+ * @method static void sendNow(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|array|mixed $notifiables, $notification)
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\ChannelManager
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\ChannelManager
  */
 class Notification extends Facade
 {
     /**
      * Replace the bound instance with a fake.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes\NotificationFake
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes\NotificationFake
      */
     public static function fake()
     {
@@ -40,7 +40,7 @@ class Notification extends Facade
      *
      * @param  string  $channel
      * @param  mixed  $route
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\AnonymousNotifiable
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\AnonymousNotifiable
      */
     public static function route($channel, $route)
     {

@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Parser\BlockParserInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Renderer\BlockRendererInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Delimiter\Processor\DelimiterProcessorInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\ExtensionInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Parser\InlineParserInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Renderer\InlineRendererInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Parser\BlockParserInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Renderer\BlockRendererInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Delimiter\Processor\DelimiterProcessorInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\ExtensionInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Parser\InlineParserInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Renderer\InlineRendererInterface;
 
 /**
  * Interface for an Environment which can be configured with config settings, parsers, processors, and renderers

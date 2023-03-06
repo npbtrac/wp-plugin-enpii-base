@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Polyfill\StreamedCopyTrait;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Polyfill\StreamedTrait;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Config;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Polyfill\StreamedCopyTrait;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Polyfill\StreamedTrait;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Config;
 
 class NullAdapter extends AbstractAdapter
 {

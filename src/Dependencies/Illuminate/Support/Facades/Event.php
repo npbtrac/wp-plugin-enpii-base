@@ -1,14 +1,14 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes\EventFake;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes\EventFake;
 
 /**
  * @method static \Closure createClassListener(string $listener, bool $wildcard = false)
  * @method static \Closure makeListener(\Closure|string $listener, bool $wildcard = false)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Events\Dispatcher setQueueResolver(callable $resolver)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Events\Dispatcher setQueueResolver(callable $resolver)
  * @method static array getListeners(string $eventName)
  * @method static array|null dispatch(string|object $event, mixed $payload = [], bool $halt = false)
  * @method static array|null until(string|object $event, mixed $payload = [])
@@ -23,7 +23,7 @@ use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes\Eve
  * @method static void push(string $event, array $payload = [])
  * @method static void subscribe(object|string $subscriber)
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Events\Dispatcher
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Events\Dispatcher
  */
 class Event extends Facade
 {
@@ -31,7 +31,7 @@ class Event extends Facade
      * Replace the bound instance with a fake.
      *
      * @param  array|string  $eventsToFake
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes\EventFake
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes\EventFake
      */
     public static function fake($eventsToFake = [])
     {

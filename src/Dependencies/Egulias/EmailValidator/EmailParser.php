@@ -1,12 +1,12 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ExpectingATEXT;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\NoLocalPart;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Parser\DomainPart;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Parser\LocalPart;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\EmailTooLong;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ExpectingATEXT;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\NoLocalPart;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Parser\DomainPart;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Parser\LocalPart;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\EmailTooLong;
 
 /**
  * EmailParser

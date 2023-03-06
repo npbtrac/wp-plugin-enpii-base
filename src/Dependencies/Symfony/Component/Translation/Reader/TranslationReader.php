@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Reader;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Reader;
 
 use Symfony\Component\Finder\Finder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Loader\LoaderInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\MessageCatalogue;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Loader\LoaderInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\MessageCatalogue;
 
 /**
  * TranslationReader reads translation messages from translation files.

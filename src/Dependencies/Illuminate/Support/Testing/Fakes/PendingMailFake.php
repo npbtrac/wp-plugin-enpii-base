@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\PendingMail;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\PendingMail;
 
 class PendingMailFake extends PendingMail
 {
     /**
      * Create a new instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes\MailFake  $mailer
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes\MailFake  $mailer
      * @return void
      */
     public function __construct($mailer)
@@ -21,7 +21,7 @@ class PendingMailFake extends PendingMail
     /**
      * Send a new mailable message instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable  $mailable
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable  $mailable
      * @return mixed
      */
     public function send(Mailable $mailable)
@@ -32,7 +32,7 @@ class PendingMailFake extends PendingMail
     /**
      * Send a mailable message immediately.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable  $mailable
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable  $mailable
      * @return mixed
      *
      * @deprecated Use send() instead.
@@ -45,7 +45,7 @@ class PendingMailFake extends PendingMail
     /**
      * Push the given mailable onto the queue.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable  $mailable
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable  $mailable
      * @return mixed
      */
     public function queue(Mailable $mailable)

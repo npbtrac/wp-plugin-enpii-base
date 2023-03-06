@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Store;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Store;
 
 abstract class TaggableStore implements Store
 {
@@ -10,7 +10,7 @@ abstract class TaggableStore implements Store
      * Begin executing a new tags operation.
      *
      * @param  array|mixed  $names
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\TaggedCache
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\TaggedCache
      */
     public function tags($names)
     {

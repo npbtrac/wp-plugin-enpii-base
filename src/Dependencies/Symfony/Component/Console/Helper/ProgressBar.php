@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Cursor;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\LogicException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\ConsoleOutputInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\ConsoleSectionOutput;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Terminal;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Cursor;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\LogicException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\ConsoleOutputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\ConsoleSectionOutput;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Terminal;
 
 /**
  * The ProgressBar provides helpers to display progress output.

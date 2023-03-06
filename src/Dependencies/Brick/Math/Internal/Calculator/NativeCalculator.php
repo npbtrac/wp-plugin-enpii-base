@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math\Internal\Calculator;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math\Internal\Calculator;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math\Internal\Calculator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math\Internal\Calculator;
 
 /**
  * Calculator implementation using only native PHP code.

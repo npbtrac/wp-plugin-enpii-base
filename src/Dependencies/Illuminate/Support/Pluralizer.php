@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\CachedWordInflector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Inflector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\English;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\RulesetInflector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\CachedWordInflector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Inflector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\English;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\RulesetInflector;
 
 class Pluralizer
 {
@@ -125,7 +125,7 @@ class Pluralizer
     /**
      * Get the inflector instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Inflector
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Inflector
      */
     public static function inflector()
     {

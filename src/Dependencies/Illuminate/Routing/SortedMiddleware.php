@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
 
 class SortedMiddleware extends Collection
 {
@@ -10,7 +10,7 @@ class SortedMiddleware extends Collection
      * Create a new Sorted Middleware container.
      *
      * @param  array  $priorityMap
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|array  $middlewares
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|array  $middlewares
      * @return void
      */
     public function __construct(array $priorityMap, $middlewares)

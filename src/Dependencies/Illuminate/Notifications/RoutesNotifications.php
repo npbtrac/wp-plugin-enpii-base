@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Notifications\Dispatcher;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Notifications\Dispatcher;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 
 trait RoutesNotifications
 {
@@ -34,7 +34,7 @@ trait RoutesNotifications
      * Get the notification routing information for the given driver.
      *
      * @param  string  $driver
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification|null  $notification
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification|null  $notification
      * @return mixed
      */
     public function routeNotificationFor($driver, $notification = null)

@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Console;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Console;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\ConfirmableTrait;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Encryption\Encrypter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\ConfirmableTrait;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Encryption\Encrypter;
 
 class KeyGenerateCommand extends Command
 {

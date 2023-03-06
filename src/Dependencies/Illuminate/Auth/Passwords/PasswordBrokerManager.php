@@ -1,20 +1,20 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Passwords;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Passwords;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\PasswordBrokerFactory as FactoryContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\PasswordBrokerFactory as FactoryContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 use InvalidArgumentException;
 
 /**
- * @mixin \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\PasswordBroker
+ * @mixin \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\PasswordBroker
  */
 class PasswordBrokerManager implements FactoryContract
 {
     /**
      * The application instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
      */
     protected $app;
 
@@ -28,7 +28,7 @@ class PasswordBrokerManager implements FactoryContract
     /**
      * Create a new PasswordBroker manager instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
      * @return void
      */
     public function __construct($app)
@@ -40,7 +40,7 @@ class PasswordBrokerManager implements FactoryContract
      * Attempt to get the broker from the local cache.
      *
      * @param  string|null  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\PasswordBroker
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\PasswordBroker
      */
     public function broker($name = null)
     {
@@ -53,7 +53,7 @@ class PasswordBrokerManager implements FactoryContract
      * Resolve the given broker.
      *
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\PasswordBroker
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\PasswordBroker
      *
      * @throws \InvalidArgumentException
      */
@@ -78,7 +78,7 @@ class PasswordBrokerManager implements FactoryContract
      * Create a token repository instance based on the given configuration.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Passwords\TokenRepositoryInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Passwords\TokenRepositoryInterface
      */
     protected function createTokenRepository(array $config)
     {

@@ -12,7 +12,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Map;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Map;
 
 /**
  * A `TypedMapInterface` represents a map of elements where key and value are

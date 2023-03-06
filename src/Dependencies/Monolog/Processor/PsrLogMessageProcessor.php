@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Processor;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Processor;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
 
 /**
  * Processes a record's message according to PSR-3 rules
@@ -59,7 +59,7 @@ class PsrLogMessageProcessor implements ProcessorInterface
             if (is_null($val) || is_scalar($val) || (is_object($val) && method_exists($val, "__toString"))) {
                 $replacements[$placeholder] = $val;
             } elseif ($val instanceof \DateTimeInterface) {
-                if (!$this->dateFormat && $val instanceof \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\DateTimeImmutable) {
+                if (!$this->dateFormat && $val instanceof \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\DateTimeImmutable) {
                     // handle monolog dates using __toString if no specific dateFormat was asked for
                     // so that it follows the useMicroseconds flag
                     $replacements[$placeholder] = (string) $val;

@@ -12,9 +12,9 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Validator;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Validator;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Uuid;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Uuid;
 
 use function preg_match;
 use function str_replace;

@@ -1,19 +1,19 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation;
 
 use BadMethodCallException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\ImplicitRule;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\Rule as RuleContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\Validator as ValidatorContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\ImplicitRule;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\Rule as RuleContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\Validator as ValidatorContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 use RuntimeException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\File\UploadedFile;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class Validator implements ValidatorContract
 {
@@ -23,21 +23,21 @@ class Validator implements ValidatorContract
     /**
      * The Translator implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator
      */
     protected $translator;
 
     /**
      * The container instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
      */
     protected $container;
 
     /**
      * The Presence Verifier implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\PresenceVerifierInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\PresenceVerifierInterface
      */
     protected $presenceVerifier;
 
@@ -58,7 +58,7 @@ class Validator implements ValidatorContract
     /**
      * The message bag instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag
      */
     protected $messages;
 
@@ -255,7 +255,7 @@ class Validator implements ValidatorContract
     /**
      * Create a new Validator instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator  $translator
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator  $translator
      * @param  array  $data
      * @param  array  $rules
      * @param  array  $messages
@@ -443,7 +443,7 @@ class Validator implements ValidatorContract
      *
      * @return array
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException
      */
     public function validate()
     {
@@ -460,7 +460,7 @@ class Validator implements ValidatorContract
      * @param  string  $errorBag
      * @return array
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException
      */
     public function validateWithBag(string $errorBag)
     {
@@ -478,7 +478,7 @@ class Validator implements ValidatorContract
      *
      * @return array
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException
      */
     public function validated()
     {
@@ -723,7 +723,7 @@ class Validator implements ValidatorContract
      *
      * @param  string  $attribute
      * @param  mixed  $value
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\Rule  $rule
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\Rule  $rule
      * @return void
      */
     protected function validateUsingCustomRule($attribute, $value, $rule)
@@ -885,7 +885,7 @@ class Validator implements ValidatorContract
     /**
      * Get the message container for the validator.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag
      */
     public function messages()
     {
@@ -899,7 +899,7 @@ class Validator implements ValidatorContract
     /**
      * An alternative more semantic shortcut to the message container.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag
      */
     public function errors()
     {
@@ -909,7 +909,7 @@ class Validator implements ValidatorContract
     /**
      * Get the messages for the instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag
      */
     public function getMessageBag()
     {
@@ -1282,7 +1282,7 @@ class Validator implements ValidatorContract
      * Get the Presence Verifier implementation.
      *
      * @param  string|null  $connection
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\PresenceVerifierInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\PresenceVerifierInterface
      *
      * @throws \RuntimeException
      */
@@ -1302,7 +1302,7 @@ class Validator implements ValidatorContract
     /**
      * Set the Presence Verifier implementation.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\PresenceVerifierInterface  $presenceVerifier
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\PresenceVerifierInterface  $presenceVerifier
      * @return void
      */
     public function setPresenceVerifier(PresenceVerifierInterface $presenceVerifier)
@@ -1313,7 +1313,7 @@ class Validator implements ValidatorContract
     /**
      * Get the Translator implementation.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator
      */
     public function getTranslator()
     {
@@ -1323,7 +1323,7 @@ class Validator implements ValidatorContract
     /**
      * Set the Translator implementation.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator  $translator
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator  $translator
      * @return void
      */
     public function setTranslator(Translator $translator)
@@ -1334,7 +1334,7 @@ class Validator implements ValidatorContract
     /**
      * Set the IoC container instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
      * @return void
      */
     public function setContainer(Container $container)

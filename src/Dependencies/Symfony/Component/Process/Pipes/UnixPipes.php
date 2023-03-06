@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Pipes;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Pipes;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Process;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Process;
 
 /**
  * UnixPipes implementation uses unix pipes as handles.

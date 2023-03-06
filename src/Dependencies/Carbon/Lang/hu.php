@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -16,7 +16,7 @@
  * - balping
  */
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
 
 $huWeekEndings = ['vasárnap', 'hétfőn', 'kedden', 'szerdán', 'csütörtökön', 'pénteken', 'szombaton'];
 

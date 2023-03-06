@@ -1,14 +1,14 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Support\Providers;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Support\Providers;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\UrlGenerator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\ForwardsCalls;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\UrlGenerator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\ForwardsCalls;
 
 /**
- * @mixin \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router
+ * @mixin \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router
  */
 class RouteServiceProvider extends ServiceProvider
 {

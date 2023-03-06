@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Guard;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Guard;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 
 class RequestGuard implements Guard
 {
@@ -21,7 +21,7 @@ class RequestGuard implements Guard
     /**
      * The request instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
      */
     protected $request;
 
@@ -29,8 +29,8 @@ class RequestGuard implements Guard
      * Create a new authentication guard.
      *
      * @param  callable  $callback
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider|null  $provider
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider|null  $provider
      * @return void
      */
     public function __construct(callable $callback, Request $request, UserProvider $provider = null)
@@ -43,7 +43,7 @@ class RequestGuard implements Guard
     /**
      * Get the currently authenticated user.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable|null
      */
     public function user()
     {
@@ -75,7 +75,7 @@ class RequestGuard implements Guard
     /**
      * Set the current request instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @return $this
      */
     public function setRequest(Request $request)

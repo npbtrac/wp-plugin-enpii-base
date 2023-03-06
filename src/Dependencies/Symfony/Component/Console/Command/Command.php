@@ -9,21 +9,21 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Application;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Attribute\AsCommand;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Completion\CompletionInput;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Completion\CompletionSuggestions;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\ExceptionInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\LogicException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\HelperSet;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputArgument;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputDefinition;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputOption;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Application;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Attribute\AsCommand;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Completion\CompletionInput;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Completion\CompletionSuggestions;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\ExceptionInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\LogicException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\HelperSet;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputArgument;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputDefinition;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputOption;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
 
 /**
  * Base class for all commands.

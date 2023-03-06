@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Loader;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Loader;
 
 /**
  * @copyright Copyright (c) 2010, Union of RAD https://github.com/UnionOfRAD/lithium

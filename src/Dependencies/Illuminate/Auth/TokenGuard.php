@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Guard;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Guard;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
 
 class TokenGuard implements Guard
 {
@@ -13,7 +13,7 @@ class TokenGuard implements Guard
     /**
      * The request instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
      */
     protected $request;
 
@@ -41,8 +41,8 @@ class TokenGuard implements Guard
     /**
      * Create a new authentication guard.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider  $provider
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider  $provider
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  string  $inputKey
      * @param  string  $storageKey
      * @param  bool  $hash
@@ -65,7 +65,7 @@ class TokenGuard implements Guard
     /**
      * Get the currently authenticated user.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable|null
      */
     public function user()
     {
@@ -137,7 +137,7 @@ class TokenGuard implements Guard
     /**
      * Set the current request instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @return $this
      */
     public function setRequest(Request $request)

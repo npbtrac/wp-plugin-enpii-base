@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\TableOfContents\Normalizer;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\TableOfContents\Normalizer;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\ListItem;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\TableOfContents\Node\TableOfContents;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\ListItem;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\TableOfContents\Node\TableOfContents;
 
 final class FlatNormalizerStrategy implements NormalizerStrategyInterface
 {

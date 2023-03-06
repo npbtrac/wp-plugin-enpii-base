@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
 
 use ArrayAccess;
 use ArrayIterator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\EnumeratesValues;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\EnumeratesValues;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 use stdClass;
 
 class Collection implements ArrayAccess, Enumerable
@@ -63,7 +63,7 @@ class Collection implements ArrayAccess, Enumerable
     /**
      * Get a lazy collection for the items in this collection.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\LazyCollection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\LazyCollection
      */
     public function lazy()
     {
@@ -326,7 +326,7 @@ class Collection implements ArrayAccess, Enumerable
     /**
      * Get all items except for those with the specified keys.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|mixed  $keys
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|mixed  $keys
      * @return static
      */
     public function except($keys)
@@ -1333,7 +1333,7 @@ class Collection implements ArrayAccess, Enumerable
     /**
      * Get a base Support collection instance from this collection.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     public function toBase()
     {

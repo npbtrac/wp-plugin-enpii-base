@@ -1,30 +1,30 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application as ApplicationContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\CachesConfiguration;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\CachesRoutes;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Http\Kernel as HttpKernelContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Events\EventServiceProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Events\LocaleUpdated;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Log\LogServiceProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RoutingServiceProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Env;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application as ApplicationContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\CachesConfiguration;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\CachesRoutes;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Http\Kernel as HttpKernelContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Events\EventServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Events\LocaleUpdated;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Log\LogServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RoutingServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Env;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 use RuntimeException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request as SymfonyRequest;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\HttpKernelInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request as SymfonyRequest;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\HttpKernelInterface;
 
 class Application extends Container implements ApplicationContract, CachesConfiguration, CachesRoutes, HttpKernelInterface
 {
@@ -80,7 +80,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
     /**
      * All of the registered service providers.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider[]
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider[]
      */
     protected $serviceProviders = [];
 
@@ -155,7 +155,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
     protected $absoluteCachePathPrefixes = ['/', '\\'];
 
     /**
-     * Create a new Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate application instance.
+     * Create a new Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate application instance.
      *
      * @param  string|null  $basePath
      * @return void
@@ -595,7 +595,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
     {
         $providers = Collection::make($this->config['app.providers'])
                         ->partition(function ($provider) {
-                            return strpos($provider, 'Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\\') === 0;
+                            return strpos($provider, 'Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\\') === 0;
                         });
 
         $providers->splice(1, 0, [$this->make(PackageManifest::class)->providers()]);
@@ -607,9 +607,9 @@ class Application extends Container implements ApplicationContract, CachesConfig
     /**
      * Register a service provider with the application.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider|string  $provider
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider|string  $provider
      * @param  bool  $force
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider
      */
     public function register($provider, $force = false)
     {
@@ -656,8 +656,8 @@ class Application extends Container implements ApplicationContract, CachesConfig
     /**
      * Get the registered service provider instance if it exists.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider|string  $provider
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider|null
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider|string  $provider
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider|null
      */
     public function getProvider($provider)
     {
@@ -667,7 +667,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
     /**
      * Get the registered service provider instances if any exist.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider|string  $provider
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider|string  $provider
      * @return array
      */
     public function getProviders($provider)
@@ -683,7 +683,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
      * Resolve a service provider instance from the class name.
      *
      * @param  string  $provider
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider
      */
     public function resolveProvider($provider)
     {
@@ -693,7 +693,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
     /**
      * Mark the given provider as registered.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider  $provider
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider  $provider
      * @return void
      */
     protected function markAsRegistered($provider)
@@ -858,7 +858,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
     /**
      * Boot the given service provider.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider  $provider
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider  $provider
      * @return mixed
      */
     protected function bootProvider(ServiceProvider $provider)
@@ -1055,8 +1055,8 @@ class Application extends Container implements ApplicationContract, CachesConfig
      * @param  array  $headers
      * @return void
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpException
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
     public function abort($code, $message = '', array $headers = [])
     {
@@ -1234,44 +1234,44 @@ class Application extends Container implements ApplicationContract, CachesConfig
     public function registerCoreContainerAliases()
     {
         foreach ([
-            'app'                  => [self::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Container\ContainerInterface::class],
-            'auth'                 => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\AuthManager::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Factory::class],
-            'auth.driver'          => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Guard::class],
-            'blade.compiler'       => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\BladeCompiler::class],
-            'cache'                => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheManager::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory::class],
-            'cache.store'          => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\SimpleCache\CacheInterface::class],
+            'app'                  => [self::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Container\ContainerInterface::class],
+            'auth'                 => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\AuthManager::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Factory::class],
+            'auth.driver'          => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Guard::class],
+            'blade.compiler'       => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\BladeCompiler::class],
+            'cache'                => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheManager::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory::class],
+            'cache.store'          => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\SimpleCache\CacheInterface::class],
             'cache.psr6'           => [\Symfony\Component\Cache\Adapter\Psr16Adapter::class, \Symfony\Component\Cache\Adapter\AdapterInterface::class, \Psr\Cache\CacheItemPoolInterface::class],
-            'config'               => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Config\Repository::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Config\Repository::class],
-            'cookie'               => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cookie\CookieJar::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cookie\Factory::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cookie\QueueingFactory::class],
-            'encrypter'            => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Encryption\Encrypter::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\Encrypter::class],
-            'db'                   => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\DatabaseManager::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionResolverInterface::class],
-            'db.connection'        => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionInterface::class],
-            'events'               => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Events\Dispatcher::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher::class],
-            'files'                => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem::class],
-            'filesystem'           => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\FilesystemManager::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Factory::class],
-            'filesystem.disk'      => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem::class],
-            'filesystem.cloud'     => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Cloud::class],
-            'hash'                 => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Hashing\HashManager::class],
-            'hash.driver'          => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Hashing\Hasher::class],
-            'translator'           => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Translation\Translator::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator::class],
-            'log'                  => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Log\LogManager::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface::class],
-            'mail.manager'         => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\MailManager::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Factory::class],
-            'mailer'               => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Mailer::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailer::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\MailQueue::class],
-            'auth.password'        => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Passwords\PasswordBrokerManager::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\PasswordBrokerFactory::class],
-            'auth.password.broker' => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Passwords\PasswordBroker::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\PasswordBroker::class],
-            'queue'                => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Factory::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Monitor::class],
-            'queue.connection'     => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue::class],
-            'queue.failer'         => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Failed\FailedJobProviderInterface::class],
-            'redirect'             => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Redirector::class],
-            'redis'                => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\RedisManager::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory::class],
-            'redis.connection'     => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Connection::class],
-            'request'              => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request::class],
-            'router'               => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\Registrar::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\BindingRegistrar::class],
-            'session'              => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\SessionManager::class],
-            'session.store'        => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Session\Session::class],
-            'url'                  => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\UrlGenerator::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\UrlGenerator::class],
-            'validator'            => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Factory::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\Factory::class],
-            'view'                 => [\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Factory::class, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory::class],
+            'config'               => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Config\Repository::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Config\Repository::class],
+            'cookie'               => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cookie\CookieJar::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cookie\Factory::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cookie\QueueingFactory::class],
+            'encrypter'            => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Encryption\Encrypter::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\Encrypter::class],
+            'db'                   => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\DatabaseManager::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionResolverInterface::class],
+            'db.connection'        => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionInterface::class],
+            'events'               => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Events\Dispatcher::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher::class],
+            'files'                => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem::class],
+            'filesystem'           => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\FilesystemManager::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Factory::class],
+            'filesystem.disk'      => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem::class],
+            'filesystem.cloud'     => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Cloud::class],
+            'hash'                 => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Hashing\HashManager::class],
+            'hash.driver'          => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Hashing\Hasher::class],
+            'translator'           => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Translation\Translator::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator::class],
+            'log'                  => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Log\LogManager::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface::class],
+            'mail.manager'         => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\MailManager::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Factory::class],
+            'mailer'               => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Mailer::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailer::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\MailQueue::class],
+            'auth.password'        => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Passwords\PasswordBrokerManager::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\PasswordBrokerFactory::class],
+            'auth.password.broker' => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Passwords\PasswordBroker::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\PasswordBroker::class],
+            'queue'                => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Factory::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Monitor::class],
+            'queue.connection'     => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue::class],
+            'queue.failer'         => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Failed\FailedJobProviderInterface::class],
+            'redirect'             => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Redirector::class],
+            'redis'                => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\RedisManager::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory::class],
+            'redis.connection'     => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Connection::class],
+            'request'              => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request::class],
+            'router'               => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\Registrar::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\BindingRegistrar::class],
+            'session'              => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\SessionManager::class],
+            'session.store'        => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Session\Session::class],
+            'url'                  => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\UrlGenerator::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\UrlGenerator::class],
+            'validator'            => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Factory::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\Factory::class],
+            'view'                 => [\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Factory::class, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory::class],
         ] as $key => $aliases) {
             foreach ($aliases as $alias) {
                 $this->alias($key, $alias);

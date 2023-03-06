@@ -1,23 +1,23 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Middleware;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Middleware;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
 
 abstract class TrustHosts
 {
     /**
      * The application instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
      */
     protected $app;
 
     /**
      * Create a new middleware instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
      * @return void
      */
     public function __construct(Application $app)
@@ -35,9 +35,9 @@ abstract class TrustHosts
     /**
      * Handle the incoming request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  callable  $next
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
      */
     public function handle(Request $request, $next)
     {

@@ -1,24 +1,24 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Middleware;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Middleware;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory as ViewFactory;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ViewErrorBag;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory as ViewFactory;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ViewErrorBag;
 
 class ShareErrorsFromSession
 {
     /**
      * The view factory implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory
      */
     protected $view;
 
     /**
      * Create a new error binder instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory  $view
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory  $view
      * @return void
      */
     public function __construct(ViewFactory $view)
@@ -29,7 +29,7 @@ class ShareErrorsFromSession
     /**
      * Handle an incoming request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @return mixed
      */

@@ -12,9 +12,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Cursor;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Cursor;
 
 final class LinkParserHelper
 {

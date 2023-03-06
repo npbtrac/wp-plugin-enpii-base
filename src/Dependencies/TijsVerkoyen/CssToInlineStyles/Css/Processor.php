@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css\Rule\Processor as RuleProcessor;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css\Rule\Rule;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css\Rule\Processor as RuleProcessor;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css\Rule\Rule;
 
 class Processor
 {

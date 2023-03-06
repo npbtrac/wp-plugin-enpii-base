@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Reflector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Reflector;
 use InvalidArgumentException;
 use LogicException;
 
@@ -26,7 +26,7 @@ class CallbackEvent extends Event
     /**
      * Create a new event instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\EventMutex  $mutex
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\EventMutex  $mutex
      * @param  string  $callback
      * @param  array  $parameters
      * @param  \DateTimeZone|string|null  $timezone
@@ -51,7 +51,7 @@ class CallbackEvent extends Event
     /**
      * Run the given event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
      * @return mixed
      *
      * @throws \Exception

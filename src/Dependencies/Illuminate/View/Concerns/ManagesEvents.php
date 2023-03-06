@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Concerns;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Concerns;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\View as ViewContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\View as ViewContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 
 trait ManagesEvents
 {
@@ -169,7 +169,7 @@ trait ManagesEvents
     /**
      * Call the composer for a given view.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\View  $view
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\View  $view
      * @return void
      */
     public function callComposer(ViewContract $view)
@@ -180,7 +180,7 @@ trait ManagesEvents
     /**
      * Call the creator for a given view.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\View  $view
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\View  $view
      * @return void
      */
     public function callCreator(ViewContract $view)

@@ -1,12 +1,12 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
 /**
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application loadEnvironmentFrom(string $file)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider register(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider|string $provider, bool $force = false)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider resolveProvider(string $provider)
- * @method static array getProviders(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider|string $provider)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application loadEnvironmentFrom(string $file)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider register(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider|string $provider, bool $force = false)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider resolveProvider(string $provider)
+ * @method static array getProviders(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider|string $provider)
  * @method static bool configurationIsCached()
  * @method static bool hasBeenBootstrapped()
  * @method static bool isDownForMaintenance()
@@ -42,7 +42,7 @@ namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
  * @method static void setLocale(string $locale)
  * @method static void terminate()
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
  */
 class App extends Facade
 {

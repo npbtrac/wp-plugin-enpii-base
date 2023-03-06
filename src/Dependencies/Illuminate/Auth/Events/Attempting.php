@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Events;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Events;
 
 class Attempting
 {

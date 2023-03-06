@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Resources;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Resources;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
 use JsonSerializable;
 
 class MergeValue
@@ -17,7 +17,7 @@ class MergeValue
     /**
      * Create new merge value instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|\JsonSerializable|array  $data
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|\JsonSerializable|array  $data
      * @return void
      */
     public function __construct($data)

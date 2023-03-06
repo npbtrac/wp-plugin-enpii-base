@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Ctype as p;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Ctype as p;
 
 if (!function_exists('ctype_alnum')) {
     function ctype_alnum(mixed $text): bool { return p\Ctype::ctype_alnum($text); }

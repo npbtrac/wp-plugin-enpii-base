@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail;
 
 interface Mailer
 {
@@ -8,7 +8,7 @@ interface Mailer
      * Begin the process of mailing a mailable class instance.
      *
      * @param  mixed  $users
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\PendingMail
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\PendingMail
      */
     public function to($users);
 
@@ -16,7 +16,7 @@ interface Mailer
      * Begin the process of mailing a mailable class instance.
      *
      * @param  mixed  $users
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\PendingMail
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\PendingMail
      */
     public function bcc($users);
 
@@ -32,7 +32,7 @@ interface Mailer
     /**
      * Send a new message using a view.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable|string|array  $view
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable|string|array  $view
      * @param  array  $data
      * @param  \Closure|string|null  $callback
      * @return void

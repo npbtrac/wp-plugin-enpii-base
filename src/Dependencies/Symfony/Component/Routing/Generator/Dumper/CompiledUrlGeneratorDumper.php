@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Generator\Dumper;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Generator\Dumper;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\RouteCircularReferenceException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\RouteNotFoundException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\Dumper\CompiledUrlMatcherDumper;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\RouteCircularReferenceException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\RouteNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\Dumper\CompiledUrlMatcherDumper;
 
 /**
  * CompiledUrlGeneratorDumper creates a PHP array to be used with CompiledUrlGenerator.

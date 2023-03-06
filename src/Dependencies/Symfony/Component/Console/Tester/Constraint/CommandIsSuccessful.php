@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Tester\Constraint;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Tester\Constraint;
 
 use PHPUnit\Framework\Constraint\Constraint;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command;
 
 final class CommandIsSuccessful extends Constraint
 {

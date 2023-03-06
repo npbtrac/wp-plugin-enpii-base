@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\App\Providers;
+namespace Enpii\WP_Plugin\Enpii_Base\App\Providers;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Log\LogServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Log\LogServiceProvider;
 
 class Log_Service_Provider extends LogServiceProvider {
 	public function boot() {

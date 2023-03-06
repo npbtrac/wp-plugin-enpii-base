@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\English;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\English;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Pattern;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Substitution;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Transformation;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Word;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Pattern;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Substitution;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Transformation;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Word;
 
 class Inflectible
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 use InvalidArgumentException;
 
 class BladeCompiler extends Compiler implements CompilerInterface
@@ -173,7 +173,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
      * Get the open and closing PHP tag tokens from the given string.
      *
      * @param  string  $contents
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     protected function getOpenAndClosingPhpTokens($contents)
     {
@@ -495,20 +495,20 @@ class BladeCompiler extends Compiler implements CompilerInterface
 
         $this->directive($name, function ($expression) use ($name) {
             return $expression !== ''
-                    ? "<?php if (\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Blade::check('{$name}', {$expression})): ?>"
-                    : "<?php if (\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Blade::check('{$name}')): ?>";
+                    ? "<?php if (\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Blade::check('{$name}', {$expression})): ?>"
+                    : "<?php if (\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Blade::check('{$name}')): ?>";
         });
 
         $this->directive('unless'.$name, function ($expression) use ($name) {
             return $expression !== ''
-                ? "<?php if (! \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Blade::check('{$name}', {$expression})): ?>"
-                : "<?php if (! \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Blade::check('{$name}')): ?>";
+                ? "<?php if (! \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Blade::check('{$name}', {$expression})): ?>"
+                : "<?php if (! \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Blade::check('{$name}')): ?>";
         });
 
         $this->directive('else'.$name, function ($expression) use ($name) {
             return $expression !== ''
-                ? "<?php elseif (\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Blade::check('{$name}', {$expression})): ?>"
-                : "<?php elseif (\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Blade::check('{$name}')): ?>";
+                ? "<?php elseif (\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Blade::check('{$name}', {$expression})): ?>"
+                : "<?php elseif (\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Blade::check('{$name}')): ?>";
         });
 
         $this->directive('end'.$name, function () {
@@ -633,7 +633,7 @@ class BladeCompiler extends Compiler implements CompilerInterface
         $this->directive($alias, function ($expression) use ($path) {
             $expression = $this->stripParentheses($expression) ?: '[]';
 
-            return "<?php echo \$__env->make('{$path}', {$expression}, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>";
+            return "<?php echo \$__env->make('{$path}', {$expression}, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>";
         });
     }
 

@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,19 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Test;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Test;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\DateTimeImmutable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FormatterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\DateTimeImmutable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FormatterInterface;
 
 /**
  * Lets you easily generate log records and a dummy formatter for testing purposes
  *
  * @author Jordi Boggiano <j.boggiano@seld.be>
  *
- * @phpstan-import-type Record from \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger
- * @phpstan-import-type Level from \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger
+ * @phpstan-import-type Record from \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger
+ * @phpstan-import-type Level from \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger
  *
  * @internal feel free to reuse this to test your own handlers, this is marked internal to avoid issues with PHPStorm https://github.com/Seldaek/monolog/issues/1677
  */

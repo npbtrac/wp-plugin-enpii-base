@@ -1,15 +1,15 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 
 class ResourceRegistrar
 {
     /**
      * The router instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router
      */
     protected $router;
 
@@ -54,7 +54,7 @@ class ResourceRegistrar
     /**
      * Create a new resource registrar instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router  $router
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router  $router
      * @return void
      */
     public function __construct(Router $router)
@@ -68,7 +68,7 @@ class ResourceRegistrar
      * @param  string  $name
      * @param  string  $controller
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteCollection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteCollection
      */
     public function register($name, $controller, array $options = [])
     {
@@ -178,7 +178,7 @@ class ResourceRegistrar
      * @param  string  $base
      * @param  string  $controller
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     protected function addResourceIndex($name, $base, $controller, $options)
     {
@@ -196,7 +196,7 @@ class ResourceRegistrar
      * @param  string  $base
      * @param  string  $controller
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     protected function addResourceCreate($name, $base, $controller, $options)
     {
@@ -214,7 +214,7 @@ class ResourceRegistrar
      * @param  string  $base
      * @param  string  $controller
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     protected function addResourceStore($name, $base, $controller, $options)
     {
@@ -232,7 +232,7 @@ class ResourceRegistrar
      * @param  string  $base
      * @param  string  $controller
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     protected function addResourceShow($name, $base, $controller, $options)
     {
@@ -252,7 +252,7 @@ class ResourceRegistrar
      * @param  string  $base
      * @param  string  $controller
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     protected function addResourceEdit($name, $base, $controller, $options)
     {
@@ -272,7 +272,7 @@ class ResourceRegistrar
      * @param  string  $base
      * @param  string  $controller
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     protected function addResourceUpdate($name, $base, $controller, $options)
     {
@@ -292,7 +292,7 @@ class ResourceRegistrar
      * @param  string  $base
      * @param  string  $controller
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     protected function addResourceDestroy($name, $base, $controller, $options)
     {
@@ -322,7 +322,7 @@ class ResourceRegistrar
     /**
      * Set the route's binding fields if the resource is scoped.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
      * @param  array  $bindingFields
      * @return void
      */

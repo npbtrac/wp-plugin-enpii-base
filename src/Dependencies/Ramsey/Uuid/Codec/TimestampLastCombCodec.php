@@ -12,7 +12,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Codec;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Codec;
 
 /**
  * TimestampLastCombCodec encodes and decodes COMBs, with the timestamp as the

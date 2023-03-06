@@ -12,18 +12,18 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122;
 
 use DateTimeImmutable;
 use DateTimeInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Codec\CodecInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\NumberConverterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\TimeConverterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Exception\DateTimeException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Exception\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122\FieldsInterface as Rfc4122FieldsInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Integer as IntegerObject;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Uuid;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Codec\CodecInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\NumberConverterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\TimeConverterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Exception\DateTimeException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Exception\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122\FieldsInterface as Rfc4122FieldsInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Integer as IntegerObject;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Uuid;
 use Throwable;
 
 use function hexdec;

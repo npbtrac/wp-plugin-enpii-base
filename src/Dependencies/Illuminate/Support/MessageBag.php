@@ -1,12 +1,12 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
 
 use Countable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Jsonable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageBag as MessageBagContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Jsonable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageBag as MessageBagContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageProvider;
 use JsonSerializable;
 
 class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, MessageBagContract, MessageProvider
@@ -96,7 +96,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
     /**
      * Merge a new array of messages into the message bag.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageProvider|array  $messages
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageProvider|array  $messages
      * @return $this
      */
     public function merge($messages)
@@ -304,7 +304,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
     /**
      * Get the messages for the instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag
      */
     public function getMessageBag()
     {
@@ -325,7 +325,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
      * Set the default message format.
      *
      * @param  string  $format
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag
      */
     public function setFormat($format = ':message')
     {

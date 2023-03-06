@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Lock as LockContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\LockTimeoutException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\InteractsWithTime;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Lock as LockContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\LockTimeoutException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\InteractsWithTime;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 
 abstract class Lock implements LockContract
 {
@@ -107,7 +107,7 @@ abstract class Lock implements LockContract
      * @param  callable|null  $callback
      * @return bool
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\LockTimeoutException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\LockTimeoutException
      */
     public function block($seconds, $callback = null)
     {

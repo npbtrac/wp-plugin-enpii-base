@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Events;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Events;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\SerializesModels;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\SerializesModels;
 
 class Registered
 {
@@ -11,14 +11,14 @@ class Registered
     /**
      * The authenticated user.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable
      */
     public $user;
 
     /**
      * Create a new event instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable  $user
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable  $user
      * @return void
      */
     public function __construct($user)

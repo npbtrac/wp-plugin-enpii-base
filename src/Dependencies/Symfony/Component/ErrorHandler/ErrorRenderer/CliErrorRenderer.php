@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\ErrorRenderer;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\ErrorRenderer;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\Exception\FlattenException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Cloner\VarCloner;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Dumper\CliDumper;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\ErrorHandler\Exception\FlattenException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Cloner\VarCloner;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Dumper\CliDumper;
 
 // Help opcache.preload discover always-needed symbols
 class_exists(CliDumper::class);

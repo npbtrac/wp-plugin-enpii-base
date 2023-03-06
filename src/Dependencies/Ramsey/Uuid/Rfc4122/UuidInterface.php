@@ -12,9 +12,9 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\UuidInterface as BaseUuidInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\UuidInterface as BaseUuidInterface;
 
 /**
  * Also known as a Leach-Salz variant UUID, an RFC 4122 variant UUID is a

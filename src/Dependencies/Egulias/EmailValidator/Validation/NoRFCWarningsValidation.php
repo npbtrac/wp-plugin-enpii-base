@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\EmailLexer;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\InvalidEmail;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation\Error\RFCWarnings;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\EmailLexer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\InvalidEmail;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation\Error\RFCWarnings;
 
 class NoRFCWarningsValidation extends RFCValidation
 {

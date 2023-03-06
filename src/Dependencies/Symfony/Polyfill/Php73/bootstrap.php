@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Php73 as p;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Php73 as p;
 
 if (\PHP_VERSION_ID >= 70300) {
     return;

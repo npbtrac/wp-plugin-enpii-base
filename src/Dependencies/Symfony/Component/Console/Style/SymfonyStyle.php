@@ -9,25 +9,25 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Style;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Style;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\RuntimeException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Formatter\OutputFormatter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\Helper;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\ProgressBar;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\SymfonyQuestionHelper;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\Table;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\TableCell;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\TableSeparator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\ConsoleOutputInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\TrimmedBufferOutput;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Question\ChoiceQuestion;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Question\ConfirmationQuestion;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Question\Question;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Terminal;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\RuntimeException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Formatter\OutputFormatter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\Helper;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\ProgressBar;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\SymfonyQuestionHelper;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\Table;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\TableCell;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\TableSeparator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\ConsoleOutputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\TrimmedBufferOutput;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Question\ChoiceQuestion;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Question\ConfirmationQuestion;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Question\Question;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Terminal;
 
 /**
  * Output decorator helpers for the Symfony Style Guide.

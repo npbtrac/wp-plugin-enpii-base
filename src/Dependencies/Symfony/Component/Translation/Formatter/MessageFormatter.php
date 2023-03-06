@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Formatter;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Formatter;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\IdentityTranslator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\TranslatorInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\IdentityTranslator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\TranslatorInterface;
 
 // Help opcache.preload discover always-needed symbols
 class_exists(IntlFormatter::class);

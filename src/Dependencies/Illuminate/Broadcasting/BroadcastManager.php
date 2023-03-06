@@ -1,29 +1,29 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting\Broadcasters\LogBroadcaster;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting\Broadcasters\NullBroadcaster;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting\Broadcasters\PusherBroadcaster;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting\Broadcasters\RedisBroadcaster;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Factory as FactoryContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Bus\Dispatcher as BusDispatcherContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\CachesRoutes;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting\Broadcasters\LogBroadcaster;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting\Broadcasters\NullBroadcaster;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting\Broadcasters\PusherBroadcaster;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting\Broadcasters\RedisBroadcaster;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Factory as FactoryContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Bus\Dispatcher as BusDispatcherContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\CachesRoutes;
 use InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
 use Pusher\Pusher;
 
 /**
- * @mixin \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Broadcaster
+ * @mixin \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Broadcaster
  */
 class BroadcastManager implements FactoryContract
 {
     /**
      * The application instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
      */
     protected $app;
 
@@ -44,7 +44,7 @@ class BroadcastManager implements FactoryContract
     /**
      * Create a new manager instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $app
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $app
      * @return void
      */
     public function __construct($app)
@@ -77,7 +77,7 @@ class BroadcastManager implements FactoryContract
     /**
      * Get the socket ID for the given request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request|null  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request|null  $request
      * @return string|null
      */
     public function socket($request = null)
@@ -95,7 +95,7 @@ class BroadcastManager implements FactoryContract
      * Begin broadcasting an event.
      *
      * @param  mixed|null  $event
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting\PendingBroadcast
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting\PendingBroadcast
      */
     public function event($event = null)
     {
@@ -157,7 +157,7 @@ class BroadcastManager implements FactoryContract
      * Attempt to get the connection from the local cache.
      *
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Broadcaster
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Broadcaster
      */
     protected function get($name)
     {
@@ -168,7 +168,7 @@ class BroadcastManager implements FactoryContract
      * Resolve the given broadcaster.
      *
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Broadcaster
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Broadcaster
      *
      * @throws \InvalidArgumentException
      */
@@ -204,7 +204,7 @@ class BroadcastManager implements FactoryContract
      * Create an instance of the driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Broadcaster
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Broadcaster
      */
     protected function createPusherDriver(array $config)
     {
@@ -224,7 +224,7 @@ class BroadcastManager implements FactoryContract
      * Create an instance of the driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Broadcaster
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Broadcaster
      */
     protected function createRedisDriver(array $config)
     {
@@ -238,7 +238,7 @@ class BroadcastManager implements FactoryContract
      * Create an instance of the driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Broadcaster
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Broadcaster
      */
     protected function createLogDriver(array $config)
     {
@@ -251,7 +251,7 @@ class BroadcastManager implements FactoryContract
      * Create an instance of the driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Broadcaster
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Broadcaster
      */
     protected function createNullDriver(array $config)
     {

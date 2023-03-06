@@ -1,46 +1,46 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Cloud as CloudFilesystemContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileExistsException as ContractFileExistsException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException as ContractFileNotFoundException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem as FilesystemContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\File;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Cloud as CloudFilesystemContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileExistsException as ContractFileExistsException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException as ContractFileNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem as FilesystemContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\File;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 use InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Ftp;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Local as LocalAdapter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\AdapterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\AwsS3v3\AwsS3Adapter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Cached\CachedAdapter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\FileExistsException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\FileNotFoundException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Ftp;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Local as LocalAdapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\AdapterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\AwsS3v3\AwsS3Adapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Cached\CachedAdapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\FileExistsException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\FileNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface;
 use PHPUnit\Framework\Assert as PHPUnit;
 use Psr\Http\Message\StreamInterface;
 use RuntimeException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\StreamedResponse;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\StreamedResponse;
 
 /**
- * @mixin \Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface
+ * @mixin \Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface
  */
 class FilesystemAdapter implements CloudFilesystemContract
 {
     /**
      * The Flysystem filesystem implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface
      */
     protected $driver;
 
     /**
      * Create a new filesystem adapter instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface  $driver
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface  $driver
      * @return void
      */
     public function __construct(FilesystemInterface $driver)
@@ -131,7 +131,7 @@ class FilesystemAdapter implements CloudFilesystemContract
      * @param  string  $path
      * @return string
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function get($path)
     {
@@ -149,7 +149,7 @@ class FilesystemAdapter implements CloudFilesystemContract
      * @param  string|null  $name
      * @param  array|null  $headers
      * @param  string|null  $disposition
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\StreamedResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\StreamedResponse
      */
     public function response($path, $name = null, array $headers = [], $disposition = 'inline')
     {
@@ -182,7 +182,7 @@ class FilesystemAdapter implements CloudFilesystemContract
      * @param  string  $path
      * @param  string|null  $name
      * @param  array|null  $headers
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\StreamedResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\StreamedResponse
      */
     public function download($path, $name = null, array $headers = [])
     {
@@ -235,7 +235,7 @@ class FilesystemAdapter implements CloudFilesystemContract
      * Store the uploaded file on the disk.
      *
      * @param  string  $path
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\File|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile|string  $file
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\File|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile|string  $file
      * @param  mixed  $options
      * @return string|false
      */
@@ -250,7 +250,7 @@ class FilesystemAdapter implements CloudFilesystemContract
      * Store the uploaded file on the disk with a given name.
      *
      * @param  string  $path
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\File|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile|string  $file
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\File|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile|string  $file
      * @param  string  $name
      * @param  mixed  $options
      * @return string|false
@@ -474,7 +474,7 @@ class FilesystemAdapter implements CloudFilesystemContract
     /**
      * Get the URL for the file at the given path.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\AwsS3v3\AwsS3Adapter  $adapter
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\AwsS3v3\AwsS3Adapter  $adapter
      * @param  string  $path
      * @return string
      */
@@ -566,7 +566,7 @@ class FilesystemAdapter implements CloudFilesystemContract
     /**
      * Get a temporary URL for the file at the given path.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\AwsS3v3\AwsS3Adapter  $adapter
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\AwsS3v3\AwsS3Adapter  $adapter
      * @param  string  $path
      * @param  \DateTimeInterface  $expiration
      * @param  array  $options
@@ -687,7 +687,7 @@ class FilesystemAdapter implements CloudFilesystemContract
     /**
      * Get the Flysystem driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface
      */
     public function getDriver()
     {

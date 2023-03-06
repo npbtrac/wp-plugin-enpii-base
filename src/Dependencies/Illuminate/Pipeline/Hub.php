@@ -1,17 +1,17 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Pipeline;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Pipeline;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Pipeline\Hub as HubContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Pipeline\Hub as HubContract;
 
 class Hub implements HubContract
 {
     /**
      * The container implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container|null
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container|null
      */
     protected $container;
 
@@ -25,7 +25,7 @@ class Hub implements HubContract
     /**
      * Create a new Hub instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container|null  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container|null  $container
      * @return void
      */
     public function __construct(Container $container = null)

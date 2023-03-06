@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math\Exception;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math\Exception;
 
 /**
  * Exception thrown when a division by zero occurs.

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
 use BadMethodCallException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\BadComparisonUnitException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\BadComparisonUnitException;
 use InvalidArgumentException;
 
 /**
@@ -48,7 +48,7 @@ trait Comparison
      * Carbon::parse('2018-07-25 12:45:16')->eq('2018-07-25 12:45:17'); // false
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @see equalTo()
      *
@@ -69,7 +69,7 @@ trait Comparison
      * Carbon::parse('2018-07-25 12:45:16')->equalTo('2018-07-25 12:45:17'); // false
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @return bool
      */
@@ -91,7 +91,7 @@ trait Comparison
      * Carbon::parse('2018-07-25 12:45:16')->ne('2018-07-25 12:45:17'); // true
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @see notEqualTo()
      *
@@ -112,7 +112,7 @@ trait Comparison
      * Carbon::parse('2018-07-25 12:45:16')->notEqualTo('2018-07-25 12:45:17'); // true
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @return bool
      */
@@ -131,7 +131,7 @@ trait Comparison
      * Carbon::parse('2018-07-25 12:45:16')->gt('2018-07-25 12:45:17'); // false
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @see greaterThan()
      *
@@ -152,7 +152,7 @@ trait Comparison
      * Carbon::parse('2018-07-25 12:45:16')->greaterThan('2018-07-25 12:45:17'); // false
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @return bool
      */
@@ -174,7 +174,7 @@ trait Comparison
      * Carbon::parse('2018-07-25 12:45:16')->isAfter('2018-07-25 12:45:17'); // false
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @see greaterThan()
      *
@@ -195,7 +195,7 @@ trait Comparison
      * Carbon::parse('2018-07-25 12:45:16')->gte('2018-07-25 12:45:17'); // false
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @see greaterThanOrEqualTo()
      *
@@ -216,7 +216,7 @@ trait Comparison
      * Carbon::parse('2018-07-25 12:45:16')->greaterThanOrEqualTo('2018-07-25 12:45:17'); // false
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @return bool
      */
@@ -238,7 +238,7 @@ trait Comparison
      * Carbon::parse('2018-07-25 12:45:16')->lt('2018-07-25 12:45:17'); // true
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @see lessThan()
      *
@@ -259,7 +259,7 @@ trait Comparison
      * Carbon::parse('2018-07-25 12:45:16')->lessThan('2018-07-25 12:45:17'); // true
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @return bool
      */
@@ -281,7 +281,7 @@ trait Comparison
      * Carbon::parse('2018-07-25 12:45:16')->isBefore('2018-07-25 12:45:17'); // true
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @see lessThan()
      *
@@ -302,7 +302,7 @@ trait Comparison
      * Carbon::parse('2018-07-25 12:45:16')->lte('2018-07-25 12:45:17'); // true
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @see lessThanOrEqualTo()
      *
@@ -323,7 +323,7 @@ trait Comparison
      * Carbon::parse('2018-07-25 12:45:16')->lessThanOrEqualTo('2018-07-25 12:45:17'); // true
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @return bool
      */
@@ -350,8 +350,8 @@ trait Comparison
      * Carbon::parse('2018-07-25')->between('2018-07-25', '2018-08-01', false); // false
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date1
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date2
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date1
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date2
      * @param bool                                    $equal Indicates if an equal to comparison should be done
      *
      * @return bool
@@ -382,8 +382,8 @@ trait Comparison
      * Carbon::parse('2018-07-25')->betweenIncluded('2018-07-25', '2018-08-01'); // true
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date1
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date2
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date1
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date2
      *
      * @return bool
      */
@@ -402,8 +402,8 @@ trait Comparison
      * Carbon::parse('2018-07-25')->betweenExcluded('2018-07-25', '2018-08-01'); // false
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date1
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date2
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date1
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date2
      *
      * @return bool
      */
@@ -423,8 +423,8 @@ trait Comparison
      * Carbon::parse('2018-07-25')->isBetween('2018-07-25', '2018-08-01', false); // false
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date1
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date2
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date1
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date2
      * @param bool                                    $equal Indicates if an equal to comparison should be done
      *
      * @return bool
@@ -590,7 +590,7 @@ trait Comparison
      * ```
      *
      * @param string                                        $format date formats to compare.
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|string|null $date   instance to compare with or null to use current day.
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|string|null $date   instance to compare with or null to use current day.
      *
      * @return bool
      */
@@ -609,7 +609,7 @@ trait Comparison
      * ```
      *
      * @param string                                 $unit singular unit string
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|null $date instance to compare with or null to use current day.
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|null $date instance to compare with or null to use current day.
      *
      * @throws BadComparisonUnitException
      *
@@ -682,7 +682,7 @@ trait Comparison
      * Carbon::parse('2019-01-12')->isSameQuarter(Carbon::parse('2018-03-01'), false); // true
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|string|null $date       The instance to compare with or null to use current day.
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|string|null $date       The instance to compare with or null to use current day.
      * @param bool                                          $ofSameYear Check if it is the same month in the same year.
      *
      * @return bool
@@ -705,7 +705,7 @@ trait Comparison
      * Carbon::parse('2019-01-12')->isSameMonth(Carbon::parse('2018-01-01'), false); // true
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|null $date       The instance to compare with or null to use the current date.
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|null $date       The instance to compare with or null to use the current date.
      * @param bool                                   $ofSameYear Check if it is the same month in the same year.
      *
      * @return bool
@@ -750,7 +750,7 @@ trait Comparison
      * Carbon::parse('2019-06-05')->isBirthday(Carbon::parse('2001-06-06')); // false
      * ```
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|null $date The instance to compare with or null to use current day.
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|null $date The instance to compare with or null to use current day.
      *
      * @return bool
      */

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\App\Providers;
+namespace Enpii\WP_Plugin\Enpii_Base\App\Providers;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Support\Providers\RouteServiceProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Route;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Support\Providers\RouteServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Route;
 
 class Route_Service_Provider extends RouteServiceProvider {
 
@@ -16,7 +16,7 @@ class Route_Service_Provider extends RouteServiceProvider {
 	 *
 	 * @var string
 	 */
-	protected $namespace = 'Enpii\Wp_Plugin\Enpii_Base\App\Http\Controllers';
+	protected $namespace = 'Enpii\WP_Plugin\Enpii_Base\App\Http\Controllers';
 
 	/**
 	 * The path to the "home" route for your application.

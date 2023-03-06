@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Server;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Server;
 
 use Psr\Log\LoggerInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Cloner\Data;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Cloner\Stub;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Cloner\Data;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Cloner\Stub;
 
 /**
  * A server collecting Data clones sent by a ServerDumper.

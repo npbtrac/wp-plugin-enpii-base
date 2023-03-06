@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\Concerns;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\Concerns;
 
 trait CompilesIncludes
 {
@@ -25,7 +25,7 @@ trait CompilesIncludes
     {
         $expression = $this->stripParentheses($expression);
 
-        return "<?php echo \$__env->make({$expression}, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>";
+        return "<?php echo \$__env->make({$expression}, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>";
     }
 
     /**
@@ -38,7 +38,7 @@ trait CompilesIncludes
     {
         $expression = $this->stripParentheses($expression);
 
-        return "<?php if (\$__env->exists({$expression})) echo \$__env->make({$expression}, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>";
+        return "<?php if (\$__env->exists({$expression})) echo \$__env->make({$expression}, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>";
     }
 
     /**
@@ -51,7 +51,7 @@ trait CompilesIncludes
     {
         $expression = $this->stripParentheses($expression);
 
-        return "<?php echo \$__env->renderWhen($expression, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path'])); ?>";
+        return "<?php echo \$__env->renderWhen($expression, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path'])); ?>";
     }
 
     /**
@@ -64,7 +64,7 @@ trait CompilesIncludes
     {
         $expression = $this->stripParentheses($expression);
 
-        return "<?php echo \$__env->renderWhen(! $expression, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path'])); ?>";
+        return "<?php echo \$__env->renderWhen(! $expression, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path'])); ?>";
     }
 
     /**
@@ -77,6 +77,6 @@ trait CompilesIncludes
     {
         $expression = $this->stripParentheses($expression);
 
-        return "<?php echo \$__env->first({$expression}, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>";
+        return "<?php echo \$__env->first({$expression}, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>";
     }
 }

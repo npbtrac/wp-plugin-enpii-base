@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Loader;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Loader;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\MessageCatalogue;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\MessageCatalogue;
 
 /**
  * ArrayLoader loads translations from a PHP array.

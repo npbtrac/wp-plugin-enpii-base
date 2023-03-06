@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Testing\Concerns;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Testing\Concerns;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Mix;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Mix;
 use Mockery;
 
 trait InteractsWithContainer
@@ -11,7 +11,7 @@ trait InteractsWithContainer
     /**
      * The original Laravel Mix handler.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Mix|null
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Mix|null
      */
     protected $originalMix;
 

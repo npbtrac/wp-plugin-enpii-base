@@ -1,21 +1,21 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Log;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Log;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 use InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\LineFormatter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler\ErrorLogHandler;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler\FormattableHandlerInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler\HandlerInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler\RotatingFileHandler;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler\SlackWebhookHandler;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler\StreamHandler;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler\SyslogHandler;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler\WhatFailureGroupHandler;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger as Monolog;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\LineFormatter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\ErrorLogHandler;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\FormattableHandlerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\HandlerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\RotatingFileHandler;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\SlackWebhookHandler;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\StreamHandler;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\SyslogHandler;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\WhatFailureGroupHandler;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger as Monolog;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
 use Throwable;
 
 class LogManager implements LoggerInterface
@@ -25,7 +25,7 @@ class LogManager implements LoggerInterface
     /**
      * The application instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
      */
     protected $app;
 
@@ -53,7 +53,7 @@ class LogManager implements LoggerInterface
     /**
      * Create a new Log manager instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
      * @return void
      */
     public function __construct($app)
@@ -66,7 +66,7 @@ class LogManager implements LoggerInterface
      *
      * @param  array  $channels
      * @param  string|null  $channel
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      */
     public function stack(array $channels, $channel = null)
     {
@@ -80,7 +80,7 @@ class LogManager implements LoggerInterface
      * Get a log channel instance.
      *
      * @param  string|null  $channel
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      */
     public function channel($channel = null)
     {
@@ -91,7 +91,7 @@ class LogManager implements LoggerInterface
      * Get a log driver instance.
      *
      * @param  string|null  $driver
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      */
     public function driver($driver = null)
     {
@@ -110,7 +110,7 @@ class LogManager implements LoggerInterface
      * Attempt to get the log from the local cache.
      *
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      */
     protected function get($name)
     {
@@ -131,8 +131,8 @@ class LogManager implements LoggerInterface
      * Apply the configured taps for the logger.
      *
      * @param  string  $name
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Log\Logger  $logger
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Log\Logger
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Log\Logger  $logger
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Log\Logger
      */
     protected function tap($name, Logger $logger)
     {
@@ -159,7 +159,7 @@ class LogManager implements LoggerInterface
     /**
      * Create an emergency log handler to avoid white screens of death.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      */
     protected function createEmergencyLogger()
     {
@@ -180,7 +180,7 @@ class LogManager implements LoggerInterface
      * Resolve the given log instance by name.
      *
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      *
      * @throws \InvalidArgumentException
      */
@@ -220,7 +220,7 @@ class LogManager implements LoggerInterface
      * Create a custom log driver instance.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      */
     protected function createCustomDriver(array $config)
     {
@@ -233,7 +233,7 @@ class LogManager implements LoggerInterface
      * Create an aggregate log driver instance.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      */
     protected function createStackDriver(array $config)
     {
@@ -252,7 +252,7 @@ class LogManager implements LoggerInterface
      * Create an instance of the single file log driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      */
     protected function createSingleDriver(array $config)
     {
@@ -270,7 +270,7 @@ class LogManager implements LoggerInterface
      * Create an instance of the daily file log driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      */
     protected function createDailyDriver(array $config)
     {
@@ -286,7 +286,7 @@ class LogManager implements LoggerInterface
      * Create an instance of the Slack log driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      */
     protected function createSlackDriver(array $config)
     {
@@ -310,7 +310,7 @@ class LogManager implements LoggerInterface
      * Create an instance of the syslog log driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      */
     protected function createSyslogDriver(array $config)
     {
@@ -326,7 +326,7 @@ class LogManager implements LoggerInterface
      * Create an instance of the "error log" log driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      */
     protected function createErrorlogDriver(array $config)
     {
@@ -341,10 +341,10 @@ class LogManager implements LoggerInterface
      * Create an instance of any handler available in Monolog.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      *
      * @throws \InvalidArgumentException
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException
      */
     protected function createMonologDriver(array $config)
     {
@@ -383,9 +383,9 @@ class LogManager implements LoggerInterface
     /**
      * Prepare the handler for usage by Monolog.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler\HandlerInterface  $handler
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\HandlerInterface  $handler
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler\HandlerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\HandlerInterface
      */
     protected function prepareHandler(HandlerInterface $handler, array $config = [])
     {
@@ -409,7 +409,7 @@ class LogManager implements LoggerInterface
     /**
      * Get a Monolog formatter instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FormatterInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FormatterInterface
      */
     protected function formatter()
     {

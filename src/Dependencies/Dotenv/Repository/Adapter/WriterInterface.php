@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter;
 
 interface WriterInterface extends AvailabilityInterface
 {

@@ -12,7 +12,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122;
 
 /**
  * Provides common functionality for handling the version, as defined by RFC 4122

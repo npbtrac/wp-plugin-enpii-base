@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\EventListener;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\EventListener;
 
 use Psr\Log\LoggerInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\ConsoleEvents;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Event\ConsoleErrorEvent;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Event\ConsoleEvent;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Event\ConsoleTerminateEvent;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\ConsoleEvents;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Event\ConsoleErrorEvent;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Event\ConsoleEvent;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Event\ConsoleTerminateEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**

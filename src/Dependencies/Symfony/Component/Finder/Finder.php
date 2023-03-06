@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Comparator\DateComparator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Comparator\NumberComparator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Exception\DirectoryNotFoundException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\CustomFilterIterator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\DateRangeFilterIterator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\DepthRangeFilterIterator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\ExcludeDirectoryFilterIterator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\FilecontentFilterIterator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\FilenameFilterIterator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\LazyIterator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\SizeRangeFilterIterator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\SortableIterator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Comparator\DateComparator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Comparator\NumberComparator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Exception\DirectoryNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\CustomFilterIterator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\DateRangeFilterIterator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\DepthRangeFilterIterator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\ExcludeDirectoryFilterIterator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\FilecontentFilterIterator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\FilenameFilterIterator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\LazyIterator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\SizeRangeFilterIterator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\SortableIterator;
 
 /**
  * Finder allows to build rules to find files and directories.

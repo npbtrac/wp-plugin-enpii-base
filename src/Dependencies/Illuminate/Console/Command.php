@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command as SymfonyCommand;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command as SymfonyCommand;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
 
 class Command extends SymfonyCommand
 {
@@ -17,7 +17,7 @@ class Command extends SymfonyCommand
     /**
      * The Laravel application instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
      */
     protected $laravel;
 
@@ -107,8 +107,8 @@ class Command extends SymfonyCommand
     /**
      * Run the console command.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface  $output
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface  $input
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface  $output
      * @return int
      */
     public function run(InputInterface $input, OutputInterface $output)
@@ -125,8 +125,8 @@ class Command extends SymfonyCommand
     /**
      * Execute the console command.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface  $input
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface  $output
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface  $input
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface  $output
      * @return int
      */
     protected function execute(InputInterface $input, OutputInterface $output)
@@ -137,8 +137,8 @@ class Command extends SymfonyCommand
     /**
      * Resolve the console command instance for the given command.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command|string  $command
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command|string  $command
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command
      */
     protected function resolveCommand($command)
     {
@@ -180,7 +180,7 @@ class Command extends SymfonyCommand
     /**
      * Get the Laravel application instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
      */
     public function getLaravel()
     {
@@ -190,7 +190,7 @@ class Command extends SymfonyCommand
     /**
      * Set the Laravel application instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $laravel
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $laravel
      * @return void
      */
     public function setLaravel($laravel)

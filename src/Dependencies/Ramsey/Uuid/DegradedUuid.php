@@ -12,7 +12,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid;
 
 /**
  * @deprecated DegradedUuid is no longer necessary to represent UUIDs on 32-bit

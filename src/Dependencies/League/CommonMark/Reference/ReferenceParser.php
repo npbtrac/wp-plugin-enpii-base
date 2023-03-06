@@ -12,10 +12,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Reference;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Reference;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Cursor;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\LinkParserHelper;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Cursor;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\LinkParserHelper;
 
 final class ReferenceParser
 {

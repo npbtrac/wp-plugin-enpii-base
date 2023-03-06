@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\EventDispatcher;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\EventDispatcher;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\EventDispatcher\EventDispatcherInterface as PsrEventDispatcherInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\EventDispatcher\EventDispatcherInterface as PsrEventDispatcherInterface;
 
 /**
  * Allows providing hooks on domain-specific lifecycles by dispatching events.

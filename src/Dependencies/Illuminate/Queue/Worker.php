@@ -1,18 +1,18 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository as CacheContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Factory as QueueManager;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\DetectsLostConnections;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobExceptionOccurred;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobProcessed;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobProcessing;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\Looping;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\WorkerStopping;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository as CacheContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Factory as QueueManager;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\DetectsLostConnections;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobExceptionOccurred;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobProcessed;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobProcessing;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\Looping;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\WorkerStopping;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
 use Throwable;
 
 class Worker
@@ -22,28 +22,28 @@ class Worker
     /**
      * The queue manager instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Factory
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Factory
      */
     protected $manager;
 
     /**
      * The event dispatcher instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher
      */
     protected $events;
 
     /**
      * The cache repository implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
      */
     protected $cache;
 
     /**
      * The exception handler instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler
      */
     protected $exceptions;
 
@@ -71,9 +71,9 @@ class Worker
     /**
      * Create a new queue worker.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Factory  $manager
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher  $events
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler  $exceptions
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Factory  $manager
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher  $events
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler  $exceptions
      * @param  callable  $isDownForMaintenance
      * @return void
      */
@@ -93,7 +93,7 @@ class Worker
      *
      * @param  string  $connectionName
      * @param  string  $queue
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
      * @return void
      */
     public function daemon($connectionName, $queue, WorkerOptions $options)
@@ -148,8 +148,8 @@ class Worker
     /**
      * Register the worker timeout handler.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job|null  $job
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job|null  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
      * @return void
      */
     protected function registerTimeoutHandler($job, WorkerOptions $options)
@@ -185,8 +185,8 @@ class Worker
     /**
      * Get the appropriate timeout for the given job.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job|null  $job
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job|null  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
      * @return int
      */
     protected function timeoutForJob($job, WorkerOptions $options)
@@ -197,7 +197,7 @@ class Worker
     /**
      * Determine if the daemon should process on this iteration.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
      * @param  string  $connectionName
      * @param  string  $queue
      * @return bool
@@ -212,7 +212,7 @@ class Worker
     /**
      * Pause the worker for the current loop.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
      * @param  int  $lastRestart
      * @return void
      */
@@ -226,7 +226,7 @@ class Worker
     /**
      * Stop the process if necessary.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
      * @param  int  $lastRestart
      * @param  mixed  $job
      * @return void
@@ -249,7 +249,7 @@ class Worker
      *
      * @param  string  $connectionName
      * @param  string  $queue
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
      * @return void
      */
     public function runNextJob($connectionName, $queue, WorkerOptions $options)
@@ -271,9 +271,9 @@ class Worker
     /**
      * Get the next job from the queue connection.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue  $connection
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue  $connection
      * @param  string  $queue
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job|null
      */
     protected function getNextJob($connection, $queue)
     {
@@ -295,9 +295,9 @@ class Worker
     /**
      * Process the given job.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @param  string  $connectionName
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
      * @return void
      */
     protected function runJob($job, $connectionName, WorkerOptions $options)
@@ -328,8 +328,8 @@ class Worker
      * Process the given job from the queue.
      *
      * @param  string  $connectionName
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
      * @return void
      *
      * @throws \Throwable
@@ -365,8 +365,8 @@ class Worker
      * Handle an exception that occurred while the job was running.
      *
      * @param  string  $connectionName
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions  $options
      * @param  \Throwable  $e
      * @return void
      *
@@ -413,7 +413,7 @@ class Worker
      * This will likely be because the job previously exceeded a timeout.
      *
      * @param  string  $connectionName
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @param  int  $maxTries
      * @return void
      *
@@ -442,7 +442,7 @@ class Worker
      * Mark the given job as failed if it has exceeded the maximum allowed attempts.
      *
      * @param  string  $connectionName
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @param  int  $maxTries
      * @param  \Throwable  $e
      * @return void
@@ -464,7 +464,7 @@ class Worker
      * Mark the given job as failed if it has exceeded the maximum allowed attempts.
      *
      * @param  string  $connectionName
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @param  \Throwable  $e
      * @return void
      */
@@ -489,7 +489,7 @@ class Worker
     /**
      * Mark the given job as failed and raise the relevant event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @param  \Throwable  $e
      * @return void
      */
@@ -502,7 +502,7 @@ class Worker
      * Raise the before queue job event.
      *
      * @param  string  $connectionName
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @return void
      */
     protected function raiseBeforeJobEvent($connectionName, $job)
@@ -516,7 +516,7 @@ class Worker
      * Raise the after queue job event.
      *
      * @param  string  $connectionName
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @return void
      */
     protected function raiseAfterJobEvent($connectionName, $job)
@@ -530,7 +530,7 @@ class Worker
      * Raise the exception occurred queue job event.
      *
      * @param  string  $connectionName
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @param  \Throwable  $e
      * @return void
      */
@@ -640,8 +640,8 @@ class Worker
     /**
      * Create an instance of MaxAttemptsExceededException.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\MaxAttemptsExceededException
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\MaxAttemptsExceededException
      */
     protected function maxAttemptsExceededException($job)
     {
@@ -668,7 +668,7 @@ class Worker
     /**
      * Set the cache repository implementation.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository  $cache
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository  $cache
      * @return void
      */
     public function setCache(CacheContract $cache)
@@ -679,7 +679,7 @@ class Worker
     /**
      * Get the queue manager instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager
      */
     public function getManager()
     {
@@ -689,7 +689,7 @@ class Worker
     /**
      * Set the queue manager instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Factory  $manager
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Factory  $manager
      * @return void
      */
     public function setManager(QueueManager $manager)

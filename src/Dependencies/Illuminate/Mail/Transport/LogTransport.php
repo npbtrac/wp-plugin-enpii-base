@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
 use Swift_Mime_SimpleMessage;
 use Swift_Mime_SimpleMimeEntity;
 
@@ -11,14 +11,14 @@ class LogTransport extends Transport
     /**
      * The Logger instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      */
     protected $logger;
 
     /**
      * Create a new log transport instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface  $logger
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface  $logger
      * @return void
      */
     public function __construct(LoggerInterface $logger)
@@ -60,7 +60,7 @@ class LogTransport extends Transport
     /**
      * Get the logger for the LogTransport instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      */
     public function logger()
     {

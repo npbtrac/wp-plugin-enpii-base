@@ -1,20 +1,20 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
 
 class RouteFileRegistrar
 {
     /**
      * The router instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router
      */
     protected $router;
 
     /**
      * Create a new route file registrar instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router  $router
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router  $router
      * @return void
      */
     public function __construct(Router $router)

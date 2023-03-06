@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Resources\Json;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Resources\Json;
 
 use Countable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Resources\CollectsResources;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Pagination\AbstractPaginator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Resources\CollectsResources;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Pagination\AbstractPaginator;
 use IteratorAggregate;
 
 class ResourceCollection extends JsonResource implements Countable, IteratorAggregate
@@ -21,7 +21,7 @@ class ResourceCollection extends JsonResource implements Countable, IteratorAggr
     /**
      * The mapped collection instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     public $collection;
 
@@ -92,7 +92,7 @@ class ResourceCollection extends JsonResource implements Countable, IteratorAggr
     /**
      * Transform the resource into a JSON array.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @return array
      */
     public function toArray($request)
@@ -103,8 +103,8 @@ class ResourceCollection extends JsonResource implements Countable, IteratorAggr
     /**
      * Create an HTTP response that represents the object.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse
      */
     public function toResponse($request)
     {
@@ -118,8 +118,8 @@ class ResourceCollection extends JsonResource implements Countable, IteratorAggr
     /**
      * Create a paginate-aware HTTP response.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse
      */
     protected function preparePaginatedResponse($request)
     {

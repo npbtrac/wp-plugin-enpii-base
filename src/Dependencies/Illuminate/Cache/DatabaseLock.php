@@ -1,17 +1,17 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\QueryException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\QueryException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
 
 class DatabaseLock extends Lock
 {
     /**
      * The database connection instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
      */
     protected $connection;
 
@@ -32,7 +32,7 @@ class DatabaseLock extends Lock
     /**
      * Create a new lock instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection  $connection
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection  $connection
      * @param  string  $table
      * @param  string  $name
      * @param  int  $seconds

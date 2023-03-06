@@ -1,13 +1,13 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue as QueueContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobExceptionOccurred;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobProcessed;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobProcessing;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\SyncJob;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue as QueueContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobExceptionOccurred;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobProcessed;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobProcessing;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\SyncJob;
 use Throwable;
 
 class SyncQueue extends Queue implements QueueContract
@@ -55,7 +55,7 @@ class SyncQueue extends Queue implements QueueContract
      *
      * @param  string  $payload
      * @param  string  $queue
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\SyncJob
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\SyncJob
      */
     protected function resolveJob($payload, $queue)
     {
@@ -65,7 +65,7 @@ class SyncQueue extends Queue implements QueueContract
     /**
      * Raise the before queue job event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @return void
      */
     protected function raiseBeforeJobEvent(Job $job)
@@ -78,7 +78,7 @@ class SyncQueue extends Queue implements QueueContract
     /**
      * Raise the after queue job event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @return void
      */
     protected function raiseAfterJobEvent(Job $job)
@@ -91,7 +91,7 @@ class SyncQueue extends Queue implements QueueContract
     /**
      * Raise the exception occurred queue job event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @param  \Throwable  $e
      * @return void
      */
@@ -105,7 +105,7 @@ class SyncQueue extends Queue implements QueueContract
     /**
      * Handle an exception that occurred while processing a job.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\Job  $queueJob
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\Job  $queueJob
      * @param  \Throwable  $e
      * @return void
      *
@@ -151,7 +151,7 @@ class SyncQueue extends Queue implements QueueContract
      * Pop the next job off of the queue.
      *
      * @param  string|null  $queue
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job|null
      */
     public function pop($queue = null)
     {

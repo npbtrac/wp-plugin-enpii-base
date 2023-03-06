@@ -1,17 +1,17 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\ValidationException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Regex\Regex;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\ValidationException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Regex\Regex;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface;
 
 class Validator
 {
     /**
      * The environment repository instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface
      */
     protected $repository;
 
@@ -25,11 +25,11 @@ class Validator
     /**
      * Create a new validator instance.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface $repository
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface $repository
      * @param string[]                               $variables
      * @param bool                                   $required
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\ValidationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\ValidationException
      *
      * @return void
      */
@@ -51,9 +51,9 @@ class Validator
     /**
      * Assert that each variable is not empty.
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\ValidationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\ValidationException
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Validator
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Validator
      */
     public function notEmpty()
     {
@@ -72,9 +72,9 @@ class Validator
     /**
      * Assert that each specified variable is an integer.
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\ValidationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\ValidationException
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Validator
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Validator
      */
     public function isInteger()
     {
@@ -93,9 +93,9 @@ class Validator
     /**
      * Assert that each specified variable is a boolean.
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\ValidationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\ValidationException
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Validator
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Validator
      */
     public function isBoolean()
     {
@@ -120,9 +120,9 @@ class Validator
      *
      * @param string[] $choices
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\ValidationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\ValidationException
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Validator
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Validator
      */
     public function allowedValues(array $choices)
     {
@@ -143,9 +143,9 @@ class Validator
      *
      * @param string $regex
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\ValidationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\ValidationException
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Validator
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Validator
      */
     public function allowedRegexValues($regex)
     {
@@ -167,9 +167,9 @@ class Validator
      * @param callable $callback
      * @param string   $message
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\ValidationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\ValidationException
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Validator
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Validator
      */
     protected function assertCallback(callable $callback, $message = 'failed callback assertion')
     {

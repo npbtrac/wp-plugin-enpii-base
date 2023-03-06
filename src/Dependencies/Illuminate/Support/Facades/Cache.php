@@ -1,13 +1,13 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
 /**
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\TaggedCache tags(array|mixed $names)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Lock lock(string $name, int $seconds = 0, mixed $owner = null)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Lock restoreLock(string $name, string $owner)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository  store(string|null $name = null)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Store getStore()
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\TaggedCache tags(array|mixed $names)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Lock lock(string $name, int $seconds = 0, mixed $owner = null)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Lock restoreLock(string $name, string $owner)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository  store(string|null $name = null)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Store getStore()
  * @method static bool add(string $key, $value, \DateTimeInterface|\DateInterval|int $ttl = null)
  * @method static bool forever(string $key, $value)
  * @method static bool forget(string $key)
@@ -22,8 +22,8 @@ namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
  * @method static mixed rememberForever(string $key, \Closure $callback)
  * @method static mixed sear(string $key, \Closure $callback)
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheManager
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheManager
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
  */
 class Cache extends Facade
 {

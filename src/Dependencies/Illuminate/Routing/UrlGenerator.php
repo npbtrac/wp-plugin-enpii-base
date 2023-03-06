@@ -1,18 +1,18 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\UrlGenerator as UrlGeneratorContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\UrlRoutable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\InteractsWithTime;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\UrlGenerator as UrlGeneratorContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\UrlRoutable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\InteractsWithTime;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 use InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\RouteNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 class UrlGenerator implements UrlGeneratorContract
 {
@@ -21,14 +21,14 @@ class UrlGenerator implements UrlGeneratorContract
     /**
      * The route collection.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteCollectionInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteCollectionInterface
      */
     protected $routes;
 
     /**
      * The request instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
      */
     protected $request;
 
@@ -105,15 +105,15 @@ class UrlGenerator implements UrlGeneratorContract
     /**
      * The route URL generator instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteUrlGenerator|null
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteUrlGenerator|null
      */
     protected $routeGenerator;
 
     /**
      * Create a new URL Generator instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteCollectionInterface  $routes
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteCollectionInterface  $routes
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  string|null  $assetRoot
      * @return void
      */
@@ -358,7 +358,7 @@ class UrlGenerator implements UrlGeneratorContract
     /**
      * Determine if the given request has a valid signature.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  bool  $absolute
      * @return bool
      */
@@ -371,7 +371,7 @@ class UrlGenerator implements UrlGeneratorContract
     /**
      * Determine if the signature from the given request matches the URL.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  bool  $absolute
      * @return bool
      */
@@ -391,7 +391,7 @@ class UrlGenerator implements UrlGeneratorContract
     /**
      * Determine if the expires timestamp from the given request is not from the past.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @return bool
      */
     public function signatureHasNotExpired(Request $request)
@@ -409,7 +409,7 @@ class UrlGenerator implements UrlGeneratorContract
      * @param  bool  $absolute
      * @return string
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\RouteNotFoundException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\RouteNotFoundException
      */
     public function route($name, $parameters = [], $absolute = true)
     {
@@ -423,12 +423,12 @@ class UrlGenerator implements UrlGeneratorContract
     /**
      * Get the URL for a given route instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
      * @param  mixed  $parameters
      * @param  bool  $absolute
      * @return string
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Exceptions\UrlGenerationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Exceptions\UrlGenerationException
      */
     public function toRoute($route, $parameters, $absolute)
     {
@@ -545,7 +545,7 @@ class UrlGenerator implements UrlGeneratorContract
      *
      * @param  string  $root
      * @param  string  $path
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route|null  $route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route|null  $route
      * @return string
      */
     public function format($root, $path, $route = null)
@@ -581,7 +581,7 @@ class UrlGenerator implements UrlGeneratorContract
     /**
      * Get the Route URL generator instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteUrlGenerator
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteUrlGenerator
      */
     protected function routeUrl()
     {
@@ -680,7 +680,7 @@ class UrlGenerator implements UrlGeneratorContract
     /**
      * Get the request instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
      */
     public function getRequest()
     {
@@ -690,7 +690,7 @@ class UrlGenerator implements UrlGeneratorContract
     /**
      * Set the current request instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @return void
      */
     public function setRequest(Request $request)
@@ -712,7 +712,7 @@ class UrlGenerator implements UrlGeneratorContract
     /**
      * Set the route collection.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteCollectionInterface  $routes
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteCollectionInterface  $routes
      * @return $this
      */
     public function setRoutes(RouteCollectionInterface $routes)
@@ -725,7 +725,7 @@ class UrlGenerator implements UrlGeneratorContract
     /**
      * Get the session implementation from the resolver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store|null
      */
     protected function getSession()
     {

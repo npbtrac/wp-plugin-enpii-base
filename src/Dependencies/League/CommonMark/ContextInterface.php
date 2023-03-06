@@ -12,11 +12,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractBlock;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\Document;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Reference\ReferenceParser;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractBlock;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\Document;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Reference\ReferenceParser;
 
 interface ContextInterface
 {

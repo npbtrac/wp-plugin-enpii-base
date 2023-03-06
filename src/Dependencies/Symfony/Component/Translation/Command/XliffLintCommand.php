@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Command;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Command;
 
 use Symfony\Component\Console\CI\GithubActionReporter;
 use Symfony\Component\Console\Command\Command;
@@ -21,8 +21,8 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Util\XliffUtils;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Util\XliffUtils;
 
 /**
  * Validates XLIFF files syntax and outputs encountered errors.

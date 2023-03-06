@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\ResettableInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FormatterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\ResettableInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FormatterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel;
 
 /**
  * Simple handler wrapper that filters records based on a list of levels
@@ -24,9 +24,9 @@ use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel;
  * @author Hennadiy Verkh
  * @author Jordi Boggiano <j.boggiano@seld.be>
  *
- * @phpstan-import-type Record from \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger
- * @phpstan-import-type Level from \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger
- * @phpstan-import-type LevelName from \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger
+ * @phpstan-import-type Record from \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger
+ * @phpstan-import-type Level from \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger
+ * @phpstan-import-type LevelName from \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger
  */
 class FilterHandler extends Handler implements ProcessableHandlerInterface, ResettableInterface, FormattableHandlerInterface
 {
@@ -73,7 +73,7 @@ class FilterHandler extends Handler implements ProcessableHandlerInterface, Rese
         $this->setAcceptedLevels($minLevelOrList, $maxLevel);
 
         if (!$this->handler instanceof HandlerInterface && !is_callable($this->handler)) {
-            throw new \RuntimeException("The given handler (".json_encode($this->handler).") is not a callable nor a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler\HandlerInterface object");
+            throw new \RuntimeException("The given handler (".json_encode($this->handler).") is not a callable nor a Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\HandlerInterface object");
         }
     }
 
@@ -95,7 +95,7 @@ class FilterHandler extends Handler implements ProcessableHandlerInterface, Rese
     public function setAcceptedLevels($minLevelOrList = Logger::DEBUG, $maxLevel = Logger::EMERGENCY): self
     {
         if (is_array($minLevelOrList)) {
-            $acceptedLevels = array_map('Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger::toMonologLevel', $minLevelOrList);
+            $acceptedLevels = array_map('Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger::toMonologLevel', $minLevelOrList);
         } else {
             $minLevelOrList = Logger::toMonologLevel($minLevelOrList);
             $maxLevel = Logger::toMonologLevel($maxLevel);

@@ -1,19 +1,19 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\PasswordBroker;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\PasswordBroker;
 
 /**
  * @method static mixed reset(array $credentials, \Closure $callback)
  * @method static string sendResetLink(array $credentials)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword getUser(array $credentials)
- * @method static string createToken(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword $user)
- * @method static void deleteToken(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword $user)
- * @method static bool tokenExists(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword $user, string $token)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Passwords\TokenRepositoryInterface getRepository()
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword getUser(array $credentials)
+ * @method static string createToken(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword $user)
+ * @method static void deleteToken(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword $user)
+ * @method static bool tokenExists(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\CanResetPassword $user, string $token)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Passwords\TokenRepositoryInterface getRepository()
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Passwords\PasswordBroker
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Passwords\PasswordBroker
  */
 class Password extends Facade
 {

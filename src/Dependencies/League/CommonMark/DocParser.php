@@ -12,16 +12,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractBlock;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractStringContainerBlock;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\Document;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\Paragraph;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\StringContainerInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Event\DocumentParsedEvent;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Event\DocumentPreParsedEvent;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Input\MarkdownInput;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractBlock;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\AbstractStringContainerBlock;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\Document;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\Paragraph;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\StringContainerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Event\DocumentParsedEvent;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Event\DocumentPreParsedEvent;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Input\MarkdownInput;
 
 final class DocParser implements DocParserInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
 /**
  * @method static array all()
@@ -10,7 +10,7 @@ namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
  * @method static void push($key, $value)
  * @method static void set($key, $value = null)
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Config\Repository
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Config\Repository
  */
 class Config extends Facade
 {

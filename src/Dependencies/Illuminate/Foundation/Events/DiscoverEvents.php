@@ -1,14 +1,14 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Events;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Events;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Reflector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Reflector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 use ReflectionClass;
 use ReflectionException;
 use ReflectionMethod;
 use SplFileInfo;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Finder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Finder;
 
 class DiscoverEvents
 {

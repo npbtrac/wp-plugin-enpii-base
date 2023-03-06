@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Provider;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Provider;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorBag;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorBagInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorBag;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorBagInterface;
 
 /**
  * Filters domains and locales between the Translator config values and those specific to each provider.

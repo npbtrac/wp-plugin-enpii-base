@@ -1,12 +1,12 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database;
 
 use Doctrine\DBAL\Driver\PDOSqlite\Driver as DoctrineDriver;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Grammars\SQLiteGrammar as QueryGrammar;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Processors\SQLiteProcessor;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars\SQLiteGrammar as SchemaGrammar;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\SQLiteBuilder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Grammars\SQLiteGrammar as QueryGrammar;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Processors\SQLiteProcessor;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars\SQLiteGrammar as SchemaGrammar;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\SQLiteBuilder;
 
 class SQLiteConnection extends Connection
 {
@@ -37,7 +37,7 @@ class SQLiteConnection extends Connection
     /**
      * Get the default query grammar instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Grammars\SQLiteGrammar
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Grammars\SQLiteGrammar
      */
     protected function getDefaultQueryGrammar()
     {
@@ -47,7 +47,7 @@ class SQLiteConnection extends Connection
     /**
      * Get a schema builder instance for the connection.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\SQLiteBuilder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\SQLiteBuilder
      */
     public function getSchemaBuilder()
     {
@@ -61,7 +61,7 @@ class SQLiteConnection extends Connection
     /**
      * Get the default schema grammar instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars\SQLiteGrammar
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars\SQLiteGrammar
      */
     protected function getDefaultSchemaGrammar()
     {
@@ -71,7 +71,7 @@ class SQLiteConnection extends Connection
     /**
      * Get the default post processor instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Processors\SQLiteProcessor
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Processors\SQLiteProcessor
      */
     protected function getDefaultPostProcessor()
     {

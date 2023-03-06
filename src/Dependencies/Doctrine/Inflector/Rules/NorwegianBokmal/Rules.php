@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\NorwegianBokmal;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\NorwegianBokmal;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Patterns;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Ruleset;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Substitutions;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Transformations;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Patterns;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Ruleset;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Substitutions;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Transformations;
 
 final class Rules
 {

@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Console;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Console;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository as Cache;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobFailed;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobProcessed;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobProcessing;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Worker;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository as Cache;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobFailed;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobProcessed;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobProcessing;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Worker;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
 
 class WorkCommand extends Command
 {
@@ -42,22 +42,22 @@ class WorkCommand extends Command
     /**
      * The queue worker instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Worker
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Worker
      */
     protected $worker;
 
     /**
      * The cache store implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
      */
     protected $cache;
 
     /**
      * Create a new queue work command.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Worker  $worker
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository  $cache
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Worker  $worker
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository  $cache
      * @return void
      */
     public function __construct(Worker $worker, Cache $cache)
@@ -116,7 +116,7 @@ class WorkCommand extends Command
     /**
      * Gather all of the queue worker options as a single object.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\WorkerOptions
      */
     protected function gatherWorkerOptions()
     {
@@ -153,7 +153,7 @@ class WorkCommand extends Command
     /**
      * Write the status output for the queue worker.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @param  string  $status
      * @return void
      */
@@ -172,7 +172,7 @@ class WorkCommand extends Command
     /**
      * Format the status output for the queue worker.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @param  string  $status
      * @param  string  $type
      * @return void
@@ -190,7 +190,7 @@ class WorkCommand extends Command
     /**
      * Store a failed job event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobFailed  $event
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobFailed  $event
      * @return void
      */
     protected function logFailedJob(JobFailed $event)

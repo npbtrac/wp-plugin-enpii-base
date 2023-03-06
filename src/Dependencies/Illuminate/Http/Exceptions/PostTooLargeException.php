@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Exceptions;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Exceptions;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpException;
 use Throwable;
 
 class PostTooLargeException extends HttpException

@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Testing\Concerns;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Testing\Concerns;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\OutputStyle;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Console\Kernel;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Testing\PendingCommand;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\OutputStyle;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Console\Kernel;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Testing\PendingCommand;
 
 trait InteractsWithConsole
 {
@@ -48,7 +48,7 @@ trait InteractsWithConsole
      *
      * @param  string  $command
      * @param  array  $parameters
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Testing\PendingCommand|int
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Testing\PendingCommand|int
      */
     public function artisan($command, $parameters = [])
     {

@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\DependencyInjection;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\DependencyInjection;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\LazyCommand;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\LazyCommand;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\CommandLoader\ContainerCommandLoader;
 use Symfony\Component\DependencyInjection\Argument\ServiceClosureArgument;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\Compiler\ServiceLocatorTagPass;

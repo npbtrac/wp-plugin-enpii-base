@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection;
 
 class DatabaseNotificationCollection extends Collection
 {

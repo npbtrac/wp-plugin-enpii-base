@@ -1,12 +1,12 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue as QueueContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\DatabaseJob;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\DatabaseJobRecord;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue as QueueContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\DatabaseJob;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\DatabaseJobRecord;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
 use PDO;
 
 class DatabaseQueue extends Queue implements QueueContract
@@ -14,7 +14,7 @@ class DatabaseQueue extends Queue implements QueueContract
     /**
      * The database connection instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
      */
     protected $database;
 
@@ -42,7 +42,7 @@ class DatabaseQueue extends Queue implements QueueContract
     /**
      * Create a new database queue instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection  $database
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection  $database
      * @param  string  $table
      * @param  string  $default
      * @param  int  $retryAfter
@@ -138,7 +138,7 @@ class DatabaseQueue extends Queue implements QueueContract
      * Release a reserved job back onto the queue.
      *
      * @param  string  $queue
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\DatabaseJobRecord  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\DatabaseJobRecord  $job
      * @param  int  $delay
      * @return mixed
      */
@@ -188,7 +188,7 @@ class DatabaseQueue extends Queue implements QueueContract
      * Pop the next job off of the queue.
      *
      * @param  string|null  $queue
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job|null
      *
      * @throws \Throwable
      */
@@ -207,7 +207,7 @@ class DatabaseQueue extends Queue implements QueueContract
      * Get the next available job for the queue.
      *
      * @param  string|null  $queue
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\DatabaseJobRecord|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\DatabaseJobRecord|null
      */
     protected function getNextAvailableJob($queue)
     {
@@ -245,7 +245,7 @@ class DatabaseQueue extends Queue implements QueueContract
     /**
      * Modify the query to check for available jobs.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder  $query
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder  $query
      * @return void
      */
     protected function isAvailable($query)
@@ -259,7 +259,7 @@ class DatabaseQueue extends Queue implements QueueContract
     /**
      * Modify the query to check for jobs that are reserved but have expired.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder  $query
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder  $query
      * @return void
      */
     protected function isReservedButExpired($query)
@@ -275,8 +275,8 @@ class DatabaseQueue extends Queue implements QueueContract
      * Marshal the reserved job into a DatabaseJob instance.
      *
      * @param  string  $queue
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\DatabaseJobRecord  $job
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\DatabaseJob
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\DatabaseJobRecord  $job
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\DatabaseJob
      */
     protected function marshalJob($queue, $job)
     {
@@ -290,8 +290,8 @@ class DatabaseQueue extends Queue implements QueueContract
     /**
      * Mark the given job ID as reserved.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\DatabaseJobRecord  $job
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\DatabaseJobRecord
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\DatabaseJobRecord  $job
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs\DatabaseJobRecord
      */
     protected function markJobAsReserved($job)
     {
@@ -335,7 +335,7 @@ class DatabaseQueue extends Queue implements QueueContract
     /**
      * Get the underlying database instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
      */
     public function getDatabase()
     {

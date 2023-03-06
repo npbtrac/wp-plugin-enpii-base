@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent;
 
 /**
- * @method static static|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder withTrashed()
- * @method static static|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder onlyTrashed()
- * @method static static|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder withoutTrashed()
+ * @method static static|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder withTrashed()
+ * @method static static|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder onlyTrashed()
+ * @method static static|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Builder|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder withoutTrashed()
  */
 trait SoftDeletes
 {

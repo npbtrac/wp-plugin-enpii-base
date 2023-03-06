@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Loader;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Loader;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception\InvalidResourceException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception\LogicException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception\InvalidResourceException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception\LogicException;
 use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Parser as YamlParser;
 use Symfony\Component\Yaml\Yaml;

@@ -1,13 +1,13 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Log;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Log;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Jsonable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Log\Events\MessageLogged;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Jsonable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Log\Events\MessageLogged;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
 use RuntimeException;
 
 class Logger implements LoggerInterface
@@ -15,22 +15,22 @@ class Logger implements LoggerInterface
     /**
      * The underlying logger implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      */
     protected $logger;
 
     /**
      * The event dispatcher instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher|null
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher|null
      */
     protected $dispatcher;
 
     /**
      * Create a new log writer instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface  $logger
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher|null  $dispatcher
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface  $logger
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher|null  $dispatcher
      * @return void
      */
     public function __construct(LoggerInterface $logger, Dispatcher $dispatcher = null)
@@ -233,7 +233,7 @@ class Logger implements LoggerInterface
     /**
      * Get the underlying logger implementation.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
      */
     public function getLogger()
     {
@@ -243,7 +243,7 @@ class Logger implements LoggerInterface
     /**
      * Get the event dispatcher instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher
      */
     public function getEventDispatcher()
     {
@@ -253,7 +253,7 @@ class Logger implements LoggerInterface
     /**
      * Set the event dispatcher instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher  $dispatcher
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher  $dispatcher
      * @return void
      */
     public function setEventDispatcher(Dispatcher $dispatcher)

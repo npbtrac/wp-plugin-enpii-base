@@ -12,18 +12,18 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Lazy;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Lazy;
 
 use DateTimeInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\NumberConverterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Exception\UnsupportedOperationException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Fields\FieldsInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Nonstandard\UuidV6;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122\UuidV1;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Hexadecimal;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Integer as IntegerObject;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\UuidFactory;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\UuidInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\NumberConverterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Exception\UnsupportedOperationException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Fields\FieldsInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Nonstandard\UuidV6;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122\UuidV1;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Hexadecimal;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Integer as IntegerObject;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\UuidFactory;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\UuidInterface;
 use NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_ValueError;
 
 use function assert;
@@ -44,9 +44,9 @@ use function substr;
  * @psalm-immutable
  *
  * Note: the {@see FieldsInterface} does not declare methods that deprecated API
- *        relies upon: the API has been ported from the {@see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Uuid} definition,
+ *        relies upon: the API has been ported from the {@see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Uuid} definition,
  *        and is deprecated anyway.
- * Note: the deprecated API from {@see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Uuid} is in use here (on purpose): it will be removed
+ * Note: the deprecated API from {@see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Uuid} is in use here (on purpose): it will be removed
  *       once the deprecated API is gone from this class too.
  *
  * @psalm-suppress UndefinedInterfaceMethod

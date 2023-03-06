@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Service;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Service;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Container\ContainerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Container\ContainerInterface;
 
 /**
  * A ServiceProviderInterface exposes the identifiers and the types of services provided by a container.

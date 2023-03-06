@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema;
 
 class PostgresBuilder extends Builder
 {

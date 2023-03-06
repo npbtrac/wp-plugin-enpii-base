@@ -1,13 +1,13 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Events\CommandExecuted;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Limiters\DurationLimiterBuilder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Events\CommandExecuted;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Limiters\DurationLimiterBuilder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 
 abstract class Connection
 {
@@ -32,7 +32,7 @@ abstract class Connection
     /**
      * The event dispatcher instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher
      */
     protected $events;
 
@@ -50,7 +50,7 @@ abstract class Connection
      * Funnel a callback for a maximum number of simultaneous executions.
      *
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Limiters\ConcurrencyLimiterBuilder
      */
     public function funnel($name)
     {
@@ -61,7 +61,7 @@ abstract class Connection
      * Throttle a callback for a maximum number of executions over a given duration.
      *
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Limiters\DurationLimiterBuilder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Limiters\DurationLimiterBuilder
      */
     public function throttle($name)
     {
@@ -176,7 +176,7 @@ abstract class Connection
     /**
      * Get the event dispatcher used by the connection.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher
      */
     public function getEventDispatcher()
     {
@@ -186,7 +186,7 @@ abstract class Connection
     /**
      * Set the event dispatcher instance on the connection.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher  $events
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher  $events
      * @return void
      */
     public function setEventDispatcher(Dispatcher $events)

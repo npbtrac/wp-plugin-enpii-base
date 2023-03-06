@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Bridge;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Provider\Dsn;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Bridge;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Provider\Dsn;
 
 class UnsupportedSchemeException extends LogicException
 {

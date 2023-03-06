@@ -1,13 +1,13 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
 /**
  * @method static array getQueuedCookies()
  * @method static unqueue($name)
  * @method static void queue(...$parameters)
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cookie\CookieJar
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cookie\CookieJar
  */
 class Cookie extends Facade
 {

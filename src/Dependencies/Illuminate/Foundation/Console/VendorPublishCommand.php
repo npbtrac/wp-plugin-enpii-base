@@ -1,21 +1,21 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Console;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Console;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Local as LocalAdapter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Filesystem as Flysystem;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\MountManager;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Local as LocalAdapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Filesystem as Flysystem;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\MountManager;
 
 class VendorPublishCommand extends Command
 {
     /**
      * The filesystem instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem
      */
     protected $files;
 
@@ -53,7 +53,7 @@ class VendorPublishCommand extends Command
     /**
      * Create a new command instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem  $files
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem  $files
      * @return void
      */
     public function __construct(Filesystem $files)
@@ -239,7 +239,7 @@ class VendorPublishCommand extends Command
     /**
      * Move all the files in the given MountManager.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\MountManager  $manager
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\MountManager  $manager
      * @return void
      */
     protected function moveManagedFiles($manager)

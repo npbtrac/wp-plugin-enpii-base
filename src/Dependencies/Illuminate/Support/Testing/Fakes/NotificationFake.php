@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes;
 
 use Closure;
 use Exception;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Notifications\Dispatcher as NotificationDispatcher;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Notifications\Factory as NotificationFactory;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\HasLocalePreference;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\ReflectsClosures;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Notifications\Dispatcher as NotificationDispatcher;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Notifications\Factory as NotificationFactory;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\HasLocalePreference;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\ReflectsClosures;
 use PHPUnit\Framework\Assert as PHPUnit;
 
 class NotificationFake implements NotificationDispatcher, NotificationFactory
@@ -158,7 +158,7 @@ class NotificationFake implements NotificationDispatcher, NotificationFactory
      * @param  mixed  $notifiable
      * @param  string  $notification
      * @param  callable|null  $callback
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     public function sent($notifiable, $notification, $callback = null)
     {
@@ -204,7 +204,7 @@ class NotificationFake implements NotificationDispatcher, NotificationFactory
     /**
      * Send the given notification to the given notifiable entities.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|array|mixed  $notifiables
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|array|mixed  $notifiables
      * @param  mixed  $notification
      * @return void
      */
@@ -216,7 +216,7 @@ class NotificationFake implements NotificationDispatcher, NotificationFactory
     /**
      * Send the given notification immediately.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|array|mixed  $notifiables
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|array|mixed  $notifiables
      * @param  mixed  $notification
      * @param  array|null  $channels
      * @return void

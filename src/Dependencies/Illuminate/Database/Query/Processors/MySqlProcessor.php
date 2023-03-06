@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Processors;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Processors;
 
 class MySqlProcessor extends Processor
 {

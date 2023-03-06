@@ -1,31 +1,31 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
 
 use ArrayObject;
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\BindingRegistrar;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\Registrar as RegistrarContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Jsonable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Responsable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Events\RouteMatched;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\BindingRegistrar;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\Registrar as RegistrarContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Jsonable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Responsable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Events\RouteMatched;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 use JsonSerializable;
 use Psr\Http\Message\ResponseInterface as PsrResponseInterface;
 use Symfony\Bridge\PsrHttpMessage\Factory\HttpFoundationFactory;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response as SymfonyResponse;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response as SymfonyResponse;
 
 /**
- * @mixin \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteRegistrar
+ * @mixin \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteRegistrar
  */
 class Router implements BindingRegistrar, RegistrarContract
 {
@@ -36,35 +36,35 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * The event dispatcher instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher
      */
     protected $events;
 
     /**
      * The IoC container instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container
      */
     protected $container;
 
     /**
      * The route collection instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteCollectionInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteCollectionInterface
      */
     protected $routes;
 
     /**
      * The currently dispatched route instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route|null
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route|null
      */
     protected $current;
 
     /**
      * The request currently being dispatched.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
      */
     protected $currentRequest;
 
@@ -122,8 +122,8 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Create a new Router instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher  $events
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container|null  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher  $events
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container|null  $container
      * @return void
      */
     public function __construct(Dispatcher $events, Container $container = null)
@@ -138,7 +138,7 @@ class Router implements BindingRegistrar, RegistrarContract
      *
      * @param  string  $uri
      * @param  array|string|callable|null  $action
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     public function get($uri, $action = null)
     {
@@ -150,7 +150,7 @@ class Router implements BindingRegistrar, RegistrarContract
      *
      * @param  string  $uri
      * @param  array|string|callable|null  $action
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     public function post($uri, $action = null)
     {
@@ -162,7 +162,7 @@ class Router implements BindingRegistrar, RegistrarContract
      *
      * @param  string  $uri
      * @param  array|string|callable|null  $action
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     public function put($uri, $action = null)
     {
@@ -174,7 +174,7 @@ class Router implements BindingRegistrar, RegistrarContract
      *
      * @param  string  $uri
      * @param  array|string|callable|null  $action
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     public function patch($uri, $action = null)
     {
@@ -186,7 +186,7 @@ class Router implements BindingRegistrar, RegistrarContract
      *
      * @param  string  $uri
      * @param  array|string|callable|null  $action
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     public function delete($uri, $action = null)
     {
@@ -198,7 +198,7 @@ class Router implements BindingRegistrar, RegistrarContract
      *
      * @param  string  $uri
      * @param  array|string|callable|null  $action
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     public function options($uri, $action = null)
     {
@@ -210,7 +210,7 @@ class Router implements BindingRegistrar, RegistrarContract
      *
      * @param  string  $uri
      * @param  array|string|callable|null  $action
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     public function any($uri, $action = null)
     {
@@ -221,7 +221,7 @@ class Router implements BindingRegistrar, RegistrarContract
      * Register a new Fallback route with the router.
      *
      * @param  array|string|callable|null  $action
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     public function fallback($action)
     {
@@ -238,11 +238,11 @@ class Router implements BindingRegistrar, RegistrarContract
      * @param  string  $uri
      * @param  string  $destination
      * @param  int  $status
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     public function redirect($uri, $destination, $status = 302)
     {
-        return $this->any($uri, '\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RedirectController')
+        return $this->any($uri, '\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RedirectController')
                 ->defaults('destination', $destination)
                 ->defaults('status', $status);
     }
@@ -252,7 +252,7 @@ class Router implements BindingRegistrar, RegistrarContract
      *
      * @param  string  $uri
      * @param  string  $destination
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     public function permanentRedirect($uri, $destination)
     {
@@ -265,11 +265,11 @@ class Router implements BindingRegistrar, RegistrarContract
      * @param  string  $uri
      * @param  string  $view
      * @param  array  $data
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     public function view($uri, $view, $data = [])
     {
-        return $this->match(['GET', 'HEAD'], $uri, '\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\ViewController')
+        return $this->match(['GET', 'HEAD'], $uri, '\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\ViewController')
                 ->defaults('view', $view)
                 ->defaults('data', $data);
     }
@@ -280,7 +280,7 @@ class Router implements BindingRegistrar, RegistrarContract
      * @param  array|string  $methods
      * @param  string  $uri
      * @param  array|string|callable|null  $action
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     public function match($methods, $uri, $action = null)
     {
@@ -307,7 +307,7 @@ class Router implements BindingRegistrar, RegistrarContract
      * @param  string  $name
      * @param  string  $controller
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
      */
     public function resource($name, $controller, array $options = [])
     {
@@ -342,7 +342,7 @@ class Router implements BindingRegistrar, RegistrarContract
      * @param  string  $name
      * @param  string  $controller
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
      */
     public function apiResource($name, $controller, array $options = [])
     {
@@ -440,7 +440,7 @@ class Router implements BindingRegistrar, RegistrarContract
      * @param  array|string  $methods
      * @param  string  $uri
      * @param  array|string|callable|null  $action
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     public function addRoute($methods, $uri, $action)
     {
@@ -453,7 +453,7 @@ class Router implements BindingRegistrar, RegistrarContract
      * @param  array|string  $methods
      * @param  string  $uri
      * @param  mixed  $action
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     protected function createRoute($methods, $uri, $action)
     {
@@ -542,7 +542,7 @@ class Router implements BindingRegistrar, RegistrarContract
      * @param  array|string  $methods
      * @param  string  $uri
      * @param  mixed  $action
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     public function newRoute($methods, $uri, $action)
     {
@@ -565,8 +565,8 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Add the necessary where clauses to the route based on its initial registration.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     protected function addWhereClausesToRoute($route)
     {
@@ -580,7 +580,7 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Merge the group stack with the controller action.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
      * @return void
      */
     protected function mergeGroupAttributesIntoRoute($route)
@@ -595,7 +595,7 @@ class Router implements BindingRegistrar, RegistrarContract
      * Return the response returned by the given route.
      *
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
      */
     public function respondWithRoute($name)
     {
@@ -607,8 +607,8 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Dispatch the request to the application.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
      */
     public function dispatch(Request $request)
     {
@@ -620,8 +620,8 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Dispatch the request to a route and return the response.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
      */
     public function dispatchToRoute(Request $request)
     {
@@ -631,8 +631,8 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Find the route matching a given request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     protected function findRoute($request)
     {
@@ -646,9 +646,9 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Return the response for the given route.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
      */
     protected function runRoute(Request $request, Route $route)
     {
@@ -666,8 +666,8 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Run the given route within a Stack "onion" instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @return mixed
      */
     protected function runRouteWithinStack(Route $route, Request $request)
@@ -690,7 +690,7 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Gather the middleware for the given route with resolved class names.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
      * @return array
      */
     public function gatherRouteMiddleware(Route $route)
@@ -711,7 +711,7 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Sort the given middleware by priority.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection  $middlewares
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection  $middlewares
      * @return array
      */
     protected function sortMiddleware(Collection $middlewares)
@@ -722,9 +722,9 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Create a response instance from the given value.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request  $request
      * @param  mixed  $response
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
      */
     public function prepareResponse($request, $response)
     {
@@ -734,9 +734,9 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Static version of prepareResponse.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request  $request
      * @param  mixed  $response
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
      */
     public static function toResponse($request, $response)
     {
@@ -769,10 +769,10 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Substitute the route bindings onto the route.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\ModelNotFoundException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\ModelNotFoundException
      */
     public function substituteBindings($route)
     {
@@ -788,10 +788,10 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Substitute the implicit Eloquent model bindings for the route.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
      * @return void
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\ModelNotFoundException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\ModelNotFoundException
      */
     public function substituteImplicitBindings($route)
     {
@@ -803,10 +803,10 @@ class Router implements BindingRegistrar, RegistrarContract
      *
      * @param  string  $key
      * @param  string  $value
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
      * @return mixed
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\ModelNotFoundException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\ModelNotFoundException
      */
     protected function performBinding($key, $value, $route)
     {
@@ -1033,7 +1033,7 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Get the request currently being dispatched.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
      */
     public function getCurrentRequest()
     {
@@ -1043,7 +1043,7 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Get the currently dispatched route instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     public function getCurrentRoute()
     {
@@ -1053,7 +1053,7 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Get the currently dispatched route instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route|null
      */
     public function current()
     {
@@ -1187,7 +1187,7 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Get the underlying route collection.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteCollectionInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteCollectionInterface
      */
     public function getRoutes()
     {
@@ -1197,7 +1197,7 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Set the route collection instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteCollection  $routes
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteCollection  $routes
      * @return void
      */
     public function setRoutes(RouteCollection $routes)

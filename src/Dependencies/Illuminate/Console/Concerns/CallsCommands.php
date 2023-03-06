@@ -1,25 +1,25 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Concerns;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Concerns;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\ArrayInput;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\NullOutput;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\ArrayInput;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\NullOutput;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
 
 trait CallsCommands
 {
     /**
      * Resolve the console command instance for the given command.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command|string  $command
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command|string  $command
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command
      */
     abstract protected function resolveCommand($command);
 
     /**
      * Call another console command.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command|string  $command
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command|string  $command
      * @param  array  $arguments
      * @return int
      */
@@ -31,7 +31,7 @@ trait CallsCommands
     /**
      * Call another console command silently.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command|string  $command
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command|string  $command
      * @param  array  $arguments
      * @return int
      */
@@ -43,9 +43,9 @@ trait CallsCommands
     /**
      * Run the given the console command.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command|string  $command
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command|string  $command
      * @param  array  $arguments
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface  $output
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface  $output
      * @return int
      */
     protected function runCommand($command, array $arguments, OutputInterface $output)
@@ -61,7 +61,7 @@ trait CallsCommands
      * Create an input instance from the given arguments.
      *
      * @param  array  $arguments
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\ArrayInput
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\ArrayInput
      */
     protected function createInputFromArguments(array $arguments)
     {

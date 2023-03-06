@@ -12,7 +12,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Event;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Event;
 
 /**
  * Base class for classes containing event data.

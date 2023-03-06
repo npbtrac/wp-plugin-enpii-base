@@ -1,23 +1,23 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Exceptions;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Exceptions;
 
 use RuntimeException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response;
 
 class HttpResponseException extends RuntimeException
 {
     /**
      * The underlying response instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
      */
     protected $response;
 
     /**
      * Create a new HTTP response exception instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response  $response
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response  $response
      * @return void
      */
     public function __construct(Response $response)
@@ -28,7 +28,7 @@ class HttpResponseException extends RuntimeException
     /**
      * Get the underlying response instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
      */
     public function getResponse()
     {

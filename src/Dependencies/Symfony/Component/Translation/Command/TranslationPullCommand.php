@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Command;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Completion\CompletionInput;
@@ -19,11 +19,11 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Catalogue\TargetOperation;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\MessageCatalogue;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Provider\TranslationProviderCollection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Reader\TranslationReaderInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Writer\TranslationWriterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Catalogue\TargetOperation;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\MessageCatalogue;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Provider\TranslationProviderCollection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Reader\TranslationReaderInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Writer\TranslationWriterInterface;
 
 /**
  * @author Mathieu Santostefano <msantostefano@protonmail.com>

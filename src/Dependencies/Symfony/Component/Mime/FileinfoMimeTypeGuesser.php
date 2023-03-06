@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\LogicException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\LogicException;
 
 /**
  * Guesses the MIME type using the PECL extension FileInfo.

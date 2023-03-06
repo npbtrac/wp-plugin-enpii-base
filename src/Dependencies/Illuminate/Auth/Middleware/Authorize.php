@@ -1,24 +1,24 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Middleware;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Middleware;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Access\Gate;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Access\Gate;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
 
 class Authorize
 {
     /**
      * The gate instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Access\Gate
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Access\Gate
      */
     protected $gate;
 
     /**
      * Create a new middleware instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Access\Gate  $gate
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Access\Gate  $gate
      * @return void
      */
     public function __construct(Gate $gate)
@@ -29,14 +29,14 @@ class Authorize
     /**
      * Handle an incoming request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @param  string  $ability
      * @param  array|null  ...$models
      * @return mixed
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\AuthenticationException
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\AuthorizationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\AuthenticationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\AuthorizationException
      */
     public function handle($request, Closure $next, $ability, ...$models)
     {
@@ -48,9 +48,9 @@ class Authorize
     /**
      * Get the arguments parameter for the gate.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  array|null  $models
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model|array|string
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model|array|string
      */
     protected function getGateArguments($request, $models)
     {
@@ -66,9 +66,9 @@ class Authorize
     /**
      * Get the model to authorize.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  string  $model
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model|string
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model|string
      */
     protected function getModel($request, $model)
     {

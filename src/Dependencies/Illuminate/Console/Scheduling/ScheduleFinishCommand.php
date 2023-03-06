@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
 
 class ScheduleFinishCommand extends Command
 {
@@ -30,7 +30,7 @@ class ScheduleFinishCommand extends Command
     /**
      * Execute the console command.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Schedule  $schedule
      * @return void
      */
     public function handle(Schedule $schedule)

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Ruleset;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules\Ruleset;
 
 interface LanguageInflectorFactory
 {

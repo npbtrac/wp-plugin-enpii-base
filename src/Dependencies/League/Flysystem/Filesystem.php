@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem;
 
 use InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\CanOverwriteFiles;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Plugin\PluggableTrait;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util\ContentListingFormatter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\CanOverwriteFiles;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Plugin\PluggableTrait;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util\ContentListingFormatter;
 
 /**
  * @method void        emptyDir(string $dirname)

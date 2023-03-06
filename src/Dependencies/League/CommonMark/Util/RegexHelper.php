@@ -12,9 +12,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\HtmlBlock;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element\HtmlBlock;
 
 /**
  * Provides regular expressions and utilities for parsing Markdown

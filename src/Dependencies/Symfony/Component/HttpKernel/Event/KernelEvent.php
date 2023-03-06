@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Event;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Event;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\HttpKernelInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\EventDispatcher\Event;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\HttpKernelInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\EventDispatcher\Event;
 
 /**
  * Base class for events thrown in the HttpKernel component.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Cron;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Cron;
 
 use DateTime;
 use DateTimeImmutable;
@@ -20,7 +20,7 @@ use RuntimeException;
  * minute [0-59], hour [0-23], day of month, month [1-12|JAN-DEC], day of week
  * [1-7|MON-SUN], and an optional year.
  *
- * @link http://en.wikipedia.org/wiki/Enpii\Wp_Plugin\Enpii_Base\Dependencies\Cron
+ * @link http://en.wikipedia.org/wiki/Enpii\WP_Plugin\Enpii_Base\Dependencies\Cron
  */
 class CronExpression
 {
@@ -91,7 +91,7 @@ class CronExpression
      * @param string $expression The CRON expression to validate.
      *
      * @return bool True if a valid CRON expression was passed. False if not.
-     * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Cron\CronExpression::factory
+     * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Cron\CronExpression::factory
      */
     public static function isValidExpression($expression)
     {
@@ -210,7 +210,7 @@ class CronExpression
      *
      * @return \DateTime
      * @throws \RuntimeException on too many iterations
-     * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Cron\CronExpression::getNextRunDate
+     * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Cron\CronExpression::getNextRunDate
      */
     public function getPreviousRunDate($currentTime = 'now', $nth = 0, $allowCurrentDate = false, $timeZone = null)
     {

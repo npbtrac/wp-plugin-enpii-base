@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Events;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Events;
 
 class Failed
 {
@@ -14,7 +14,7 @@ class Failed
     /**
      * The user the attempter was trying to authenticate as.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable|null
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable|null
      */
     public $user;
 
@@ -29,7 +29,7 @@ class Failed
      * Create a new event instance.
      *
      * @param  string  $guard
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable|null  $user
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable|null  $user
      * @param  array  $credentials
      * @return void
      */

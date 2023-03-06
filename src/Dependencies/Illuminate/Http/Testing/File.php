@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile;
 
 class File extends UploadedFile
 {
@@ -57,7 +57,7 @@ class File extends UploadedFile
      *
      * @param  string  $name
      * @param  string|int  $kilobytes
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing\File
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing\File
      */
     public static function create($name, $kilobytes = 0)
     {
@@ -69,7 +69,7 @@ class File extends UploadedFile
      *
      * @param  string  $name
      * @param  string  $content
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing\File
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing\File
      */
     public static function createWithContent($name, $content)
     {
@@ -82,7 +82,7 @@ class File extends UploadedFile
      * @param  string  $name
      * @param  int  $width
      * @param  int  $height
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing\File
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing\File
      */
     public static function image($name, $width = 10, $height = 10)
     {

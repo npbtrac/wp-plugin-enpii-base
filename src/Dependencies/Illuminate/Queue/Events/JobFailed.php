@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events;
 
 class JobFailed
 {
@@ -14,7 +14,7 @@ class JobFailed
     /**
      * The job instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job
      */
     public $job;
 
@@ -29,7 +29,7 @@ class JobFailed
      * Create a new event instance.
      *
      * @param  string  $connectionName
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job  $job
      * @param  \Throwable  $exception
      * @return void
      */

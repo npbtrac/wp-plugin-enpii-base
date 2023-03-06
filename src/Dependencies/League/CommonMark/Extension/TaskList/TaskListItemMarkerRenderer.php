@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\TaskList;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\TaskList;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\ElementRendererInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\HtmlElement;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\AbstractInline;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Renderer\InlineRendererInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\ElementRendererInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\HtmlElement;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\AbstractInline;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Renderer\InlineRendererInterface;
 
 final class TaskListItemMarkerRenderer implements InlineRendererInterface
 {

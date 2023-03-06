@@ -1,33 +1,33 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\Factory as FactoryContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\Factory as FactoryContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 
 class Factory implements FactoryContract
 {
     /**
      * The Translator implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator
      */
     protected $translator;
 
     /**
      * The Presence Verifier implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\PresenceVerifierInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\PresenceVerifierInterface
      */
     protected $verifier;
 
     /**
      * The IoC container instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
      */
     protected $container;
 
@@ -76,8 +76,8 @@ class Factory implements FactoryContract
     /**
      * Create a new Validator factory instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator  $translator
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container|null  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator  $translator
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container|null  $container
      * @return void
      */
     public function __construct(Translator $translator, Container $container = null)
@@ -93,7 +93,7 @@ class Factory implements FactoryContract
      * @param  array  $rules
      * @param  array  $messages
      * @param  array  $customAttributes
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Validator
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Validator
      */
     public function make(array $data, array $rules, array $messages = [], array $customAttributes = [])
     {
@@ -129,7 +129,7 @@ class Factory implements FactoryContract
      * @param  array  $customAttributes
      * @return array
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationException
      */
     public function validate(array $data, array $rules, array $messages = [], array $customAttributes = [])
     {
@@ -143,7 +143,7 @@ class Factory implements FactoryContract
      * @param  array  $rules
      * @param  array  $messages
      * @param  array  $customAttributes
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Validator
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Validator
      */
     protected function resolve(array $data, array $rules, array $messages, array $customAttributes)
     {
@@ -157,7 +157,7 @@ class Factory implements FactoryContract
     /**
      * Add the extensions to a validator instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Validator  $validator
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Validator  $validator
      * @return void
      */
     protected function addExtensions(Validator $validator)
@@ -253,7 +253,7 @@ class Factory implements FactoryContract
     /**
      * Get the Translator implementation.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator
      */
     public function getTranslator()
     {
@@ -263,7 +263,7 @@ class Factory implements FactoryContract
     /**
      * Get the Presence Verifier implementation.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\PresenceVerifierInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\PresenceVerifierInterface
      */
     public function getPresenceVerifier()
     {
@@ -273,7 +273,7 @@ class Factory implements FactoryContract
     /**
      * Set the Presence Verifier implementation.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\PresenceVerifierInterface  $presenceVerifier
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\PresenceVerifierInterface  $presenceVerifier
      * @return void
      */
     public function setPresenceVerifier(PresenceVerifierInterface $presenceVerifier)

@@ -12,7 +12,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Tool;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Tool;
 
 use function is_array;
 use function is_bool;

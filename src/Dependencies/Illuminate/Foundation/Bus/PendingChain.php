@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\CallQueuedClosure;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\CallQueuedClosure;
 
 class PendingChain
 {
@@ -37,7 +37,7 @@ class PendingChain
     /**
      * Dispatch the job with the given arguments.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus\PendingDispatch
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus\PendingDispatch
      */
     public function dispatch()
     {

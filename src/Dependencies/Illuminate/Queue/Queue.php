@@ -1,12 +1,12 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
 
 use Closure;
 use DateTimeInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\InteractsWithTime;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\InteractsWithTime;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 
 abstract class Queue
 {
@@ -15,7 +15,7 @@ abstract class Queue
     /**
      * The IoC container instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container
      */
     protected $container;
 
@@ -83,7 +83,7 @@ abstract class Queue
      * @param  mixed  $data
      * @return string
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\InvalidPayloadException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\InvalidPayloadException
      */
     protected function createPayload($job, $queue, $data = '')
     {
@@ -129,7 +129,7 @@ abstract class Queue
         $payload = $this->withCreatePayloadHooks($queue, [
             'uuid' => (string) Str::uuid(),
             'displayName' => $this->getDisplayName($job),
-            'job' => 'Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\CallQueuedHandler@call',
+            'job' => 'Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\CallQueuedHandler@call',
             'maxTries' => $job->tries ?? null,
             'maxExceptions' => $job->maxExceptions ?? null,
             'delay' => $this->getJobRetryDelay($job),
@@ -280,7 +280,7 @@ abstract class Queue
     /**
      * Set the IoC container instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container  $container
      * @return void
      */
     public function setContainer(Container $container)

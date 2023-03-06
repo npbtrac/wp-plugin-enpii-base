@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter;
 
 interface ReaderInterface extends AvailabilityInterface
 {
@@ -9,7 +9,7 @@ interface ReaderInterface extends AvailabilityInterface
      *
      * @param non-empty-string $name
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Option<string|null>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Option<string|null>
      */
     public function get($name);
 }

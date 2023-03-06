@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
 /**
  * Trait Timestamp.
@@ -17,7 +17,7 @@ namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 trait Timestamp
 {
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from a timestamp and set the timezone (use default one if not specified).
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from a timestamp and set the timezone (use default one if not specified).
      *
      * Timestamp input can be given as int, float or a string containing one or more numbers.
      *
@@ -32,7 +32,7 @@ trait Timestamp
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from an timestamp keeping the timezone to UTC.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from an timestamp keeping the timezone to UTC.
      *
      * Timestamp input can be given as int, float or a string containing one or more numbers.
      *
@@ -52,7 +52,7 @@ trait Timestamp
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from a timestamp in milliseconds.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from a timestamp in milliseconds.
      *
      * Timestamp input can be given as int, float or a string containing one or more numbers.
      *
@@ -76,7 +76,7 @@ trait Timestamp
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from a timestamp in milliseconds.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from a timestamp in milliseconds.
      *
      * Timestamp input can be given as int, float or a string containing one or more numbers.
      *

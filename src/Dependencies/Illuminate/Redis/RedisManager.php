@@ -1,24 +1,24 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connectors\PhpRedisConnector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connectors\PredisConnector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ConfigurationUrlParser;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Factory;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connectors\PhpRedisConnector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connectors\PredisConnector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ConfigurationUrlParser;
 use InvalidArgumentException;
 
 /**
- * @mixin \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection
+ * @mixin \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection
  */
 class RedisManager implements Factory
 {
     /**
      * The application instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
      */
     protected $app;
 
@@ -60,7 +60,7 @@ class RedisManager implements Factory
     /**
      * Create a new Redis manager instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
      * @param  string  $driver
      * @param  array  $config
      * @return void
@@ -76,7 +76,7 @@ class RedisManager implements Factory
      * Get a Redis connection by name.
      *
      * @param  string|null  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection
      */
     public function connection($name = null)
     {
@@ -95,7 +95,7 @@ class RedisManager implements Factory
      * Resolve the given connection by name.
      *
      * @param  string|null  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection
      *
      * @throws \InvalidArgumentException
      */
@@ -123,7 +123,7 @@ class RedisManager implements Factory
      * Resolve the given cluster connection by name.
      *
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection
      */
     protected function resolveCluster($name)
     {
@@ -139,9 +139,9 @@ class RedisManager implements Factory
     /**
      * Configure the given connection to prepare it for commands.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection  $connection
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection  $connection
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection
      */
     protected function configure(Connection $connection, $name)
     {
@@ -157,7 +157,7 @@ class RedisManager implements Factory
     /**
      * Get the connector instance for the current driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Connector
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Connector
      */
     protected function connector()
     {

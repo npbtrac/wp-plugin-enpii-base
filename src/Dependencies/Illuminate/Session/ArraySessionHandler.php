@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\InteractsWithTime;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\InteractsWithTime;
 use SessionHandlerInterface;
 
 class ArraySessionHandler implements SessionHandlerInterface

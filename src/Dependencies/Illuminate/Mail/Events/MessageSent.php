@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Events;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Events;
 
 use Swift_Attachment;
 

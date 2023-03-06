@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Polyfill;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Polyfill;
 
 /**
  * A helper for adapters that only handle strings to provide read streams.
@@ -14,7 +14,7 @@ trait StreamedReadingTrait
      *
      * @return array|false
      *
-     * @see Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\ReadInterface::readStream()
+     * @see Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\ReadInterface::readStream()
      */
     public function readStream($path)
     {
@@ -38,7 +38,7 @@ trait StreamedReadingTrait
      *
      * @return array|false
      *
-     * @see Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\ReadInterface::read()
+     * @see Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\ReadInterface::read()
      */
     abstract public function read($path);
 }

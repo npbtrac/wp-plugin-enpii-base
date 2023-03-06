@@ -2,25 +2,25 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Base;
+namespace Enpii\WP_Plugin\Enpii_Base\Base;
 
-use Enpii\Wp_Plugin\Enpii_Base\App\Http\Controllers\Index_Controller;
-use Enpii\Wp_Plugin\Enpii_Base\App\Providers\Filesystem_Service_Provider;
-use Enpii\Wp_Plugin\Enpii_Base\App\Providers\Log_Service_Provider;
-use Enpii\Wp_Plugin\Enpii_Base\App\Providers\Route_Service_Provider;
-use Enpii\Wp_Plugin\Enpii_Base\App\Providers\View_Service_Provider;
-use Enpii\Wp_Plugin\Enpii_Base\Base\Hook_Handlers\Wp_App_Hook_Handler;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Route;
-use Enpii\Wp_Plugin\Enpii_Base\Libs\Wp_Plugin;
-use Enpii\Wp_Plugin\Enpii_Base\Support\Traits\Accessor_Set_Get_Has_Trait;
+use Enpii\WP_Plugin\Enpii_Base\App\Http\Controllers\Index_Controller;
+use Enpii\WP_Plugin\Enpii_Base\App\Providers\Filesystem_Service_Provider;
+use Enpii\WP_Plugin\Enpii_Base\App\Providers\Log_Service_Provider;
+use Enpii\WP_Plugin\Enpii_Base\App\Providers\Route_Service_Provider;
+use Enpii\WP_Plugin\Enpii_Base\App\Providers\View_Service_Provider;
+use Enpii\WP_Plugin\Enpii_Base\Base\Hook_Handlers\WP_App_Hook_Handler;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Route;
+use Enpii\WP_Plugin\Enpii_Base\Libs\WP_Plugin;
+use Enpii\WP_Plugin\Enpii_Base\Support\Traits\Accessor_Set_Get_Has_Trait;
 
 /**
  *
- * @package Enpii\Wp_Plugin\Enpii_Base\Base
+ * @package Enpii\WP_Plugin\Enpii_Base\Base
  * @method get_base_bath() string, the directory path of the plugin
  * @method get_base_url() string, the url to plugin directory
  */
-class Plugin extends Wp_Plugin {
+class Plugin extends WP_Plugin {
 	use Accessor_Set_Get_Has_Trait;
 
 	public function boot() {
@@ -68,7 +68,7 @@ class Plugin extends Wp_Plugin {
 		// We want to check that if the uri prefix is for wp-app before invoke the handler
 		// to keep the handler lazy-loading
 		if ( $this->is_wp_app_mode() ) {
-			( new Wp_App_Hook_Handler() )->handle_wp_app_requests();
+			( new WP_App_Hook_Handler() )->handle_wp_app_requests();
 		}
 	}
 

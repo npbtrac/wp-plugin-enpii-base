@@ -1,46 +1,46 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidPathException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\Loader;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\LoaderInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ArrayAdapter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryBuilder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Store\FileStore;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StoreBuilder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StringStore;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidPathException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\Loader;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\LoaderInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ArrayAdapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryBuilder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Store\FileStore;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StoreBuilder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StringStore;
 
 class Dotenv
 {
     /**
      * The loader instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\LoaderInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\LoaderInterface
      */
     protected $loader;
 
     /**
      * The repository instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface
      */
     protected $repository;
 
     /**
      * The store instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StoreInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StoreInterface
      */
     protected $store;
 
     /**
      * Create a new dotenv instance.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\LoaderInterface         $loader
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface $repository
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StoreInterface|string[]  $store
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\LoaderInterface         $loader
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface $repository
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StoreInterface|string[]  $store
      *
      * @return void
      */
@@ -54,12 +54,12 @@ class Dotenv
     /**
      * Create a new dotenv instance.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface $repository
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface $repository
      * @param string|string[]                        $paths
      * @param string|string[]|null                   $names
      * @param bool                                   $shortCircuit
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Dotenv
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Dotenv
      */
     public static function create(RepositoryInterface $repository, $paths, $names = null, $shortCircuit = true)
     {
@@ -79,7 +79,7 @@ class Dotenv
      * @param string|string[]|null $names
      * @param bool                 $shortCircuit
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Dotenv
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Dotenv
      */
     public static function createMutable($paths, $names = null, $shortCircuit = true)
     {
@@ -95,7 +95,7 @@ class Dotenv
      * @param string|string[]|null $names
      * @param bool                 $shortCircuit
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Dotenv
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Dotenv
      */
     public static function createImmutable($paths, $names = null, $shortCircuit = true)
     {
@@ -111,7 +111,7 @@ class Dotenv
      * @param string|string[]|null $names
      * @param bool                 $shortCircuit
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Dotenv
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Dotenv
      */
     public static function createArrayBacked($paths, $names = null, $shortCircuit = true)
     {
@@ -130,7 +130,7 @@ class Dotenv
      *
      * @param string $content
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
      *
      * @return array<string,string|null>
      */
@@ -148,7 +148,7 @@ class Dotenv
     /**
      * Read and load environment file(s).
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidPathException|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidPathException|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
      *
      * @return array<string,string|null>
      */
@@ -160,7 +160,7 @@ class Dotenv
     /**
      * Read and load environment file(s), silently failing if no files can be read.
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
      *
      * @return array<string,string|null>
      */
@@ -179,7 +179,7 @@ class Dotenv
      *
      * @param string|string[] $variables
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Validator
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Validator
      */
     public function required($variables)
     {
@@ -191,7 +191,7 @@ class Dotenv
      *
      * @param string|string[] $variables
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Validator
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Validator
      */
     public function ifPresent($variables)
     {

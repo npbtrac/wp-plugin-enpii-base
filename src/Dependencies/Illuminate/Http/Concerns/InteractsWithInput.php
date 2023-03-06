@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Concerns;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Concerns;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 use SplFileInfo;
 use stdClass;
 
@@ -439,7 +439,7 @@ trait InteractsWithInput
      *
      * @param  string|null  $key
      * @param  mixed  $default
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile[]|array|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile[]|array|null
      */
     public function file($key = null, $default = null)
     {

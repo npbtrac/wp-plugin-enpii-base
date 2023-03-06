@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Descriptor;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Descriptor;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Application;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Formatter\OutputFormatter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\Helper;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputArgument;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputDefinition;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputOption;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Application;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Formatter\OutputFormatter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\Helper;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputArgument;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputDefinition;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputOption;
 
 /**
  * Text descriptor.

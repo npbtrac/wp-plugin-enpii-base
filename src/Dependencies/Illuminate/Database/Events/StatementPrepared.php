@@ -1,13 +1,13 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Events;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Events;
 
 class StatementPrepared
 {
     /**
      * The database connection instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
      */
     public $connection;
 
@@ -21,7 +21,7 @@ class StatementPrepared
     /**
      * Create a new event instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection  $connection
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection  $connection
      * @param  \PDOStatement  $statement
      * @return void
      */

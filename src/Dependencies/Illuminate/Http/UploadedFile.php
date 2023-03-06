@@ -1,14 +1,14 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Factory as FilesystemFactory;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing\FileFactory;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\File\UploadedFile as SymfonyUploadedFile;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Factory as FilesystemFactory;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing\FileFactory;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\File\UploadedFile as SymfonyUploadedFile;
 
 class UploadedFile extends SymfonyUploadedFile
 {
@@ -17,7 +17,7 @@ class UploadedFile extends SymfonyUploadedFile
     /**
      * Begin creating a new file fake.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing\FileFactory
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing\FileFactory
      */
     public static function fake()
     {
@@ -93,7 +93,7 @@ class UploadedFile extends SymfonyUploadedFile
      *
      * @return bool|string
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function get()
     {
@@ -117,7 +117,7 @@ class UploadedFile extends SymfonyUploadedFile
     /**
      * Create a new file instance from a base instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\File\UploadedFile  $file
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\File\UploadedFile  $file
      * @param  bool  $test
      * @return static
      */

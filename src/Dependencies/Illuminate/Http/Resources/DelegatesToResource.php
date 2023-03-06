@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Resources;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Resources;
 
 use Exception;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\ForwardsCalls;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\ForwardsCalls;
 
 trait DelegatesToResource
 {

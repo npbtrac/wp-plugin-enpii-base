@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\EventDispatcher;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\EventDispatcher;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 
 trigger_deprecation('symfony/event-dispatcher', '5.1', '%s is deprecated, use the event dispatcher without the proxy.', LegacyEventDispatcherProxy::class);
 

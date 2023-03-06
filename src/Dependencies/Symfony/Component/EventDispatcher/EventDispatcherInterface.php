@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\EventDispatcher;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\EventDispatcher;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\EventDispatcher\EventDispatcherInterface as ContractsEventDispatcherInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\EventDispatcher\EventDispatcherInterface as ContractsEventDispatcherInterface;
 
 /**
  * The EventDispatcherInterface is the central point of Symfony's event listener system.

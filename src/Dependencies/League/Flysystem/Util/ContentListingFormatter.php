@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util;
 
 /**
  * @internal

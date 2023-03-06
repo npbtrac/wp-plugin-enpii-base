@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Loader;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Loader;
 
 class Value
 {
@@ -35,7 +35,7 @@ class Value
     /**
      * Create an empty value instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\Value
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\Value
      */
     public static function blank()
     {
@@ -48,7 +48,7 @@ class Value
      * @param string $char
      * @param bool   $var
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\Value
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\Value
      */
     public function append($char, $var)
     {

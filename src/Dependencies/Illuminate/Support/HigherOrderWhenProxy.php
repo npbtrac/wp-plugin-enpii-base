@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
 
 /**
- * @mixin \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Enumerable
+ * @mixin \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Enumerable
  */
 class HigherOrderWhenProxy
 {
     /**
      * The collection being operated on.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Enumerable
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Enumerable
      */
     protected $collection;
 
@@ -24,7 +24,7 @@ class HigherOrderWhenProxy
     /**
      * Create a new proxy instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Enumerable  $collection
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Enumerable  $collection
      * @param  bool  $condition
      * @return void
      */

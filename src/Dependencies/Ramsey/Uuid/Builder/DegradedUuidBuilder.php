@@ -12,15 +12,15 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Builder;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Builder;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Codec\CodecInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\NumberConverterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\Time\DegradedTimeConverter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\TimeConverterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\DegradedUuid;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122\Fields as Rfc4122Fields;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\UuidInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Codec\CodecInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\NumberConverterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\Time\DegradedTimeConverter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\TimeConverterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\DegradedUuid;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122\Fields as Rfc4122Fields;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\UuidInterface;
 
 /**
  * @deprecated DegradedUuid instances are no longer necessary to support 32-bit
@@ -60,7 +60,7 @@ class DegradedUuidBuilder implements UuidBuilderInterface
      * @param CodecInterface $codec The codec to use for building this DegradedUuid instance
      * @param string $bytes The byte string from which to construct a UUID
      *
-     * @return DegradedUuid The DegradedUuidBuild returns an instance of Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\DegradedUuid
+     * @return DegradedUuid The DegradedUuidBuild returns an instance of Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\DegradedUuid
      *
      * @psalm-pure
      */

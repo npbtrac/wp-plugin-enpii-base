@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\Shortcut;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\Shortcut;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Node\ClassNode;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Node\ElementNode;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Node\SelectorNode;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\ParserInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Node\ClassNode;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Node\ElementNode;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Node\SelectorNode;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Parser\ParserInterface;
 
 /**
  * CSS selector class parser shortcut.

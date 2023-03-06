@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Events;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Events;
 
 class CacheHit extends CacheEvent
 {

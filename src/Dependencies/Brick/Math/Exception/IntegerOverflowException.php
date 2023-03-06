@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math\Exception;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math\Exception;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math\BigInteger;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math\BigInteger;
 
 /**
  * Exception thrown when an integer overflow occurs.

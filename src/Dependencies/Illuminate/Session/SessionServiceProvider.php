@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory as CacheFactory;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Middleware\StartSession;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory as CacheFactory;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Middleware\StartSession;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
 
 class SessionServiceProvider extends ServiceProvider
 {

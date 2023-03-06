@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Exceptions\HttpResponseException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\HeaderBag;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Exceptions\HttpResponseException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\HeaderBag;
 use Throwable;
 
 trait ResponseTrait
@@ -72,7 +72,7 @@ trait ResponseTrait
     /**
      * Add an array of headers to the response.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\HeaderBag|array  $headers
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\HeaderBag|array  $headers
      * @return $this
      */
     public function withHeaders($headers)
@@ -91,7 +91,7 @@ trait ResponseTrait
     /**
      * Add a cookie to the response.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Cookie|mixed  $cookie
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Cookie|mixed  $cookie
      * @return $this
      */
     public function cookie($cookie)
@@ -102,7 +102,7 @@ trait ResponseTrait
     /**
      * Add a cookie to the response.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Cookie|mixed  $cookie
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Cookie|mixed  $cookie
      * @return $this
      */
     public function withCookie($cookie)
@@ -144,7 +144,7 @@ trait ResponseTrait
      *
      * @return void
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Exceptions\HttpResponseException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Exceptions\HttpResponseException
      */
     public function throwResponse()
     {

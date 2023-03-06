@@ -1,12 +1,12 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Seeds;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Seeds;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\ConfirmableTrait;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionResolverInterface as Resolver;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputOption;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\ConfirmableTrait;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionResolverInterface as Resolver;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputOption;
 
 class SeedCommand extends Command
 {
@@ -29,14 +29,14 @@ class SeedCommand extends Command
     /**
      * The connection resolver instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionResolverInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionResolverInterface
      */
     protected $resolver;
 
     /**
      * Create a new database seed command instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionResolverInterface  $resolver
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\ConnectionResolverInterface  $resolver
      * @return void
      */
     public function __construct(Resolver $resolver)
@@ -77,7 +77,7 @@ class SeedCommand extends Command
     /**
      * Get a seeder instance from the container.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Seeder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Seeder
      */
     protected function getSeeder()
     {

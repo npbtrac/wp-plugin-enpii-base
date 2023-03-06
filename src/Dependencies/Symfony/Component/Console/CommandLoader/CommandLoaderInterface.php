@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\CommandLoader;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\CommandLoader;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\CommandNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\CommandNotFoundException;
 
 /**
  * @author Robin Chalas <robin.chalas@gmail.com>

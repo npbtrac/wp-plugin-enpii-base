@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Libs;
+namespace Enpii\WP_Plugin\Enpii_Base\Libs;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Libs\Interfaces\Wp_Plugin_Interface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces\WP_Plugin_Interface;
 
 /**
  * This is the base class for plugin to be inherited from
  * We consider each plugin a Laravel Service provider
- * @package Enpii\Wp_Plugin\Enpii_Base\Libs
- * @property \Enpii\Wp_Plugin\Enpii_Base\Libs\Wp_Application $app
+ * @package Enpii\WP_Plugin\Enpii_Base\Libs
+ * @property \Enpii\WP_Plugin\Enpii_Base\Libs\WP_Application $app
  */
-abstract class Wp_Plugin extends ServiceProvider implements Wp_Plugin_Interface {
+abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface {
 	protected $base_path;
 	protected $base_url;
 

@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Tester;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Tester;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Completion\CompletionInput;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Completion\CompletionSuggestions;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Completion\CompletionInput;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Completion\CompletionSuggestions;
 
 /**
  * Eases the testing of command completion.

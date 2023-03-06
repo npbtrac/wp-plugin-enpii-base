@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math\Internal;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math\Internal;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math\Exception\RoundingNecessaryException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math\RoundingMode;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math\Exception\RoundingNecessaryException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math\RoundingMode;
 
 /**
  * Performs basic operations on arbitrary size integers.

@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Store;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Store;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidPathException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Store\File\Reader;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidPathException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Store\File\Reader;
 
 class FileStore implements StoreInterface
 {
@@ -38,7 +38,7 @@ class FileStore implements StoreInterface
     /**
      * Read the content of the environment file(s).
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidPathException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidPathException
      *
      * @return string
      */

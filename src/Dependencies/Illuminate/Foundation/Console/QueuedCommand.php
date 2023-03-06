@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Console;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Console;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Bus\Queueable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Console\Kernel as KernelContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\ShouldQueue;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus\Dispatchable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Bus\Queueable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Console\Kernel as KernelContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\ShouldQueue;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus\Dispatchable;
 
 class QueuedCommand implements ShouldQueue
 {
@@ -32,7 +32,7 @@ class QueuedCommand implements ShouldQueue
     /**
      * Handle the job.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Console\Kernel  $kernel
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Console\Kernel  $kernel
      * @return void
      */
     public function handle(KernelContract $kernel)

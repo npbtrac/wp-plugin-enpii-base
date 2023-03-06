@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,19 +9,19 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidTypeException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\NotLocaleAwareException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Language;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Translator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\TranslatorStrongTypeInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidTypeException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\NotLocaleAwareException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Language;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Translator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\TranslatorStrongTypeInterface;
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorBagInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\LocaleAwareInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\TranslatorInterface as ContractsTranslatorInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorBagInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\LocaleAwareInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\TranslatorInterface as ContractsTranslatorInterface;
 
 if (interface_exists('Symfony\\Contracts\\Translation\\TranslatorInterface') &&
     !interface_exists('Symfony\\Component\\Translation\\TranslatorInterface')
@@ -42,14 +42,14 @@ trait Localization
     /**
      * Default translator.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface
      */
     protected static $translator;
 
     /**
      * Specific translator of the current instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface
      */
     protected $localTranslator;
 
@@ -109,7 +109,7 @@ trait Localization
     /**
      * Get the default translator instance in use.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface
      */
     public static function getTranslator()
     {
@@ -119,7 +119,7 @@ trait Localization
     /**
      * Set the default translator instance to use.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface $translator
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface $translator
      *
      * @return void
      */
@@ -141,7 +141,7 @@ trait Localization
     /**
      * Get the translator of the current instance or the default if none set.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface
      */
     public function getLocalTranslator()
     {
@@ -151,7 +151,7 @@ trait Localization
     /**
      * Set the translator for the current instance.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface $translator
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface $translator
      *
      * @return $this
      */
@@ -165,7 +165,7 @@ trait Localization
     /**
      * Returns raw translation message for a given key.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface $translator the translator to use
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface $translator the translator to use
      * @param string                                             $key        key to find
      * @param string|null                                        $locale     current locale used if null
      * @param string|null                                        $default    default value if translation returns the key
@@ -196,7 +196,7 @@ trait Localization
      * @param string                                             $key        key to find
      * @param string|null                                        $locale     current locale used if null
      * @param string|null                                        $default    default value if translation returns the key
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface $translator an optional translator to use
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface $translator an optional translator to use
      *
      * @return string
      */
@@ -208,7 +208,7 @@ trait Localization
     /**
      * Translate using translation string or callback available.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface $translator
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface $translator
      * @param string                                             $key
      * @param array                                              $parameters
      * @param null                                               $number
@@ -244,7 +244,7 @@ trait Localization
      * @param string                                                  $key
      * @param array                                                   $parameters
      * @param string|int|float|null                                   $number
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface|null $translator
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface|null $translator
      * @param bool                                                    $altNumbers
      *
      * @return string
@@ -693,7 +693,7 @@ trait Localization
     /**
      * Initialize the default translator instance if necessary.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface
      */
     protected static function translator()
     {
@@ -747,7 +747,7 @@ trait Localization
 
     /**
      * @param mixed                                                    $translator
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\MessageCatalogueInterface $catalogue
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\MessageCatalogueInterface $catalogue
      *
      * @return mixed
      */

@@ -12,13 +12,13 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Attributes\Parser;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Attributes\Parser;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Parser\BlockParserInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\ContextInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Cursor;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Attributes\Node\Attributes;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Attributes\Util\AttributesHelper;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Parser\BlockParserInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\ContextInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Cursor;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Attributes\Node\Attributes;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Attributes\Util\AttributesHelper;
 
 final class AttributesBlockParser implements BlockParserInterface
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
 /**
  * @method static array info(string $hashedValue)
@@ -8,7 +8,7 @@ namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
  * @method static bool needsRehash(string $hashedValue, array $options = [])
  * @method static string make(string $value, array $options = [])
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Hashing\HashManager
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Hashing\HashManager
  */
 class Hash extends Facade
 {

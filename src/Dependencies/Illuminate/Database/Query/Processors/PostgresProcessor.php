@@ -1,15 +1,15 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Processors;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Processors;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder;
 
 class PostgresProcessor extends Processor
 {
     /**
      * Process an "insert get ID" query.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder  $query
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Builder  $query
      * @param  string  $sql
      * @param  array  $values
      * @param  string|null  $sequence

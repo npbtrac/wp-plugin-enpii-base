@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\None;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Some;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\None;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Some;
 
 class ServerConstAdapter implements AvailabilityInterface, ReaderInterface, WriterInterface
 {
@@ -22,7 +22,7 @@ class ServerConstAdapter implements AvailabilityInterface, ReaderInterface, Writ
      *
      * @param non-empty-string $name
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Option<string|null>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Option<string|null>
      */
     public function get($name)
     {
@@ -33,12 +33,12 @@ class ServerConstAdapter implements AvailabilityInterface, ReaderInterface, Writ
         $value = $_SERVER[$name];
 
         if (is_scalar($value)) {
-            /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Option<string|null> */
+            /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Option<string|null> */
             return Some::create((string) $value);
         }
 
         if (null === $value) {
-            /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Option<string|null> */
+            /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Option<string|null> */
             return Some::create(null);
         }
 

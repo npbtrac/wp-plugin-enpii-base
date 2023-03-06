@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Gitignore;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Gitignore;
 
 final class VcsIgnoredFilterIterator extends \FilterIterator
 {

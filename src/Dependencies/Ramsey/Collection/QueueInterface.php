@@ -12,9 +12,9 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\NoSuchElementException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\NoSuchElementException;
 
 /**
  * A queue is a collection in which the entities in the collection are kept in

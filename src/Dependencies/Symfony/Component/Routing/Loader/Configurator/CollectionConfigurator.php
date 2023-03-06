@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Loader\Configurator;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Loader\Configurator;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Route;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RouteCollection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Route;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RouteCollection;
 
 /**
  * @author Nicolas Grekas <p@tchwork.com>

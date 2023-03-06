@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Console;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Console;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\GeneratorCommand;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\GeneratorCommand;
 
 class MiddlewareMakeCommand extends GeneratorCommand
 {

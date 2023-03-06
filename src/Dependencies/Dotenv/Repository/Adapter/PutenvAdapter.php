@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Option;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Option;
 
 class PutenvAdapter implements AvailabilityInterface, ReaderInterface, WriterInterface
 {
@@ -21,11 +21,11 @@ class PutenvAdapter implements AvailabilityInterface, ReaderInterface, WriterInt
      *
      * @param non-empty-string $name
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Option<string|null>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Option<string|null>
      */
     public function get($name)
     {
-        /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Option<string|null> */
+        /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Option<string|null> */
         return Option::fromValue(getenv($name), false);
     }
 

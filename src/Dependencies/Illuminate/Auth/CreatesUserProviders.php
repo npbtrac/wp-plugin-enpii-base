@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth;
 
 use InvalidArgumentException;
 
@@ -17,7 +17,7 @@ trait CreatesUserProviders
      * Create the user provider implementation for the driver.
      *
      * @param  string|null  $provider
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider|null
      *
      * @throws \InvalidArgumentException
      */
@@ -62,7 +62,7 @@ trait CreatesUserProviders
      * Create an instance of the database user provider.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\DatabaseUserProvider
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\DatabaseUserProvider
      */
     protected function createDatabaseProvider($config)
     {
@@ -75,7 +75,7 @@ trait CreatesUserProviders
      * Create an instance of the Eloquent user provider.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\EloquentUserProvider
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\EloquentUserProvider
      */
     protected function createEloquentProvider($config)
     {

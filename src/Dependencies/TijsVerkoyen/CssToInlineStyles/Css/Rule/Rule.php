@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css\Rule;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css\Rule;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Node\Specificity;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css\Property\Property;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Node\Specificity;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css\Property\Property;
 
 final class Rule
 {

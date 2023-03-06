@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
 use DateTimeInterface;
 use Throwable;
 
 /**
  * Trait Options.
  *
- * Embed base methods to change settings of Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon classes.
+ * Embed base methods to change settings of Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon classes.
  *
  * Depends on the following methods:
  *
- * @method \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable shiftTimezone($timezone) Set the timezone
+ * @method \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable shiftTimezone($timezone) Set the timezone
  */
 trait Options
 {

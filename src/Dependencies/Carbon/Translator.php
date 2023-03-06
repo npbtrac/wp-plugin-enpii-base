@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon;
 
 use ReflectionMethod;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\TranslatorInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\TranslatorInterface;
 
 $transMethod = new ReflectionMethod(
     class_exists(TranslatorInterface::class)

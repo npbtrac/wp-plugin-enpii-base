@@ -1,15 +1,15 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Limiters;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Limiters;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\LimiterTimeoutException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\LimiterTimeoutException;
 
 class DurationLimiter
 {
     /**
      * The Redis factory implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection
      */
     private $redis;
 
@@ -51,7 +51,7 @@ class DurationLimiter
     /**
      * Create a new duration limiter instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection  $redis
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\Connection  $redis
      * @param  string  $name
      * @param  int  $maxLocks
      * @param  int  $decay
@@ -72,7 +72,7 @@ class DurationLimiter
      * @param  callable|null  $callback
      * @return mixed
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\LimiterTimeoutException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\LimiterTimeoutException
      */
     public function block($timeout, $callback = null)
     {

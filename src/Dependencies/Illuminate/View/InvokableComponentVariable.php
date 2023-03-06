@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View;
 
 use ArrayIterator;
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\DeferringDisplayableValue;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Enumerable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\DeferringDisplayableValue;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Enumerable;
 use IteratorAggregate;
 
 class InvokableComponentVariable implements DeferringDisplayableValue, IteratorAggregate
@@ -31,7 +31,7 @@ class InvokableComponentVariable implements DeferringDisplayableValue, IteratorA
     /**
      * Resolve the displayable value that the class is deferring.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Htmlable|string
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Htmlable|string
      */
     public function resolveDisplayableValue()
     {

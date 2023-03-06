@@ -1,15 +1,15 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Dimensions;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Exists;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\In;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\NotIn;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\RequiredIf;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Unique;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Dimensions;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Exists;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\In;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\NotIn;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\RequiredIf;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Unique;
 
 class Rule
 {
@@ -19,7 +19,7 @@ class Rule
      * Get a dimensions constraint builder instance.
      *
      * @param  array  $constraints
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Dimensions
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Dimensions
      */
     public static function dimensions(array $constraints = [])
     {
@@ -31,7 +31,7 @@ class Rule
      *
      * @param  string  $table
      * @param  string  $column
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Exists
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Exists
      */
     public static function exists($table, $column = 'NULL')
     {
@@ -41,8 +41,8 @@ class Rule
     /**
      * Get an in constraint builder instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable|array|string  $values
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\In
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable|array|string  $values
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\In
      */
     public static function in($values)
     {
@@ -56,8 +56,8 @@ class Rule
     /**
      * Get a not_in constraint builder instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable|array|string  $values
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\NotIn
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable|array|string  $values
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\NotIn
      */
     public static function notIn($values)
     {
@@ -72,7 +72,7 @@ class Rule
      * Get a required_if constraint builder instance.
      *
      * @param  callable|bool  $callback
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\RequiredIf
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\RequiredIf
      */
     public static function requiredIf($callback)
     {
@@ -84,7 +84,7 @@ class Rule
      *
      * @param  string  $table
      * @param  string  $column
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Unique
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Unique
      */
     public static function unique($table, $column = 'NULL')
     {

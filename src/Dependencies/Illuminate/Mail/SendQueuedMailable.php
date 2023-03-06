@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Factory as MailFactory;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable as MailableContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Factory as MailFactory;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable as MailableContract;
 
 class SendQueuedMailable
 {
     /**
      * The mailable message instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable
      */
     public $mailable;
 
@@ -31,7 +31,7 @@ class SendQueuedMailable
     /**
      * Create a new job instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable  $mailable
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable  $mailable
      * @return void
      */
     public function __construct(MailableContract $mailable)
@@ -44,7 +44,7 @@ class SendQueuedMailable
     /**
      * Handle the queued job.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Factory  $factory
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Factory  $factory
      * @return void
      */
     public function handle(MailFactory $factory)

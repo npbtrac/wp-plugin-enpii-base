@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\CompilerInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\ViewException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\CompilerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\ViewException;
 use Throwable;
 
 class CompilerEngine extends PhpEngine
@@ -11,7 +11,7 @@ class CompilerEngine extends PhpEngine
     /**
      * The Blade compiler instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\CompilerInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\CompilerInterface
      */
     protected $compiler;
 
@@ -25,7 +25,7 @@ class CompilerEngine extends PhpEngine
     /**
      * Create a new Blade view engine instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\CompilerInterface  $compiler
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\CompilerInterface  $compiler
      * @return void
      */
     public function __construct(CompilerInterface $compiler)
@@ -91,7 +91,7 @@ class CompilerEngine extends PhpEngine
     /**
      * Get the compiler implementation.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\CompilerInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\CompilerInterface
      */
     public function getCompiler()
     {

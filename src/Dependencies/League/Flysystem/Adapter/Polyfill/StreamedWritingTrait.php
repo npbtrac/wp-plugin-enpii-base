@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Polyfill;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Polyfill;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Config;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Config;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util;
 
 trait StreamedWritingTrait
 {

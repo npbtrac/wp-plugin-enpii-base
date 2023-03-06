@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
 
 /**
- * Interface that all Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog Handlers must implement
+ * Interface that all Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog Handlers must implement
  *
  * @author Jordi Boggiano <j.boggiano@seld.be>
  *
- * @phpstan-import-type Record from \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger
- * @phpstan-import-type Level from \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger
+ * @phpstan-import-type Record from \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger
+ * @phpstan-import-type Level from \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger
  */
 interface HandlerInterface
 {
@@ -76,7 +76,7 @@ interface HandlerInterface
      * and ideally handlers should be able to reopen themselves on handle() after they have been closed.
      *
      * This is useful at the end of a request and will be called automatically when the object
-     * is destroyed if you extend Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler\Handler.
+     * is destroyed if you extend Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\Handler.
      *
      * If you are thinking of calling this method yourself, most likely you should be
      * calling ResettableInterface::reset instead. Have a look.

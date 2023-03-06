@@ -36,7 +36,7 @@ width: 100% !important;
 <!-- Body content -->
 <tr>
 <td class="content-cell">
-{{ Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Markdown::parse($slot) }}
+{{ Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Markdown::parse($slot) }}
 
 {{ $subcopy ?? '' }}
 </td>

@@ -12,10 +12,10 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\NoSuchElementException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\NoSuchElementException;
 
 /**
  * This class provides a basic implementation of `DoubleEndedQueueInterface`, to

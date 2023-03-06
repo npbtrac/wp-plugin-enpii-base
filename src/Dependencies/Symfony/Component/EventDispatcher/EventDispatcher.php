@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\EventDispatcher;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\EventDispatcher;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\EventDispatcher\StoppableEventInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\EventDispatcher\Debug\WrappedListener;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\EventDispatcher\StoppableEventInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\EventDispatcher\Debug\WrappedListener;
 
 /**
  * The EventDispatcherInterface is the central point of Symfony's event listener system.

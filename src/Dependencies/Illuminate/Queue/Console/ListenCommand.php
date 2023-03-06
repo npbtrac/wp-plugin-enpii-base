@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Console;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Console;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Listener;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\ListenerOptions;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Listener;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\ListenerOptions;
 
 class ListenCommand extends Command
 {
@@ -33,14 +33,14 @@ class ListenCommand extends Command
     /**
      * The queue listener instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Listener
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Listener
      */
     protected $listener;
 
     /**
      * Create a new queue listen command.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Listener  $listener
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Listener  $listener
      * @return void
      */
     public function __construct(Listener $listener)
@@ -87,7 +87,7 @@ class ListenCommand extends Command
     /**
      * Get the listener options for the command.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\ListenerOptions
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\ListenerOptions
      */
     protected function gatherOptions()
     {
@@ -102,7 +102,7 @@ class ListenCommand extends Command
     /**
      * Set the options on the queue listener.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Listener  $listener
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Listener  $listener
      * @return void
      */
     protected function setOutputHandler(Listener $listener)

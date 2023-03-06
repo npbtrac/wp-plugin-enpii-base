@@ -1,17 +1,17 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\PhpExecutableFinder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Process;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\PhpExecutableFinder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Process;
 
 class Composer
 {
     /**
      * The filesystem instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem
      */
     protected $files;
 
@@ -25,7 +25,7 @@ class Composer
     /**
      * Create a new Composer manager instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem  $files
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem  $files
      * @param  string|null  $workingPath
      * @return void
      */
@@ -88,7 +88,7 @@ class Composer
      * Get a new Symfony process instance.
      *
      * @param  array  $command
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Process
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Process
      */
     protected function getProcess(array $command)
     {

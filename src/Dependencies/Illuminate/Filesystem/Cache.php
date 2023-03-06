@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Cached\Storage\AbstractCache;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Cached\Storage\AbstractCache;
 
 class Cache extends AbstractCache
 {
     /**
      * The cache repository implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
      */
     protected $repository;
 
@@ -31,7 +31,7 @@ class Cache extends AbstractCache
     /**
      * Create a new cache instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository  $repository
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository  $repository
      * @param  string  $key
      * @param  int|null  $expire
      * @return void

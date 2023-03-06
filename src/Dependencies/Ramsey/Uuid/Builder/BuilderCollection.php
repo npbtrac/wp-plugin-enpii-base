@@ -12,16 +12,16 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Builder;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Builder;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\AbstractCollection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\Number\GenericNumberConverter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\Time\GenericTimeConverter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\Time\PhpTimeConverter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Guid\GuidBuilder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Math\BrickMathCalculator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Nonstandard\UuidBuilder as NonstandardUuidBuilder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122\UuidBuilder as Rfc4122UuidBuilder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\AbstractCollection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\Number\GenericNumberConverter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\Time\GenericTimeConverter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Converter\Time\PhpTimeConverter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Guid\GuidBuilder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Math\BrickMathCalculator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Nonstandard\UuidBuilder as NonstandardUuidBuilder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122\UuidBuilder as Rfc4122UuidBuilder;
 use Traversable;
 
 /**

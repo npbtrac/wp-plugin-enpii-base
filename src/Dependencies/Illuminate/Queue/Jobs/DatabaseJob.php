@@ -1,17 +1,17 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job as JobContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\DatabaseQueue;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job as JobContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\DatabaseQueue;
 
 class DatabaseJob extends Job implements JobContract
 {
     /**
      * The database queue instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\DatabaseQueue
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\DatabaseQueue
      */
     protected $database;
 
@@ -25,8 +25,8 @@ class DatabaseJob extends Job implements JobContract
     /**
      * Create a new job instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container  $container
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\DatabaseQueue  $database
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\DatabaseQueue  $database
      * @param  \stdClass  $job
      * @param  string  $connectionName
      * @param  string  $queue

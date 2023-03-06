@@ -1,23 +1,23 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Parser;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Parser;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\EmailLexer;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\AtextAfterCFWS;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ConsecutiveDot;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\CRLFAtTheEnd;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\CRLFX2;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\CRNoLF;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ExpectingQPair;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ExpectingATEXT;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ExpectingCTEXT;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\UnclosedComment;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\UnclosedQuotedString;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\CFWSNearAt;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\CFWSWithFWS;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\Comment;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\QuotedPart;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\QuotedString;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\EmailLexer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\AtextAfterCFWS;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ConsecutiveDot;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\CRLFAtTheEnd;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\CRLFX2;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\CRNoLF;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ExpectingQPair;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ExpectingATEXT;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ExpectingCTEXT;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\UnclosedComment;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\UnclosedQuotedString;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\CFWSNearAt;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\CFWSWithFWS;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\Comment;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\QuotedPart;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\QuotedString;
 
 abstract class Parser
 {
@@ -42,7 +42,7 @@ abstract class Parser
     }
 
     /**
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\Warning[]
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\Warning[]
      */
     public function getWarnings()
     {

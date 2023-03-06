@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Hashing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Hashing;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Hashing\Hasher as HasherContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Hashing\Hasher as HasherContract;
 use RuntimeException;
 
 class BcryptHasher extends AbstractHasher implements HasherContract

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
 use NpWpNPB_ReturnTypeWillChange;
 
 /**
@@ -335,7 +335,7 @@ trait Modifiers
      * Modify the current instance to the average of a given instance (default now) and the current instance
      * (second-precision).
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|null $date
      *
      * @return static
      */
@@ -347,8 +347,8 @@ trait Modifiers
     /**
      * Get the closest date from the instance (second-precision).
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date1
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date2
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date1
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date2
      *
      * @return static
      */
@@ -360,8 +360,8 @@ trait Modifiers
     /**
      * Get the farthest date from the instance (second-precision).
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date1
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date2
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date1
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date2
      *
      * @return static
      */
@@ -373,7 +373,7 @@ trait Modifiers
     /**
      * Get the minimum instance between a given instance (default now) and the current instance.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @return static
      */
@@ -387,7 +387,7 @@ trait Modifiers
     /**
      * Get the minimum instance between a given instance (default now) and the current instance.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @see min()
      *
@@ -401,7 +401,7 @@ trait Modifiers
     /**
      * Get the maximum instance between a given instance (default now) and the current instance.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @return static
      */
@@ -415,7 +415,7 @@ trait Modifiers
     /**
      * Get the maximum instance between a given instance (default now) and the current instance.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\DateTimeInterface|mixed $date
      *
      * @see max()
      *

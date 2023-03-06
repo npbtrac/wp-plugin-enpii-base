@@ -1,12 +1,12 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Cron;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Cron;
 
 use InvalidArgumentException;
 
 /**
  * CRON field factory implementing a flyweight factory
- * @link http://en.wikipedia.org/wiki/Enpii\Wp_Plugin\Enpii_Base\Dependencies\Cron
+ * @link http://en.wikipedia.org/wiki/Enpii\WP_Plugin\Enpii_Base\Dependencies\Cron
  */
 class FieldFactory
 {

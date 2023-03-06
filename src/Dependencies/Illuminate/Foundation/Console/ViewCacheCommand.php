@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Console;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Console;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Finder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\SplFileInfo;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Finder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\SplFileInfo;
 
 class ViewCacheCommand extends Command
 {
@@ -42,7 +42,7 @@ class ViewCacheCommand extends Command
     /**
      * Compile the given view files.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection  $views
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection  $views
      * @return void
      */
     protected function compileViews(Collection $views)
@@ -58,7 +58,7 @@ class ViewCacheCommand extends Command
      * Get the Blade files in the given path.
      *
      * @param  array  $paths
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     protected function bladeFilesIn(array $paths)
     {
@@ -74,7 +74,7 @@ class ViewCacheCommand extends Command
     /**
      * Get all of the possible view paths.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     protected function paths()
     {

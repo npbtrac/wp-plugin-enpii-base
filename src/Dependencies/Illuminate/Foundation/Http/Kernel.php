@@ -1,14 +1,14 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Http;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Http;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Http\Kernel as KernelContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Http\Events\RequestHandled;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Pipeline;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Facade;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Http\Kernel as KernelContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Http\Events\RequestHandled;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Pipeline;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Facade;
 use InvalidArgumentException;
 use Throwable;
 
@@ -17,14 +17,14 @@ class Kernel implements KernelContract
     /**
      * The application implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
      */
     protected $app;
 
     /**
      * The router instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router
      */
     protected $router;
 
@@ -34,12 +34,12 @@ class Kernel implements KernelContract
      * @var array
      */
     protected $bootstrappers = [
-        \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables::class,
-        \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\LoadConfiguration::class,
-        \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\HandleExceptions::class,
-        \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\RegisterFacades::class,
-        \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\RegisterProviders::class,
-        \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\BootProviders::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\LoadConfiguration::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\HandleExceptions::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\RegisterFacades::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\RegisterProviders::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\BootProviders::class,
     ];
 
     /**
@@ -71,20 +71,20 @@ class Kernel implements KernelContract
      * @var array
      */
     protected $middlewarePriority = [
-        \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Middleware\StartSession::class,
-        \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Middleware\AuthenticatesRequests::class,
-        \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Middleware\ThrottleRequests::class,
-        \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Middleware\AuthenticateSession::class,
-        \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Middleware\SubstituteBindings::class,
-        \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Middleware\Authorize::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Middleware\StartSession::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Middleware\ShareErrorsFromSession::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Middleware\AuthenticatesRequests::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Middleware\ThrottleRequests::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Middleware\AuthenticateSession::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Middleware\SubstituteBindings::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Middleware\Authorize::class,
     ];
 
     /**
      * Create a new HTTP kernel instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router  $router
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router  $router
      * @return void
      */
     public function __construct(Application $app, Router $router)
@@ -98,8 +98,8 @@ class Kernel implements KernelContract
     /**
      * Handle an incoming HTTP request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
      */
     public function handle($request)
     {
@@ -123,8 +123,8 @@ class Kernel implements KernelContract
     /**
      * Send the given request through the middleware / router.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
      */
     protected function sendRequestThroughRouter($request)
     {
@@ -169,8 +169,8 @@ class Kernel implements KernelContract
     /**
      * Call the terminate method on any terminable middleware.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response  $response
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response  $response
      * @return void
      */
     public function terminate($request, $response)
@@ -183,8 +183,8 @@ class Kernel implements KernelContract
     /**
      * Call the terminate method on any terminable middleware.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response  $response
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response  $response
      * @return void
      */
     protected function terminateMiddleware($request, $response)
@@ -212,7 +212,7 @@ class Kernel implements KernelContract
     /**
      * Gather the route middleware for the given request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @return array
      */
     protected function gatherRouteMiddleware($request)
@@ -406,9 +406,9 @@ class Kernel implements KernelContract
     /**
      * Render the exception to a response.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  \Throwable  $e
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
      */
     protected function renderException($request, Throwable $e)
     {
@@ -438,7 +438,7 @@ class Kernel implements KernelContract
     /**
      * Get the Laravel application instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
      */
     public function getApplication()
     {

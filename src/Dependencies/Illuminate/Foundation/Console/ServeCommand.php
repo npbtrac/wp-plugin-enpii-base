@@ -1,12 +1,12 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Console;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Console;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Env;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ProcessUtils;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputOption;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\PhpExecutableFinder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Env;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ProcessUtils;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputOption;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\PhpExecutableFinder;
 
 class ServeCommand extends Command
 {

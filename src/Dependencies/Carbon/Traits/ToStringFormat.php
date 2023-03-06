@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
 use Closure;
 
@@ -28,7 +28,7 @@ trait ToStringFormat
     protected static $toStringFormat;
 
     /**
-     * Reset the format used to the default when type juggling a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance to a string
+     * Reset the format used to the default when type juggling a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance to a string
      *
      * @return void
      */
@@ -43,11 +43,11 @@ trait ToStringFormat
      * @return void
      *
      * @deprecated To avoid conflict between different third-party libraries, static setters should not be used.
-     *             You should rather let Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon object being cast to string with DEFAULT_TO_STRING_FORMAT, and
+     *             You should rather let Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon object being cast to string with DEFAULT_TO_STRING_FORMAT, and
      *             use other method or custom format passed to format() method if you need to dump another string
      *             format.
      *
-     * Set the default format used when type juggling a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance to a string.
+     * Set the default format used when type juggling a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance to a string.
      */
     public static function setToStringFormat($format)
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Plugin;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Plugin;
 
 class ListWith extends AbstractPlugin
 {

@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling;
 
 use DateTimeInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory as Cache;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory as Cache;
 
 class CacheSchedulingMutex implements SchedulingMutex, CacheAware
 {
     /**
      * The cache factory implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory
      */
     public $cache;
 
@@ -24,7 +24,7 @@ class CacheSchedulingMutex implements SchedulingMutex, CacheAware
     /**
      * Create a new scheduling strategy.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory  $cache
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory  $cache
      * @return void
      */
     public function __construct(Cache $cache)
@@ -35,7 +35,7 @@ class CacheSchedulingMutex implements SchedulingMutex, CacheAware
     /**
      * Attempt to obtain a scheduling mutex for the given event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
      * @param  \DateTimeInterface  $time
      * @return bool
      */
@@ -49,7 +49,7 @@ class CacheSchedulingMutex implements SchedulingMutex, CacheAware
     /**
      * Determine if a scheduling mutex exists for the given event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
      * @param  \DateTimeInterface  $time
      * @return bool
      */

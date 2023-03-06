@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Loader;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Loader;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Regex\Regex;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Error;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Success;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Regex\Regex;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Error;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Success;
 use RuntimeException;
 
 class Parser
@@ -23,9 +23,9 @@ class Parser
      *
      * @param string $entry
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
      *
-     * @return array{string,\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\Value|null}
+     * @return array{string,\Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\Value|null}
      */
     public static function parse($entry)
     {
@@ -39,7 +39,7 @@ class Parser
      *
      * @param string $line
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
      *
      * @return array{string,string|null}
      */
@@ -66,7 +66,7 @@ class Parser
      *
      * @param string $name
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
      *
      * @return string
      */
@@ -100,9 +100,9 @@ class Parser
      *
      * @param string|null $value
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\Value|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\Value|null
      */
     private static function parseValue($value)
     {
@@ -139,91 +139,91 @@ class Parser
      * @param int    $state
      * @param string $char
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string>
      */
     private static function processChar($state, $char)
     {
         switch ($state) {
             case self::INITIAL_STATE:
                 if ($char === '\'') {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create(['', false, self::SINGLE_QUOTED_STATE]);
                 } elseif ($char === '"') {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create(['', false, self::DOUBLE_QUOTED_STATE]);
                 } elseif ($char === '#') {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create(['', false, self::COMMENT_STATE]);
                 } elseif ($char === '$') {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create([$char, true, self::UNQUOTED_STATE]);
                 } else {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create([$char, false, self::UNQUOTED_STATE]);
                 }
             case self::UNQUOTED_STATE:
                 if ($char === '#') {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create(['', false, self::COMMENT_STATE]);
                 } elseif (ctype_space($char)) {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create(['', false, self::WHITESPACE_STATE]);
                 } elseif ($char === '$') {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create([$char, true, self::UNQUOTED_STATE]);
                 } else {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create([$char, false, self::UNQUOTED_STATE]);
                 }
             case self::SINGLE_QUOTED_STATE:
                 if ($char === '\'') {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create(['', false, self::WHITESPACE_STATE]);
                 } else {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create([$char, false, self::SINGLE_QUOTED_STATE]);
                 }
             case self::DOUBLE_QUOTED_STATE:
                 if ($char === '"') {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create(['', false, self::WHITESPACE_STATE]);
                 } elseif ($char === '\\') {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create(['', false, self::ESCAPE_SEQUENCE_STATE]);
                 } elseif ($char === '$') {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create([$char, true, self::DOUBLE_QUOTED_STATE]);
                 } else {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create([$char, false, self::DOUBLE_QUOTED_STATE]);
                 }
             case self::ESCAPE_SEQUENCE_STATE:
                 if ($char === '"' || $char === '\\') {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create([$char, false, self::DOUBLE_QUOTED_STATE]);
                 } elseif ($char === '$') {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create([$char, false, self::DOUBLE_QUOTED_STATE]);
                 } elseif (in_array($char, ['f', 'n', 'r', 't', 'v'], true)) {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create([stripcslashes('\\'.$char), false, self::DOUBLE_QUOTED_STATE]);
                 } else {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Error::create('an unexpected escape sequence');
                 }
             case self::WHITESPACE_STATE:
                 if ($char === '#') {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create(['', false, self::COMMENT_STATE]);
                 } elseif (!ctype_space($char)) {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Error::create('unexpected whitespace');
                 } else {
-                    /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                    /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                     return Success::create(['', false, self::WHITESPACE_STATE]);
                 }
             case self::COMMENT_STATE:
-                /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
+                /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<array{string,bool,int},string> */
                 return Success::create(['', false, self::COMMENT_STATE]);
             default:
                 throw new RuntimeException('Parser entered invalid state.');

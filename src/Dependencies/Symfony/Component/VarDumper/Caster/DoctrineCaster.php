@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Caster;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Caster;
 
 use Doctrine\Common\Proxy\Proxy as CommonProxy;
 use Doctrine\ORM\PersistentCollection;
 use Doctrine\ORM\Proxy\Proxy as OrmProxy;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Cloner\Stub;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Cloner\Stub;
 
 /**
  * Casts Doctrine related classes to array representation.

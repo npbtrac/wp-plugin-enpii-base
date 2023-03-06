@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher;
 
 use Symfony\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Symfony\Component\HttpFoundation\Request;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\MethodNotAllowedException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\NoConfigurationException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\ResourceNotFoundException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RequestContext;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Route;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RouteCollection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\MethodNotAllowedException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\NoConfigurationException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\ResourceNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RequestContext;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Route;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RouteCollection;
 
 /**
  * UrlMatcher matches URL based on a set of routes.

@@ -1,23 +1,23 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars;
 
 use Doctrine\DBAL\Schema\AbstractSchemaManager as SchemaManager;
 use Doctrine\DBAL\Schema\Column;
 use Doctrine\DBAL\Schema\TableDiff;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Blueprint;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Blueprint;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent;
 
 class RenameColumn
 {
     /**
      * Compile a rename column command.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars\Grammar  $grammar
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent  $command
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection  $connection
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars\Grammar  $grammar
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Blueprint  $blueprint
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent  $command
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection  $connection
      * @return array
      */
     public static function compile(Grammar $grammar, Blueprint $blueprint, Fluent $command, Connection $connection)
@@ -38,9 +38,9 @@ class RenameColumn
     /**
      * Get a new column instance with the new column name.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars\Grammar  $grammar
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Blueprint  $blueprint
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent  $command
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars\Grammar  $grammar
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Blueprint  $blueprint
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent  $command
      * @param  \Doctrine\DBAL\Schema\Column  $column
      * @param  \Doctrine\DBAL\Schema\AbstractSchemaManager  $schema
      * @return \Doctrine\DBAL\Schema\TableDiff
@@ -56,7 +56,7 @@ class RenameColumn
      * Set the renamed columns on the table diff.
      *
      * @param  \Doctrine\DBAL\Schema\TableDiff  $tableDiff
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent  $command
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent  $command
      * @param  \Doctrine\DBAL\Schema\Column  $column
      * @return \Doctrine\DBAL\Schema\TableDiff
      */

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\EventDispatcher;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\EventDispatcher;
 
 /**
  * Defines a dispatcher for events.

@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\EmailParser;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\EmailParser;
 
 class EmailTooLong extends Warning
 {

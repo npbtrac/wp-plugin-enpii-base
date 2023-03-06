@@ -1,6 +1,6 @@
 <?php
 
-class Normalizer extends Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Intl\Normalizer\Normalizer
+class Normalizer extends Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Intl\Normalizer\Normalizer
 {
     /**
      * @deprecated since ICU 56 and removed in PHP 8

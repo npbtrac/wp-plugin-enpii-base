@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log;
 
 /**
  * Describes a logger instance.
@@ -119,7 +119,7 @@ interface LoggerInterface
      *
      * @return void
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\InvalidArgumentException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\InvalidArgumentException
      */
     public function log($level, $message, array $context = array());
 }

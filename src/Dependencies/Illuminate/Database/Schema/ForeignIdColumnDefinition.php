@@ -1,22 +1,22 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 
 class ForeignIdColumnDefinition extends ColumnDefinition
 {
     /**
      * The schema builder blueprint instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Blueprint
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Blueprint
      */
     protected $blueprint;
 
     /**
      * Create a new foreign ID column definition.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Blueprint  $blueprint
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Blueprint  $blueprint
      * @param  array  $attributes
      * @return void
      */
@@ -32,7 +32,7 @@ class ForeignIdColumnDefinition extends ColumnDefinition
      *
      * @param  string|null  $table
      * @param  string  $column
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\ForeignKeyDefinition
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\ForeignKeyDefinition
      */
     public function constrained($table = null, $column = 'id')
     {
@@ -43,7 +43,7 @@ class ForeignIdColumnDefinition extends ColumnDefinition
      * Specify which column this foreign ID references on another table.
      *
      * @param  string  $column
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\ForeignKeyDefinition
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\ForeignKeyDefinition
      */
     public function references($column)
     {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client;
 
 use Closure;
 use function GuzzleHttp\Promise\promise_for;
 use GuzzleHttp\Psr7\Response as Psr7Response;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 use PHPUnit\Framework\Assert as PHPUnit;
 
 class Factory
@@ -18,7 +18,7 @@ class Factory
     /**
      * The stub callables that will handle requests.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     protected $stubCallbacks;
 
@@ -76,7 +76,7 @@ class Factory
      * Get an invokable object that returns a sequence of responses in order for use during stubbing.
      *
      * @param  array  $responses
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\ResponseSequence
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\ResponseSequence
      */
     public function sequence(array $responses = [])
     {
@@ -122,7 +122,7 @@ class Factory
      * Register a response sequence for the given URL pattern.
      *
      * @param  string  $url
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\ResponseSequence
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\ResponseSequence
      */
     public function fakeSequence($url = '*')
     {
@@ -135,7 +135,7 @@ class Factory
      * Stub the given URL using the given callback.
      *
      * @param  string  $url
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response|\GuzzleHttp\Promise\PromiseInterface|callable  $callback
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response|\GuzzleHttp\Promise\PromiseInterface|callable  $callback
      * @return $this
      */
     public function stubUrl($url, $callback)
@@ -166,8 +166,8 @@ class Factory
     /**
      * Record a request response pair.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Request  $request
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response  $response
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response  $response
      * @return void
      */
     public function recordRequestResponsePair($request, $response)
@@ -248,7 +248,7 @@ class Factory
      * Get a collection of the request / response pairs matching the given truth test.
      *
      * @param  callable  $callback
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     public function recorded($callback)
     {

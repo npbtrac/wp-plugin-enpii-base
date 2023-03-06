@@ -12,11 +12,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Parser;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Parser;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\Link;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\InlineParserContext;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\UrlEncoder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\Link;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\InlineParserContext;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\UrlEncoder;
 
 final class AutolinkParser implements InlineParserInterface
 {

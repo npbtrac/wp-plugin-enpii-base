@@ -1,14 +1,14 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem;
 
 /**
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem assertExists(string|array $path)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem assertMissing(string|array $path)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem cloud()
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem disk(string $name = null)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem assertExists(string|array $path)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem assertMissing(string|array $path)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem cloud()
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem disk(string $name = null)
  * @method static array allDirectories(string|null $directory = null)
  * @method static array allFiles(string|null $directory = null)
  * @method static array directories(string|null $directory = null, bool $recursive = false)
@@ -22,8 +22,8 @@ use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem;
  * @method static bool move(string $from, string $to)
  * @method static bool prepend(string $path, string $data)
  * @method static bool put(string $path, string|resource $contents, mixed $options = [])
- * @method static string|false putFile(string $path, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\File|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile|string $file, mixed $options = [])
- * @method static string|false putFileAs(string $path, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\File|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile|string $file, string $name, mixed $options = [])
+ * @method static string|false putFile(string $path, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\File|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile|string $file, mixed $options = [])
+ * @method static string|false putFileAs(string $path, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\File|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile|string $file, string $name, mixed $options = [])
  * @method static bool setVisibility(string $path, string $visibility)
  * @method static bool writeStream(string $path, resource $resource, array $options = [])
  * @method static int lastModified(string $path)
@@ -34,7 +34,7 @@ use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem;
  * @method static string temporaryUrl(string $path, \DateTimeInterface $expiration, array $options = [])
  * @method static string url(string $path)
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\FilesystemManager
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\FilesystemManager
  */
 class Storage extends Facade
 {
@@ -43,7 +43,7 @@ class Storage extends Facade
      *
      * @param  string|null  $disk
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
      */
     public static function fake($disk = null, array $config = [])
     {
@@ -65,7 +65,7 @@ class Storage extends Facade
      *
      * @param  string|null  $disk
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\Filesystem
      */
     public static function persistentFake($disk = null, array $config = [])
     {

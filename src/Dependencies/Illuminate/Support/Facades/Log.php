@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
 /**
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface channel(string $channel = null)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface stack(array $channels, string $channel = null)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface channel(string $channel = null)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface stack(array $channels, string $channel = null)
  * @method static void alert(string $message, array $context = [])
  * @method static void critical(string $message, array $context = [])
  * @method static void debug(string $message, array $context = [])
@@ -15,7 +15,7 @@ namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
  * @method static void notice(string $message, array $context = [])
  * @method static void warning(string $message, array $context = [])
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Log\Logger
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Log\Logger
  */
 class Log extends Facade
 {

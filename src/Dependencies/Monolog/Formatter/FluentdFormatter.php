@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
 
 /**
  * Class FluentdFormatter
@@ -25,11 +25,11 @@ use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
  *  path /var/run/td-agent/td-agent.sock
  * </source>
  *
- * Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog setup:
+ * Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog setup:
  *
- * $logger = new Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger('fluent.tag');
- * $fluentHandler = new Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler\SocketHandler('unix:///var/run/td-agent/td-agent.sock');
- * $fluentHandler->setFormatter(new Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FluentdFormatter());
+ * $logger = new Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger('fluent.tag');
+ * $fluentHandler = new Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\SocketHandler('unix:///var/run/td-agent/td-agent.sock');
+ * $fluentHandler->setFormatter(new Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FluentdFormatter());
  * $logger->pushHandler($fluentHandler);
  *
  * @author Andrius Putna <fordnox@gmail.com>
@@ -44,7 +44,7 @@ class FluentdFormatter implements FormatterInterface
     public function __construct(bool $levelTag = false)
     {
         if (!function_exists('json_encode')) {
-            throw new \RuntimeException('PHP\'s json extension is required to use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\'s FluentdUnixFormatter');
+            throw new \RuntimeException('PHP\'s json extension is required to use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\'s FluentdUnixFormatter');
         }
 
         $this->levelTag = $levelTag;

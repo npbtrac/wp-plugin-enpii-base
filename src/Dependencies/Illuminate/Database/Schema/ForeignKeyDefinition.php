@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent;
 
 /**
  * @method ForeignKeyDefinition deferrable(bool $value = true) Set the foreign key as deferrable (PostgreSQL)

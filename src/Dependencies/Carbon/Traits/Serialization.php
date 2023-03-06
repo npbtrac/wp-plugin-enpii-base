@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidFormatException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidFormatException;
 use NpWpNPB_ReturnTypeWillChange;
 use Throwable;
 
@@ -37,7 +37,7 @@ trait Serialization
     use ObjectInitialisation;
 
     /**
-     * The custom Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon JSON serializer.
+     * The custom Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon JSON serializer.
      *
      * @var callable|null
      */
@@ -247,9 +247,9 @@ trait Serialization
 
     /**
      * @deprecated To avoid conflict between different third-party libraries, static setters should not be used.
-     *             You should rather transform Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon object before the serialization.
+     *             You should rather transform Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon object before the serialization.
      *
-     * JSON serialize all Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instances using the given callback.
+     * JSON serialize all Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instances using the given callback.
      *
      * @param callable $callback
      *

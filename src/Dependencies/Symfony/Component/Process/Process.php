@@ -9,17 +9,17 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception\LogicException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception\ProcessFailedException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception\ProcessSignaledException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception\ProcessTimedOutException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception\RuntimeException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Pipes\PipesInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Pipes\UnixPipes;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Pipes\WindowsPipes;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception\LogicException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception\ProcessFailedException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception\ProcessSignaledException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception\ProcessTimedOutException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception\RuntimeException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Pipes\PipesInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Pipes\UnixPipes;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Pipes\WindowsPipes;
 
 /**
  * Process is a thin wrapper around proc_* functions to easily

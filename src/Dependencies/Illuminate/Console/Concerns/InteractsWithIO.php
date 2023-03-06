@@ -1,30 +1,30 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Concerns;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Concerns;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\OutputStyle;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Formatter\OutputFormatterStyle;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\Table;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Question\ChoiceQuestion;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Question\Question;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\OutputStyle;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Formatter\OutputFormatterStyle;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Helper\Table;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Question\ChoiceQuestion;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Question\Question;
 
 trait InteractsWithIO
 {
     /**
      * The input interface implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface
      */
     protected $input;
 
     /**
      * The output interface implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\OutputStyle
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\OutputStyle
      */
     protected $output;
 
@@ -215,7 +215,7 @@ trait InteractsWithIO
      * Format input to textual table.
      *
      * @param  array  $headers
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable|array  $rows
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable|array  $rows
      * @param  string  $tableStyle
      * @param  array  $columnStyles
      * @return void
@@ -338,7 +338,7 @@ trait InteractsWithIO
     /**
      * Set the input interface implementation.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface  $input
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface  $input
      * @return void
      */
     public function setInput(InputInterface $input)
@@ -349,7 +349,7 @@ trait InteractsWithIO
     /**
      * Set the output interface implementation.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\OutputStyle  $output
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\OutputStyle  $output
      * @return void
      */
     public function setOutput(OutputStyle $output)
@@ -388,7 +388,7 @@ trait InteractsWithIO
     /**
      * Get the output implementation.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\OutputStyle
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\OutputStyle
      */
     public function getOutput()
     {

@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\Dumper;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\Dumper;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\MethodNotAllowedException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\NoConfigurationException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\ResourceNotFoundException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\RedirectableUrlMatcherInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RequestContext;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\MethodNotAllowedException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\NoConfigurationException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Exception\ResourceNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\RedirectableUrlMatcherInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RequestContext;
 
 /**
  * @author Nicolas Grekas <p@tchwork.com>

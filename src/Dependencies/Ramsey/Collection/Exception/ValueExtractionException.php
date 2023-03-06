@@ -12,7 +12,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception;
 
 /**
  * Thrown when attempting to extract a value for a method or property that does not exist.

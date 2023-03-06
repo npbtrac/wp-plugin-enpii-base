@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,18 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog;
 
 use DateTimeZone;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler\HandlerInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\HandlerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel;
 use Throwable;
 use Stringable;
 
 /**
- * Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog log channel
+ * Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog log channel
  *
  * It contains a stack of Handlers and a stack of Processors,
  * and uses them to store records that are added to it.
@@ -84,7 +84,7 @@ class Logger implements LoggerInterface, ResettableInterface
     public const EMERGENCY = 600;
 
     /**
-     * Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog API version
+     * Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog API version
      *
      * This is only bumped when API breaks are done and should
      * follow the major version of the library
@@ -112,7 +112,7 @@ class Logger implements LoggerInterface, ResettableInterface
     ];
 
     /**
-     * Mapping between levels numbers defined in RFC 5424 and Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog ones
+     * Mapping between levels numbers defined in RFC 5424 and Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog ones
      *
      * @phpstan-var array<int, Level> $rfc_5424_levels
      */
@@ -294,7 +294,7 @@ class Logger implements LoggerInterface, ResettableInterface
      * member of new records.
      *
      * As of PHP7.1 microseconds are always included by the engine, so
-     * there is no performance penalty and Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog 2 enabled microseconds
+     * there is no performance penalty and Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog 2 enabled microseconds
      * by default. This function lets you disable them though in case you want
      * to suppress microseconds from the output.
      *
@@ -317,7 +317,7 @@ class Logger implements LoggerInterface, ResettableInterface
     /**
      * Adds a log record.
      *
-     * @param  int               $level    The logging level (a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog or RFC 5424 level)
+     * @param  int               $level    The logging level (a Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog or RFC 5424 level)
      * @param  string            $message  The log message
      * @param  mixed[]           $context  The log context
      * @param  DateTimeImmutable $datetime Optional log date to log into the past or future
@@ -450,7 +450,7 @@ class Logger implements LoggerInterface, ResettableInterface
     /**
      * Gets the name of the logging level.
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\InvalidArgumentException If level is not defined
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\InvalidArgumentException If level is not defined
      *
      * @phpstan-param  Level     $level
      * @phpstan-return LevelName
@@ -465,10 +465,10 @@ class Logger implements LoggerInterface, ResettableInterface
     }
 
     /**
-     * Converts PSR-3 levels to Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog ones if necessary
+     * Converts PSR-3 levels to Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog ones if necessary
      *
      * @param  string|int                        $level Level number (monolog) or name (PSR-3)
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\InvalidArgumentException If level is not defined
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\InvalidArgumentException If level is not defined
      *
      * @phpstan-param  Level|LevelName|LogLevel::* $level
      * @phpstan-return Level

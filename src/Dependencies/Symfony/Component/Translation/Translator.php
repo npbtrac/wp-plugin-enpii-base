@@ -9,20 +9,20 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation;
 
 use Symfony\Component\Config\ConfigCacheFactory;
 use Symfony\Component\Config\ConfigCacheFactoryInterface;
 use Symfony\Component\Config\ConfigCacheInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception\NotFoundResourceException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception\RuntimeException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Formatter\IntlFormatterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Formatter\MessageFormatter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Formatter\MessageFormatterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Loader\LoaderInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\LocaleAwareInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\TranslatorInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception\NotFoundResourceException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Exception\RuntimeException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Formatter\IntlFormatterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Formatter\MessageFormatter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Formatter\MessageFormatterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Loader\LoaderInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\LocaleAwareInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\TranslatorInterface;
 
 // Help opcache.preload discover always-needed symbols
 class_exists(MessageCatalogue::class);
@@ -316,7 +316,7 @@ class Translator implements TranslatorInterface, TranslatorBagInterface, LocaleA
         $content = sprintf(<<<EOF
 <?php
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\MessageCatalogue;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\MessageCatalogue;
 
 \$catalogue = new MessageCatalogue('%s', %s);
 

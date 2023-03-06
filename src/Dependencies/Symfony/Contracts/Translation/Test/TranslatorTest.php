@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\Test;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\Test;
 
 use PHPUnit\Framework\TestCase;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\TranslatorInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\TranslatorTrait;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\TranslatorInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\TranslatorTrait;
 
 /**
  * Test should cover all languages mentioned on http://translate.sourceforge.net/wiki/l10n/pluralforms

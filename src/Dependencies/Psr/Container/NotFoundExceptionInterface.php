@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Container;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Container;
 
 /**
  * No entry was found in the container.

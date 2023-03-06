@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Processor;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Processor;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel;
 
 /**
  * Injects line/file:class/function where the log message came from
@@ -25,8 +25,8 @@ use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel;
  *
  * @author Jordi Boggiano <j.boggiano@seld.be>
  *
- * @phpstan-import-type Level from \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger
- * @phpstan-import-type LevelName from \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger
+ * @phpstan-import-type Level from \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger
+ * @phpstan-import-type LevelName from \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger
  */
 class IntrospectionProcessor implements ProcessorInterface
 {
@@ -51,7 +51,7 @@ class IntrospectionProcessor implements ProcessorInterface
     public function __construct($level = Logger::DEBUG, array $skipClassesPartials = [], int $skipStackFramesCount = 0)
     {
         $this->level = Logger::toMonologLevel($level);
-        $this->skipClassesPartials = array_merge(['Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\\'], $skipClassesPartials);
+        $this->skipClassesPartials = array_merge(['Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\\'], $skipClassesPartials);
         $this->skipStackFramesCount = $skipStackFramesCount;
     }
 

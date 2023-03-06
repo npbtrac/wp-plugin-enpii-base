@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
 
 interface RouteCollectionInterface
 {
     /**
      * Add a Route instance to the collection.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      */
     public function add(Route $route);
 
@@ -35,11 +35,11 @@ interface RouteCollectionInterface
     /**
      * Find the first route matching a given request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
     public function match(Request $request);
 
@@ -47,7 +47,7 @@ interface RouteCollectionInterface
      * Get routes from the collection by method.
      *
      * @param  string|null  $method
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route[]
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route[]
      */
     public function get($method = null);
 
@@ -63,7 +63,7 @@ interface RouteCollectionInterface
      * Get a route instance by its name.
      *
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route|null
      */
     public function getByName($name);
 
@@ -71,14 +71,14 @@ interface RouteCollectionInterface
      * Get a route instance by its controller action.
      *
      * @param  string  $action
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route|null
      */
     public function getByAction($action);
 
     /**
      * Get all of the routes in the collection.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route[]
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route[]
      */
     public function getRoutes();
 
@@ -92,7 +92,7 @@ interface RouteCollectionInterface
     /**
      * Get all of the routes keyed by their name.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route[]
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route[]
      */
     public function getRoutesByName();
 }

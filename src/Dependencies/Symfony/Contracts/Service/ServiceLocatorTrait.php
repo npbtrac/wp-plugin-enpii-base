@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Service;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Service;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Container\ContainerExceptionInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Container\NotFoundExceptionInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Container\ContainerExceptionInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Container\NotFoundExceptionInterface;
 
 // Help opcache.preload discover always-needed symbols
 class_exists(ContainerExceptionInterface::class);

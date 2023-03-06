@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Channels;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Channels;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Events\BroadcastNotificationCreated;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\BroadcastMessage;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Events\BroadcastNotificationCreated;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\BroadcastMessage;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification;
 use RuntimeException;
 
 class BroadcastChannel
@@ -13,14 +13,14 @@ class BroadcastChannel
     /**
      * The event dispatcher.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher
      */
     protected $events;
 
     /**
      * Create a new database channel.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher  $events
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher  $events
      * @return void
      */
     public function __construct(Dispatcher $events)
@@ -32,7 +32,7 @@ class BroadcastChannel
      * Send the given notification.
      *
      * @param  mixed  $notifiable
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
      * @return array|null
      */
     public function send($notifiable, Notification $notification)
@@ -55,7 +55,7 @@ class BroadcastChannel
      * Get the data for the notification.
      *
      * @param  mixed  $notifiable
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
      * @return mixed
      *
      * @throws \RuntimeException

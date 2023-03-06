@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines;
 
 abstract class Engine
 {

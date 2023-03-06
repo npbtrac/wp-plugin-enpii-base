@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Processor;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Processor;
 
 /**
  * Injects memory_get_peak_usage in all records
  *
- * @see Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Processor\MemoryProcessor::__construct() for options
+ * @see Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Processor\MemoryProcessor::__construct() for options
  * @author Rob Jensen
  */
 class MemoryPeakUsageProcessor extends MemoryProcessor

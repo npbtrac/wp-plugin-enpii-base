@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
 /**
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\UrlGenerator setRootControllerNamespace(string $rootNamespace)
- * @method static bool hasValidSignature(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request $request, bool $absolute = true)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\UrlGenerator setRootControllerNamespace(string $rootNamespace)
+ * @method static bool hasValidSignature(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request $request, bool $absolute = true)
  * @method static string wp_app_action(string $action, $parameters = [], bool $absolute = true)
  * @method static string wp_app_asset(string $path, bool $secure = null)
  * @method static string current()
@@ -18,7 +18,7 @@ namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
  * @method static void defaults(array $defaults)
  * @method static void forceScheme(string $scheme)
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\UrlGenerator
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\UrlGenerator
  */
 class URL extends Facade
 {

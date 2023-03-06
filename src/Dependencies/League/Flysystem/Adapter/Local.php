@@ -1,15 +1,15 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter;
 
 use DirectoryIterator;
 use FilesystemIterator;
 use finfo as Finfo;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Config;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Exception;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\NotSupportedException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\UnreadableFileException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Config;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Exception;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\NotSupportedException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\UnreadableFileException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util;
 use LogicException;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;

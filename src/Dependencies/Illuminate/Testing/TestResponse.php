@@ -1,24 +1,24 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Testing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Testing;
 
 use ArrayAccess;
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\View;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cookie\CookieValuePrefix;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Tappable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Testing\Assert as PHPUnit;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Testing\Constraints\SeeInOrder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\View;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cookie\CookieValuePrefix;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Tappable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Testing\Assert as PHPUnit;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Testing\Constraints\SeeInOrder;
 use LogicException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\StreamedResponse;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\StreamedResponse;
 
 /**
- * @mixin \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
+ * @mixin \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
  */
 class TestResponse implements ArrayAccess
 {
@@ -29,7 +29,7 @@ class TestResponse implements ArrayAccess
     /**
      * The response to delegate to.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
      */
     public $baseResponse;
 
@@ -43,7 +43,7 @@ class TestResponse implements ArrayAccess
     /**
      * Create a new test response instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response  $response
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response  $response
      * @return void
      */
     public function __construct($response)
@@ -54,7 +54,7 @@ class TestResponse implements ArrayAccess
     /**
      * Create a new TestResponse from another response.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response  $response
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response  $response
      * @return static
      */
     public static function fromBaseResponse($response)
@@ -377,7 +377,7 @@ class TestResponse implements ArrayAccess
      * Get the given cookie from the response.
      *
      * @param  string  $cookieName
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Cookie|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Cookie|null
      */
     protected function getCookie($cookieName)
     {
@@ -1156,7 +1156,7 @@ class TestResponse implements ArrayAccess
     /**
      * Get the current session store.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
      */
     protected function session()
     {

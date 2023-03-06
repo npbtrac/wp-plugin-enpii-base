@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\ConfirmableTrait;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\Migrator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputOption;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\ConfirmableTrait;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\Migrator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputOption;
 
 class RollbackCommand extends BaseCommand
 {
@@ -27,14 +27,14 @@ class RollbackCommand extends BaseCommand
     /**
      * The migrator instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\Migrator
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\Migrator
      */
     protected $migrator;
 
     /**
      * Create a new migration rollback command instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\Migrator  $migrator
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\Migrator  $migrator
      * @return void
      */
     public function __construct(Migrator $migrator)

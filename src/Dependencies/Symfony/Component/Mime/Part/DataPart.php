@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Header\Headers;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\MimeTypes;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Header\Headers;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\MimeTypes;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>

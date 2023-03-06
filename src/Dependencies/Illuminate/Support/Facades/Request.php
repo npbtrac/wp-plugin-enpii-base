@@ -1,25 +1,25 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
 /**
  * @method static \Closure getRouteResolver()
  * @method static \Closure getUserResolver()
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request capture()
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request createFrom(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request $from, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request|null $to = null)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request createFromBase(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request $request)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request duplicate(array|null $query = null, array|null $request = null, array|null $attributes = null, array|null $cookies = null, array|null $files = null, array|null $server = null)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request instance()
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request merge(array $input)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request replace(array $input)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request setJson(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag $json)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request setRouteResolver(\Closure $callback)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request setUserResolver(\Closure $callback)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile[]|array|null file(string|null $key = null, mixed $default = null)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route|object|string route(string|null $param = null, string|null $default = null)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store session()
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store|null getSession()
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag|mixed json(string|null $key = null, mixed $default = null)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request capture()
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request createFrom(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request $from, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request|null $to = null)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request createFromBase(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Request $request)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request duplicate(array|null $query = null, array|null $request = null, array|null $attributes = null, array|null $cookies = null, array|null $files = null, array|null $server = null)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request instance()
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request merge(array $input)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request replace(array $input)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request setJson(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag $json)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request setRouteResolver(\Closure $callback)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request setUserResolver(\Closure $callback)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\UploadedFile[]|array|null file(string|null $key = null, mixed $default = null)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route|object|string route(string|null $param = null, string|null $default = null)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store session()
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store|null getSession()
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\ParameterBag|mixed json(string|null $key = null, mixed $default = null)
  * @method static array all(array|mixed|null $keys = null)
  * @method static array allFiles()
  * @method static array except(array|mixed $keys)
@@ -85,9 +85,9 @@ namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
  * @method static void flush()
  * @method static void offsetSet(string $offset, mixed $value)
  * @method static void offsetUnset(string $offset)
- * @method static void setLaravelSession(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Session\Session $session)
+ * @method static void setLaravelSession(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Session\Session $session)
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
  */
 class Request extends Facade
 {

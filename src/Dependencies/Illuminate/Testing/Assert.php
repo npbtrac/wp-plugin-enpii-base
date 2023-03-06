@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Testing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Testing;
 
 use ArrayAccess;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Testing\Constraints\ArraySubset;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Testing\Constraints\ArraySubset;
 use PHPUnit\Framework\Assert as PHPUnit;
 use PHPUnit\Framework\Constraint\DirectoryExists;
 use PHPUnit\Framework\Constraint\FileExists;

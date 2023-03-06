@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\Rules;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\WordInflector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Inflector\WordInflector;
 
 class Transformations implements WordInflector
 {

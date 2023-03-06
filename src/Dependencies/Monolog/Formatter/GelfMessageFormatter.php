@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
 use Gelf\Message;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
 
 /**
  * Serializes a log message to GELF
@@ -21,7 +21,7 @@ use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
  *
  * @author Matt Lehner <mlehner@gmail.com>
  *
- * @phpstan-import-type Level from \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger
+ * @phpstan-import-type Level from \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger
  */
 class GelfMessageFormatter extends NormalizerFormatter
 {
@@ -33,12 +33,12 @@ class GelfMessageFormatter extends NormalizerFormatter
     protected $systemName;
 
     /**
-     * @var string a prefix for 'extra' fields from the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog record (optional)
+     * @var string a prefix for 'extra' fields from the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog record (optional)
      */
     protected $extraPrefix;
 
     /**
-     * @var string a prefix for 'context' fields from the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog record (optional)
+     * @var string a prefix for 'context' fields from the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog record (optional)
      */
     protected $contextPrefix;
 
@@ -48,7 +48,7 @@ class GelfMessageFormatter extends NormalizerFormatter
     protected $maxLength;
 
     /**
-     * Translates Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog log levels to Graylog2 log priorities.
+     * Translates Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog log levels to Graylog2 log priorities.
      *
      * @var array<int, int>
      *
@@ -68,7 +68,7 @@ class GelfMessageFormatter extends NormalizerFormatter
     public function __construct(?string $systemName = null, ?string $extraPrefix = null, string $contextPrefix = 'ctxt_', ?int $maxLength = null)
     {
         if (!class_exists(Message::class)) {
-            throw new \RuntimeException('Composer package graylog2/gelf-php is required to use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\'s GelfMessageFormatter');
+            throw new \RuntimeException('Composer package graylog2/gelf-php is required to use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\'s GelfMessageFormatter');
         }
 
         parent::__construct('U.u');

@@ -1,19 +1,19 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database;
 
 use Doctrine\DBAL\Driver\PDOMySql\Driver as DoctrineDriver;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Grammars\MySqlGrammar as QueryGrammar;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Processors\MySqlProcessor;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars\MySqlGrammar as SchemaGrammar;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\MySqlBuilder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Grammars\MySqlGrammar as QueryGrammar;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Processors\MySqlProcessor;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars\MySqlGrammar as SchemaGrammar;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\MySqlBuilder;
 
 class MySqlConnection extends Connection
 {
     /**
      * Get the default query grammar instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Grammars\MySqlGrammar
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Grammars\MySqlGrammar
      */
     protected function getDefaultQueryGrammar()
     {
@@ -23,7 +23,7 @@ class MySqlConnection extends Connection
     /**
      * Get a schema builder instance for the connection.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\MySqlBuilder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\MySqlBuilder
      */
     public function getSchemaBuilder()
     {
@@ -37,7 +37,7 @@ class MySqlConnection extends Connection
     /**
      * Get the default schema grammar instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars\MySqlGrammar
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Grammars\MySqlGrammar
      */
     protected function getDefaultSchemaGrammar()
     {
@@ -47,7 +47,7 @@ class MySqlConnection extends Connection
     /**
      * Get the default post processor instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Processors\MySqlProcessor
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Query\Processors\MySqlProcessor
      */
     protected function getDefaultPostProcessor()
     {

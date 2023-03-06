@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\HeadingPermalink\Slug;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\HeadingPermalink\Slug;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Normalizer\SlugNormalizer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Normalizer\SlugNormalizer;
 
 @trigger_error(sprintf('%s is deprecated; use %s instead', DefaultSlugGenerator::class, SlugNormalizer::class), E_USER_DEPRECATED);
 
 /**
  * Creates URL-friendly strings
  *
- * @deprecated Use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Normalizer\SlugNormalizer instead
+ * @deprecated Use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Normalizer\SlugNormalizer instead
  */
 final class DefaultSlugGenerator implements SlugGeneratorInterface
 {

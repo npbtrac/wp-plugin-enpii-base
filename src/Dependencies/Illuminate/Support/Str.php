@@ -1,13 +1,13 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Codec\TimestampFirstCombCodec;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Generator\CombGenerator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Uuid;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\UuidFactory;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\voku\helper\ASCII;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Codec\TimestampFirstCombCodec;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Generator\CombGenerator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Uuid;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\UuidFactory;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\voku\helper\ASCII;
 
 class Str
 {
@@ -45,7 +45,7 @@ class Str
      * Get a new stringable object from the given string.
      *
      * @param  string  $string
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Stringable
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Stringable
      */
     public static function of($string)
     {
@@ -719,7 +719,7 @@ class Str
     /**
      * Generate a UUID (version 4).
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\UuidInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\UuidInterface
      */
     public static function uuid()
     {
@@ -731,7 +731,7 @@ class Str
     /**
      * Generate a time-ordered UUID (version 4).
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\UuidInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\UuidInterface
      */
     public static function orderedUuid()
     {

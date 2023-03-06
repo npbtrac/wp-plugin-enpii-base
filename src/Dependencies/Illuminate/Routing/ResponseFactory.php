@@ -1,15 +1,15 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\ResponseFactory as FactoryContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory as ViewFactory;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\BinaryFileResponse;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\StreamedResponse;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\ResponseFactory as FactoryContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory as ViewFactory;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\StreamedResponse;
 
 class ResponseFactory implements FactoryContract
 {
@@ -18,22 +18,22 @@ class ResponseFactory implements FactoryContract
     /**
      * The view factory instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory
      */
     protected $view;
 
     /**
      * The redirector instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Redirector
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Redirector
      */
     protected $redirector;
 
     /**
      * Create a new response factory instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory  $view
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Redirector  $redirector
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory  $view
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Redirector  $redirector
      * @return void
      */
     public function __construct(ViewFactory $view, Redirector $redirector)
@@ -48,7 +48,7 @@ class ResponseFactory implements FactoryContract
      * @param  string  $content
      * @param  int  $status
      * @param  array  $headers
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
      */
     public function make($content = '', $status = 200, array $headers = [])
     {
@@ -60,7 +60,7 @@ class ResponseFactory implements FactoryContract
      *
      * @param  int  $status
      * @param  array  $headers
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
      */
     public function noContent($status = 204, array $headers = [])
     {
@@ -74,7 +74,7 @@ class ResponseFactory implements FactoryContract
      * @param  array  $data
      * @param  int  $status
      * @param  array  $headers
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response
      */
     public function view($view, $data = [], $status = 200, array $headers = [])
     {
@@ -92,7 +92,7 @@ class ResponseFactory implements FactoryContract
      * @param  int  $status
      * @param  array  $headers
      * @param  int  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse
      */
     public function json($data = [], $status = 200, array $headers = [], $options = 0)
     {
@@ -107,7 +107,7 @@ class ResponseFactory implements FactoryContract
      * @param  int  $status
      * @param  array  $headers
      * @param  int  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse
      */
     public function jsonp($callback, $data = [], $status = 200, array $headers = [], $options = 0)
     {
@@ -120,7 +120,7 @@ class ResponseFactory implements FactoryContract
      * @param  \Closure  $callback
      * @param  int  $status
      * @param  array  $headers
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\StreamedResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\StreamedResponse
      */
     public function stream($callback, $status = 200, array $headers = [])
     {
@@ -134,7 +134,7 @@ class ResponseFactory implements FactoryContract
      * @param  string|null  $name
      * @param  array  $headers
      * @param  string|null  $disposition
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\StreamedResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\StreamedResponse
      */
     public function streamDownload($callback, $name = null, array $headers = [], $disposition = 'attachment')
     {
@@ -158,7 +158,7 @@ class ResponseFactory implements FactoryContract
      * @param  string|null  $name
      * @param  array  $headers
      * @param  string|null  $disposition
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\BinaryFileResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\BinaryFileResponse
      */
     public function download($file, $name = null, array $headers = [], $disposition = 'attachment')
     {
@@ -187,7 +187,7 @@ class ResponseFactory implements FactoryContract
      *
      * @param  \SplFileInfo|string  $file
      * @param  array  $headers
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\BinaryFileResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\BinaryFileResponse
      */
     public function file($file, array $headers = [])
     {
@@ -201,7 +201,7 @@ class ResponseFactory implements FactoryContract
      * @param  int  $status
      * @param  array  $headers
      * @param  bool|null  $secure
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     public function redirectTo($path, $status = 302, $headers = [], $secure = null)
     {
@@ -215,7 +215,7 @@ class ResponseFactory implements FactoryContract
      * @param  mixed  $parameters
      * @param  int  $status
      * @param  array  $headers
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     public function redirectToRoute($route, $parameters = [], $status = 302, $headers = [])
     {
@@ -229,7 +229,7 @@ class ResponseFactory implements FactoryContract
      * @param  mixed  $parameters
      * @param  int  $status
      * @param  array  $headers
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     public function redirectToAction($action, $parameters = [], $status = 302, $headers = [])
     {
@@ -243,7 +243,7 @@ class ResponseFactory implements FactoryContract
      * @param  int  $status
      * @param  array  $headers
      * @param  bool|null  $secure
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     public function redirectGuest($path, $status = 302, $headers = [], $secure = null)
     {
@@ -257,7 +257,7 @@ class ResponseFactory implements FactoryContract
      * @param  int  $status
      * @param  array  $headers
      * @param  bool|null  $secure
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     public function redirectToIntended($default = '/', $status = 302, $headers = [], $secure = null)
     {

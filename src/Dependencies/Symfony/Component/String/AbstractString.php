@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\String;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\String;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\String\Exception\ExceptionInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\String\Exception\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\String\Exception\RuntimeException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\String\Exception\ExceptionInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\String\Exception\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\String\Exception\RuntimeException;
 
 /**
  * Represents a string of abstract characters.

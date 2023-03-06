@@ -1,22 +1,22 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Cron\CronExpression;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Cron\CronExpression;
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Exception\TransferException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailer;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Date;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Reflector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\ReflectsClosures;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Date;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Reflector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\ReflectsClosures;
 use Psr\Http\Client\ClientExceptionInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Process;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Process;
 
 class Event
 {
@@ -144,7 +144,7 @@ class Event
     /**
      * The event mutex implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\EventMutex
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\EventMutex
      */
     public $mutex;
 
@@ -158,7 +158,7 @@ class Event
     /**
      * Create a new event instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\EventMutex  $mutex
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\EventMutex  $mutex
      * @param  string  $command
      * @param  \DateTimeZone|string|null  $timezone
      * @return void
@@ -185,7 +185,7 @@ class Event
     /**
      * Run the given event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
      * @return void
      */
     public function run(Container $container)
@@ -213,7 +213,7 @@ class Event
     /**
      * Run the command in the foreground.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
      * @return void
      */
     protected function runCommandInForeground(Container $container)
@@ -228,7 +228,7 @@ class Event
     /**
      * Run the command in the background.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
      * @return void
      */
     protected function runCommandInBackground(Container $container)
@@ -241,7 +241,7 @@ class Event
     /**
      * Call all of the "before" callbacks for the event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
      * @return void
      */
     public function callBeforeCallbacks(Container $container)
@@ -254,7 +254,7 @@ class Event
     /**
      * Call all of the "after" callbacks for the event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
      * @return void
      */
     public function callAfterCallbacks(Container $container)
@@ -267,7 +267,7 @@ class Event
     /**
      * Call all of the "after" callbacks for the event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
      * @param  int  $exitCode
      * @return void
      */
@@ -289,9 +289,9 @@ class Event
     }
 
     /**
-     * Determine if the given event should run based on the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Cron expression.
+     * Determine if the given event should run based on the Enpii\WP_Plugin\Enpii_Base\Dependencies\Cron expression.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
      * @return bool
      */
     public function isDue($app)
@@ -315,7 +315,7 @@ class Event
     }
 
     /**
-     * Determine if the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Cron expression passes.
+     * Determine if the Enpii\WP_Plugin\Enpii_Base\Dependencies\Cron expression passes.
      *
      * @return bool
      */
@@ -344,7 +344,7 @@ class Event
     /**
      * Determine if the filters pass for the event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
      * @return bool
      */
     public function filtersPass($app)
@@ -468,7 +468,7 @@ class Event
     /**
      * E-mail the output of the event to the recipients.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailer  $mailer
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailer  $mailer
      * @param  array  $addresses
      * @param  bool  $onlyIfOutputExists
      * @return void
@@ -867,7 +867,7 @@ class Event
      * @param  \DateTimeInterface|string  $currentTime
      * @param  int  $nth
      * @param  bool  $allowCurrentDate
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon
      */
     public function nextRunDate($currentTime = 'now', $nth = 0, $allowCurrentDate = false)
     {
@@ -877,7 +877,7 @@ class Event
     }
 
     /**
-     * Get the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Cron expression for the event.
+     * Get the Enpii\WP_Plugin\Enpii_Base\Dependencies\Cron expression for the event.
      *
      * @return string
      */
@@ -889,7 +889,7 @@ class Event
     /**
      * Set the event mutex implementation to be used.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\EventMutex  $mutex
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\EventMutex  $mutex
      * @return $this
      */
     public function preventOverlapsUsing(EventMutex $mutex)

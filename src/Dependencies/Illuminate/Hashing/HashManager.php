@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Hashing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Hashing;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Hashing\Hasher;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Manager;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Hashing\Hasher;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Manager;
 
 class HashManager extends Manager implements Hasher
 {
     /**
      * Create an instance of the Bcrypt hash Driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Hashing\BcryptHasher
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Hashing\BcryptHasher
      */
     public function createBcryptDriver()
     {
@@ -20,7 +20,7 @@ class HashManager extends Manager implements Hasher
     /**
      * Create an instance of the Argon2i hash Driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Hashing\ArgonHasher
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Hashing\ArgonHasher
      */
     public function createArgonDriver()
     {
@@ -30,7 +30,7 @@ class HashManager extends Manager implements Hasher
     /**
      * Create an instance of the Argon2id hash Driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Hashing\Argon2IdHasher
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Hashing\Argon2IdHasher
      */
     public function createArgon2idDriver()
     {

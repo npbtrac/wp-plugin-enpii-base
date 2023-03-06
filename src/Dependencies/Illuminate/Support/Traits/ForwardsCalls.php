@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits;
 
 use BadMethodCallException;
 use Error;

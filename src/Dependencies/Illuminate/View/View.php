@@ -1,19 +1,19 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View;
 
 use ArrayAccess;
 use BadMethodCallException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Htmlable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Renderable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Engine;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\View as ViewContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ViewErrorBag;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Htmlable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Renderable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Engine;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\View as ViewContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ViewErrorBag;
 use Throwable;
 
 class View implements ArrayAccess, Htmlable, ViewContract
@@ -25,14 +25,14 @@ class View implements ArrayAccess, Htmlable, ViewContract
     /**
      * The view factory instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Factory
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Factory
      */
     protected $factory;
 
     /**
      * The engine implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Engine
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Engine
      */
     protected $engine;
 
@@ -60,8 +60,8 @@ class View implements ArrayAccess, Htmlable, ViewContract
     /**
      * Create a new view instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Factory  $factory
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Engine  $engine
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Factory  $factory
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Engine  $engine
      * @param  string  $view
      * @param  string  $path
      * @param  mixed  $data
@@ -205,7 +205,7 @@ class View implements ArrayAccess, Htmlable, ViewContract
     /**
      * Add validation errors to the view.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageProvider|array  $provider
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageProvider|array  $provider
      * @param  string  $bag
      * @return $this
      */
@@ -219,8 +219,8 @@ class View implements ArrayAccess, Htmlable, ViewContract
     /**
      * Parse the given errors into an appropriate value.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageProvider|array|string  $provider
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageProvider|array|string  $provider
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag
      */
     protected function formatErrors($provider)
     {
@@ -283,7 +283,7 @@ class View implements ArrayAccess, Htmlable, ViewContract
     /**
      * Get the view factory instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Factory
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Factory
      */
     public function getFactory()
     {
@@ -293,7 +293,7 @@ class View implements ArrayAccess, Htmlable, ViewContract
     /**
      * Get the view's rendering engine.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Engine
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Engine
      */
     public function getEngine()
     {
@@ -395,7 +395,7 @@ class View implements ArrayAccess, Htmlable, ViewContract
      *
      * @param  string  $method
      * @param  array  $parameters
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\View
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\View
      *
      * @throws \BadMethodCallException
      */

@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
 /**
  * @method static bool has(string $key)
@@ -9,7 +9,7 @@ namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
  * @method static string getLocale()
  * @method static void setLocale(string $locale)
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Translation\Translator
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Translation\Translator
  */
 class Lang extends Facade
 {

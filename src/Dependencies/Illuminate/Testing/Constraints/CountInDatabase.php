@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Testing\Constraints;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Testing\Constraints;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection;
 use PHPUnit\Framework\Constraint\Constraint;
 use ReflectionClass;
 
@@ -11,7 +11,7 @@ class CountInDatabase extends Constraint
     /**
      * The database connection.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
      */
     protected $database;
 
@@ -32,7 +32,7 @@ class CountInDatabase extends Constraint
     /**
      * Create a new constraint instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection  $database
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection  $database
      * @param  int  $expectedCount
      * @return void
      */

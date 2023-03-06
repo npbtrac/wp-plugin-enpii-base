@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Cli;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Cli;
 
 class Invoker
 {
-    public const CLI_CLASS_NAME = 'Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\\Cli';
+    public const CLI_CLASS_NAME = 'Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\\Cli';
 
     protected function runWithCli(string $className, array $parameters): bool
     {

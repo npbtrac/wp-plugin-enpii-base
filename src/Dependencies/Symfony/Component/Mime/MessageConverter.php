@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\RuntimeException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\DataPart;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\Multipart\AlternativePart;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\Multipart\MixedPart;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\Multipart\RelatedPart;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\TextPart;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\RuntimeException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\DataPart;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\Multipart\AlternativePart;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\Multipart\MixedPart;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\Multipart\RelatedPart;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\TextPart;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>

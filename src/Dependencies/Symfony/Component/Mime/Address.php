@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime;
 
 use Egulias\EmailValidator\EmailValidator;
 use Egulias\EmailValidator\Validation\MessageIDValidation;
 use Egulias\EmailValidator\Validation\RFCValidation;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Encoder\IdnAddressEncoder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\LogicException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\RfcComplianceException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Encoder\IdnAddressEncoder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\LogicException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\RfcComplianceException;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>

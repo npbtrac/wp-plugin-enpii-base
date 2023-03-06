@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
 /**
  * @method static bool supported(string $key, string $cipher)
@@ -11,7 +11,7 @@ namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
  * @method static string generateKey(string $cipher)
  * @method static string getKey()
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Encryption\Encrypter
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Encryption\Encrypter
  */
 class Crypt extends Facade
 {

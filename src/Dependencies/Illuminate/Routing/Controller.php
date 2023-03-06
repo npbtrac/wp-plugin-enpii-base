@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
 
 use BadMethodCallException;
 
@@ -18,7 +18,7 @@ abstract class Controller
      *
      * @param  \Closure|array|string  $middleware
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\ControllerMiddlewareOptions
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\ControllerMiddlewareOptions
      */
     public function middleware($middleware, array $options = [])
     {
@@ -47,7 +47,7 @@ abstract class Controller
      *
      * @param  string  $method
      * @param  array  $parameters
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
      */
     public function callAction($method, $parameters)
     {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,21 +9,21 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
 use BadMethodCallException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonTimeZone;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\BadComparisonUnitException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\ImmutableException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidTimeZoneException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidTypeException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownGetterException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownMethodException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownSetterException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownUnitException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonTimeZone;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\BadComparisonUnitException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\ImmutableException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidTimeZoneException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidTypeException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownGetterException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownMethodException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownSetterException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownUnitException;
 use Closure;
 use DateInterval;
 use DatePeriod;
@@ -79,13 +79,13 @@ use Throwable;
  * @property-read string           $latinUpperMeridiem                                                                "AM"/"PM" (Ante meridiem or Post meridiem latin uppercase mark)
  * @property-read string           $timezoneAbbreviatedName                                                           the current timezone abbreviated name
  * @property-read string           $tzAbbrName                                                                        alias of $timezoneAbbreviatedName
- * @property-read string           $dayName                                                                           long name of weekday translated according to Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
- * @property-read string           $shortDayName                                                                      short name of weekday translated according to Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
- * @property-read string           $minDayName                                                                        very short name of weekday translated according to Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
- * @property-read string           $monthName                                                                         long name of month translated according to Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
- * @property-read string           $shortMonthName                                                                    short name of month translated according to Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
- * @property-read string           $meridiem                                                                          lowercase meridiem mark translated according to Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon locale, in latin if no translation available for current language
- * @property-read string           $upperMeridiem                                                                     uppercase meridiem mark translated according to Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon locale, in latin if no translation available for current language
+ * @property-read string           $dayName                                                                           long name of weekday translated according to Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
+ * @property-read string           $shortDayName                                                                      short name of weekday translated according to Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
+ * @property-read string           $minDayName                                                                        very short name of weekday translated according to Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
+ * @property-read string           $monthName                                                                         long name of month translated according to Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
+ * @property-read string           $shortMonthName                                                                    short name of month translated according to Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
+ * @property-read string           $meridiem                                                                          lowercase meridiem mark translated according to Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon locale, in latin if no translation available for current language
+ * @property-read string           $upperMeridiem                                                                     uppercase meridiem mark translated according to Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon locale, in latin if no translation available for current language
  * @property-read int              $noZeroHour                                                                        current hour from 1 to 24
  * @property-read int              $weeksInYear                                                                       51 through 53
  * @property-read int              $isoWeeksInYear                                                                    51 through 53
@@ -116,35 +116,35 @@ use Throwable;
  * @method        bool             isThursday()                                                                       Checks if the instance day is thursday.
  * @method        bool             isFriday()                                                                         Checks if the instance day is friday.
  * @method        bool             isSaturday()                                                                       Checks if the instance day is saturday.
- * @method        bool             isSameYear(Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                      Checks if the given date is in the same year as the instance. If null passed, compare to now (with the same timezone).
+ * @method        bool             isSameYear(Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                      Checks if the given date is in the same year as the instance. If null passed, compare to now (with the same timezone).
  * @method        bool             isCurrentYear()                                                                    Checks if the instance is in the same year as the current moment.
  * @method        bool             isNextYear()                                                                       Checks if the instance is in the same year as the current moment next year.
  * @method        bool             isLastYear()                                                                       Checks if the instance is in the same year as the current moment last year.
- * @method        bool             isSameWeek(Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                      Checks if the given date is in the same week as the instance. If null passed, compare to now (with the same timezone).
+ * @method        bool             isSameWeek(Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                      Checks if the given date is in the same week as the instance. If null passed, compare to now (with the same timezone).
  * @method        bool             isCurrentWeek()                                                                    Checks if the instance is in the same week as the current moment.
  * @method        bool             isNextWeek()                                                                       Checks if the instance is in the same week as the current moment next week.
  * @method        bool             isLastWeek()                                                                       Checks if the instance is in the same week as the current moment last week.
- * @method        bool             isSameDay(Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                       Checks if the given date is in the same day as the instance. If null passed, compare to now (with the same timezone).
+ * @method        bool             isSameDay(Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                       Checks if the given date is in the same day as the instance. If null passed, compare to now (with the same timezone).
  * @method        bool             isCurrentDay()                                                                     Checks if the instance is in the same day as the current moment.
  * @method        bool             isNextDay()                                                                        Checks if the instance is in the same day as the current moment next day.
  * @method        bool             isLastDay()                                                                        Checks if the instance is in the same day as the current moment last day.
- * @method        bool             isSameHour(Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                      Checks if the given date is in the same hour as the instance. If null passed, compare to now (with the same timezone).
+ * @method        bool             isSameHour(Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                      Checks if the given date is in the same hour as the instance. If null passed, compare to now (with the same timezone).
  * @method        bool             isCurrentHour()                                                                    Checks if the instance is in the same hour as the current moment.
  * @method        bool             isNextHour()                                                                       Checks if the instance is in the same hour as the current moment next hour.
  * @method        bool             isLastHour()                                                                       Checks if the instance is in the same hour as the current moment last hour.
- * @method        bool             isSameMinute(Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                    Checks if the given date is in the same minute as the instance. If null passed, compare to now (with the same timezone).
+ * @method        bool             isSameMinute(Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                    Checks if the given date is in the same minute as the instance. If null passed, compare to now (with the same timezone).
  * @method        bool             isCurrentMinute()                                                                  Checks if the instance is in the same minute as the current moment.
  * @method        bool             isNextMinute()                                                                     Checks if the instance is in the same minute as the current moment next minute.
  * @method        bool             isLastMinute()                                                                     Checks if the instance is in the same minute as the current moment last minute.
- * @method        bool             isSameSecond(Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                    Checks if the given date is in the same second as the instance. If null passed, compare to now (with the same timezone).
+ * @method        bool             isSameSecond(Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                    Checks if the given date is in the same second as the instance. If null passed, compare to now (with the same timezone).
  * @method        bool             isCurrentSecond()                                                                  Checks if the instance is in the same second as the current moment.
  * @method        bool             isNextSecond()                                                                     Checks if the instance is in the same second as the current moment next second.
  * @method        bool             isLastSecond()                                                                     Checks if the instance is in the same second as the current moment last second.
- * @method        bool             isSameMicro(Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                     Checks if the given date is in the same microsecond as the instance. If null passed, compare to now (with the same timezone).
+ * @method        bool             isSameMicro(Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                     Checks if the given date is in the same microsecond as the instance. If null passed, compare to now (with the same timezone).
  * @method        bool             isCurrentMicro()                                                                   Checks if the instance is in the same microsecond as the current moment.
  * @method        bool             isNextMicro()                                                                      Checks if the instance is in the same microsecond as the current moment next microsecond.
  * @method        bool             isLastMicro()                                                                      Checks if the instance is in the same microsecond as the current moment last microsecond.
- * @method        bool             isSameMicrosecond(Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)               Checks if the given date is in the same microsecond as the instance. If null passed, compare to now (with the same timezone).
+ * @method        bool             isSameMicrosecond(Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)               Checks if the given date is in the same microsecond as the instance. If null passed, compare to now (with the same timezone).
  * @method        bool             isCurrentMicrosecond()                                                             Checks if the instance is in the same microsecond as the current moment.
  * @method        bool             isNextMicrosecond()                                                                Checks if the instance is in the same microsecond as the current moment next microsecond.
  * @method        bool             isLastMicrosecond()                                                                Checks if the instance is in the same microsecond as the current moment last microsecond.
@@ -154,15 +154,15 @@ use Throwable;
  * @method        bool             isCurrentQuarter()                                                                 Checks if the instance is in the same quarter as the current moment.
  * @method        bool             isNextQuarter()                                                                    Checks if the instance is in the same quarter as the current moment next quarter.
  * @method        bool             isLastQuarter()                                                                    Checks if the instance is in the same quarter as the current moment last quarter.
- * @method        bool             isSameDecade(Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                    Checks if the given date is in the same decade as the instance. If null passed, compare to now (with the same timezone).
+ * @method        bool             isSameDecade(Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                    Checks if the given date is in the same decade as the instance. If null passed, compare to now (with the same timezone).
  * @method        bool             isCurrentDecade()                                                                  Checks if the instance is in the same decade as the current moment.
  * @method        bool             isNextDecade()                                                                     Checks if the instance is in the same decade as the current moment next decade.
  * @method        bool             isLastDecade()                                                                     Checks if the instance is in the same decade as the current moment last decade.
- * @method        bool             isSameCentury(Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                   Checks if the given date is in the same century as the instance. If null passed, compare to now (with the same timezone).
+ * @method        bool             isSameCentury(Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                   Checks if the given date is in the same century as the instance. If null passed, compare to now (with the same timezone).
  * @method        bool             isCurrentCentury()                                                                 Checks if the instance is in the same century as the current moment.
  * @method        bool             isNextCentury()                                                                    Checks if the instance is in the same century as the current moment next century.
  * @method        bool             isLastCentury()                                                                    Checks if the instance is in the same century as the current moment last century.
- * @method        bool             isSameMillennium(Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                Checks if the given date is in the same millennium as the instance. If null passed, compare to now (with the same timezone).
+ * @method        bool             isSameMillennium(Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date = null)                Checks if the given date is in the same millennium as the instance. If null passed, compare to now (with the same timezone).
  * @method        bool             isCurrentMillennium()                                                              Checks if the instance is in the same millennium as the current moment.
  * @method        bool             isNextMillennium()                                                                 Checks if the instance is in the same millennium as the current moment next millennium.
  * @method        bool             isLastMillennium()                                                                 Checks if the instance is in the same millennium as the current moment last millennium.
@@ -370,77 +370,77 @@ use Throwable;
  * @method        CarbonInterface  addRealMicro()                                                                     Add one microsecond to the instance (using timestamp).
  * @method        CarbonInterface  subRealMicros(int $value = 1)                                                      Sub microseconds (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  subRealMicro()                                                                     Sub one microsecond to the instance (using timestamp).
- * @method        CarbonPeriod     microsUntil($endDate = null, int $factor = 1)                                      Return an iterable period from current date to given end (string, DateTime or Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance) for each microsecond or every X microseconds if a factor is given.
+ * @method        CarbonPeriod     microsUntil($endDate = null, int $factor = 1)                                      Return an iterable period from current date to given end (string, DateTime or Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance) for each microsecond or every X microseconds if a factor is given.
  * @method        CarbonInterface  addRealMicroseconds(int $value = 1)                                                Add microseconds (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  addRealMicrosecond()                                                               Add one microsecond to the instance (using timestamp).
  * @method        CarbonInterface  subRealMicroseconds(int $value = 1)                                                Sub microseconds (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  subRealMicrosecond()                                                               Sub one microsecond to the instance (using timestamp).
- * @method        CarbonPeriod     microsecondsUntil($endDate = null, int $factor = 1)                                Return an iterable period from current date to given end (string, DateTime or Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance) for each microsecond or every X microseconds if a factor is given.
+ * @method        CarbonPeriod     microsecondsUntil($endDate = null, int $factor = 1)                                Return an iterable period from current date to given end (string, DateTime or Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance) for each microsecond or every X microseconds if a factor is given.
  * @method        CarbonInterface  addRealMillis(int $value = 1)                                                      Add milliseconds (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  addRealMilli()                                                                     Add one millisecond to the instance (using timestamp).
  * @method        CarbonInterface  subRealMillis(int $value = 1)                                                      Sub milliseconds (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  subRealMilli()                                                                     Sub one millisecond to the instance (using timestamp).
- * @method        CarbonPeriod     millisUntil($endDate = null, int $factor = 1)                                      Return an iterable period from current date to given end (string, DateTime or Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance) for each millisecond or every X milliseconds if a factor is given.
+ * @method        CarbonPeriod     millisUntil($endDate = null, int $factor = 1)                                      Return an iterable period from current date to given end (string, DateTime or Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance) for each millisecond or every X milliseconds if a factor is given.
  * @method        CarbonInterface  addRealMilliseconds(int $value = 1)                                                Add milliseconds (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  addRealMillisecond()                                                               Add one millisecond to the instance (using timestamp).
  * @method        CarbonInterface  subRealMilliseconds(int $value = 1)                                                Sub milliseconds (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  subRealMillisecond()                                                               Sub one millisecond to the instance (using timestamp).
- * @method        CarbonPeriod     millisecondsUntil($endDate = null, int $factor = 1)                                Return an iterable period from current date to given end (string, DateTime or Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance) for each millisecond or every X milliseconds if a factor is given.
+ * @method        CarbonPeriod     millisecondsUntil($endDate = null, int $factor = 1)                                Return an iterable period from current date to given end (string, DateTime or Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance) for each millisecond or every X milliseconds if a factor is given.
  * @method        CarbonInterface  addRealSeconds(int $value = 1)                                                     Add seconds (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  addRealSecond()                                                                    Add one second to the instance (using timestamp).
  * @method        CarbonInterface  subRealSeconds(int $value = 1)                                                     Sub seconds (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  subRealSecond()                                                                    Sub one second to the instance (using timestamp).
- * @method        CarbonPeriod     secondsUntil($endDate = null, int $factor = 1)                                     Return an iterable period from current date to given end (string, DateTime or Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance) for each second or every X seconds if a factor is given.
+ * @method        CarbonPeriod     secondsUntil($endDate = null, int $factor = 1)                                     Return an iterable period from current date to given end (string, DateTime or Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance) for each second or every X seconds if a factor is given.
  * @method        CarbonInterface  addRealMinutes(int $value = 1)                                                     Add minutes (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  addRealMinute()                                                                    Add one minute to the instance (using timestamp).
  * @method        CarbonInterface  subRealMinutes(int $value = 1)                                                     Sub minutes (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  subRealMinute()                                                                    Sub one minute to the instance (using timestamp).
- * @method        CarbonPeriod     minutesUntil($endDate = null, int $factor = 1)                                     Return an iterable period from current date to given end (string, DateTime or Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance) for each minute or every X minutes if a factor is given.
+ * @method        CarbonPeriod     minutesUntil($endDate = null, int $factor = 1)                                     Return an iterable period from current date to given end (string, DateTime or Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance) for each minute or every X minutes if a factor is given.
  * @method        CarbonInterface  addRealHours(int $value = 1)                                                       Add hours (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  addRealHour()                                                                      Add one hour to the instance (using timestamp).
  * @method        CarbonInterface  subRealHours(int $value = 1)                                                       Sub hours (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  subRealHour()                                                                      Sub one hour to the instance (using timestamp).
- * @method        CarbonPeriod     hoursUntil($endDate = null, int $factor = 1)                                       Return an iterable period from current date to given end (string, DateTime or Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance) for each hour or every X hours if a factor is given.
+ * @method        CarbonPeriod     hoursUntil($endDate = null, int $factor = 1)                                       Return an iterable period from current date to given end (string, DateTime or Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance) for each hour or every X hours if a factor is given.
  * @method        CarbonInterface  addRealDays(int $value = 1)                                                        Add days (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  addRealDay()                                                                       Add one day to the instance (using timestamp).
  * @method        CarbonInterface  subRealDays(int $value = 1)                                                        Sub days (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  subRealDay()                                                                       Sub one day to the instance (using timestamp).
- * @method        CarbonPeriod     daysUntil($endDate = null, int $factor = 1)                                        Return an iterable period from current date to given end (string, DateTime or Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance) for each day or every X days if a factor is given.
+ * @method        CarbonPeriod     daysUntil($endDate = null, int $factor = 1)                                        Return an iterable period from current date to given end (string, DateTime or Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance) for each day or every X days if a factor is given.
  * @method        CarbonInterface  addRealWeeks(int $value = 1)                                                       Add weeks (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  addRealWeek()                                                                      Add one week to the instance (using timestamp).
  * @method        CarbonInterface  subRealWeeks(int $value = 1)                                                       Sub weeks (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  subRealWeek()                                                                      Sub one week to the instance (using timestamp).
- * @method        CarbonPeriod     weeksUntil($endDate = null, int $factor = 1)                                       Return an iterable period from current date to given end (string, DateTime or Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance) for each week or every X weeks if a factor is given.
+ * @method        CarbonPeriod     weeksUntil($endDate = null, int $factor = 1)                                       Return an iterable period from current date to given end (string, DateTime or Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance) for each week or every X weeks if a factor is given.
  * @method        CarbonInterface  addRealMonths(int $value = 1)                                                      Add months (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  addRealMonth()                                                                     Add one month to the instance (using timestamp).
  * @method        CarbonInterface  subRealMonths(int $value = 1)                                                      Sub months (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  subRealMonth()                                                                     Sub one month to the instance (using timestamp).
- * @method        CarbonPeriod     monthsUntil($endDate = null, int $factor = 1)                                      Return an iterable period from current date to given end (string, DateTime or Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance) for each month or every X months if a factor is given.
+ * @method        CarbonPeriod     monthsUntil($endDate = null, int $factor = 1)                                      Return an iterable period from current date to given end (string, DateTime or Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance) for each month or every X months if a factor is given.
  * @method        CarbonInterface  addRealQuarters(int $value = 1)                                                    Add quarters (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  addRealQuarter()                                                                   Add one quarter to the instance (using timestamp).
  * @method        CarbonInterface  subRealQuarters(int $value = 1)                                                    Sub quarters (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  subRealQuarter()                                                                   Sub one quarter to the instance (using timestamp).
- * @method        CarbonPeriod     quartersUntil($endDate = null, int $factor = 1)                                    Return an iterable period from current date to given end (string, DateTime or Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance) for each quarter or every X quarters if a factor is given.
+ * @method        CarbonPeriod     quartersUntil($endDate = null, int $factor = 1)                                    Return an iterable period from current date to given end (string, DateTime or Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance) for each quarter or every X quarters if a factor is given.
  * @method        CarbonInterface  addRealYears(int $value = 1)                                                       Add years (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  addRealYear()                                                                      Add one year to the instance (using timestamp).
  * @method        CarbonInterface  subRealYears(int $value = 1)                                                       Sub years (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  subRealYear()                                                                      Sub one year to the instance (using timestamp).
- * @method        CarbonPeriod     yearsUntil($endDate = null, int $factor = 1)                                       Return an iterable period from current date to given end (string, DateTime or Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance) for each year or every X years if a factor is given.
+ * @method        CarbonPeriod     yearsUntil($endDate = null, int $factor = 1)                                       Return an iterable period from current date to given end (string, DateTime or Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance) for each year or every X years if a factor is given.
  * @method        CarbonInterface  addRealDecades(int $value = 1)                                                     Add decades (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  addRealDecade()                                                                    Add one decade to the instance (using timestamp).
  * @method        CarbonInterface  subRealDecades(int $value = 1)                                                     Sub decades (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  subRealDecade()                                                                    Sub one decade to the instance (using timestamp).
- * @method        CarbonPeriod     decadesUntil($endDate = null, int $factor = 1)                                     Return an iterable period from current date to given end (string, DateTime or Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance) for each decade or every X decades if a factor is given.
+ * @method        CarbonPeriod     decadesUntil($endDate = null, int $factor = 1)                                     Return an iterable period from current date to given end (string, DateTime or Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance) for each decade or every X decades if a factor is given.
  * @method        CarbonInterface  addRealCenturies(int $value = 1)                                                   Add centuries (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  addRealCentury()                                                                   Add one century to the instance (using timestamp).
  * @method        CarbonInterface  subRealCenturies(int $value = 1)                                                   Sub centuries (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  subRealCentury()                                                                   Sub one century to the instance (using timestamp).
- * @method        CarbonPeriod     centuriesUntil($endDate = null, int $factor = 1)                                   Return an iterable period from current date to given end (string, DateTime or Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance) for each century or every X centuries if a factor is given.
+ * @method        CarbonPeriod     centuriesUntil($endDate = null, int $factor = 1)                                   Return an iterable period from current date to given end (string, DateTime or Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance) for each century or every X centuries if a factor is given.
  * @method        CarbonInterface  addRealMillennia(int $value = 1)                                                   Add millennia (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  addRealMillennium()                                                                Add one millennium to the instance (using timestamp).
  * @method        CarbonInterface  subRealMillennia(int $value = 1)                                                   Sub millennia (the $value count passed in) to the instance (using timestamp).
  * @method        CarbonInterface  subRealMillennium()                                                                Sub one millennium to the instance (using timestamp).
- * @method        CarbonPeriod     millenniaUntil($endDate = null, int $factor = 1)                                   Return an iterable period from current date to given end (string, DateTime or Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance) for each millennium or every X millennia if a factor is given.
+ * @method        CarbonPeriod     millenniaUntil($endDate = null, int $factor = 1)                                   Return an iterable period from current date to given end (string, DateTime or Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance) for each millennium or every X millennia if a factor is given.
  * @method        CarbonInterface  roundYear(float $precision = 1, string $function = "round")                        Round the current instance year with given precision using the given function.
  * @method        CarbonInterface  roundYears(float $precision = 1, string $function = "round")                       Round the current instance year with given precision using the given function.
  * @method        CarbonInterface  floorYear(float $precision = 1)                                                    Truncate the current instance year with given precision.
@@ -626,7 +626,7 @@ trait Date
     }
 
     /**
-     * Get the TimeZone associated with the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance (as CarbonTimeZone).
+     * Get the TimeZone associated with the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance (as CarbonTimeZone).
      *
      * @return CarbonTimeZone
      *
@@ -734,10 +734,10 @@ trait Date
     }
 
     /**
-     * Return the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance passed through, a now instance in the same timezone
+     * Return the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance passed through, a now instance in the same timezone
      * if null given or parse the input if string given.
      *
-     * @param Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date
+     * @param Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date
      *
      * @return static
      */
@@ -757,11 +757,11 @@ trait Date
     }
 
     /**
-     * Return the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance passed through, a now instance in UTC
+     * Return the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance passed through, a now instance in UTC
      * if null given or parse the input if string given (using current timezone
      * then switching to UTC).
      *
-     * @param Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date
+     * @param Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface|string|null $date
      *
      * @return static
      */
@@ -781,10 +781,10 @@ trait Date
     }
 
     /**
-     * Return the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance passed through, a now instance in the same timezone
+     * Return the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance passed through, a now instance in the same timezone
      * if null given or parse the input if string given.
      *
-     * @param Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterval|\DateInterval|\DatePeriod|DateTimeInterface|string|null $date
+     * @param Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterval|\DateInterval|\DatePeriod|DateTimeInterface|string|null $date
      *
      * @return static
      */
@@ -806,7 +806,7 @@ trait Date
     ///////////////////////////////////////////////////////////////////
 
     /**
-     * Get a part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon object
+     * Get a part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon object
      *
      * @param string $name
      *
@@ -820,7 +820,7 @@ trait Date
     }
 
     /**
-     * Get a part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon object
+     * Get a part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon object
      *
      * @param string $name
      *
@@ -910,25 +910,25 @@ trait Date
 
                 return is_numeric($value) ? (int) $value : $value;
 
-            // @property-read string long name of weekday translated according to Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
+            // @property-read string long name of weekday translated according to Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
             case $name === 'dayName':
                 return $this->getTranslatedDayName();
-            // @property-read string short name of weekday translated according to Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
+            // @property-read string short name of weekday translated according to Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
             case $name === 'shortDayName':
                 return $this->getTranslatedShortDayName();
-            // @property-read string very short name of weekday translated according to Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
+            // @property-read string very short name of weekday translated according to Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
             case $name === 'minDayName':
                 return $this->getTranslatedMinDayName();
-            // @property-read string long name of month translated according to Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
+            // @property-read string long name of month translated according to Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
             case $name === 'monthName':
                 return $this->getTranslatedMonthName();
-            // @property-read string short name of month translated according to Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
+            // @property-read string short name of month translated according to Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon locale, in english if no translation available for current language
             case $name === 'shortMonthName':
                 return $this->getTranslatedShortMonthName();
-            // @property-read string lowercase meridiem mark translated according to Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon locale, in latin if no translation available for current language
+            // @property-read string lowercase meridiem mark translated according to Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon locale, in latin if no translation available for current language
             case $name === 'meridiem':
                 return $this->meridiem(true);
-            // @property-read string uppercase meridiem mark translated according to Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon locale, in latin if no translation available for current language
+            // @property-read string uppercase meridiem mark translated according to Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon locale, in latin if no translation available for current language
             case $name === 'upperMeridiem':
                 return $this->meridiem();
             // @property-read int current hour from 1 to 24
@@ -1096,7 +1096,7 @@ trait Date
     }
 
     /**
-     * Set a part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon object
+     * Set a part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon object
      *
      * @param string                  $name
      * @param string|int|DateTimeZone $value
@@ -1117,7 +1117,7 @@ trait Date
     }
 
     /**
-     * Set a part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon object
+     * Set a part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon object
      *
      * @param string|array            $name
      * @param string|int|DateTimeZone $value
@@ -1630,7 +1630,7 @@ trait Date
     /**
      * Set the year, month, and date for this instance to that of the passed instance.
      *
-     * @param Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface $date now if null
+     * @param Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface $date now if null
      *
      * @return static
      */
@@ -1644,7 +1644,7 @@ trait Date
     /**
      * Set the hour, minute, second and microseconds for this instance to that of the passed instance.
      *
-     * @param Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface $date now if null
+     * @param Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface $date now if null
      *
      * @return static
      */
@@ -1658,7 +1658,7 @@ trait Date
     /**
      * Set the date and time for this instance to that of the passed instance.
      *
-     * @param Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface $date
+     * @param Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|DateTimeInterface $date
      *
      * @return static
      */
@@ -2041,7 +2041,7 @@ trait Date
     /**
      * Returns a unit of the instance padded with 0 by default or any other string if specified.
      *
-     * @param string $unit      Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon unit name
+     * @param string $unit      Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon unit name
      * @param int    $length    Length of the output (2 by default)
      * @param string $padString String to use for padding ("0" by default)
      * @param int    $padType   Side(s) to pad (STR_PAD_LEFT by default)

@@ -1,18 +1,18 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
 use Laravel\Ui\UiServiceProvider;
 use RuntimeException;
 
 /**
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\AuthManager extend(string $driver, \Closure $callback)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\AuthManager provider(string $name, \Closure $callback)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable loginUsingId(mixed $id, bool $remember = false)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable|null user()
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Guard|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\StatefulGuard guard(string|null $name = null)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider|null createUserProvider(string $provider = null)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response|null onceBasic(string $field = 'email',array $extraConditions = [])
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\AuthManager extend(string $driver, \Closure $callback)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\AuthManager provider(string $name, \Closure $callback)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable loginUsingId(mixed $id, bool $remember = false)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable|null user()
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Guard|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\StatefulGuard guard(string|null $name = null)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\UserProvider|null createUserProvider(string $provider = null)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response|null onceBasic(string $field = 'email',array $extraConditions = [])
  * @method static bool attempt(array $credentials = [], bool $remember = false)
  * @method static bool check()
  * @method static bool guest()
@@ -22,15 +22,15 @@ use RuntimeException;
  * @method static bool viaRemember()
  * @method static bool|null logoutOtherDevices(string $password, string $attribute = 'password')
  * @method static int|string|null id()
- * @method static void login(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable $user, bool $remember = false)
+ * @method static void login(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable $user, bool $remember = false)
  * @method static void logout()
- * @method static void setUser(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable $user)
+ * @method static void setUser(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Authenticatable $user)
  * @method static void shouldUse(string $name);
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\AuthManager
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Factory
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Guard
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\StatefulGuard
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\AuthManager
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Factory
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Guard
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\StatefulGuard
  */
 class Auth extends Facade
 {

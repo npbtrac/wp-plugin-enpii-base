@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Service\Test;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Service\Test;
 
 use PHPUnit\Framework\TestCase;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Container\ContainerInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Service\ServiceLocatorTrait;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Container\ContainerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Service\ServiceLocatorTrait;
 
 abstract class ServiceLocatorTest extends TestCase
 {
@@ -70,7 +70,7 @@ abstract class ServiceLocatorTest extends TestCase
     public function testThrowsOnUndefinedInternalService()
     {
         if (!$this->getExpectedException()) {
-            $this->expectException(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Container\NotFoundExceptionInterface::class);
+            $this->expectException(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Container\NotFoundExceptionInterface::class);
             $this->expectExceptionMessage('The service "foo" has a dependency on a non-existent service "bar". This locator only knows about the "foo" service.');
         }
         $locator = $this->getServiceLocator([
@@ -82,7 +82,7 @@ abstract class ServiceLocatorTest extends TestCase
 
     public function testThrowsOnCircularReference()
     {
-        $this->expectException(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Container\ContainerExceptionInterface::class);
+        $this->expectException(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Container\ContainerExceptionInterface::class);
         $this->expectExceptionMessage('Circular reference detected for service "bar", path: "bar -> baz -> bar".');
         $locator = $this->getServiceLocator([
             'foo' => function () use (&$locator) { return $locator->get('bar'); },

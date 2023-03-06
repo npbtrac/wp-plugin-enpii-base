@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Input;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Input;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Exception\UnexpectedEncodingException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Exception\UnexpectedEncodingException;
 
 final class MarkdownInput implements MarkdownInputInterface
 {

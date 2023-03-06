@@ -1,12 +1,12 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Testing\Fakes;
 
 use BadMethodCallException;
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\ReflectsClosures;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\ReflectsClosures;
 use PHPUnit\Framework\Assert as PHPUnit;
 
 class QueueFake extends QueueManager implements Queue
@@ -217,7 +217,7 @@ class QueueFake extends QueueManager implements Queue
      *
      * @param  string  $job
      * @param  callable|null  $callback
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     public function pushed($job, $callback = null)
     {
@@ -249,7 +249,7 @@ class QueueFake extends QueueManager implements Queue
      * Resolve a queue connection instance.
      *
      * @param  mixed  $value
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue
      */
     public function connection($value = null)
     {
@@ -343,7 +343,7 @@ class QueueFake extends QueueManager implements Queue
      * Pop the next job off of the queue.
      *
      * @param  string|null  $queue
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job|null
      */
     public function pop($queue = null)
     {

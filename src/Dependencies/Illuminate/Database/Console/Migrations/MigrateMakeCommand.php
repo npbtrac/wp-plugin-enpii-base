@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\MigrationCreator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Composer;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\MigrationCreator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Composer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 
 class MigrateMakeCommand extends BaseCommand
 {
@@ -30,22 +30,22 @@ class MigrateMakeCommand extends BaseCommand
     /**
      * The migration creator instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\MigrationCreator
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\MigrationCreator
      */
     protected $creator;
 
     /**
      * The Composer instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Composer
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Composer
      */
     protected $composer;
 
     /**
      * Create a new migration install command instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\MigrationCreator  $creator
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Composer  $composer
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\MigrationCreator  $creator
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Composer  $composer
      * @return void
      */
     public function __construct(MigrationCreator $creator, Composer $composer)

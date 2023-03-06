@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Log;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Log;
 
 use InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger as Monolog;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger as Monolog;
 
 trait ParsesLogConfiguration
 {

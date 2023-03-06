@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel;
 
 /**
  * Used for testing purposes.
@@ -66,9 +66,9 @@ use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel;
  * @method bool hasInfoThatPasses($message)
  * @method bool hasDebugThatPasses($message)
  *
- * @phpstan-import-type Record from \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger
- * @phpstan-import-type Level from \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger
- * @phpstan-import-type LevelName from \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger
+ * @phpstan-import-type Record from \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger
+ * @phpstan-import-type Level from \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger
+ * @phpstan-import-type LevelName from \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger
  */
 class TestHandler extends AbstractProcessingHandler
 {
@@ -217,7 +217,7 @@ class TestHandler extends AbstractProcessingHandler
     {
         if (preg_match('/(.*)(Debug|Info|Notice|Warning|Error|Critical|Alert|Emergency)(.*)/', $method, $matches) > 0) {
             $genericMethod = $matches[1] . ('Records' !== $matches[3] ? 'Record' : '') . $matches[3];
-            $level = constant('Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger::' . strtoupper($matches[2]));
+            $level = constant('Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger::' . strtoupper($matches[2]));
             $callback = [$this, $genericMethod];
             if (is_callable($callback)) {
                 $args[] = $level;

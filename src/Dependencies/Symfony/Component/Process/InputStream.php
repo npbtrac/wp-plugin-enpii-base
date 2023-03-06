@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception\RuntimeException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception\RuntimeException;
 
 /**
  * Provides a way to continuously write to the input of a Process until the InputStream is closed.

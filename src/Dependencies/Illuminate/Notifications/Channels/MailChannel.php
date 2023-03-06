@@ -1,36 +1,36 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Channels;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Channels;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Factory as MailFactory;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\ShouldQueue;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Markdown;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Factory as MailFactory;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Mailable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\ShouldQueue;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Markdown;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 
 class MailChannel
 {
     /**
      * The mailer implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Factory
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Factory
      */
     protected $mailer;
 
     /**
      * The markdown implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Markdown
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Markdown
      */
     protected $markdown;
 
     /**
      * Create a new mail channel instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Factory  $mailer
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Markdown  $markdown
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Factory  $mailer
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Markdown  $markdown
      * @return void
      */
     public function __construct(MailFactory $mailer, Markdown $markdown)
@@ -43,7 +43,7 @@ class MailChannel
      * Send the given notification.
      *
      * @param  mixed  $notifiable
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
      * @return void
      */
     public function send($notifiable, Notification $notification)
@@ -70,8 +70,8 @@ class MailChannel
      * Get the mailer Closure for the message.
      *
      * @param  mixed  $notifiable
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage  $message
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage  $message
      * @return \Closure
      */
     protected function messageBuilder($notifiable, $notification, $message)
@@ -84,7 +84,7 @@ class MailChannel
     /**
      * Build the notification's view.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage  $message
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage  $message
      * @return string|array
      */
     protected function buildView($message)
@@ -106,7 +106,7 @@ class MailChannel
     /**
      * Get additional meta-data to pass along with the view data.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
      * @return array
      */
     protected function additionalMessageData($notification)
@@ -124,10 +124,10 @@ class MailChannel
     /**
      * Build the mail message.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Message  $mailMessage
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Message  $mailMessage
      * @param  mixed  $notifiable
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage  $message
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage  $message
      * @return void
      */
     protected function buildMessage($mailMessage, $notifiable, $notification, $message)
@@ -150,10 +150,10 @@ class MailChannel
     /**
      * Address the mail message.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Message  $mailMessage
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Message  $mailMessage
      * @param  mixed  $notifiable
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage  $message
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage  $message
      * @return void
      */
     protected function addressMessage($mailMessage, $notifiable, $notification, $message)
@@ -178,8 +178,8 @@ class MailChannel
     /**
      * Add the "from" and "reply to" addresses to the message.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Message  $mailMessage
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage  $message
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Message  $mailMessage
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage  $message
      * @return void
      */
     protected function addSender($mailMessage, $message)
@@ -199,8 +199,8 @@ class MailChannel
      * Get the recipients of the given message.
      *
      * @param  mixed  $notifiable
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage  $message
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage  $message
      * @return mixed
      */
     protected function getRecipients($notifiable, $notification, $message)
@@ -219,8 +219,8 @@ class MailChannel
     /**
      * Add the attachments to the message.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Message  $mailMessage
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage  $message
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Message  $mailMessage
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage  $message
      * @return void
      */
     protected function addAttachments($mailMessage, $message)
@@ -237,8 +237,8 @@ class MailChannel
     /**
      * Run the callbacks for the message.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Message  $mailMessage
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage  $message
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Message  $mailMessage
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Messages\MailMessage  $message
      * @return $this
      */
     protected function runCallbacks($mailMessage, $message)

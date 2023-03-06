@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access;
 
 use Exception;
 use Throwable;
@@ -10,7 +10,7 @@ class AuthorizationException extends Exception
     /**
      * The response from the gate.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\Response
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\Response
      */
     protected $response;
 
@@ -32,7 +32,7 @@ class AuthorizationException extends Exception
     /**
      * Get the response from the gate.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\Response
      */
     public function response()
     {
@@ -42,7 +42,7 @@ class AuthorizationException extends Exception
     /**
      * Set the response from the gate.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\Response  $response
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\Response  $response
      * @return $this
      */
     public function setResponse($response)
@@ -55,7 +55,7 @@ class AuthorizationException extends Exception
     /**
      * Create a deny response object from this exception.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\Response
      */
     public function toResponse()
     {

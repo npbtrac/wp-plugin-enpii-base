@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -750,7 +750,7 @@ return [
         'nativeName' => 'isiZulu',
     ],
     /*
-     * Add ISO 639-3 languages available in Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon
+     * Add ISO 639-3 languages available in Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon
      */
     'agq' => [
         'isoName' => 'Aghem',

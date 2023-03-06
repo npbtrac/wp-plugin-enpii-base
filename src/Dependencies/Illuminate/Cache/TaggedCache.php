@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Store;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Store;
 
 class TaggedCache extends Repository
 {
@@ -13,15 +13,15 @@ class TaggedCache extends Repository
     /**
      * The tag set instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\TagSet
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\TagSet
      */
     protected $tags;
 
     /**
      * Create a new tagged cache instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Store  $store
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\TagSet  $tags
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Store  $store
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\TagSet  $tags
      * @return void
      */
     public function __construct(Store $store, TagSet $tags)
@@ -116,7 +116,7 @@ class TaggedCache extends Repository
     /**
      * Get the tag set instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\TagSet
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\TagSet
      */
     public function getTags()
     {

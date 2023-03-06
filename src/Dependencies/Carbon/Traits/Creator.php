@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,15 +9,15 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidDateException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidFormatException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\OutOfRangeException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Translator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidDateException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidFormatException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\OutOfRangeException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Translator;
 use Closure;
 use DateTimeInterface;
 use DateTimeZone;
@@ -31,7 +31,7 @@ use NpWpNPB_ReturnTypeWillChange;
  *
  * Depends on the following methods:
  *
- * @method static Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable getTestNow()
+ * @method static Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable getTestNow()
  */
 trait Creator
 {
@@ -45,7 +45,7 @@ trait Creator
     protected static $lastErrors;
 
     /**
-     * Create a new Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance.
+     * Create a new Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance.
      *
      * Please see the testing aids section (specifically static::setTestNow())
      * for more on the possibility of this constructor returning a test instance.
@@ -132,7 +132,7 @@ trait Creator
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from a DateTime one.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from a DateTime one.
      *
      * @param DateTimeInterface $date
      *
@@ -241,7 +241,7 @@ trait Creator
     }
 
     /**
-     * Get a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance for the current date and time.
+     * Get a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance for the current date and time.
      *
      * @param DateTimeZone|string|null $tz
      *
@@ -253,7 +253,7 @@ trait Creator
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance for today.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance for today.
      *
      * @param DateTimeZone|string|null $tz
      *
@@ -265,7 +265,7 @@ trait Creator
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance for tomorrow.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance for tomorrow.
      *
      * @param DateTimeZone|string|null $tz
      *
@@ -277,7 +277,7 @@ trait Creator
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance for yesterday.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance for yesterday.
      *
      * @param DateTimeZone|string|null $tz
      *
@@ -289,7 +289,7 @@ trait Creator
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance for the greatest supported date.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance for the greatest supported date.
      *
      * @return static
      */
@@ -305,7 +305,7 @@ trait Creator
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance for the lowest supported date.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance for the lowest supported date.
      *
      * @return static
      */
@@ -343,7 +343,7 @@ trait Creator
     }
 
     /**
-     * Create a new Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from a specific date and time.
+     * Create a new Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from a specific date and time.
      *
      * If any of $year, $month or $day are set to null their now() values will
      * be used.
@@ -424,7 +424,7 @@ trait Creator
     }
 
     /**
-     * Create a new safe Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from a specific date and time.
+     * Create a new safe Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from a specific date and time.
      *
      * If any of $year, $month or $day are set to null their now() values will
      * be used.
@@ -480,7 +480,7 @@ trait Creator
     }
 
     /**
-     * Create a new Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from a specific date and time using strict validation.
+     * Create a new Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from a specific date and time using strict validation.
      *
      * @see create()
      *
@@ -511,7 +511,7 @@ trait Creator
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from just a date. The time portion is set to now.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from just a date. The time portion is set to now.
      *
      * @param int|null                 $year
      * @param int|null                 $month
@@ -528,7 +528,7 @@ trait Creator
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from just a date. The time portion is set to midnight.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from just a date. The time portion is set to midnight.
      *
      * @param int|null                 $year
      * @param int|null                 $month
@@ -545,7 +545,7 @@ trait Creator
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from just a time. The date portion is set to today.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from just a time. The date portion is set to today.
      *
      * @param int|null                 $hour
      * @param int|null                 $minute
@@ -562,7 +562,7 @@ trait Creator
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from a time string. The date portion is set to today.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from a time string. The date portion is set to today.
      *
      * @param string                   $time
      * @param DateTimeZone|string|null $tz
@@ -610,7 +610,7 @@ trait Creator
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from a specific format.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from a specific format.
      *
      * @param string                         $format Datetime format
      * @param string                         $time
@@ -637,7 +637,7 @@ trait Creator
         // First attempt to create an instance, so that error messages are based on the unmodified format.
         $date = self::createFromFormatAndTimezone($format, $time, $tz);
         $lastErrors = parent::getLastErrors();
-        /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|null $mock */
+        /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|null $mock */
         $mock = static::getMockedTestNow($tz);
 
         if ($mock && $date instanceof DateTimeInterface) {
@@ -680,7 +680,7 @@ trait Creator
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from a specific format.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from a specific format.
      *
      * @param string                         $format Datetime format
      * @param string                         $time
@@ -707,13 +707,13 @@ trait Creator
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from a specific ISO format (same replacements as ->isoFormat()).
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from a specific ISO format (same replacements as ->isoFormat()).
      *
      * @param string                                             $format     Datetime format
      * @param string                                             $time
      * @param DateTimeZone|string|false|null                     $tz         optional timezone
      * @param string|null                                        $locale     locale to be used for LTS, LT, LL, LLL, etc. macro-formats (en by fault, unneeded if no such macro-format in use)
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface $translator optional custom translator to use for macro-formats
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface $translator optional custom translator to use for macro-formats
      *
      * @throws InvalidFormatException
      *
@@ -849,7 +849,7 @@ trait Creator
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from a specific format and a string in a given language.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from a specific format and a string in a given language.
      *
      * @param string                         $format Datetime format
      * @param string                         $locale
@@ -866,7 +866,7 @@ trait Creator
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from a specific ISO format and a string in a given language.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from a specific ISO format and a string in a given language.
      *
      * @param string                         $format Datetime ISO format
      * @param string                         $locale
@@ -885,7 +885,7 @@ trait Creator
     }
 
     /**
-     * Make a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance from given variable if possible.
+     * Make a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance from given variable if possible.
      *
      * Always return a new instance. Parse only strings and only these likely to be dates (skip intervals
      * and recurrences). Throw an exception for invalid format, but otherwise return null.

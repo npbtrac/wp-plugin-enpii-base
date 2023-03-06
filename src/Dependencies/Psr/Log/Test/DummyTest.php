@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\Test;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\Test;
 
 /**
  * This class is internal and does not follow the BC promise.

@@ -1,13 +1,13 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
 
 trait ManagesFrequencies
 {
     /**
-     * The Enpii\Wp_Plugin\Enpii_Base\Dependencies\Cron expression representing the event's frequency.
+     * The Enpii\WP_Plugin\Enpii_Base\Dependencies\Cron expression representing the event's frequency.
      *
      * @param  string  $expression
      * @return $this

@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\Multipart;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\Multipart;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\AbstractMultipartPart;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\AbstractPart;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\AbstractMultipartPart;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\AbstractPart;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>

@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Attribute;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Attribute;
 
 /**
  * A reusable attribute to help configure a class or a method as a processor.
  * 
- * Using it offers no guarantee: it needs to be leveraged by a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog third-party consumer.
+ * Using it offers no guarantee: it needs to be leveraged by a Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog third-party consumer.
  * 
- * Using it with the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog library only has no effect at all: processors should still be turned into a callable if
+ * Using it with the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog library only has no effect at all: processors should still be turned into a callable if
  * needed and manually pushed to the loggers and to the processable handlers.
  */
 #[\Attribute(\Attribute::TARGET_CLASS | \Attribute::TARGET_METHOD | \Attribute::IS_REPEATABLE)]

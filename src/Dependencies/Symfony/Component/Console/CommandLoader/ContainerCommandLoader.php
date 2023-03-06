@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\CommandLoader;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\CommandLoader;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Container\ContainerInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\CommandNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Container\ContainerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\CommandNotFoundException;
 
 /**
  * Loads commands from a PSR-11 container.

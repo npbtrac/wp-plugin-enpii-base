@@ -1,14 +1,14 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem;
 
 use ErrorException;
 use FilesystemIterator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 use RuntimeException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Finder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\MimeTypes;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Finder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\MimeTypes;
 
 class Filesystem
 {
@@ -43,7 +43,7 @@ class Filesystem
      * @param  bool  $lock
      * @return string
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function get($path, $lock = false)
     {
@@ -89,7 +89,7 @@ class Filesystem
      * @param  string  $path
      * @return mixed
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function getRequire($path)
     {
@@ -436,7 +436,7 @@ class Filesystem
      *
      * @param  string  $directory
      * @param  bool  $hidden
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\SplFileInfo[]
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\SplFileInfo[]
      */
     public function files($directory, $hidden = false)
     {
@@ -451,7 +451,7 @@ class Filesystem
      *
      * @param  string  $directory
      * @param  bool  $hidden
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\SplFileInfo[]
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\SplFileInfo[]
      */
     public function allFiles($directory, $hidden = false)
     {

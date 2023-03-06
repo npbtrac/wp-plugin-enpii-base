@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Loader;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Loader;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Regex\Regex;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Option;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Regex\Regex;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Option;
 
 class Loader implements LoaderInterface
 {
@@ -30,10 +30,10 @@ class Loader implements LoaderInterface
     /**
      * Load the given environment file content into the repository.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface $repository
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface $repository
      * @param string                                 $content
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
      *
      * @return array<string,string|null>
      */
@@ -51,10 +51,10 @@ class Loader implements LoaderInterface
      * We'll fill out any nested variables, and acually set the variable using
      * the underlying environment variables instance.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface $repository
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface $repository
      * @param string[]                               $entries
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException
      *
      * @return array<string,string|null>
      */
@@ -79,8 +79,8 @@ class Loader implements LoaderInterface
      * Look for ${varname} patterns in the variable value and replace with an
      * existing environment variable.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface $repository
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\Value|null              $value
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface $repository
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Loader\Value|null              $value
      *
      * @return string|null
      */
@@ -102,7 +102,7 @@ class Loader implements LoaderInterface
     /**
      * Resolve a single nested variable.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface $repository
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface $repository
      * @param string                                 $str
      *
      * @return string

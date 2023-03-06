@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\Multipart;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\Multipart;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\AbstractMultipartPart;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\DataPart;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\TextPart;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\AbstractMultipartPart;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\DataPart;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part\TextPart;
 
 /**
  * Implements RFC 7578.

@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport;
 
 use Aws\Ses\SesClient;
 use Swift_Mime_SimpleMessage;

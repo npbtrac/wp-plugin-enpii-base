@@ -1,36 +1,36 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Parser;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Parser;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\EmailLexer;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\CharNotAllowed;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\CommaInDomain;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ConsecutiveAt;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\CRLFAtTheEnd;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\CRNoLF;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\DomainHyphened;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\DotAtEnd;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\DotAtStart;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ExpectingATEXT;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ExpectingDomainLiteralClose;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ExpectingDTEXT;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\NoDomainPart;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\UnopenedComment;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\AddressLiteral;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\CFWSWithFWS;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\DeprecatedComment;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\DomainLiteral;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\DomainTooLong;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\IPV6BadChar;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\IPV6ColonEnd;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\IPV6ColonStart;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\IPV6Deprecated;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\IPV6DoubleColon;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\IPV6GroupCount;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\IPV6MaxGroups;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\LabelTooLong;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\ObsoleteDTEXT;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\TLD;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\EmailLexer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\CharNotAllowed;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\CommaInDomain;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ConsecutiveAt;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\CRLFAtTheEnd;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\CRNoLF;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\DomainHyphened;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\DotAtEnd;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\DotAtStart;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ExpectingATEXT;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ExpectingDomainLiteralClose;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\ExpectingDTEXT;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\NoDomainPart;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\UnopenedComment;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\AddressLiteral;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\CFWSWithFWS;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\DeprecatedComment;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\DomainLiteral;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\DomainTooLong;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\IPV6BadChar;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\IPV6ColonEnd;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\IPV6ColonStart;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\IPV6Deprecated;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\IPV6DoubleColon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\IPV6GroupCount;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\IPV6MaxGroups;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\LabelTooLong;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\ObsoleteDTEXT;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\TLD;
 
 class DomainPart extends Parser
 {

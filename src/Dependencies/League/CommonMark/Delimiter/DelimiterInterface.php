@@ -12,9 +12,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Delimiter;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Delimiter;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\AbstractStringContainer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Inline\Element\AbstractStringContainer;
 
 interface DelimiterInterface
 {

@@ -1,15 +1,15 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Capsule;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Capsule;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueServiceProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\CapsuleManagerTrait;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\CapsuleManagerTrait;
 
 /**
- * @mixin \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager
- * @mixin \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue
+ * @mixin \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager
+ * @mixin \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue
  */
 class Manager
 {
@@ -18,14 +18,14 @@ class Manager
     /**
      * The queue manager instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager
      */
     protected $manager;
 
     /**
      * Create a new queue capsule manager.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container|null  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container|null  $container
      * @return void
      */
     public function __construct(Container $container = null)
@@ -78,7 +78,7 @@ class Manager
      * Get a connection instance from the global manager.
      *
      * @param  string|null  $connection
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue
      */
     public static function connection($connection = null)
     {
@@ -132,7 +132,7 @@ class Manager
      * Get a registered connection instance.
      *
      * @param  string|null  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Queue
      */
     public function getConnection($name = null)
     {
@@ -154,7 +154,7 @@ class Manager
     /**
      * Get the queue manager instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager
      */
     public function getQueueManager()
     {

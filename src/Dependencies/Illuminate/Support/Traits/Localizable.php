@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
 
 trait Localizable
 {

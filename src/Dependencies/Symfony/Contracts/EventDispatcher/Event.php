@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\EventDispatcher;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\EventDispatcher;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\EventDispatcher\StoppableEventInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\EventDispatcher\StoppableEventInterface;
 
 /**
  * Event is the base class for classes containing event data.

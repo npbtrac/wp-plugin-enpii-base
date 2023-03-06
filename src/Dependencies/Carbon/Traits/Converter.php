@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterval;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnitException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterval;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnitException;
 use Closure;
 use DateTime;
 use DateTimeImmutable;
@@ -78,7 +78,7 @@ trait Converter
      *
      * @example
      * ```
-     * echo Carbon::now(); // Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instances can be cast to string
+     * echo Carbon::now(); // Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instances can be cast to string
      * ```
      *
      * @return string
@@ -593,7 +593,7 @@ trait Converter
     /**
      * Create a iterable CarbonPeriod object from current date to a given end date (and optional interval).
      *
-     * @param \DateTimeInterface|Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable|int|null $end      period end date or recurrences count if int
+     * @param \DateTimeInterface|Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable|int|null $end      period end date or recurrences count if int
      * @param int|\DateInterval|string|null                      $interval period default interval or number of the given $unit
      * @param string|null                                        $unit     if specified, $interval must be an integer
      *
@@ -623,7 +623,7 @@ trait Converter
     /**
      * Create a iterable CarbonPeriod object from current date to a given end date (and optional interval).
      *
-     * @param \DateTimeInterface|Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable|null $end      period end date
+     * @param \DateTimeInterface|Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable|null $end      period end date
      * @param int|\DateInterval|string|null                  $interval period default interval or number of the given $unit
      * @param string|null                                    $unit     if specified, $interval must be an integer
      *

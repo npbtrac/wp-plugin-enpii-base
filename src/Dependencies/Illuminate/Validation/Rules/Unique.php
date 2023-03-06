@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
 
 class Unique
 {
@@ -44,7 +44,7 @@ class Unique
     /**
      * Ignore the given model during the unique check.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model  $model
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model  $model
      * @param  string|null  $idColumn
      * @return $this
      */

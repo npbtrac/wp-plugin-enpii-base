@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log;
 
 /**
  * This Logger can be used to avoid conditional log calls.
@@ -21,7 +21,7 @@ class NullLogger extends AbstractLogger
      *
      * @return void
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\InvalidArgumentException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\InvalidArgumentException
      */
     public function log($level, $message, array $context = array())
     {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\DeferrableProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\DeferrableProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
 
 class MailServiceProvider extends ServiceProvider implements DeferrableProvider
 {
@@ -19,7 +19,7 @@ class MailServiceProvider extends ServiceProvider implements DeferrableProvider
     }
 
     /**
-     * Register the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate mailer instance.
+     * Register the Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate mailer instance.
      *
      * @return void
      */

@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\DecryptException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\Encrypter as EncrypterContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\DecryptException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\Encrypter as EncrypterContract;
 use SessionHandlerInterface;
 
 class EncryptedStore extends Store
@@ -11,7 +11,7 @@ class EncryptedStore extends Store
     /**
      * The encrypter instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\Encrypter
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\Encrypter
      */
     protected $encrypter;
 
@@ -20,7 +20,7 @@ class EncryptedStore extends Store
      *
      * @param  string  $name
      * @param  \SessionHandlerInterface  $handler
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\Encrypter  $encrypter
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\Encrypter  $encrypter
      * @param  string|null  $id
      * @return void
      */
@@ -60,7 +60,7 @@ class EncryptedStore extends Store
     /**
      * Get the encrypter instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\Encrypter
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Encryption\Encrypter
      */
     public function getEncrypter()
     {

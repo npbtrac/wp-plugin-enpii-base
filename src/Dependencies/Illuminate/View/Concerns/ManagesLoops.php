@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Concerns;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Concerns;
 
 use Countable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
 
 trait ManagesLoops
 {

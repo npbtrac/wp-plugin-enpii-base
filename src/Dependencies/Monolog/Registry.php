@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,27 +9,27 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog;
 
 use InvalidArgumentException;
 
 /**
- * Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog log registry
+ * Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog log registry
  *
  * Allows to get `Logger` instances in the global scope
  * via static method calls on this class.
  *
  * <code>
- * $application = new Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger('application');
- * $api = new Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger('api');
+ * $application = new Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger('application');
+ * $api = new Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger('api');
  *
- * Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Registry::addLogger($application);
- * Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Registry::addLogger($api);
+ * Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Registry::addLogger($application);
+ * Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Registry::addLogger($api);
  *
  * function testLogger()
  * {
- *     Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Registry::api()->error('Sent to $api Logger instance');
- *     Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Registry::application()->error('Sent to $application Logger instance');
+ *     Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Registry::api()->error('Sent to $api Logger instance');
+ *     Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Registry::application()->error('Sent to $application Logger instance');
  * }
  * </code>
  *

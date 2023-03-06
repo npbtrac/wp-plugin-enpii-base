@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Translation;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Translation;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Loader;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Loader;
 
 class ArrayLoader implements Loader
 {

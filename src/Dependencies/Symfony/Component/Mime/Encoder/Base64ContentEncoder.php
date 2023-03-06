@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Encoder;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Encoder;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\RuntimeException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\RuntimeException;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>

@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
 
 interface Application extends Container
 {
@@ -99,9 +99,9 @@ interface Application extends Container
     /**
      * Register a service provider with the application.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider|string  $provider
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider|string  $provider
      * @param  bool  $force
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider
      */
     public function register($provider, $force = false);
 
@@ -118,7 +118,7 @@ interface Application extends Container
      * Resolve a service provider instance from the class name.
      *
      * @param  string  $provider
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider
      */
     public function resolveProvider($provider);
 
@@ -172,7 +172,7 @@ interface Application extends Container
     /**
      * Get the registered service provider instances if any exist.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider|string  $provider
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider|string  $provider
      * @return array
      */
     public function getProviders($provider);

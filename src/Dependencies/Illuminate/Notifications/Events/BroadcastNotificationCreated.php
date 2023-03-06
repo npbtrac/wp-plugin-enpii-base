@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Events;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Events;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting\PrivateChannel;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Bus\Queueable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\ShouldBroadcast;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\SerializesModels;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting\PrivateChannel;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Bus\Queueable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\SerializesModels;
 
 class BroadcastNotificationCreated implements ShouldBroadcast
 {
@@ -21,7 +21,7 @@ class BroadcastNotificationCreated implements ShouldBroadcast
     /**
      * The notification instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification
      */
     public $notification;
 
@@ -36,7 +36,7 @@ class BroadcastNotificationCreated implements ShouldBroadcast
      * Create a new event instance.
      *
      * @param  mixed  $notifiable
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
      * @param  array  $data
      * @return void
      */

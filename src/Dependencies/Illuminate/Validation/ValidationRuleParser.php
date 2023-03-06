@@ -1,13 +1,13 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\Rule as RuleContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Exists;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Unique;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\Rule as RuleContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Exists;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Unique;
 
 class ValidationRuleParser
 {

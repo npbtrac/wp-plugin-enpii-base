@@ -1,14 +1,14 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Bus\Queueable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\ShouldQueue;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection as EloquentCollection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\InteractsWithQueue;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\SerializesModels;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Bus\Queueable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\ShouldQueue;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Collection as EloquentCollection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\InteractsWithQueue;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\SerializesModels;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
 
 class SendQueuedNotifications implements ShouldQueue
 {
@@ -17,14 +17,14 @@ class SendQueuedNotifications implements ShouldQueue
     /**
      * The notifiable entities that should receive the notification.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     public $notifiables;
 
     /**
      * The notification to be sent.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification
      */
     public $notification;
 
@@ -52,8 +52,8 @@ class SendQueuedNotifications implements ShouldQueue
     /**
      * Create a new job instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notifiable|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection  $notifiables
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notifiable|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection  $notifiables
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
      * @param  array|null  $channels
      * @return void
      */
@@ -69,8 +69,8 @@ class SendQueuedNotifications implements ShouldQueue
     /**
      * Wrap the notifiable(s) in a collection.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notifiable|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection  $notifiables
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notifiable|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection  $notifiables
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     protected function wrapNotifiables($notifiables)
     {
@@ -86,7 +86,7 @@ class SendQueuedNotifications implements ShouldQueue
     /**
      * Send the notifications.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\ChannelManager  $manager
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\ChannelManager  $manager
      * @return void
      */
     public function handle(ChannelManager $manager)

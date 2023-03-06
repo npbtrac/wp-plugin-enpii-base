@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Opis\Closure\SerializableClosure as OpisSerializableClosure;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Opis\Closure\SerializableClosure as OpisSerializableClosure;
 
 class SerializableClosure extends OpisSerializableClosure
 {

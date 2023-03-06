@@ -1,14 +1,14 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Cookie\CookieJar;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\HandlerStack;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 
 class PendingRequest
 {
@@ -17,7 +17,7 @@ class PendingRequest
     /**
      * The factory instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Factory|null
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Factory|null
      */
     protected $factory;
 
@@ -87,28 +87,28 @@ class PendingRequest
     /**
      * The callbacks that should execute before the request is sent.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     protected $beforeSendingCallbacks;
 
     /**
      * The stub callables that will handle requests.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|null
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection|null
      */
     protected $stubCallbacks;
 
     /**
      * The middleware callables added by users that will handle requests.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     protected $middleware;
 
     /**
      * Create a new HTTP Client instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Factory|null  $factory
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Factory|null  $factory
      * @return void
      */
     public function __construct(Factory $factory = null)
@@ -438,7 +438,7 @@ class PendingRequest
      *
      * @param  string  $url
      * @param  array|string|null  $query
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response
      */
     public function get(string $url, $query = null)
     {
@@ -452,7 +452,7 @@ class PendingRequest
      *
      * @param  string  $url
      * @param  array|string|null  $query
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response
      */
     public function head(string $url, $query = null)
     {
@@ -466,7 +466,7 @@ class PendingRequest
      *
      * @param  string  $url
      * @param  array  $data
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response
      */
     public function post(string $url, array $data = [])
     {
@@ -480,7 +480,7 @@ class PendingRequest
      *
      * @param  string  $url
      * @param  array  $data
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response
      */
     public function patch($url, $data = [])
     {
@@ -494,7 +494,7 @@ class PendingRequest
      *
      * @param  string  $url
      * @param  array  $data
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response
      */
     public function put($url, $data = [])
     {
@@ -508,7 +508,7 @@ class PendingRequest
      *
      * @param  string  $url
      * @param  array  $data
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response
      */
     public function delete($url, $data = [])
     {
@@ -523,7 +523,7 @@ class PendingRequest
      * @param  string  $method
      * @param  string  $url
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Client\Response
      *
      * @throws \Exception
      */

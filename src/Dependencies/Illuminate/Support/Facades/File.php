@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
 /**
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\SplFileInfo[] allFiles(string $directory, bool $hidden = false)
- * @method static \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\SplFileInfo[] files(string $directory, bool $hidden = false)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\SplFileInfo[] allFiles(string $directory, bool $hidden = false)
+ * @method static \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\SplFileInfo[] files(string $directory, bool $hidden = false)
  * @method static array directories(string $directory)
  * @method static array glob(string $pattern, int $flags = 0)
  * @method static bool cleanDirectory(string $directory)
@@ -42,7 +42,7 @@ namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
  * @method static void link(string $target, string $link)
  * @method static void replace(string $path, string $content)
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem
  */
 class File extends Facade
 {

@@ -1,20 +1,20 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Http\Middleware;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Http\Middleware;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Exceptions\PostTooLargeException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Exceptions\PostTooLargeException;
 
 class ValidatePostSize
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  \Closure  $next
      * @return mixed
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Exceptions\PostTooLargeException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Exceptions\PostTooLargeException
      */
     public function handle($request, Closure $next)
     {

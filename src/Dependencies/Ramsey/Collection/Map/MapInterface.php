@@ -12,9 +12,9 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Map;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Map;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\ArrayInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\ArrayInterface;
 
 /**
  * An object that maps keys to values.

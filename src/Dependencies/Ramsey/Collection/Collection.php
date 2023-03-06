@@ -12,7 +12,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection;
 
 /**
  * A collection represents a group of objects.
@@ -25,7 +25,7 @@ namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection;
  * Example usage:
  *
  * ``` php
- * $collection = new \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Collection('My\\Foo');
+ * $collection = new \Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Collection('My\\Foo');
  * $collection->add(new \My\Foo());
  * $collection->add(new \My\Foo());
  *
@@ -40,7 +40,7 @@ namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection;
  * ``` php
  * namespace My\Foo;
  *
- * class FooCollection extends \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\AbstractCollection
+ * class FooCollection extends \Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\AbstractCollection
  * {
  *     public function getType()
  *     {

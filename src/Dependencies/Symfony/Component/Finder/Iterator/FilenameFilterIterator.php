@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Glob;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Glob;
 
 /**
  * FilenameFilterIterator filters files by patterns (a regexp, a glob, or a string).

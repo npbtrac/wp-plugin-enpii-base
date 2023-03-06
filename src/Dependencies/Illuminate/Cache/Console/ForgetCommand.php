@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Console;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Console;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheManager;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheManager;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
 
 class ForgetCommand extends Command
 {
@@ -24,14 +24,14 @@ class ForgetCommand extends Command
     /**
      * The cache manager instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheManager
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheManager
      */
     protected $cache;
 
     /**
      * Create a new cache clear command instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheManager  $cache
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheManager  $cache
      * @return void
      */
     public function __construct(CacheManager $cache)

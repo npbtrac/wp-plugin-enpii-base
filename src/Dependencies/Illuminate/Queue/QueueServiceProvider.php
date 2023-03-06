@@ -1,23 +1,23 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
 
 use Aws\DynamoDb\DynamoDbClient;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\DeferrableProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Connectors\BeanstalkdConnector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Connectors\DatabaseConnector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Connectors\NullConnector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Connectors\RedisConnector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Connectors\SqsConnector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Connectors\SyncConnector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Failed\DatabaseFailedJobProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Failed\DynamoDbFailedJobProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Failed\NullFailedJobProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Opis\Closure\SerializableClosure;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\DeferrableProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Connectors\BeanstalkdConnector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Connectors\DatabaseConnector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Connectors\NullConnector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Connectors\RedisConnector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Connectors\SqsConnector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Connectors\SyncConnector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Failed\DatabaseFailedJobProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Failed\DynamoDbFailedJobProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Failed\NullFailedJobProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Opis\Closure\SerializableClosure;
 
 class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
 {
@@ -68,7 +68,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
     /**
      * Register the connectors on the queue manager.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager  $manager
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager  $manager
      * @return void
      */
     public function registerConnectors($manager)
@@ -81,7 +81,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
     /**
      * Register the Null queue connector.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager  $manager
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager  $manager
      * @return void
      */
     protected function registerNullConnector($manager)
@@ -94,7 +94,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
     /**
      * Register the Sync queue connector.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager  $manager
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager  $manager
      * @return void
      */
     protected function registerSyncConnector($manager)
@@ -107,7 +107,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
     /**
      * Register the database queue connector.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager  $manager
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager  $manager
      * @return void
      */
     protected function registerDatabaseConnector($manager)
@@ -120,7 +120,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
     /**
      * Register the Redis queue connector.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager  $manager
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager  $manager
      * @return void
      */
     protected function registerRedisConnector($manager)
@@ -133,7 +133,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
     /**
      * Register the Beanstalkd queue connector.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager  $manager
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager  $manager
      * @return void
      */
     protected function registerBeanstalkdConnector($manager)
@@ -146,7 +146,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
     /**
      * Register the Amazon SQS queue connector.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager  $manager
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueManager  $manager
      * @return void
      */
     protected function registerSqsConnector($manager)
@@ -213,7 +213,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
      * Create a new database failed job provider.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Failed\DatabaseFailedJobProvider
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Failed\DatabaseFailedJobProvider
      */
     protected function databaseFailedJobProvider($config)
     {
@@ -226,7 +226,7 @@ class QueueServiceProvider extends ServiceProvider implements DeferrableProvider
      * Create a new DynamoDb failed job provider.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Failed\DynamoDbFailedJobProvider
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Failed\DynamoDbFailedJobProvider
      */
     protected function dynamoFailedJobProvider($config)
     {

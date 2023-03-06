@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Channels;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Channels;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification;
 use RuntimeException;
 
 class DatabaseChannel
@@ -11,8 +11,8 @@ class DatabaseChannel
      * Send the given notification.
      *
      * @param  mixed  $notifiable
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model
      */
     public function send($notifiable, Notification $notification)
     {
@@ -25,7 +25,7 @@ class DatabaseChannel
      * Get the data for the notification.
      *
      * @param  mixed  $notifiable
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
      * @return array
      *
      * @throws \RuntimeException
@@ -48,7 +48,7 @@ class DatabaseChannel
      * Build an array payload for the DatabaseNotification Model.
      *
      * @param  mixed  $notifiable
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\Notification  $notification
      * @return array
      */
     protected function buildPayload($notifiable, Notification $notification)

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Container;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Container;
 
 /**
  * Describes the interface of a container that exposes methods to read its entries.

@@ -12,9 +12,9 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Tool;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Tool;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\ValueExtractionException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\ValueExtractionException;
 
 use function get_class;
 use function method_exists;

@@ -1,14 +1,14 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connectors;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connectors;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\MySqlConnection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\PostgresConnection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\SQLiteConnection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\SqlServerConnection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\MySqlConnection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\PostgresConnection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\SQLiteConnection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\SqlServerConnection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
 use InvalidArgumentException;
 use PDOException;
 
@@ -17,14 +17,14 @@ class ConnectionFactory
     /**
      * The IoC container instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
      */
     protected $container;
 
     /**
      * Create a new connection factory instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $container
      * @return void
      */
     public function __construct(Container $container)
@@ -37,7 +37,7 @@ class ConnectionFactory
      *
      * @param  array  $config
      * @param  string|null  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
      */
     public function make(array $config, $name = null)
     {
@@ -66,7 +66,7 @@ class ConnectionFactory
      * Create a single database connection instance.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
      */
     protected function createSingleConnection(array $config)
     {
@@ -81,7 +81,7 @@ class ConnectionFactory
      * Create a read / write database connection instance.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
      */
     protected function createReadWriteConnection(array $config)
     {
@@ -227,7 +227,7 @@ class ConnectionFactory
      * Create a connector instance based on the configuration.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connectors\ConnectorInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connectors\ConnectorInterface
      *
      * @throws \InvalidArgumentException
      */
@@ -263,7 +263,7 @@ class ConnectionFactory
      * @param  string  $database
      * @param  string  $prefix
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connection
      *
      * @throws \InvalidArgumentException
      */

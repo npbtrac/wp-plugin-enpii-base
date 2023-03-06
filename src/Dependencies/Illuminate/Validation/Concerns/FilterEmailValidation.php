@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Concerns;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Concerns;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\EmailLexer;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation\EmailValidation;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\EmailLexer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation\EmailValidation;
 
 class FilterEmailValidation implements EmailValidation
 {
@@ -39,7 +39,7 @@ class FilterEmailValidation implements EmailValidation
      * Returns true if the given email is valid.
      *
      * @param  string  $email
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\EmailLexer  $emailLexer
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\EmailLexer  $emailLexer
      * @return bool
      */
     public function isValid($email, EmailLexer $emailLexer)
@@ -52,7 +52,7 @@ class FilterEmailValidation implements EmailValidation
     /**
      * Returns the validation error.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\InvalidEmail|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Exception\InvalidEmail|null
      */
     public function getError()
     {
@@ -62,7 +62,7 @@ class FilterEmailValidation implements EmailValidation
     /**
      * Returns the validation warnings.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\Warning[]
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Warning\Warning[]
      */
     public function getWarnings()
     {

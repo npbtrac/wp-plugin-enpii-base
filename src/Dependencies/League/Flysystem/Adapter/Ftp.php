@@ -1,15 +1,15 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Polyfill\StreamedCopyTrait;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\AdapterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Config;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\ConnectionErrorException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\ConnectionRuntimeException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\InvalidRootException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util\MimeType;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter\Polyfill\StreamedCopyTrait;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\AdapterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Config;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\ConnectionErrorException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\ConnectionRuntimeException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\InvalidRootException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util\MimeType;
 
 use function in_array;
 

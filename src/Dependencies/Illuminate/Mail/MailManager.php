@@ -1,36 +1,36 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail;
 
 use Aws\Ses\SesClient;
 use Closure;
 use GuzzleHttp\Client as HttpClient;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Factory as FactoryContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Log\LogManager;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport\ArrayTransport;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport\LogTransport;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport\MailgunTransport;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport\SesTransport;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Mail\Factory as FactoryContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Log\LogManager;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport\ArrayTransport;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport\LogTransport;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport\MailgunTransport;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport\SesTransport;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 use InvalidArgumentException;
 use Postmark\ThrowExceptionOnFailurePlugin;
 use Postmark\Transport as PostmarkTransport;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
 use Swift_DependencyContainer;
 use Swift_Mailer;
 use Swift_SendmailTransport as SendmailTransport;
 use Swift_SmtpTransport as SmtpTransport;
 
 /**
- * @mixin \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Mailer
+ * @mixin \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Mailer
  */
 class MailManager implements FactoryContract
 {
     /**
      * The application instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
      */
     protected $app;
 
@@ -51,7 +51,7 @@ class MailManager implements FactoryContract
     /**
      * Create a new Mail manager instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
      * @return void
      */
     public function __construct($app)
@@ -63,7 +63,7 @@ class MailManager implements FactoryContract
      * Get a mailer instance by name.
      *
      * @param  string|null  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Mailer
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Mailer
      */
     public function mailer($name = null)
     {
@@ -76,7 +76,7 @@ class MailManager implements FactoryContract
      * Get a mailer driver instance.
      *
      * @param  string|null  $driver
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Mailer
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Mailer
      */
     public function driver($driver = null)
     {
@@ -87,7 +87,7 @@ class MailManager implements FactoryContract
      * Attempt to get the mailer from the local cache.
      *
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Mailer
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Mailer
      */
     protected function get($name)
     {
@@ -98,7 +98,7 @@ class MailManager implements FactoryContract
      * Resolve the given mailer.
      *
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Mailer
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Mailer
      *
      * @throws \InvalidArgumentException
      */
@@ -256,7 +256,7 @@ class MailManager implements FactoryContract
      * Create an instance of the Amazon SES Swift Transport driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport\SesTransport
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport\SesTransport
      */
     protected function createSesTransport(array $config)
     {
@@ -303,7 +303,7 @@ class MailManager implements FactoryContract
      * Create an instance of the Mailgun Swift Transport driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport\MailgunTransport
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport\MailgunTransport
      */
     protected function createMailgunTransport(array $config)
     {
@@ -338,7 +338,7 @@ class MailManager implements FactoryContract
      * Create an instance of the Log Swift Transport driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport\LogTransport
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport\LogTransport
      */
     protected function createLogTransport(array $config)
     {
@@ -356,7 +356,7 @@ class MailManager implements FactoryContract
     /**
      * Create an instance of the Array Swift Transport Driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport\ArrayTransport
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Transport\ArrayTransport
      */
     protected function createArrayTransport()
     {
@@ -381,7 +381,7 @@ class MailManager implements FactoryContract
     /**
      * Set a global address on the mailer by type.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Mailer  $mailer
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail\Mailer  $mailer
      * @param  array  $config
      * @param  string  $type
      * @return void

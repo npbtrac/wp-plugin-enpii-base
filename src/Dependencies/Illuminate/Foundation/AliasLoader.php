@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation;
 
 class AliasLoader
 {
@@ -28,7 +28,7 @@ class AliasLoader
     /**
      * The singleton instance of the loader.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\AliasLoader
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\AliasLoader
      */
     protected static $instance;
 
@@ -47,7 +47,7 @@ class AliasLoader
      * Get or create the singleton alias loader instance.
      *
      * @param  array  $aliases
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\AliasLoader
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\AliasLoader
      */
     public static function getInstance(array $aliases = [])
     {
@@ -223,7 +223,7 @@ class AliasLoader
     /**
      * Set the value of the singleton alias loader.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\AliasLoader  $loader
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\AliasLoader  $loader
      * @return void
      */
     public static function setInstance($loader)

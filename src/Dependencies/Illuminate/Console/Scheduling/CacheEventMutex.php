@@ -1,15 +1,15 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory as Cache;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory as Cache;
 
 class CacheEventMutex implements EventMutex, CacheAware
 {
     /**
      * The cache repository implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory
      */
     public $cache;
 
@@ -23,7 +23,7 @@ class CacheEventMutex implements EventMutex, CacheAware
     /**
      * Create a new overlapping strategy.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory  $cache
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory  $cache
      * @return void
      */
     public function __construct(Cache $cache)
@@ -34,7 +34,7 @@ class CacheEventMutex implements EventMutex, CacheAware
     /**
      * Attempt to obtain an event mutex for the given event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
      * @return bool
      */
     public function create(Event $event)
@@ -47,7 +47,7 @@ class CacheEventMutex implements EventMutex, CacheAware
     /**
      * Determine if an event mutex exists for the given event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
      * @return bool
      */
     public function exists(Event $event)
@@ -58,7 +58,7 @@ class CacheEventMutex implements EventMutex, CacheAware
     /**
      * Clear the event mutex for the given event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
      * @return void
      */
     public function forget(Event $event)

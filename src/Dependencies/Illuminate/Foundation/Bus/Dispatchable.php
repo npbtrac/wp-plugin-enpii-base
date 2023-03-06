@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Bus\Dispatcher;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Bus\Dispatcher;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent;
 
 trait Dispatchable
 {
     /**
      * Dispatch the job with the given arguments.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus\PendingDispatch
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus\PendingDispatch
      */
     public static function dispatch()
     {
@@ -21,7 +21,7 @@ trait Dispatchable
      * Dispatch the job with the given arguments if the given truth test passes.
      *
      * @param  bool  $boolean
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus\PendingDispatch|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus\PendingDispatch|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent
      */
     public static function dispatchIf($boolean, ...$arguments)
     {
@@ -34,7 +34,7 @@ trait Dispatchable
      * Dispatch the job with the given arguments unless the given truth test passes.
      *
      * @param  bool  $boolean
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus\PendingDispatch|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus\PendingDispatch|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Fluent
      */
     public static function dispatchUnless($boolean, ...$arguments)
     {
@@ -67,7 +67,7 @@ trait Dispatchable
      * Set the jobs that should run if this job is successful.
      *
      * @param  array  $chain
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus\PendingChain
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus\PendingChain
      */
     public static function withChain($chain)
     {

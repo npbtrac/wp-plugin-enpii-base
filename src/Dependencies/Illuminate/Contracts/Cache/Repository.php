@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\SimpleCache\CacheInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\SimpleCache\CacheInterface;
 
 interface Repository extends CacheInterface
 {
@@ -102,7 +102,7 @@ interface Repository extends CacheInterface
     /**
      * Get the cache store implementation.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Store
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Store
      */
     public function getStore();
 }

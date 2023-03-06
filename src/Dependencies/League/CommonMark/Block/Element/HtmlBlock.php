@@ -12,11 +12,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Block\Element;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\ContextInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Cursor;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\RegexHelper;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\ContextInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Cursor;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util\RegexHelper;
 
 class HtmlBlock extends AbstractStringContainerBlock
 {

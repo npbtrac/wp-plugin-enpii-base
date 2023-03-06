@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\Test;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\Test;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -32,7 +32,7 @@ abstract class LoggerInterfaceTest extends TestCase
 
     public function testImplements()
     {
-        $this->assertInstanceOf('Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface', $this->getLogger());
+        $this->assertInstanceOf('Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface', $this->getLogger());
     }
 
     /**
@@ -66,7 +66,7 @@ abstract class LoggerInterfaceTest extends TestCase
     }
 
     /**
-     * @expectedException \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\InvalidArgumentException
+     * @expectedException \Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\InvalidArgumentException
      */
     public function testThrowsOnInvalidLevel()
     {
@@ -86,9 +86,9 @@ abstract class LoggerInterfaceTest extends TestCase
     public function testObjectCastToString()
     {
         if (method_exists($this, 'createPartialMock')) {
-            $dummy = $this->createPartialMock('Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\Test\DummyTest', array('__toString'));
+            $dummy = $this->createPartialMock('Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\Test\DummyTest', array('__toString'));
         } else {
-            $dummy = $this->getMock('Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\Test\DummyTest', array('__toString'));
+            $dummy = $this->getMock('Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\Test\DummyTest', array('__toString'));
         }
         $dummy->expects($this->once())
             ->method('__toString')

@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ArrayAdapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ArrayAdapter;
 use InvalidArgumentException;
 use ReturnTypeWillChange;
 
@@ -18,7 +18,7 @@ abstract class AbstractRepository implements RepositoryInterface
     /**
      * The record of loaded variables.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ArrayAdapter
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ArrayAdapter
      */
     private $loaded;
 

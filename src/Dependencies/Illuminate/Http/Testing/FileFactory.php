@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 
 class FileFactory
 {
@@ -12,7 +12,7 @@ class FileFactory
      * @param  string  $name
      * @param  string|int  $kilobytes
      * @param  string|null  $mimeType
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing\File
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing\File
      */
     public function create($name, $kilobytes = 0, $mimeType = null)
     {
@@ -31,7 +31,7 @@ class FileFactory
      *
      * @param  string  $name
      * @param  string  $content
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing\File
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing\File
      */
     public function createWithContent($name, $content)
     {
@@ -50,7 +50,7 @@ class FileFactory
      * @param  string  $name
      * @param  int  $width
      * @param  int  $height
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing\File
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing\File
      */
     public function image($name, $width = 10, $height = 10)
     {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
 
 class DatabaseNotification extends Model
 {
@@ -47,7 +47,7 @@ class DatabaseNotification extends Model
     /**
      * Get the notifiable entity that the notification belongs to.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Relations\MorphTo
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function notifiable()
     {
@@ -102,7 +102,7 @@ class DatabaseNotification extends Model
      * Create a new database notification collection instance.
      *
      * @param  array  $models
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\DatabaseNotificationCollection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Notifications\DatabaseNotificationCollection
      */
     public function newCollection(array $models = [])
     {

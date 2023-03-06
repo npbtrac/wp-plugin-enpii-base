@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules;
 
 class In
 {
@@ -32,7 +32,7 @@ class In
      *
      * @return string
      *
-     * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationRuleParser::parseParameters
+     * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationRuleParser::parseParameters
      */
     public function __toString()
     {

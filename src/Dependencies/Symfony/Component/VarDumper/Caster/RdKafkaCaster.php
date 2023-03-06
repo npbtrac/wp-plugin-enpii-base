@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Caster;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Caster;
 
 use RdKafka\Conf;
 use RdKafka\Exception as RdKafkaException;
@@ -22,7 +22,7 @@ use RdKafka\Metadata\Topic as TopicMetadata;
 use RdKafka\Topic;
 use RdKafka\TopicConf;
 use RdKafka\TopicPartition;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Cloner\Stub;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Cloner\Stub;
 
 /**
  * Casts RdKafka related classes to array representation.

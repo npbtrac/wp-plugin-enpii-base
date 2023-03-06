@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Log;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Log;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\AbstractLogger;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\AbstractLogger;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel;
 
 /**
  * Minimalist PSR-3 logger designed to write in stderr or any other stream.

@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Store;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Store;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Store\File\Paths;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Store\File\Paths;
 
 class StoreBuilder
 {
@@ -46,7 +46,7 @@ class StoreBuilder
     /**
      * Create a new store builder instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StoreBuilder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StoreBuilder
      */
     public static function create()
     {
@@ -58,7 +58,7 @@ class StoreBuilder
      *
      * @param string|string[] $paths
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StoreBuilder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StoreBuilder
      */
     public function withPaths($paths)
     {
@@ -70,7 +70,7 @@ class StoreBuilder
      *
      * @param string|string[]|null $names
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StoreBuilder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StoreBuilder
      */
     public function withNames($names = null)
     {
@@ -80,7 +80,7 @@ class StoreBuilder
     /**
      * Creates a store builder with short circuit mode enabled.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StoreBuilder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StoreBuilder
      */
     public function shortCircuit()
     {
@@ -90,7 +90,7 @@ class StoreBuilder
     /**
      * Creates a new store instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StoreInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Store\StoreInterface
      */
     public function make()
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Engines;
 
 use Closure;
 use InvalidArgumentException;
@@ -41,7 +41,7 @@ class EngineResolver
      * Resolve an engine instance by name.
      *
      * @param  string  $engine
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Engine
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Engine
      *
      * @throws \InvalidArgumentException
      */

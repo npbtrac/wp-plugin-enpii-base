@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\String\Slugger;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\String\Slugger;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\String\AbstractUnicodeString;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\String\UnicodeString;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\String\AbstractUnicodeString;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\String\UnicodeString;
 use Symfony\Contracts\Translation\LocaleAwareInterface;
 
 if (!interface_exists(LocaleAwareInterface::class)) {
-    throw new \LogicException('You cannot use the "Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\String\Slugger\AsciiSlugger" as the "symfony/translation-contracts" package is not installed. Try running "composer require symfony/translation-contracts".');
+    throw new \LogicException('You cannot use the "Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\String\Slugger\AsciiSlugger" as the "symfony/translation-contracts" package is not installed. Try running "composer require symfony/translation-contracts".');
 }
 
 /**

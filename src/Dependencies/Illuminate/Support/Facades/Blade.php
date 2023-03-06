@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
 /**
  * @method static array getClassComponentAliases()
@@ -26,7 +26,7 @@ namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
  * @method static void withoutComponentTags()
  * @method static void withoutDoubleEncoding()
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\BladeCompiler
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\BladeCompiler
  */
 class Blade extends Facade
 {

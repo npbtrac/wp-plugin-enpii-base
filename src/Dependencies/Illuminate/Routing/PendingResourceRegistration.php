@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 
 class PendingResourceRegistration
 {
@@ -12,7 +12,7 @@ class PendingResourceRegistration
     /**
      * The resource registrar.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\ResourceRegistrar
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\ResourceRegistrar
      */
     protected $registrar;
 
@@ -47,7 +47,7 @@ class PendingResourceRegistration
     /**
      * Create a new pending resource registration instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\ResourceRegistrar  $registrar
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\ResourceRegistrar  $registrar
      * @param  string  $name
      * @param  string  $controller
      * @param  array  $options
@@ -65,7 +65,7 @@ class PendingResourceRegistration
      * Set the methods the controller should apply to.
      *
      * @param  array|string|dynamic  $methods
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
      */
     public function only($methods)
     {
@@ -78,7 +78,7 @@ class PendingResourceRegistration
      * Set the methods the controller should exclude.
      *
      * @param  array|string|dynamic  $methods
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
      */
     public function except($methods)
     {
@@ -91,7 +91,7 @@ class PendingResourceRegistration
      * Set the route names for controller actions.
      *
      * @param  array|string  $names
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
      */
     public function names($names)
     {
@@ -105,7 +105,7 @@ class PendingResourceRegistration
      *
      * @param  string  $method
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
      */
     public function name($method, $name)
     {
@@ -118,7 +118,7 @@ class PendingResourceRegistration
      * Override the route parameter names.
      *
      * @param  array|string  $parameters
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
      */
     public function parameters($parameters)
     {
@@ -132,7 +132,7 @@ class PendingResourceRegistration
      *
      * @param  string  $previous
      * @param  string  $new
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
      */
     public function parameter($previous, $new)
     {
@@ -145,7 +145,7 @@ class PendingResourceRegistration
      * Add middleware to the resource routes.
      *
      * @param  mixed  $middleware
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
      */
     public function middleware($middleware)
     {
@@ -173,7 +173,7 @@ class PendingResourceRegistration
      * Add "where" constraints to the resource routes.
      *
      * @param  mixed  $wheres
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
      */
     public function where($wheres)
     {
@@ -186,7 +186,7 @@ class PendingResourceRegistration
      * Indicate that the resource routes should have "shallow" nesting.
      *
      * @param  bool  $shallow
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
      */
     public function shallow($shallow = true)
     {
@@ -199,7 +199,7 @@ class PendingResourceRegistration
      * Indicate that the resource routes should be scoped using the given binding fields.
      *
      * @param  array  $fields
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\PendingResourceRegistration
      */
     public function scoped(array $fields = [])
     {
@@ -211,7 +211,7 @@ class PendingResourceRegistration
     /**
      * Register the resource route.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteCollection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\RouteCollection
      */
     public function register()
     {

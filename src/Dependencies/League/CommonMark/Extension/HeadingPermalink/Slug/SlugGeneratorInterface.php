@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\HeadingPermalink\Slug;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\HeadingPermalink\Slug;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Normalizer\TextNormalizerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Normalizer\TextNormalizerInterface;
 
 @trigger_error(sprintf('%s is deprecated; use %s instead', SlugGeneratorInterface::class, TextNormalizerInterface::class), E_USER_DEPRECATED);
 
 /**
- * @deprecated Use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Normalizer\TextNormalizerInterface instead
+ * @deprecated Use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Normalizer\TextNormalizerInterface instead
  */
 interface SlugGeneratorInterface
 {

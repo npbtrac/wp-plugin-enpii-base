@@ -1,20 +1,20 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\DeferrableProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations\FreshCommand;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations\InstallCommand;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations\MigrateCommand;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations\MigrateMakeCommand;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations\RefreshCommand;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations\ResetCommand;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations\RollbackCommand;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations\StatusCommand;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\DatabaseMigrationRepository;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\MigrationCreator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\Migrator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\DeferrableProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations\FreshCommand;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations\InstallCommand;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations\MigrateCommand;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations\MigrateMakeCommand;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations\RefreshCommand;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations\ResetCommand;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations\RollbackCommand;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Console\Migrations\StatusCommand;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\DatabaseMigrationRepository;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\MigrationCreator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\Migrator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
 
 class MigrationServiceProvider extends ServiceProvider implements DeferrableProvider
 {

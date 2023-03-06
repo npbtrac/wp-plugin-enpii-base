@@ -12,16 +12,16 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\CollectionMismatchException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\InvalidSortOrderException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\OutOfBoundsException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Tool\TypeTrait;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Tool\ValueExtractorTrait;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Tool\ValueToStringTrait;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\CollectionMismatchException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\InvalidSortOrderException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\OutOfBoundsException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Tool\TypeTrait;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Tool\ValueExtractorTrait;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Tool\ValueToStringTrait;
 
 use function array_filter;
 use function array_map;

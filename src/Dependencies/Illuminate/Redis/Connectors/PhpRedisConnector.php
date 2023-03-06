@@ -1,13 +1,13 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connectors;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connectors;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Connector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\PhpRedisClusterConnection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\PhpRedisConnection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Redis as RedisFacade;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Redis\Connector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\PhpRedisClusterConnection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\PhpRedisConnection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Redis as RedisFacade;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 use LogicException;
 use Redis;
 use RedisCluster;
@@ -19,7 +19,7 @@ class PhpRedisConnector implements Connector
      *
      * @param  array  $config
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\PhpRedisConnection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\PhpRedisConnection
      */
     public function connect(array $config, array $options)
     {
@@ -38,7 +38,7 @@ class PhpRedisConnector implements Connector
      * @param  array  $config
      * @param  array  $clusterOptions
      * @param  array  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\PhpRedisClusterConnection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Redis\Connections\PhpRedisClusterConnection
      */
     public function connectToCluster(array $config, array $clusterOptions, array $options)
     {

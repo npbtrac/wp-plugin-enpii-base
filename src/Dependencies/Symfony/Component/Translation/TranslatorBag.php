@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Catalogue\AbstractOperation;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Catalogue\TargetOperation;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Catalogue\AbstractOperation;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Catalogue\TargetOperation;
 
 final class TranslatorBag implements TranslatorBagInterface
 {

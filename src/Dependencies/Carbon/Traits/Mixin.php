@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
 use Closure;
 use Generator;
@@ -139,7 +139,7 @@ trait Mixin
     }
 
     /**
-     * Stack a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon context from inside calls of self::this() and execute a given action.
+     * Stack a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon context from inside calls of self::this() and execute a given action.
      *
      * @param static|null $context
      * @param callable    $callable

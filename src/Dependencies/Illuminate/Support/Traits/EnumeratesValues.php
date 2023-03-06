@@ -1,19 +1,19 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits;
 
 use CachingIterator;
 use Closure;
 use Exception;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Jsonable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Enumerable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HigherOrderCollectionProxy;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HigherOrderWhenProxy;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Jsonable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Enumerable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HigherOrderCollectionProxy;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HigherOrderWhenProxy;
 use JsonSerializable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\VarDumper;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\VarDumper;
 use Traversable;
 
 /**
@@ -741,7 +741,7 @@ trait EnumeratesValues
     /**
      * Collect the values into a collection.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
      */
     public function collect()
     {

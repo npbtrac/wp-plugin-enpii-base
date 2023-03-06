@@ -1,24 +1,24 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
 
 use Aws\DynamoDb\DynamoDbClient;
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory as FactoryContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Store;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Factory as FactoryContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Store;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
 use InvalidArgumentException;
 
 /**
- * @mixin \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
+ * @mixin \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
  */
 class CacheManager implements FactoryContract
 {
     /**
      * The application instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
      */
     protected $app;
 
@@ -39,7 +39,7 @@ class CacheManager implements FactoryContract
     /**
      * Create a new Cache manager instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
      * @return void
      */
     public function __construct($app)
@@ -51,7 +51,7 @@ class CacheManager implements FactoryContract
      * Get a cache store instance by name, wrapped in a repository.
      *
      * @param  string|null  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
      */
     public function store($name = null)
     {
@@ -64,7 +64,7 @@ class CacheManager implements FactoryContract
      * Get a cache driver instance.
      *
      * @param  string|null  $driver
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
      */
     public function driver($driver = null)
     {
@@ -75,7 +75,7 @@ class CacheManager implements FactoryContract
      * Attempt to get the store from the local cache.
      *
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
      */
     protected function get($name)
     {
@@ -86,7 +86,7 @@ class CacheManager implements FactoryContract
      * Resolve the given store.
      *
      * @param  string  $name
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Repository
      *
      * @throws \InvalidArgumentException
      */
@@ -126,7 +126,7 @@ class CacheManager implements FactoryContract
      * Create an instance of the APC cache driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
      */
     protected function createApcDriver(array $config)
     {
@@ -139,7 +139,7 @@ class CacheManager implements FactoryContract
      * Create an instance of the array cache driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
      */
     protected function createArrayDriver(array $config)
     {
@@ -150,7 +150,7 @@ class CacheManager implements FactoryContract
      * Create an instance of the file cache driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
      */
     protected function createFileDriver(array $config)
     {
@@ -161,7 +161,7 @@ class CacheManager implements FactoryContract
      * Create an instance of the Memcached cache driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
      */
     protected function createMemcachedDriver(array $config)
     {
@@ -180,7 +180,7 @@ class CacheManager implements FactoryContract
     /**
      * Create an instance of the Null cache driver.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
      */
     protected function createNullDriver()
     {
@@ -191,7 +191,7 @@ class CacheManager implements FactoryContract
      * Create an instance of the Redis cache driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
      */
     protected function createRedisDriver(array $config)
     {
@@ -206,7 +206,7 @@ class CacheManager implements FactoryContract
      * Create an instance of the database cache driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
      */
     protected function createDatabaseDriver(array $config)
     {
@@ -227,7 +227,7 @@ class CacheManager implements FactoryContract
      * Create an instance of the DynamoDB cache driver.
      *
      * @param  array  $config
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
      */
     protected function createDynamodbDriver(array $config)
     {
@@ -258,8 +258,8 @@ class CacheManager implements FactoryContract
     /**
      * Create a new cache repository with the given implementation.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Store  $store
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cache\Store  $store
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository
      */
     public function repository(Store $store)
     {
@@ -271,7 +271,7 @@ class CacheManager implements FactoryContract
     /**
      * Set the event dispatcher on the given repository instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository  $repository
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\Repository  $repository
      * @return void
      */
     protected function setEventDispatcher(Repository $repository)

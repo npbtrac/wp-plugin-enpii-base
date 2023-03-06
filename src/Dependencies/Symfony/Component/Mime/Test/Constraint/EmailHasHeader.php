@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Test\Constraint;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Test\Constraint;
 
 use PHPUnit\Framework\Constraint\Constraint;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\RawMessage;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\RawMessage;
 
 final class EmailHasHeader extends Constraint
 {

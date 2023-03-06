@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageProvider;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store as SessionStore;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\ForwardsCalls;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ViewErrorBag;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\File\UploadedFile as SymfonyUploadedFile;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\RedirectResponse as BaseRedirectResponse;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageProvider;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store as SessionStore;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\ForwardsCalls;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ViewErrorBag;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\File\UploadedFile as SymfonyUploadedFile;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\RedirectResponse as BaseRedirectResponse;
 
 class RedirectResponse extends BaseRedirectResponse
 {
@@ -21,14 +21,14 @@ class RedirectResponse extends BaseRedirectResponse
     /**
      * The request instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
      */
     protected $request;
 
     /**
      * The session store instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
      */
     protected $session;
 
@@ -124,7 +124,7 @@ class RedirectResponse extends BaseRedirectResponse
     /**
      * Flash a container of errors to the session.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageProvider|array|string  $provider
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageProvider|array|string  $provider
      * @param  string  $key
      * @return $this
      */
@@ -170,8 +170,8 @@ class RedirectResponse extends BaseRedirectResponse
     /**
      * Parse the given errors into an appropriate value.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageProvider|array|string  $provider
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\MessageProvider|array|string  $provider
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\MessageBag
      */
     protected function parseErrors($provider)
     {
@@ -195,7 +195,7 @@ class RedirectResponse extends BaseRedirectResponse
     /**
      * Get the request instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request|null
      */
     public function getRequest()
     {
@@ -205,7 +205,7 @@ class RedirectResponse extends BaseRedirectResponse
     /**
      * Set the request instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @return void
      */
     public function setRequest(Request $request)
@@ -216,7 +216,7 @@ class RedirectResponse extends BaseRedirectResponse
     /**
      * Get the session store instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store|null
      */
     public function getSession()
     {
@@ -226,7 +226,7 @@ class RedirectResponse extends BaseRedirectResponse
     /**
      * Set the session store instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store  $session
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store  $session
      * @return void
      */
     public function setSession(SessionStore $session)

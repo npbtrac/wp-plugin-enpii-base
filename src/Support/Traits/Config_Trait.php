@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Support\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Support\Traits;
 
 use InvalidArgumentException;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
 
 /**
  * @method static \SessionHandlerInterface getHandler()
@@ -25,10 +25,10 @@ namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades;
  * @method static void put(string|array $key, $value = null)
  * @method static void setId(string $id)
  * @method static void setPreviousUrl(string $url)
- * @method static void setRequestOnHandler(\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request $request)
+ * @method static void setRequestOnHandler(\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request $request)
  *
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\SessionManager
- * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\SessionManager
+ * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
  */
 class Session extends Facade
 {

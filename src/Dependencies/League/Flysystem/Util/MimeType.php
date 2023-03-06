@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\MimeTypeDetection\FinfoMimeTypeDetector;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\MimeTypeDetection\GeneratedExtensionToMimeTypeMap;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\MimeTypeDetection\MimeTypeDetector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\MimeTypeDetection\FinfoMimeTypeDetector;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\MimeTypeDetection\GeneratedExtensionToMimeTypeMap;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\MimeTypeDetection\MimeTypeDetector;
 
 /**
  * @internal

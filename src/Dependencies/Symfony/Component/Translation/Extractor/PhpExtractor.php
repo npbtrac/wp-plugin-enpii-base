@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Extractor;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\Extractor;
 
 use Symfony\Component\Finder\Finder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\MessageCatalogue;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\MessageCatalogue;
 
 /**
  * PhpExtractor extracts translation messages from a PHP template.
@@ -85,7 +85,7 @@ class PhpExtractor extends AbstractFileExtractor implements ExtractorInterface
         ],
         [
             'new',
-            '\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatableMessage',
+            '\Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatableMessage',
             '(',
             self::MESSAGE_TOKEN,
             ',',
@@ -108,7 +108,7 @@ class PhpExtractor extends AbstractFileExtractor implements ExtractorInterface
         ],
         [
             'new',
-            '\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatableMessage',
+            '\Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatableMessage',
             '(',
             self::MESSAGE_TOKEN,
         ],

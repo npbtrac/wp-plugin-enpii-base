@@ -1,23 +1,23 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Testing;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\MimeTypes;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\MimeTypes;
 
 class MimeType
 {
     /**
      * The mime types instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\MimeTypes|null
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\MimeTypes|null
      */
     private static $mime;
 
     /**
      * Get the mime types instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\MimeTypesInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\MimeTypesInterface
      */
     public static function getMimeTypes()
     {

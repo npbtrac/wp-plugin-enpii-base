@@ -1,24 +1,24 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Exceptions\UrlGenerationException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Exceptions\UrlGenerationException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 
 class RouteUrlGenerator
 {
     /**
      * The URL generator instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\UrlGenerator
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\UrlGenerator
      */
     protected $url;
 
     /**
      * The request instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request
      */
     protected $request;
 
@@ -54,8 +54,8 @@ class RouteUrlGenerator
     /**
      * Create a new Route URL generator.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\UrlGenerator  $url
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\UrlGenerator  $url
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @return void
      */
     public function __construct($url, $request)
@@ -67,12 +67,12 @@ class RouteUrlGenerator
     /**
      * Generate a URL for the given route.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
      * @param  array  $parameters
      * @param  bool  $absolute
      * @return string
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Exceptions\UrlGenerationException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Exceptions\UrlGenerationException
      */
     public function to($route, $parameters = [], $absolute = false)
     {
@@ -112,7 +112,7 @@ class RouteUrlGenerator
     /**
      * Get the formatted domain for a given route.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
      * @param  array  $parameters
      * @return string
      */
@@ -124,7 +124,7 @@ class RouteUrlGenerator
     /**
      * Format the domain and port for the route and request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
      * @param  array  $parameters
      * @return string
      */
@@ -138,7 +138,7 @@ class RouteUrlGenerator
     /**
      * Get the scheme for the given route.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
      * @return string
      */
     protected function getRouteScheme($route)
@@ -171,7 +171,7 @@ class RouteUrlGenerator
     /**
      * Replace the parameters on the root path.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Route  $route
      * @param  string  $domain
      * @param  array  $parameters
      * @return string

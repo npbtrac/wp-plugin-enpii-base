@@ -5,7 +5,7 @@
  * Licensed under the MIT License
  * =========================================================================== */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Opis\Closure;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Opis\Closure;
 
 use Closure;
 use Serializable;
@@ -20,22 +20,22 @@ class SerializableClosure implements Serializable
     /**
      * @var Closure Wrapped closure
      *
-     * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Opis\Closure\SerializableClosure::getClosure()
+     * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Opis\Closure\SerializableClosure::getClosure()
      */
     protected $closure;
 
     /**
      * @var ReflectionClosure A reflection instance for closure
      *
-     * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Opis\Closure\SerializableClosure::getReflector()
+     * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Opis\Closure\SerializableClosure::getReflector()
      */
     protected $reflector;
 
     /**
      * @var mixed Used at deserialization to hold variables
      *
-     * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Opis\Closure\SerializableClosure::unserialize()
-     * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Opis\Closure\SerializableClosure::getReflector()
+     * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Opis\Closure\SerializableClosure::unserialize()
+     * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Opis\Closure\SerializableClosure::getReflector()
      */
     protected $code;
 

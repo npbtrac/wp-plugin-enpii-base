@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FormatterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\LineFormatter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\FormatterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\LineFormatter;
 use Swift_Message;
 use Swift;
 
@@ -23,8 +23,8 @@ use Swift;
  *
  * @author Gyula Sallai
  *
- * @phpstan-import-type Record from \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger
- * @deprecated Since Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog 2.6. Use SymfonyMailerHandler instead.
+ * @phpstan-import-type Record from \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger
+ * @deprecated Since Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog 2.6. Use SymfonyMailerHandler instead.
  */
 class SwiftMailerHandler extends MailHandler
 {
@@ -43,7 +43,7 @@ class SwiftMailerHandler extends MailHandler
     {
         parent::__construct($level, $bubble);
 
-        @trigger_error('The SwiftMailerHandler is deprecated since Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog 2.6. Use SymfonyMailerHandler instead.', E_USER_DEPRECATED);
+        @trigger_error('The SwiftMailerHandler is deprecated since Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog 2.6. Use SymfonyMailerHandler instead.', E_USER_DEPRECATED);
 
         $this->mailer = $mailer;
         $this->messageTemplate = $message;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
 
 class ApcStore extends TaggableStore
 {
@@ -9,7 +9,7 @@ class ApcStore extends TaggableStore
     /**
      * The APC wrapper instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\ApcWrapper
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\ApcWrapper
      */
     protected $apc;
 
@@ -23,7 +23,7 @@ class ApcStore extends TaggableStore
     /**
      * Create a new APC store.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\ApcWrapper  $apc
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\ApcWrapper  $apc
      * @param  string  $prefix
      * @return void
      */

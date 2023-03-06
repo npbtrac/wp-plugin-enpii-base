@@ -1,20 +1,20 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Dotenv;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Env;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\ArgvInput;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\ConsoleOutput;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Dotenv;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Env;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\ArgvInput;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\ConsoleOutput;
 
 class LoadEnvironmentVariables
 {
     /**
      * Bootstrap the given application.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
      * @return void
      */
     public function bootstrap(Application $app)
@@ -35,7 +35,7 @@ class LoadEnvironmentVariables
     /**
      * Detect if a custom environment file matching the APP_ENV exists.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
      * @return void
      */
     protected function checkForSpecificEnvironmentFile($app)
@@ -62,7 +62,7 @@ class LoadEnvironmentVariables
     /**
      * Load a custom environment file.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
      * @param  string  $file
      * @return bool
      */
@@ -78,10 +78,10 @@ class LoadEnvironmentVariables
     }
 
     /**
-     * Create a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv instance.
+     * Create a Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Dotenv
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Dotenv
      */
     protected function createDotenv($app)
     {
@@ -95,7 +95,7 @@ class LoadEnvironmentVariables
     /**
      * Write the error information to the screen and exit.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException  $e
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Exception\InvalidFileException  $e
      * @return void
      */
     protected function writeErrorAndDie(InvalidFileException $e)

@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Testing\Constraints;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Testing\Constraints;
 
 use ArrayObject;
 use PHPUnit\Framework\Constraint\Constraint;

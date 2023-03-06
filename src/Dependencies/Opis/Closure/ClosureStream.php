@@ -5,7 +5,7 @@
  * Licensed under the MIT License
  * =========================================================================== */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Opis\Closure;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Opis\Closure;
 
 /**
  * @internal

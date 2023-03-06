@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store as SessionStore;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store as SessionStore;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 
 class Redirector
 {
@@ -13,21 +13,21 @@ class Redirector
     /**
      * The URL generator instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\UrlGenerator
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\UrlGenerator
      */
     protected $generator;
 
     /**
      * The session store instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store
      */
     protected $session;
 
     /**
      * Create a new Redirector instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\UrlGenerator  $generator
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\UrlGenerator  $generator
      * @return void
      */
     public function __construct(UrlGenerator $generator)
@@ -39,7 +39,7 @@ class Redirector
      * Create a new redirect response to the "home" route.
      *
      * @param  int  $status
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     public function home($status = 302)
     {
@@ -52,7 +52,7 @@ class Redirector
      * @param  int  $status
      * @param  array  $headers
      * @param  mixed  $fallback
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     public function back($status = 302, $headers = [], $fallback = false)
     {
@@ -64,7 +64,7 @@ class Redirector
      *
      * @param  int  $status
      * @param  array  $headers
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     public function refresh($status = 302, $headers = [])
     {
@@ -78,7 +78,7 @@ class Redirector
      * @param  int  $status
      * @param  array  $headers
      * @param  bool|null  $secure
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     public function guest($path, $status = 302, $headers = [], $secure = null)
     {
@@ -102,7 +102,7 @@ class Redirector
      * @param  int  $status
      * @param  array  $headers
      * @param  bool|null  $secure
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     public function intended($default = '/', $status = 302, $headers = [], $secure = null)
     {
@@ -129,7 +129,7 @@ class Redirector
      * @param  int  $status
      * @param  array  $headers
      * @param  bool|null  $secure
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     public function to($path, $status = 302, $headers = [], $secure = null)
     {
@@ -142,7 +142,7 @@ class Redirector
      * @param  string  $path
      * @param  int  $status
      * @param  array  $headers
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     public function away($path, $status = 302, $headers = [])
     {
@@ -155,7 +155,7 @@ class Redirector
      * @param  string  $path
      * @param  int  $status
      * @param  array  $headers
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     public function secure($path, $status = 302, $headers = [])
     {
@@ -169,7 +169,7 @@ class Redirector
      * @param  mixed  $parameters
      * @param  int  $status
      * @param  array  $headers
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     public function route($route, $parameters = [], $status = 302, $headers = [])
     {
@@ -184,7 +184,7 @@ class Redirector
      * @param  \DateTimeInterface|\DateInterval|int|null  $expiration
      * @param  int  $status
      * @param  array  $headers
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     public function signedRoute($route, $parameters = [], $expiration = null, $status = 302, $headers = [])
     {
@@ -199,7 +199,7 @@ class Redirector
      * @param  mixed  $parameters
      * @param  int  $status
      * @param  array  $headers
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     public function temporarySignedRoute($route, $expiration, $parameters = [], $status = 302, $headers = [])
     {
@@ -213,7 +213,7 @@ class Redirector
      * @param  mixed  $parameters
      * @param  int  $status
      * @param  array  $headers
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     public function wp_app_action($action, $parameters = [], $status = 302, $headers = [])
     {
@@ -226,7 +226,7 @@ class Redirector
      * @param  string  $path
      * @param  int  $status
      * @param  array  $headers
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
      */
     protected function createRedirect($path, $status, $headers)
     {
@@ -242,7 +242,7 @@ class Redirector
     /**
      * Get the URL generator instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\UrlGenerator
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\UrlGenerator
      */
     public function getUrlGenerator()
     {
@@ -252,7 +252,7 @@ class Redirector
     /**
      * Set the active session store.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store  $session
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store  $session
      * @return void
      */
     public function setSession(SessionStore $session)

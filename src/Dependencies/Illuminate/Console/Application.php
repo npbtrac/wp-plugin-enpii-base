@@ -1,41 +1,41 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Events\ArtisanStarting;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Events\CommandFinished;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Events\CommandStarting;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Console\Application as ApplicationContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ProcessUtils;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Application as SymfonyApplication;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command as SymfonyCommand;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\CommandNotFoundException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\ArgvInput;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\ArrayInput;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputOption;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\StringInput;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\BufferedOutput;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\ConsoleOutput;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\PhpExecutableFinder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Events\ArtisanStarting;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Events\CommandFinished;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Events\CommandStarting;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Console\Application as ApplicationContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ProcessUtils;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Application as SymfonyApplication;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command as SymfonyCommand;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\CommandNotFoundException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\ArgvInput;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\ArrayInput;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputOption;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\StringInput;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\BufferedOutput;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\ConsoleOutput;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\PhpExecutableFinder;
 
 class Application extends SymfonyApplication implements ApplicationContract
 {
     /**
      * The Laravel application instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container
      */
     protected $laravel;
 
     /**
      * The output from the previous command.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\BufferedOutput
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\BufferedOutput
      */
     protected $lastOutput;
 
@@ -49,15 +49,15 @@ class Application extends SymfonyApplication implements ApplicationContract
     /**
      * The Event Dispatcher.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher
      */
     protected $events;
 
     /**
      * Create a new Artisan console application.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $laravel
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher  $events
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Container  $laravel
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher  $events
      * @param  string  $version
      * @return void
      */
@@ -168,10 +168,10 @@ class Application extends SymfonyApplication implements ApplicationContract
      *
      * @param  string  $command
      * @param  array  $parameters
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface|null  $outputBuffer
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\OutputInterface|null  $outputBuffer
      * @return int
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\CommandNotFoundException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\CommandNotFoundException
      */
     public function call($command, array $parameters = [], $outputBuffer = null)
     {
@@ -227,8 +227,8 @@ class Application extends SymfonyApplication implements ApplicationContract
     /**
      * Add a command to the console.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command  $command
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command  $command
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command
      */
     public function add(SymfonyCommand $command)
     {
@@ -242,8 +242,8 @@ class Application extends SymfonyApplication implements ApplicationContract
     /**
      * Add the command to the parent instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command  $command
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command  $command
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command
      */
     protected function addToParent(SymfonyCommand $command)
     {
@@ -254,7 +254,7 @@ class Application extends SymfonyApplication implements ApplicationContract
      * Add a command, resolving through the application.
      *
      * @param  string  $command
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command
      */
     public function resolve($command)
     {
@@ -283,7 +283,7 @@ class Application extends SymfonyApplication implements ApplicationContract
      *
      * This is used to add the --env option to every available command.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputDefinition
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputDefinition
      */
     protected function getDefaultInputDefinition()
     {
@@ -295,7 +295,7 @@ class Application extends SymfonyApplication implements ApplicationContract
     /**
      * Get the global environment option for the definition.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputOption
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\InputOption
      */
     protected function getEnvironmentOption()
     {
@@ -307,7 +307,7 @@ class Application extends SymfonyApplication implements ApplicationContract
     /**
      * Get the Laravel application instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application
      */
     public function getLaravel()
     {

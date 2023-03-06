@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access;
 
 trait HandlesAuthorization
 {
@@ -9,7 +9,7 @@ trait HandlesAuthorization
      *
      * @param  string|null  $message
      * @param  mixed  $code
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\Response
      */
     protected function allow($message = null, $code = null)
     {
@@ -21,7 +21,7 @@ trait HandlesAuthorization
      *
      * @param  string|null  $message
      * @param  mixed|null  $code
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\Response
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Access\Response
      */
     protected function deny($message = null, $code = null)
     {

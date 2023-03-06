@@ -12,9 +12,9 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\NoSuchElementException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Collection\Exception\NoSuchElementException;
 
 /**
  * A linear collection that supports element insertion and removal at both ends.

@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\Dumper;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\Dumper;
 
 use Symfony\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Route;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RouteCollection;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Route;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RouteCollection;
 
 /**
  * CompiledUrlMatcherDumper creates PHP arrays to be used with CompiledUrlMatcher.
@@ -470,7 +470,7 @@ EOF;
         }
         if (!\is_array($value)) {
             if (\is_object($value)) {
-                throw new \InvalidArgumentException('Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Route cannot contain objects.');
+                throw new \InvalidArgumentException('Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Route cannot contain objects.');
             }
 
             return str_replace("\n", '\'."\n".\'', var_export($value, true));

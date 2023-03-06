@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing;
 
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Config\ConfigCacheFactory;
@@ -18,16 +18,16 @@ use Symfony\Component\Config\ConfigCacheInterface;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\ExpressionLanguage\ExpressionFunctionProviderInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Generator\CompiledUrlGenerator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Generator\ConfigurableRequirementsInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Generator\Dumper\CompiledUrlGeneratorDumper;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Generator\Dumper\GeneratorDumperInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\CompiledUrlMatcher;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\Dumper\CompiledUrlMatcherDumper;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\Dumper\MatcherDumperInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\RequestMatcherInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\UrlMatcherInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Generator\CompiledUrlGenerator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Generator\ConfigurableRequirementsInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Generator\Dumper\CompiledUrlGeneratorDumper;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Generator\Dumper\GeneratorDumperInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\CompiledUrlMatcher;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\Dumper\CompiledUrlMatcherDumper;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\Dumper\MatcherDumperInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\RequestMatcherInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\UrlMatcherInterface;
 
 /**
  * The Router class is an example of the integration of all pieces of the

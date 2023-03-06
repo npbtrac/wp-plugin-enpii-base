@@ -1,9 +1,9 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Console;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Console;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\PackageManifest;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Command;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\PackageManifest;
 
 class PackageDiscoverCommand extends Command
 {
@@ -24,7 +24,7 @@ class PackageDiscoverCommand extends Command
     /**
      * Execute the console command.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\PackageManifest  $manifest
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\PackageManifest  $manifest
      * @return void
      */
     public function handle(PackageManifest $manifest)

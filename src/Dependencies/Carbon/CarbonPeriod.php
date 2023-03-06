@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,22 +9,22 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\EndLessPeriodException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidCastException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidIntervalException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidPeriodDateException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidPeriodParameterException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\NotACarbonClassException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\NotAPeriodException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownGetterException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownMethodException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnreachableException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits\IntervalRounding;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits\Mixin;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits\Options;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits\ToStringFormat;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\EndLessPeriodException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidCastException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidIntervalException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidPeriodDateException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidPeriodParameterException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\NotACarbonClassException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\NotAPeriodException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownGetterException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnknownMethodException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnreachableException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits\IntervalRounding;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits\Mixin;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits\Options;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits\ToStringFormat;
 use Closure;
 use Countable;
 use DateInterval;
@@ -1893,8 +1893,8 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
      * Returns true if the current period overlaps the given one (if 1 parameter passed)
      * or the period between 2 dates (if 2 parameters passed).
      *
-     * @param CarbonPeriod|\DateTimeInterface|Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable|string $rangeOrRangeStart
-     * @param \DateTimeInterface|Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable|string|null         $rangeEnd
+     * @param CarbonPeriod|\DateTimeInterface|Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable|string $rangeOrRangeStart
+     * @param \DateTimeInterface|Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable|string|null         $rangeEnd
      *
      * @return bool
      */
@@ -1917,7 +1917,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
      *
      * @example
      * ```
-     * Carbon::create('2020-11-29')->daysUntil('2020-12-24')->forEach(function (Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon $date) {
+     * Carbon::create('2020-11-29')->daysUntil('2020-12-24')->forEach(function (Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon $date) {
      *   echo $date->diffInDays('2020-12-25')." days before Christmas!\n";
      * });
      * ```
@@ -1937,7 +1937,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
      * @example
      * ```
      * $period = Carbon::create('2020-11-29')->daysUntil('2020-12-24');
-     * echo implode("\n", iterator_to_array($period->map(function (Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon $date) {
+     * echo implode("\n", iterator_to_array($period->map(function (Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon $date) {
      *   return $date->diffInDays('2020-12-25').' days before Christmas!';
      * })));
      * ```
@@ -2286,7 +2286,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
     /**
      * Return true if the given date is between start and end.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterval|\DateInterval|\DatePeriod|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterval|\DateInterval|\DatePeriod|\DateTimeInterface|string|null $date
      *
      * @return bool
      */
@@ -2303,7 +2303,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
      * For instance, [2019-08-01 -> 2019-08-12] follows [2019-07-29 -> 2019-07-31]
      * Note than in this example, follows() would be false if 2019-08-01 or 2019-07-31 was excluded by options.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod|\DatePeriod|string $period
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod|\DatePeriod|string $period
      *
      * @return bool
      */
@@ -2319,7 +2319,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
      * For instance, [2019-07-29 -> 2019-07-31] is followed by [2019-08-01 -> 2019-08-12]
      * Note than in this example, isFollowedBy() would be false if 2019-08-01 or 2019-07-31 was excluded by options.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod|\DatePeriod|string $period
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod|\DatePeriod|string $period
      *
      * @return bool
      */
@@ -2336,7 +2336,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
      * @see follows()
      * @see isFollowedBy()
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod|\DatePeriod|string $period
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod|\DatePeriod|string $period
      *
      * @return bool
      */
@@ -2402,7 +2402,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
      *
      * @SuppressWarnings(PHPMD.UnusedFormalParameter)
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon $current
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon $current
      * @param int            $key
      *
      * @return bool|string
@@ -2419,7 +2419,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
     /**
      * End date filter callback.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon $current
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon $current
      *
      * @return bool|string
      */
@@ -2569,12 +2569,12 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
     }
 
     /**
-     * Return the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance passed through, a now instance in the same timezone
+     * Return the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance passed through, a now instance in the same timezone
      * if null given or parse the input if string given.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterval|\DateInterval|\DatePeriod|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterval|\DateInterval|\DatePeriod|\DateTimeInterface|string|null $date
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface
      */
     protected function resolveCarbon($date = null)
     {

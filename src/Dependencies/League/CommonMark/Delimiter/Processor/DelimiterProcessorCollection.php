@@ -15,7 +15,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Delimiter\Processor;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Delimiter\Processor;
 
 final class DelimiterProcessorCollection implements DelimiterProcessorCollectionInterface
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math;
 
 /**
  * Specifies a rounding behavior for numerical operations capable of discarding precision.

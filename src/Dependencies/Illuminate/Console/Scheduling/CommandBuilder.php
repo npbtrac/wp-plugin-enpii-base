@@ -1,16 +1,16 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Application;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ProcessUtils;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Application;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ProcessUtils;
 
 class CommandBuilder
 {
     /**
      * Build the command for the given event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
      * @return string
      */
     public function buildCommand(Event $event)
@@ -25,7 +25,7 @@ class CommandBuilder
     /**
      * Build the command for running the event in the foreground.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
      * @return string
      */
     protected function buildForegroundCommand(Event $event)
@@ -40,7 +40,7 @@ class CommandBuilder
     /**
      * Build the command for running the event in the background.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
      * @return string
      */
     protected function buildBackgroundCommand(Event $event)
@@ -64,7 +64,7 @@ class CommandBuilder
     /**
      * Finalize the event's command syntax with the correct user.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
      * @param  string  $command
      * @return string
      */

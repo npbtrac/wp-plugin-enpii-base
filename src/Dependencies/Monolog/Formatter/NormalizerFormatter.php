@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\DateTimeImmutable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\DateTimeImmutable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Utils;
 use Throwable;
 
 /**
@@ -41,7 +41,7 @@ class NormalizerFormatter implements FormatterInterface
     {
         $this->dateFormat = null === $dateFormat ? static::SIMPLE_DATE : $dateFormat;
         if (!function_exists('json_encode')) {
-            throw new \RuntimeException('PHP\'s json extension is required to use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\'s NormalizerFormatter');
+            throw new \RuntimeException('PHP\'s json extension is required to use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\'s NormalizerFormatter');
         }
     }
 

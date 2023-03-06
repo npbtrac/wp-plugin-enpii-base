@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Iconv;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Iconv;
 
 /**
  * iconv implementation in pure PHP, UTF-8 centric.

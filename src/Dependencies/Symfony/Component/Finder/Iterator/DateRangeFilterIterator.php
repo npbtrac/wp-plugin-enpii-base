@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Comparator\DateComparator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Comparator\DateComparator;
 
 /**
  * DateRangeFilterIterator filters out files that are not in the given date range (last modified dates).

@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Pipes;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Pipes;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception\InvalidArgumentException;
 
 /**
  * @author Romain Neutron <imprec@gmail.com>

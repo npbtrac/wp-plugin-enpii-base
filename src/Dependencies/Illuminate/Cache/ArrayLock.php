@@ -1,22 +1,22 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
 
 class ArrayLock extends Lock
 {
     /**
      * The parent array cache store.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\ArrayStore
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\ArrayStore
      */
     protected $store;
 
     /**
      * Create a new lock instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\ArrayStore  $store
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\ArrayStore  $store
      * @param  string  $name
      * @param  int  $seconds
      * @param  string|null  $owner

@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\PhpExecutableFinder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Process;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\PhpExecutableFinder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Process;
 
 class Listener
 {
@@ -79,7 +79,7 @@ class Listener
      *
      * @param  string  $connection
      * @param  string  $queue
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\ListenerOptions  $options
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\ListenerOptions  $options
      * @return void
      */
     public function listen($connection, $queue, ListenerOptions $options)
@@ -96,8 +96,8 @@ class Listener
      *
      * @param  string  $connection
      * @param  string  $queue
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\ListenerOptions  $options
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Process
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\ListenerOptions  $options
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Process
      */
     public function makeProcess($connection, $queue, ListenerOptions $options)
     {
@@ -127,7 +127,7 @@ class Listener
      * Add the environment option to the given command.
      *
      * @param  array  $command
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\ListenerOptions  $options
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\ListenerOptions  $options
      * @return array
      */
     protected function addEnvironment($command, ListenerOptions $options)
@@ -140,7 +140,7 @@ class Listener
      *
      * @param  string  $connection
      * @param  string  $queue
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\ListenerOptions  $options
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\ListenerOptions  $options
      * @return array
      */
     protected function createCommand($connection, $queue, ListenerOptions $options)
@@ -164,7 +164,7 @@ class Listener
     /**
      * Run the given process.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Process  $process
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Process  $process
      * @param  int  $memory
      * @return void
      */

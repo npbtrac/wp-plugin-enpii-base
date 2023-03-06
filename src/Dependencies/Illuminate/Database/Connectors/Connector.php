@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connectors;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Connectors;
 
 use Doctrine\DBAL\Driver\PDOConnection;
 use Exception;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\DetectsLostConnections;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\DetectsLostConnections;
 use PDO;
 use Throwable;
 

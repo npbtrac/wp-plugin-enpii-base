@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Processor;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Processor;
 
 /**
- * An optional interface to allow labelling Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog processors.
+ * An optional interface to allow labelling Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog processors.
  *
  * @author Nicolas Grekas <p@tchwork.com>
  *
- * @phpstan-import-type Record from \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Logger
+ * @phpstan-import-type Record from \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Logger
  */
 interface ProcessorInterface
 {

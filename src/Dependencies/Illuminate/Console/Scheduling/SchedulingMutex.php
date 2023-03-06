@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling;
 
 use DateTimeInterface;
 
@@ -9,7 +9,7 @@ interface SchedulingMutex
     /**
      * Attempt to obtain a scheduling mutex for the given event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
      * @param  \DateTimeInterface  $time
      * @return bool
      */
@@ -18,7 +18,7 @@ interface SchedulingMutex
     /**
      * Determine if a scheduling mutex exists for the given event.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $event
      * @param  \DateTimeInterface  $time
      * @return bool
      */

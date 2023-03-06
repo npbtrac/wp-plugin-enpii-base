@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Cron;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Cron;
 
 /**
  * Abstract CRON expression field

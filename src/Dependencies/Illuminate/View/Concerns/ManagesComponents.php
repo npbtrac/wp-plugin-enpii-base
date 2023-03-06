@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Concerns;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Concerns;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HtmlString;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\View;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HtmlString;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\View;
 use InvalidArgumentException;
 
 trait ManagesComponents
@@ -41,7 +41,7 @@ trait ManagesComponents
     /**
      * Start a component rendering process.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\View|\Closure|string  $view
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\View|\Closure|string  $view
      * @param  array  $data
      * @return void
      */

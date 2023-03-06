@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -11,7 +11,7 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\PHPStan;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\PHPStan;
 
 use Closure;
 use InvalidArgumentException;

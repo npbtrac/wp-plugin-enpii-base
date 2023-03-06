@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\Test;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\Test;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\AbstractLogger;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\AbstractLogger;
 
 /**
  * Used for testing purposes.

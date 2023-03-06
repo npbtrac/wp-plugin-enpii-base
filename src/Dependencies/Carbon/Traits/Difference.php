@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterval;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Translator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterval;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonPeriod;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Translator;
 use Closure;
 use DateInterval;
 use DateTimeInterface;
@@ -115,7 +115,7 @@ trait Difference
      * Return relative interval (negative if $absolute flag is not set to true and the given date is before
      * current one).
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return DateInterval
@@ -143,7 +143,7 @@ trait Difference
      * Return relative interval (negative if $absolute flag is not set to true and the given date is before
      * current one).
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return CarbonInterval
@@ -156,7 +156,7 @@ trait Difference
     /**
      * Get the difference in years
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -169,7 +169,7 @@ trait Difference
     /**
      * Get the difference in quarters rounded down.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -182,7 +182,7 @@ trait Difference
     /**
      * Get the difference in months rounded down.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -197,7 +197,7 @@ trait Difference
     /**
      * Get the difference in weeks rounded down.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -210,7 +210,7 @@ trait Difference
     /**
      * Get the difference in days rounded down.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -224,7 +224,7 @@ trait Difference
      * Get the difference in days using a filter closure rounded down.
      *
      * @param Closure                                                $callback
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -238,7 +238,7 @@ trait Difference
      * Get the difference in hours using a filter closure rounded down.
      *
      * @param Closure                                                $callback
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -253,7 +253,7 @@ trait Difference
      *
      * @param CarbonInterval                                         $ci       An interval to traverse by
      * @param Closure                                                $callback
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -279,7 +279,7 @@ trait Difference
     /**
      * Get the difference in weekdays rounded down.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -294,7 +294,7 @@ trait Difference
     /**
      * Get the difference in weekend days using a filter rounded down.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -309,7 +309,7 @@ trait Difference
     /**
      * Get the difference in hours rounded down.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -322,7 +322,7 @@ trait Difference
     /**
      * Get the difference in hours rounded down using timestamps.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -335,7 +335,7 @@ trait Difference
     /**
      * Get the difference in minutes rounded down.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -348,7 +348,7 @@ trait Difference
     /**
      * Get the difference in minutes rounded down using timestamps.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -361,7 +361,7 @@ trait Difference
     /**
      * Get the difference in seconds rounded down.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -385,7 +385,7 @@ trait Difference
     /**
      * Get the difference in microseconds.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -404,7 +404,7 @@ trait Difference
     /**
      * Get the difference in milliseconds rounded down.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -417,7 +417,7 @@ trait Difference
     /**
      * Get the difference in seconds using timestamps.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -434,7 +434,7 @@ trait Difference
     /**
      * Get the difference in microseconds using timestamps.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -452,7 +452,7 @@ trait Difference
     /**
      * Get the difference in milliseconds rounded down using timestamps.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return int
@@ -465,7 +465,7 @@ trait Difference
     /**
      * Get the difference in seconds as float (microsecond-precision).
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return float
@@ -478,7 +478,7 @@ trait Difference
     /**
      * Get the difference in minutes as float (microsecond-precision).
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return float
@@ -491,7 +491,7 @@ trait Difference
     /**
      * Get the difference in hours as float (microsecond-precision).
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return float
@@ -504,7 +504,7 @@ trait Difference
     /**
      * Get the difference in days as float (microsecond-precision).
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return float
@@ -526,7 +526,7 @@ trait Difference
     /**
      * Get the difference in weeks as float (microsecond-precision).
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return float
@@ -539,7 +539,7 @@ trait Difference
     /**
      * Get the difference in months as float (microsecond-precision).
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return float
@@ -554,14 +554,14 @@ trait Difference
             [$start, $end] = [$end, $start];
         }
         $monthsDiff = $start->diffInMonths($end);
-        /** @var Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable $floorEnd */
+        /** @var Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable $floorEnd */
         $floorEnd = $start->avoidMutation()->addMonths($monthsDiff);
 
         if ($floorEnd >= $end) {
             return $sign * $monthsDiff;
         }
 
-        /** @var Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable $startOfMonthAfterFloorEnd */
+        /** @var Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable $startOfMonthAfterFloorEnd */
         $startOfMonthAfterFloorEnd = $floorEnd->avoidMutation()->addMonth()->startOfMonth();
 
         if ($startOfMonthAfterFloorEnd > $end) {
@@ -574,7 +574,7 @@ trait Difference
     /**
      * Get the difference in year as float (microsecond-precision).
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return float
@@ -589,14 +589,14 @@ trait Difference
             [$start, $end] = [$end, $start];
         }
         $yearsDiff = $start->diffInYears($end);
-        /** @var Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable $floorEnd */
+        /** @var Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable $floorEnd */
         $floorEnd = $start->avoidMutation()->addYears($yearsDiff);
 
         if ($floorEnd >= $end) {
             return $sign * $yearsDiff;
         }
 
-        /** @var Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable $startOfYearAfterFloorEnd */
+        /** @var Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable $startOfYearAfterFloorEnd */
         $startOfYearAfterFloorEnd = $floorEnd->avoidMutation()->addYear()->startOfYear();
 
         if ($startOfYearAfterFloorEnd > $end) {
@@ -609,7 +609,7 @@ trait Difference
     /**
      * Get the difference in seconds as float (microsecond-precision) using timestamps.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return float
@@ -622,7 +622,7 @@ trait Difference
     /**
      * Get the difference in minutes as float (microsecond-precision) using timestamps.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return float
@@ -635,7 +635,7 @@ trait Difference
     /**
      * Get the difference in hours as float (microsecond-precision) using timestamps.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return float
@@ -648,7 +648,7 @@ trait Difference
     /**
      * Get the difference in days as float (microsecond-precision).
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return float
@@ -665,7 +665,7 @@ trait Difference
     /**
      * Get the difference in weeks as float (microsecond-precision).
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return float
@@ -678,7 +678,7 @@ trait Difference
     /**
      * Get the difference in months as float (microsecond-precision) using timestamps.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return float
@@ -693,14 +693,14 @@ trait Difference
             [$start, $end] = [$end, $start];
         }
         $monthsDiff = $start->diffInMonths($end);
-        /** @var Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable $floorEnd */
+        /** @var Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable $floorEnd */
         $floorEnd = $start->avoidMutation()->addMonths($monthsDiff);
 
         if ($floorEnd >= $end) {
             return $sign * $monthsDiff;
         }
 
-        /** @var Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable $startOfMonthAfterFloorEnd */
+        /** @var Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable $startOfMonthAfterFloorEnd */
         $startOfMonthAfterFloorEnd = $floorEnd->avoidMutation()->addMonth()->startOfMonth();
 
         if ($startOfMonthAfterFloorEnd > $end) {
@@ -713,7 +713,7 @@ trait Difference
     /**
      * Get the difference in year as float (microsecond-precision) using timestamps.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface|\DateTimeInterface|string|null $date
      * @param bool                                                   $absolute Get the absolute of the difference
      *
      * @return float
@@ -728,14 +728,14 @@ trait Difference
             [$start, $end] = [$end, $start];
         }
         $yearsDiff = $start->diffInYears($end);
-        /** @var Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable $floorEnd */
+        /** @var Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable $floorEnd */
         $floorEnd = $start->avoidMutation()->addYears($yearsDiff);
 
         if ($floorEnd >= $end) {
             return $sign * $yearsDiff;
         }
 
-        /** @var Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable $startOfYearAfterFloorEnd */
+        /** @var Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|CarbonImmutable $startOfYearAfterFloorEnd */
         $startOfYearAfterFloorEnd = $floorEnd->avoidMutation()->addYear()->startOfYear();
 
         if ($startOfYearAfterFloorEnd > $end) {
@@ -778,7 +778,7 @@ trait Difference
      * echo Carbon::tomorrow()->diffForHumans(Carbon::yesterday(), ['short' => true]) . "\n";
      * ```
      *
-     * @param Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|\DateTimeInterface|string|array|null $other   if array passed, will be used as parameters array, see $syntax below;
+     * @param Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|\DateTimeInterface|string|array|null $other   if array passed, will be used as parameters array, see $syntax below;
      *                                                             if null passed, now will be used as comparison reference;
      *                                                             if any other type, it will be converted to date and used as reference.
      * @param int|array                                   $syntax  if array passed, parameters will be extracted from it, the array may contains:
@@ -842,7 +842,7 @@ trait Difference
      * Get the difference in a human readable format in the current locale from current instance to an other
      * instance given (or now if null given).
      *
-     * @param Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|\DateTimeInterface|string|array|null $other   if array passed, will be used as parameters array, see $syntax below;
+     * @param Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|\DateTimeInterface|string|array|null $other   if array passed, will be used as parameters array, see $syntax below;
      *                                                             if null passed, now will be used as comparison reference;
      *                                                             if any other type, it will be converted to date and used as reference.
      * @param int|array                                   $syntax  if array passed, parameters will be extracted from it, the array may contains:
@@ -906,7 +906,7 @@ trait Difference
      * 1 hour before
      * 5 months before
      *
-     * @param Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|\DateTimeInterface|string|array|null $other   if array passed, will be used as parameters array, see $syntax below;
+     * @param Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|\DateTimeInterface|string|array|null $other   if array passed, will be used as parameters array, see $syntax below;
      *                                                             if null passed, now will be used as comparison reference;
      *                                                             if any other type, it will be converted to date and used as reference.
      * @param int|array                                   $syntax  if array passed, parameters will be extracted from it, the array may contains:
@@ -949,7 +949,7 @@ trait Difference
      * Get the difference in a human readable format in the current locale from an other
      * instance given (or now if null given) to current instance.
      *
-     * @param Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|\DateTimeInterface|string|array|null $other   if array passed, will be used as parameters array, see $syntax below;
+     * @param Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|\DateTimeInterface|string|array|null $other   if array passed, will be used as parameters array, see $syntax below;
      *                                                             if null passed, now will be used as comparison reference;
      *                                                             if any other type, it will be converted to date and used as reference.
      * @param int|array                                   $syntax  if array passed, parameters will be extracted from it, the array may contains:
@@ -1119,7 +1119,7 @@ trait Difference
      *
      * Language, date and time formats will change according to the current locale.
      *
-     * @param Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon|\DateTimeInterface|string|null $referenceTime
+     * @param Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon|\DateTimeInterface|string|null $referenceTime
      * @param array                                 $formats
      *
      * @return string

@@ -1,11 +1,11 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobFailed;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\ManuallyFailedException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\InteractsWithTime;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Events\Dispatcher;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Events\JobFailed;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\ManuallyFailedException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\InteractsWithTime;
 
 abstract class Job
 {
@@ -21,7 +21,7 @@ abstract class Job
     /**
      * The IoC container instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container
      */
     protected $container;
 
@@ -340,7 +340,7 @@ abstract class Job
     /**
      * Get the service container instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container
      */
     public function getContainer()
     {

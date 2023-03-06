@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Notifications\VerifyEmail;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Auth\Notifications\VerifyEmail;
 
 trait MustVerifyEmail
 {

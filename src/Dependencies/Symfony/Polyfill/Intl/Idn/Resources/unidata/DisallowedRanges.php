@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Intl\Idn\Resources\unidata;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Intl\Idn\Resources\unidata;
 
 /**
  * @internal

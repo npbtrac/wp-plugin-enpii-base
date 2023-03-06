@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\App\Console;
+namespace Enpii\WP_Plugin\Enpii_Base\App\Console;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Schedule;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Schedule;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel {
 

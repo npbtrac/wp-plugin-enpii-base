@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,13 +9,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LogLevel;
 
 /**
- * Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog error handler
+ * Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog error handler
  *
  * A facility to enable logging of runtime errors, exceptions and fatal errors.
  *
@@ -127,7 +127,7 @@ class ErrorHandler
 
     /**
      * @param LogLevel::*|null $level              a LogLevel::* constant, null to use the default LogLevel::ALERT
-     * @param int              $reservedMemorySize Amount of KBs to reserve in memory so that it can be freed when handling fatal errors giving Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog some room in memory to get its job done
+     * @param int              $reservedMemorySize Amount of KBs to reserve in memory so that it can be freed when handling fatal errors giving Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog some room in memory to get its job done
      */
     public function registerFatalHandler($level = null, int $reservedMemorySize = 20): self
     {

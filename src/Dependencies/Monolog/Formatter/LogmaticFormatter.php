@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 /*
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog package.
  *
  * (c) Jordi Boggiano <j.boggiano@seld.be>
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter;
 
 /**
  * Encodes message information into JSON in a format compatible with Logmatic.
@@ -48,7 +48,7 @@ class LogmaticFormatter extends JsonFormatter
      * Appends the 'hostname' and 'appname' parameter for indexing by Logmatic.
      *
      * @see http://doc.logmatic.io/docs/basics-to-send-data
-     * @see \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\JsonFormatter::format()
+     * @see \Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Formatter\JsonFormatter::format()
      */
     public function format(array $record): string
     {

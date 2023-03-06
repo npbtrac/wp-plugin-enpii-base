@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\SimpleCache;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\SimpleCache;
 
 /**
  * Exception interface for invalid cache arguments.

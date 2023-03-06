@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Process;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Process;
 
 /**
  * Exception that is thrown when a process times out.

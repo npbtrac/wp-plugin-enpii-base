@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\Concerns;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Compilers\Concerns;
 
 trait CompilesLayouts
 {
@@ -21,7 +21,7 @@ trait CompilesLayouts
     {
         $expression = $this->stripParentheses($expression);
 
-        $echo = "<?php echo \$__env->make({$expression}, \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>";
+        $echo = "<?php echo \$__env->make({$expression}, \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>";
 
         $this->footer[] = $echo;
 
@@ -50,7 +50,7 @@ trait CompilesLayouts
     {
         $escapedLastSection = strtr($this->lastSection, ['\\' => '\\\\', "'" => "\\'"]);
 
-        return "<?php echo \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\View\Factory::parentPlaceholder('{$escapedLastSection}'); ?>";
+        return "<?php echo \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Factory::parentPlaceholder('{$escapedLastSection}'); ?>";
     }
 
     /**

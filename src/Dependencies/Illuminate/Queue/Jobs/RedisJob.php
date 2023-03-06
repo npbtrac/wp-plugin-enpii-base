@@ -1,17 +1,17 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\Jobs;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job as JobContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\RedisQueue;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Queue\Job as JobContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\RedisQueue;
 
 class RedisJob extends Job implements JobContract
 {
     /**
      * The Redis queue instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\RedisQueue
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\RedisQueue
      */
     protected $redis;
 
@@ -39,8 +39,8 @@ class RedisJob extends Job implements JobContract
     /**
      * Create a new job instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container  $container
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\RedisQueue  $redis
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\RedisQueue  $redis
      * @param  string  $job
      * @param  string  $reserved
      * @param  string  $connectionName
@@ -120,7 +120,7 @@ class RedisJob extends Job implements JobContract
     /**
      * Get the underlying Redis factory implementation.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\RedisQueue
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\RedisQueue
      */
     public function getRedisQueue()
     {

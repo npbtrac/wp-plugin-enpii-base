@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\EventDispatcher\Debug;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\EventDispatcher\Debug;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\EventDispatcher\StoppableEventInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\EventDispatcher\StoppableEventInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Stopwatch\Stopwatch;
 use Symfony\Component\VarDumper\Caster\ClassStub;
 

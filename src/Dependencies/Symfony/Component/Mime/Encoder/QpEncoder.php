@@ -9,9 +9,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Encoder;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Encoder;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\CharacterStream;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\CharacterStream;
 
 /**
  * @author Chris Corbyn

@@ -1,28 +1,28 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository;
 
 class AdapterRepository extends AbstractRepository
 {
     /**
      * The set of readers to use.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ReaderInterface[]
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ReaderInterface[]
      */
     protected $readers;
 
     /**
      * The set of writers to use.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\WriterInterface[]
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\WriterInterface[]
      */
     protected $writers;
 
     /**
      * Create a new adapter repository instance.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ReaderInterface[] $readers
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\WriterInterface[] $writers
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ReaderInterface[] $readers
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\WriterInterface[] $writers
      * @param bool                                         $immutable
      *
      * @return void

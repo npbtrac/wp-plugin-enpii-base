@@ -1,22 +1,22 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing;
 
 use Closure;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Exceptions\HttpResponseException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Contracts\ControllerDispatcher as ControllerDispatcherContract;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Matching\HostValidator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Matching\MethodValidator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Matching\SchemeValidator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Matching\UriValidator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Exceptions\HttpResponseException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Contracts\ControllerDispatcher as ControllerDispatcherContract;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Matching\HostValidator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Matching\MethodValidator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Matching\SchemeValidator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Matching\UriValidator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 use LogicException;
 use ReflectionFunction;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Route as SymfonyRoute;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Route as SymfonyRoute;
 
 class Route
 {
@@ -116,21 +116,21 @@ class Route
     /**
      * The compiled version of the route.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\CompiledRoute
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\CompiledRoute
      */
     public $compiled;
 
     /**
      * The router instance used by the route.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router
      */
     protected $router;
 
     /**
      * The container instance used by the route.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container
      */
     protected $container;
 
@@ -231,7 +231,7 @@ class Route
      *
      * @return mixed
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
     protected function runController()
     {
@@ -279,7 +279,7 @@ class Route
     /**
      * Determine if the route matches a given request.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @param  bool  $includingMethod
      * @return bool
      */
@@ -303,7 +303,7 @@ class Route
     /**
      * Compile the route into a Symfony CompiledRoute instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\CompiledRoute
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\CompiledRoute
      */
     protected function compileRoute()
     {
@@ -317,7 +317,7 @@ class Route
     /**
      * Bind the route to a given request for execution.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request  $request
      * @return $this
      */
     public function bind(Request $request)
@@ -1044,7 +1044,7 @@ class Route
     /**
      * Get the dispatcher for the route's controller.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Contracts\ControllerDispatcher
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Contracts\ControllerDispatcher
      */
     public function controllerDispatcher()
     {
@@ -1078,7 +1078,7 @@ class Route
     /**
      * Convert the route to a Symfony route.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Route
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Route
      */
     public function toSymfonyRoute()
     {
@@ -1104,7 +1104,7 @@ class Route
     /**
      * Get the compiled version of the route.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\CompiledRoute
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\CompiledRoute
      */
     public function getCompiled()
     {
@@ -1114,7 +1114,7 @@ class Route
     /**
      * Set the router instance on the route.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router  $router
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Router  $router
      * @return $this
      */
     public function setRouter(Router $router)
@@ -1127,7 +1127,7 @@ class Route
     /**
      * Set the container instance on the route.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container  $container
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container  $container
      * @return $this
      */
     public function setContainer(Container $container)

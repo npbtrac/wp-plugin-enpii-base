@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Doctrine\Common\Lexer\AbstractLexer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Doctrine\Common\Lexer\AbstractLexer;
 
 class EmailLexer extends AbstractLexer
 {

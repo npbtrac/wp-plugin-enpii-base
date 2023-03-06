@@ -1,10 +1,10 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Plugin;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Plugin;
 
 use BadMethodCallException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\PluginInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\FilesystemInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\PluginInterface;
 use LogicException;
 
 trait PluggableTrait

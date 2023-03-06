@@ -12,9 +12,9 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Reference;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Reference;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Normalizer\TextNormalizer;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Normalizer\TextNormalizer;
 
 /**
  * A collection of references, indexed by label

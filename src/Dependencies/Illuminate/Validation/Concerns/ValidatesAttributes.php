@@ -1,28 +1,28 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Concerns;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Concerns;
 
 use Countable;
 use DateTime;
 use DateTimeInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\EmailValidator;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation\DNSCheckValidation;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation\MultipleValidationWithAnd;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation\NoRFCWarningsValidation;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation\RFCValidation;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation\SpoofCheckValidation;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\EmailValidator;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation\DNSCheckValidation;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation\MultipleValidationWithAnd;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation\NoRFCWarningsValidation;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation\RFCValidation;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Egulias\EmailValidator\Validation\SpoofCheckValidation;
 use Exception;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Date;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Exists;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Unique;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationData;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Date;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Exists;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\Rules\Unique;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Validation\ValidationData;
 use InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\File\File;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\File\UploadedFile;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\File\File;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\File\UploadedFile;
 
 trait ValidatesAttributes
 {

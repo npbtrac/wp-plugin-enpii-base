@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Normalizer;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Normalizer;
 
 /***
  * Normalize text input using the steps given by the CommonMark spec to normalize labels

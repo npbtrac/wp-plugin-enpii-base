@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cookie;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cookie;
 
 class CookieValuePrefix
 {

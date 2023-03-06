@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem;
 
 interface Filesystem
 {
@@ -32,7 +32,7 @@ interface Filesystem
      * @param  string  $path
      * @return string
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function get($path);
 
@@ -42,7 +42,7 @@ interface Filesystem
      * @param  string  $path
      * @return resource|null The path resource or null on failure.
      *
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function readStream($path);
 
@@ -65,7 +65,7 @@ interface Filesystem
      * @return bool
      *
      * @throws \InvalidArgumentException If $resource is not a file handle.
-     * @throws \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileExistsException
+     * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Filesystem\FileExistsException
      */
     public function writeStream($path, $resource, array $options = []);
 

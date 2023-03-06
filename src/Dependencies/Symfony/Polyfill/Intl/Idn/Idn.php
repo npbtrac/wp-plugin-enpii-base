@@ -9,12 +9,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Intl\Idn;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Intl\Idn;
 
 use Exception;
 use NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Intl\Idn\Resources\unidata\DisallowedRanges;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Intl\Idn\Resources\unidata\Regex;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Intl\Idn\Resources\unidata\DisallowedRanges;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Intl\Idn\Resources\unidata\Regex;
 
 /**
  * @see https://www.unicode.org/reports/tr46/

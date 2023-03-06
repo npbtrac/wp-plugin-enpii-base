@@ -12,17 +12,17 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Math;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Math;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math\BigDecimal;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math\BigInteger;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math\Exception\MathException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math\RoundingMode as BrickMathRounding;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Exception\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Decimal;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Hexadecimal;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Integer as IntegerObject;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\NumberInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math\BigDecimal;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math\BigInteger;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math\Exception\MathException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math\RoundingMode as BrickMathRounding;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Exception\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Decimal;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Hexadecimal;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Integer as IntegerObject;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\NumberInterface;
 
 /**
  * A calculator using the brick/math library for arbitrary-precision arithmetic

@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result;
 
 /**
  * @template T
@@ -11,7 +11,7 @@ abstract class Result
     /**
      * Get the success option value.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Option<T>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Option<T>
      */
     abstract public function success();
 
@@ -34,14 +34,14 @@ abstract class Result
      *
      * @param callable(T):S $f
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<S,E>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<S,E>
      */
     abstract public function mapSuccess(callable $f);
 
     /**
      * Get the error option value.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Option<E>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Option<E>
      */
     abstract public function error();
 
@@ -64,7 +64,7 @@ abstract class Result
      *
      * @param callable(E):F $f
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<T,F>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<T,F>
      */
     abstract public function mapError(callable $f);
 }

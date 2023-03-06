@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css\Property;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\Css\Property;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Node\Specificity;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\CssSelector\Node\Specificity;
 
 class Processor
 {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions;
 
 use InvalidArgumentException as BaseInvalidArgumentException;
 use Throwable;
@@ -27,6 +27,6 @@ class NotLocaleAwareException extends BaseInvalidArgumentException implements In
     {
         $dump = \is_object($object) ? \get_class($object) : \gettype($object);
 
-        parent::__construct("$dump does neither implements Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\LocaleAwareInterface nor getLocale() method.", $code, $previous);
+        parent::__construct("$dump does neither implements Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Translation\LocaleAwareInterface nor getLocale() method.", $code, $previous);
     }
 }

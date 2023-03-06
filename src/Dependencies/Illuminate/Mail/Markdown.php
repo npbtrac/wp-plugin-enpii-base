@@ -1,21 +1,21 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Mail;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Mail;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory as ViewFactory;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HtmlString;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\CommonMarkConverter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Environment;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Table\TableExtension;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory as ViewFactory;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HtmlString;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\CommonMarkConverter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Environment;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Table\TableExtension;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\CssToInlineStyles;
 
 class Markdown
 {
     /**
      * The view factory implementation.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory
      */
     protected $view;
 
@@ -36,7 +36,7 @@ class Markdown
     /**
      * Create a new Markdown renderer instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory  $view
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory  $view
      * @param  array  $options
      * @return void
      */
@@ -52,8 +52,8 @@ class Markdown
      *
      * @param  string  $view
      * @param  array  $data
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\CssToInlineStyles|null  $inliner
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HtmlString
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\TijsVerkoyen\CssToInlineStyles\CssToInlineStyles|null  $inliner
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HtmlString
      */
     public function render($view, array $data = [], $inliner = null)
     {
@@ -77,7 +77,7 @@ class Markdown
      *
      * @param  string  $view
      * @param  array  $data
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HtmlString
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HtmlString
      */
     public function renderText($view, array $data = [])
     {
@@ -96,7 +96,7 @@ class Markdown
      * Parse the given Markdown text into HTML.
      *
      * @param  string  $text
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HtmlString
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HtmlString
      */
     public static function parse($text)
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Events;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Events;
 
 trait Dispatchable
 {
@@ -43,7 +43,7 @@ trait Dispatchable
     /**
      * Broadcast the event with the given arguments.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting\PendingBroadcast
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting\PendingBroadcast
      */
     public static function broadcast()
     {

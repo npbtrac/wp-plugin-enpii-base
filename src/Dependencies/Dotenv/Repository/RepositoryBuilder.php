@@ -1,26 +1,26 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ApacheAdapter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\AvailabilityInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\EnvConstAdapter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\PutenvAdapter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ServerConstAdapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ApacheAdapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\AvailabilityInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\EnvConstAdapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\PutenvAdapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ServerConstAdapter;
 
 class RepositoryBuilder
 {
     /**
      * The set of readers to use.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ReaderInterface[]|null
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ReaderInterface[]|null
      */
     private $readers;
 
     /**
      * The set of writers to use.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\WriterInterface[]|null
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\WriterInterface[]|null
      */
     private $writers;
 
@@ -34,8 +34,8 @@ class RepositoryBuilder
     /**
      * Create a new repository builder instance.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ReaderInterface[]|null $readers
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\WriterInterface[]|null $writers
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ReaderInterface[]|null $readers
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\WriterInterface[]|null $writers
      * @param bool                                              $immutable
      *
      * @return void
@@ -50,7 +50,7 @@ class RepositoryBuilder
     /**
      * Create a new repository builder instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryBuilder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryBuilder
      */
     public static function create()
     {
@@ -60,9 +60,9 @@ class RepositoryBuilder
     /**
      * Creates a repository builder with the given readers.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ReaderInterface[]|null $readers
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ReaderInterface[]|null $readers
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryBuilder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryBuilder
      */
     public function withReaders(array $readers = null)
     {
@@ -74,9 +74,9 @@ class RepositoryBuilder
     /**
      * Creates a repository builder with the given writers.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\WriterInterface[]|null $writers
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\WriterInterface[]|null $writers
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryBuilder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryBuilder
      */
     public function withWriters(array $writers = null)
     {
@@ -88,7 +88,7 @@ class RepositoryBuilder
     /**
      * Creates a repository builder with mutability enabled.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryBuilder
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryBuilder
      */
     public function immutable()
     {
@@ -98,7 +98,7 @@ class RepositoryBuilder
     /**
      * Creates a new repository instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface
      */
     public function make()
     {
@@ -116,7 +116,7 @@ class RepositoryBuilder
     /**
      * Return the array of default adapters.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\AvailabilityInterface[]
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\AvailabilityInterface[]
      */
     private static function defaultAdapters()
     {
@@ -131,9 +131,9 @@ class RepositoryBuilder
     /**
      * Filter an array of adapters to only those that are supported.
      *
-     * @param \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\AvailabilityInterface[] $adapters
+     * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\AvailabilityInterface[] $adapters
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\AvailabilityInterface[]
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\AvailabilityInterface[]
      */
     private static function filterByAvailability(array $adapters)
     {

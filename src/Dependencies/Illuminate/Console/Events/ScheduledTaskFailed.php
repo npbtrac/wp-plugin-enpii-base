@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Events;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Events;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event;
 use Throwable;
 
 class ScheduledTaskFailed
@@ -10,7 +10,7 @@ class ScheduledTaskFailed
     /**
      * The scheduled event that failed.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event
      */
     public $task;
 
@@ -24,7 +24,7 @@ class ScheduledTaskFailed
     /**
      * Create a new event instance.
      *
-     * @param  \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $task
+     * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Event  $task
      * @param  \Throwable  $exception
      */
     public function __construct(Event $task, Throwable $exception)

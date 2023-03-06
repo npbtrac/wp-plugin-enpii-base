@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Part;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Encoder\Base64ContentEncoder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Encoder\ContentEncoderInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Encoder\EightBitContentEncoder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Encoder\QpContentEncoder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\InvalidArgumentException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Header\Headers;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Encoder\Base64ContentEncoder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Encoder\ContentEncoderInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Encoder\EightBitContentEncoder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Encoder\QpContentEncoder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Exception\InvalidArgumentException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Mime\Header\Headers;
 
 /**
  * @author Fabien Potencier <fabien@symfony.com>

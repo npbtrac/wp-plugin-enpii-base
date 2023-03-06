@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Util;
 
 class StreamHasher
 {

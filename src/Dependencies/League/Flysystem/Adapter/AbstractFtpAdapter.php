@@ -1,12 +1,12 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter;
 
 use DateTime;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\AdapterInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Config;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\NotSupportedException;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\SafeStorage;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\AdapterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Config;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\NotSupportedException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\SafeStorage;
 use RuntimeException;
 
 abstract class AbstractFtpAdapter extends AbstractAdapter

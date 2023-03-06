@@ -1,14 +1,14 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\None;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Some;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\None;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Some;
 
 /**
  * @template T
  * @template E
- * @extends \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<T,E>
+ * @extends \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<T,E>
  */
 class Success extends Result
 {
@@ -36,7 +36,7 @@ class Success extends Result
      *
      * @param S $value
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<S,E>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<S,E>
      */
     public static function create($value)
     {
@@ -46,7 +46,7 @@ class Success extends Result
     /**
      * Get the success option value.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Option<T>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Option<T>
      */
     public function success()
     {
@@ -60,7 +60,7 @@ class Success extends Result
      *
      * @param callable(T):S $f
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<S,E>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<S,E>
      */
     public function mapSuccess(callable $f)
     {
@@ -70,7 +70,7 @@ class Success extends Result
     /**
      * Get the error option value.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Option<E>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Option<E>
      */
     public function error()
     {
@@ -84,11 +84,11 @@ class Success extends Result
      *
      * @param callable(E):F $f
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<T,F>
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<T,F>
      */
     public function mapError(callable $f)
     {
-        /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<T,F> */
+        /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Result\Result<T,F> */
         return self::create($this->value);
     }
 }

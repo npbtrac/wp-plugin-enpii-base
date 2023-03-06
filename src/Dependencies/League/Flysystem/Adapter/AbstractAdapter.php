@@ -1,8 +1,8 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\Adapter;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\Flysystem\AdapterInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Flysystem\AdapterInterface;
 
 abstract class AbstractAdapter implements AdapterInterface
 {

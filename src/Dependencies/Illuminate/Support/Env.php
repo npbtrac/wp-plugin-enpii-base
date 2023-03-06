@@ -1,12 +1,12 @@
 <?php
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\EnvConstAdapter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\PutenvAdapter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ServerConstAdapter;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryBuilder;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\PhpOption\Option;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\EnvConstAdapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\PutenvAdapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\Adapter\ServerConstAdapter;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryBuilder;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\PhpOption\Option;
 
 class Env
 {
@@ -20,7 +20,7 @@ class Env
     /**
      * The environment repository instance.
      *
-     * @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface|null
+     * @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface|null
      */
     protected static $repository;
 
@@ -49,7 +49,7 @@ class Env
     /**
      * Get the environment repository instance.
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Dotenv\Repository\RepositoryInterface
      */
     public static function getRepository()
     {

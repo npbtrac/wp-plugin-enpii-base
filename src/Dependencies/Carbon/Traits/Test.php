@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonTimeZone;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonTimeZone;
 use Closure;
 use DateTimeImmutable;
 use DateTimeInterface;
@@ -26,7 +26,7 @@ trait Test
     ///////////////////////////////////////////////////////////////////
 
     /**
-     * A test Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance to be returned when now instances are created.
+     * A test Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance to be returned when now instances are created.
      *
      * @var Closure|static|null
      */
@@ -40,7 +40,7 @@ trait Test
     protected static $testDefaultTimezone;
 
     /**
-     * Set a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance (real or mock) to be returned when a "now"
+     * Set a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance (real or mock) to be returned when a "now"
      * instance is created.  The provided instance will be returned
      * specifically under the following conditions:
      *   - A call to the static now() method, ex. Carbon::now()
@@ -59,7 +59,7 @@ trait Test
      *
      * /!\ Use this method for unit tests only.
      *
-     * @param DateTimeInterface|Closure|static|string|false|null $testNow real or mock Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance
+     * @param DateTimeInterface|Closure|static|string|false|null $testNow real or mock Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance
      */
     public static function setTestNow($testNow = null)
     {
@@ -69,7 +69,7 @@ trait Test
     }
 
     /**
-     * Set a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance (real or mock) to be returned when a "now"
+     * Set a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance (real or mock) to be returned when a "now"
      * instance is created.  The provided instance will be returned
      * specifically under the following conditions:
      *   - A call to the static now() method, ex. Carbon::now()
@@ -85,7 +85,7 @@ trait Test
      *
      * /!\ Use this method for unit tests only.
      *
-     * @param DateTimeInterface|Closure|static|string|false|null $testNow real or mock Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance
+     * @param DateTimeInterface|Closure|static|string|false|null $testNow real or mock Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance
      */
     public static function setTestNowAndTimezone($testNow = null, $tz = null)
     {
@@ -119,7 +119,7 @@ trait Test
      *
      * /!\ Use this method for unit tests only.
      *
-     * @param DateTimeInterface|Closure|static|string|false|null $testNow  real or mock Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance
+     * @param DateTimeInterface|Closure|static|string|false|null $testNow  real or mock Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance
      * @param Closure|null                                       $callback
      *
      * @return mixed
@@ -138,7 +138,7 @@ trait Test
     }
 
     /**
-     * Get the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon instance (real or mock) to be returned when a "now"
+     * Get the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance (real or mock) to be returned when a "now"
      * instance is created.
      *
      * @return Closure|static the current instance used for testing
@@ -164,7 +164,7 @@ trait Test
      *
      * @param string|\DateTimeZone $tz
      *
-     * @return \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|null
+     * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|null
      */
     protected static function getMockedTestNow($tz)
     {
@@ -177,7 +177,7 @@ trait Test
                 $tz ?: $realNow->getTimezone()
             ));
         }
-        /* @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|null $testNow */
+        /* @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon|null $testNow */
 
         return $testNow instanceof CarbonInterface
             ? $testNow->avoidMutation()->tz($tz)
@@ -186,7 +186,7 @@ trait Test
 
     protected static function mockConstructorParameters(&$time, $tz)
     {
-        /** @var \Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable|\Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\Carbon $testInstance */
+        /** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonImmutable|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Carbon $testInstance */
         $testInstance = clone static::getMockedTestNow($tz);
 
         if (static::hasRelativeKeywords($time)) {

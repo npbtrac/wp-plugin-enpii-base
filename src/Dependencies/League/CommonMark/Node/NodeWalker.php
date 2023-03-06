@@ -12,7 +12,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Node;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Node;
 
 final class NodeWalker
 {

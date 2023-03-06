@@ -9,10 +9,10 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Service;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Service;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Psr\Container\ContainerInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Service\Attribute\SubscribedService;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Container\ContainerInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\Service\Attribute\SubscribedService;
 
 /**
  * Implementation of ServiceSubscriberInterface that determines subscribed services from

@@ -5,7 +5,7 @@
  * Licensed under the MIT License
  * =========================================================================== */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Opis\Closure;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Opis\Closure;
 
 defined('T_NAME_QUALIFIED') || define('T_NAME_QUALIFIED', -4);
 defined('T_NAME_FULLY_QUALIFIED') || define('T_NAME_FULLY_QUALIFIED', -5);

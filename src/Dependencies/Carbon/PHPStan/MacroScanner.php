@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This file is part of the Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon package.
+ * This file is part of the Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon package.
  *
  * (c) Brian Nesbitt <brian@nesbot.com>
  *
@@ -9,16 +9,16 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\PHPStan;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\PHPStan;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
 use ReflectionClass;
 use ReflectionException;
 
 final class MacroScanner
 {
     /**
-     * Return true if the given pair class-method is a Enpii\Wp_Plugin\Enpii_Base\Dependencies\Carbon macro.
+     * Return true if the given pair class-method is a Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon macro.
      *
      * @param string $className
      * @phpstan-param class-string $className

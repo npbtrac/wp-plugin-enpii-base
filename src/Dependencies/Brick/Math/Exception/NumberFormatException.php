@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\Brick\Math\Exception;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Brick\Math\Exception;
 
 /**
  * Exception thrown when attempting to create a number from a string with an invalid format.

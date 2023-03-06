@@ -12,7 +12,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util;
 
 @trigger_error(sprintf('The "%s" class is deprecated since league/commonmark 1.1, use "%s" instead.', Html5Entities::class, Html5EntityDecoder::class), E_USER_DEPRECATED);
 

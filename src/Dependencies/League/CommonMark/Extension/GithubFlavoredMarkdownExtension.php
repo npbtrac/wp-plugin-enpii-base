@@ -9,14 +9,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension;
 
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\ConfigurableEnvironmentInterface;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Autolink\AutolinkExtension;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\DisallowedRawHtml\DisallowedRawHtmlExtension;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Strikethrough\StrikethroughExtension;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Table\TableExtension;
-use Enpii\Wp_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\TaskList\TaskListExtension;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\ConfigurableEnvironmentInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Autolink\AutolinkExtension;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\DisallowedRawHtml\DisallowedRawHtmlExtension;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Strikethrough\StrikethroughExtension;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\Table\TableExtension;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Extension\TaskList\TaskListExtension;
 
 final class GithubFlavoredMarkdownExtension implements ExtensionInterface
 {
