@@ -10,18 +10,18 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     restart: always
-    volumes:
-      - ./dev-docker/config/nginx/nginx-dev.conf:/etc/nginx/nginx.conf
-      - ./dev-docker/config/php/custom.ini:/etc/php7/conf.d/custom.ini
-      - ./dev-docker/config/php/fpm/www.conf:/etc/php7/php-fpm.d/www.conf
-      - ./dev-docker/config/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
-      - ./dev-docker/config/wordpress/wp-config.php:/var/www/html/wp-config.php
-      - ./dev-docker/log/nginx/:/var/log/nginx/
-      - ./dev-docker/log/wordpress/:/var/www/log/wordpress/
-      - ./dev-docker/wordpress/:/var/www/html/
-      - ./dev-miscs/bedrock-autoloader.php:/var/www/html/wp-content/mu-plugins/bedrock-autoloader.php
-      - ./dev-miscs/wp-cli.yml:/var/www/html/wp-cli.yml
-      - ./:/var/www/html/wp-content/mu-plugins/enpii-base
+    # volumes:
+      # - ./dev-docker/config/nginx/nginx-dev.conf:/etc/nginx/nginx.conf
+      # - ./dev-docker/config/php/custom.ini:/etc/php7/conf.d/custom.ini
+      # - ./dev-docker/config/php/fpm/www.conf:/etc/php7/php-fpm.d/www.conf
+      # - ./dev-docker/config/others/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+      # - ./dev-docker/config/wordpress/wp-config.php:/var/www/html/wp-config.php
+      # - ./dev-docker/log/nginx/:/var/log/nginx/
+      # - ./dev-docker/log/wordpress/:/var/www/log/wordpress/
+      # - ./dev-docker/wordpress/:/var/www/html/
+      # - ./dev-miscs/bedrock-autoloader.php:/var/www/html/wp-content/mu-plugins/bedrock-autoloader.php
+      # - ./dev-miscs/wp-cli.yml:/var/www/html/wp-cli.yml
+      # - ./:/var/www/html/wp-content/mu-plugins/enpii-base/
     env_file:
       - ./.env
     environment:
@@ -44,18 +44,16 @@ services:
       - PHP_UPLOAD_MAX_FILESIZE
       - PHP_SENDMAIL_PATH="/usr/sbin/sendmail -t -i"
 
-  mysql8:
-    image: mysql:8
-    command: mysqld --authentication_policy=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-    ports:
-      - 3306
-    volumes:
-      - mysql_db:/var/lib/mysql
-      - './dev-docker/mysql8/my.cnf:/etc/mysql/conf.d/my.cnf'
-    environment:
-      - MYSQL_ROOT_PASSWORD=$DB_ROOT_PASSWORD
-      - MYSQL_DATABASE=$DB_NAME
-      - MYSQL_PASSWORD=$DB_PASSWORD
-      - MYSQL_USER=$DB_USER
-volumes:
-  mysql_db:
+  # mysql8:
+  #   image: mysql:8
+  #   command: mysqld --authentication_policy=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+  #   volumes:
+  #     - mysql_db:/var/lib/mysql
+  #     - './dev-docker/config/mysql/my.cnf:/etc/mysql/conf.d/my.cnf'
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=$DB_ROOT_PASSWORD
+  #     - MYSQL_DATABASE=$DB_NAME
+  #     - MYSQL_PASSWORD=$DB_PASSWORD
+  #     - MYSQL_USER=$DB_USER
+# volumes:
+#   mysql_db:

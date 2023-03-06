@@ -2,6 +2,7 @@
 - Commands to set up the development environment
 ```shell script
 cp .env.example .env
+docker pull composer
 docker run --rm --interactive --tty --volume $PWD:/app composer composer install
 docker-compose up -d
 ```
@@ -65,8 +66,10 @@ The local website will work with http://127.0.0.1:10108/ (or the port you put in
 	- With docker (we need to use php 7.4 to avoid errors)
 	```shell script
 	# Run the docker pull once if you haven't run that before
-	docker pull serversideup/php:7.4-cli
-	docker run --rm --interactive --tty -v $PWD:/var/www/html serversideup/php:7.4-cli ./vendor/bin/phpcs
+	docker pull npbtrac/php:7.4-x86
+	# For arm
+	# docker pull npbtrac/php:7.4-arm
+	docker run --rm --interactive --tty -v $PWD:/var/www/html npbtrac/php:7.4-arm ./vendor/bin/phpcs
 	```
 	- Or if you have your executable php 7.4 on your machine (we need to use php 7.4 to avoid errors)
 	```shell script

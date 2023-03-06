@@ -1,5 +1,4 @@
 *
-!mu-plugins/.gitignore
-!plugins/.gitignore
-!themes/.gitignore
 !.gitignore
+!wp-content
+!wp-content/**/.gitignore
