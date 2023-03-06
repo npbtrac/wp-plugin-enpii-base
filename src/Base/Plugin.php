@@ -5,10 +5,7 @@ declare(strict_types=1);
 namespace Enpii\WP_Plugin\Enpii_Base\Base;
 
 use Enpii\WP_Plugin\Enpii_Base\App\Http\Controllers\Index_Controller;
-use Enpii\WP_Plugin\Enpii_Base\App\Providers\Filesystem_Service_Provider;
-use Enpii\WP_Plugin\Enpii_Base\App\Providers\Log_Service_Provider;
-use Enpii\WP_Plugin\Enpii_Base\App\Providers\Route_Service_Provider;
-use Enpii\WP_Plugin\Enpii_Base\App\Providers\View_Service_Provider;
+use Enpii\WP_Plugin\Enpii_Base\Base\Hook_Handlers\Register_Main_Service_Providers_Hook_Handler;
 use Enpii\WP_Plugin\Enpii_Base\Base\Hook_Handlers\WP_App_Hook_Handler;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Route;
 use Enpii\WP_Plugin\Enpii_Base\Libs\WP_Plugin;
@@ -58,10 +55,9 @@ class Plugin extends WP_Plugin {
 		| We want to register main Service Providers for the wp_app()
 		| You can remove this handler to replace with the Service Providers you want
 		 */
-		$this->app->register( Log_Service_Provider::class );
-		$this->app->register( Route_Service_Provider::class );
-		$this->app->register( View_Service_Provider::class );
-		$this->app->register( Filesystem_Service_Provider::class );
+		if ( $this->is_wp_app_mode() ) {
+			( new Register_Main_Service_Providers_Hook_Handler() )->handle();
+		}
 	}
 
 	public function handle_wp_app_requests(): void {

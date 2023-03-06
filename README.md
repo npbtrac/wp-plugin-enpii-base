@@ -86,6 +86,11 @@ The local website will work with http://127.0.0.1:10108/ (or the port you put in
 	```shell script
 	/path/to/your/php7.4/executable/file ./vendor/bin/phpcbf <path-to-file-need-to-be-fixed>
 	```
+### Testing
+- To run unit test
+```
+composer codecept unit
+```
 
 ### Install plugins and themes via the WP Admin Dashbboard
 - We need to ensure needed folders are there (only run once)
