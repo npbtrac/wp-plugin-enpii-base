@@ -2,6 +2,8 @@ FROM npbtrac/php:7.4-arm
 LABEL Maintainer="Trac Nguyen <npbtrac@yahoo.com>" \
       Description="Lightweight container with Nginx 1.18 & PHP 7.4 based on Alpine Linux."
 
+ARG WP_DEBUG_LOG_PATH_ARG="/var/log/wordpress"
+ENV WP_DEBUG_LOG_PATH=${WP_DEBUG_LOG_PATH_ARG}
 
 # Install packages
 RUN apk update
@@ -48,7 +50,8 @@ RUN mkdir -p /var/www/html >/dev/null 2>&1
 # Make sure files/folders needed by the processes are accessable when they run under the nobody user
 RUN chown -R nobody.nobody /run && \
   chown -R nobody.nobody /var/lib/nginx && \
-  chown -R nobody.nobody /var/log/nginx
+  chown -R nobody.nobody /var/log/nginx && \
+  chown -R nobody.nobody ${WP_DEBUG_LOG_PATH}
 
 ######## Update here for each particular project
 
@@ -67,7 +70,7 @@ COPY ./dev-miscs/wp-cli.yml /var/www/html/wp-cli.yml
 
 # Add another user to own the files to not allow nobody to modify files
 RUN adduser -D -H -G root devuser
-RUN chown -R devuser:root /var/www/html
+RUN chown -R devuser:root /var/www
 RUN chmod -R 777 /var/www/html/wp-content/uploads /var/www/html/wp-content/cache /var/www/html/wp-content/upgrade
 
 # Switch to use a non-root user from here on

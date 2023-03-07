@@ -70,7 +70,7 @@ define( 'WP_ENV', getenv( 'WP_ENV' ) );
 define( 'WP_DEBUG', ! ! getenv( 'WP_DEBUG' ) );
 define( 'WP_DEBUG_DISPLAY', false );
 // set to 'true' means the default debug.log file would be wp-content/debug.log
-define( 'WP_DEBUG_LOG', getenv( 'WP_DEBUG_LOG' ) );
+define( 'WP_DEBUG_LOG', ( getenv( 'WP_DEBUG_LOG_PATH' ) ? getenv( 'WP_DEBUG_LOG_PATH' ) : WP_CONTENT_DIR ) . '/debug.log' );
 define( 'SAVEQUERIES', ! ! getenv( 'SAVEQUERIES' ) );
 
 // ## Below snippets are for installing plugins, themes from the Admin Dashboard
