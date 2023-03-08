@@ -4,6 +4,7 @@
   "require": {
     "php": "^7.2.5|^8.0",
     "laravel/framework": "7.30.6",
+    "mcaskill/composer-exclude-files": "^3.0.0",
     "symfony/translation-contracts": "~2.5.2",
     "symfony/translation": "~5.4.14",
     "symfony/string": "~5.4.15",
@@ -41,7 +42,6 @@
       "./src/Support/helpers-wp-app.php",
       "./src/Support/helpers.php",
       "./src/Dependencies/Symfony/Polyfill/Php80/bootstrap.php",
-      "./src/Dependencies/Illuminate/Foundation/helpers.php",
       "./src/Dependencies/Illuminate/Support/helpers.php",
       "./src/Dependencies/Symfony/Component/VarDumper/Resources/functions/dump.php"
     ],
@@ -55,12 +55,17 @@
     "allow-plugins": {
       "composer/installers": true,
       "johnpbloch/wordpress-core-installer": true,
+      "mcaskill/composer-exclude-files": true,
       "dealerdirect/phpcodesniffer-composer-installer": true
     },
     "vendor-dir": "./vendor",
     "sort-packages": true
   },
   "extra": {
+    "exclude-from-files": [
+      "laravel/framework/src/Illuminate/Foundation/helpers.php",
+      "laravel/framework/src/Illuminate/Support/helpers.php"
+    ],
     "installer-paths": {
       "dev-docker/wordpress/wp-content/themes/{$name}/": [
         "type:wordpress-theme"

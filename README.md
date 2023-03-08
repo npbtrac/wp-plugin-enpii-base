@@ -46,11 +46,17 @@ The local website will work with http://127.0.0.1:10108/ (or the port you put in
 
 #### Process to perform the composer and mozart:
   - Remove the `autoload -> files` part in composer.json
-  - `composer install` or `composer update`
+  - `XDEBUG_MODE=off composer install` or `XDEBUG_MODE=off composer update`
   - `composer dump-autoload`
   - `mozart compose`
   - Undo the removing `autoload -> files`
   - `composer dump-autoload`
+
+Or you can do the alternative way
+  - `XDEBUG_MODE=off composer install --no-autoloader` or `XDEBUG_MODE=off composer update --no-autoloader`
+  - `mozart compose`
+  - `composer dump-autoload`
+
 #### After using `mozart`, remember to manually repair the namespace in:
   - `LogManager`, use namespace `as Monolog`
   - `ParseLogConfiguration` (same as above)

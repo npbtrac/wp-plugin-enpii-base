@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Container\Container;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Access\Gate;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Factory as AuthFactory;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Factory as BroadcastFactory;

@@ -35,6 +35,17 @@ RUN curl -O https://getcomposer.org/download/latest-stable/composer.phar
 RUN chmod +x composer.phar
 RUN mv composer.phar /usr/local/bin/composer
 
+# Setup document root
+RUN mkdir -p /var/www/html >/dev/null 2>&1
+RUN mkdir -p ${WP_DEBUG_LOG_PATH} >/dev/null 2>&1
+
+# Make sure files/folders needed by the processes are accessable when they run under the nobody user
+RUN chown -R nobody.nobody /run && \
+  chown -R nobody.nobody /var/lib/nginx && \
+  chown -R nobody.nobody /var/log/nginx && \
+  chown -R nobody.nobody ${WP_DEBUG_LOG_PATH}
+
+######## Update here for each particular project
 COPY ./dev-docker/wordpress/ /var/www/html/
 
 RUN mkdir -p /var/www/html/wp-content/mu-plugins >/dev/null 2>&1
@@ -44,17 +55,6 @@ RUN mkdir -p /var/www/html/wp-content/upgrade >/dev/null 2>&1
 
 COPY ./dev-docker/config/wordpress/wp-config.php /var/www/html/wp-config.php
 
-# Setup document root
-RUN mkdir -p /var/www/html >/dev/null 2>&1
-
-# Make sure files/folders needed by the processes are accessable when they run under the nobody user
-RUN chown -R nobody.nobody /run && \
-  chown -R nobody.nobody /var/lib/nginx && \
-  chown -R nobody.nobody /var/log/nginx && \
-  chown -R nobody.nobody ${WP_DEBUG_LOG_PATH}
-
-######## Update here for each particular project
-
 # For using normal plugin as a MU Plugin
 COPY ./dev-miscs/bedrock-autoloader.php /var/www/html/wp-content/mu-plugins/bedrock-autoloader.php
 
@@ -63,7 +63,7 @@ RUN mkdir -p /var/www/html/wp-content/mu-plugins/enpii-base >/dev/null 2>&1
 COPY ./ /var/www/html/wp-content/mu-plugins/enpii-base/
 WORKDIR /var/www/html/wp-content/mu-plugins/enpii-base/
 RUN rm -rf vendor >/dev/null 2>&1
-RUN composer install --no-dev --ignore-platform-reqs
+RUN XDEBUG_MODE=off composer install --no-dev --ignore-platform-reqs
 
 # WP-CLI config
 COPY ./dev-miscs/wp-cli.yml /var/www/html/wp-cli.yml

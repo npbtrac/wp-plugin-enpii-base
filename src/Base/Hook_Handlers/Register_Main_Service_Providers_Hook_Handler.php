@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Enpii\Wp_Plugin\Enpii_Base\Base\Hook_Handlers;
+namespace Enpii\WP_Plugin\Enpii_Base\Base\Hook_Handlers;
 
 use Enpii\WP_Plugin\Enpii_Base\App\Providers\Filesystem_Service_Provider;
 use Enpii\WP_Plugin\Enpii_Base\App\Providers\Log_Service_Provider;
 use Enpii\WP_Plugin\Enpii_Base\App\Providers\Route_Service_Provider;
 use Enpii\WP_Plugin\Enpii_Base\App\Providers\View_Service_Provider;
-use Enpii\WP_Plugin\Enpii_Base\Libs\Wp_Base_Hook_Handler;
+use Enpii\WP_Plugin\Enpii_Base\Libs\WP_Base_Hook_Handler;
 
 class Register_Main_Service_Providers_Hook_Handler extends WP_Base_Hook_Handler {
 	public function handle(): void {

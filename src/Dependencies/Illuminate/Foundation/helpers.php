@@ -881,25 +881,6 @@ if (! function_exists('trans_choice')) {
     }
 }
 
-if (! function_exists('__')) {
-    /**
-     * Translate the given message.
-     *
-     * @param  string|null  $key
-     * @param  array  $replace
-     * @param  string|null  $locale
-     * @return string|array|null
-     */
-    function __($key = null, $replace = [], $locale = null)
-    {
-        if (is_null($key)) {
-            return $key;
-        }
-
-        return trans($key, $replace, $locale);
-    }
-}
-
 if (! function_exists('url')) {
     /**
      * Generate a url for the application.
