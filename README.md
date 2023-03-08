@@ -106,10 +106,10 @@ composer codecept unit
 ### Install plugins and themes via the WP Admin Dashbboard
 - We need to ensure needed folders are there (only run once)
 ```shell script
-docker compose exec --user=webuser wordpress mkdir -p /var/www/html/wp-content/uploads >/dev/null 2>&1
-docker compose exec --user=webuser wordpress mkdir -p /var/www/html/wp-content/upgrade >/dev/null 2>&1
-docker compose exec --user=webuser wordpress mkdir -p /var/www/html/wp-content/cache >/dev/null 2>&1
-docker compose exec --user=webuser wordpress chmod -R 777 /var/www/html/wp-content/cache /var/www/html/wp-content/uploads /var/www/html/wp-content/upgrade
+docker compose exec --user=devuser wordpress mkdir -p /var/www/html/wp-content/uploads >/dev/null 2>&1
+docker compose exec --user=devuser wordpress mkdir -p /var/www/html/wp-content/upgrade >/dev/null 2>&1
+docker compose exec --user=devuser wordpress mkdir -p /var/www/html/wp-content/cache >/dev/null 2>&1
+docker compose exec --user=devuser wordpress chmod -R 777 /var/www/html/wp-content/cache /var/www/html/wp-content/uploads /var/www/html/wp-content/upgrade
 ```
 - To install plugins and themes via the Admin Dashboard, you need to follow these steps:
 	1. Add this part to `wp-config.php` (after `That's all ... ` line)
