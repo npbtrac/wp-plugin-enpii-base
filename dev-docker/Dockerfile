@@ -1,4 +1,4 @@
-FROM npbtrac/php:7.4-arm
+FROM npbtrac/php:7.4-x86
 LABEL Maintainer="Trac Nguyen <npbtrac@yahoo.com>" \
       Description="Lightweight container with Nginx 1.18 & PHP 7.4 based on Alpine Linux."
 

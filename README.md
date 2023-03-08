@@ -27,6 +27,11 @@ docker-compose exec --user=devuser wordpress sh
 The local website will work with http://127.0.0.1:10108/ (or the port you put in env file)
 
 ## Development
+- Remember to enable git case sensitive for files
+```
+git config core.ignorecase false
+```
+- Add `XDEBUG_MODE=off` before `composer` to turn off XDebug to speedup the composer
 
 ### Base concepts
   - This plugin will create a laravel application `wp_app()` (a DI container https://code.tutsplus.com/tutorials/digging-in-to-laravels-ioc-container--cms-22167) contains everything we need.
