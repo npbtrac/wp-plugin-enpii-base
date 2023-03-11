@@ -36,6 +36,18 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 	}
 
 	/**
+	 * Register any application services.
+	 *
+	 * @return void
+	 */
+	public function register() {
+		// We want to handle the hooks first
+		$this->manipulate_hooks();
+
+		$this->app->instance( __CLASS__, $this );
+	}
+
+	/**
 	 * We want to get the views for each plugin by this order: child theme, parent theme, and the plugin it self
 	 */
 	protected function prepare_views_paths( $namespace ): void {

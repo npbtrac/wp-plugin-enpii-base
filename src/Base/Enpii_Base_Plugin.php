@@ -17,7 +17,7 @@ use Enpii\WP_Plugin\Enpii_Base\Support\Traits\Accessor_Set_Get_Has_Trait;
  * @method get_base_bath() string, the directory path of the plugin
  * @method get_base_url() string, the url to plugin directory
  */
-final class Plugin extends WP_Plugin {
+final class Enpii_Base_Plugin extends WP_Plugin {
 	use Accessor_Set_Get_Has_Trait;
 
 	public function boot() {
@@ -30,10 +30,7 @@ final class Plugin extends WP_Plugin {
 	 * @return void
 	 */
 	public function register() {
-		// We want to handle the hooks first
-		$this->manipulate_hooks();
-
-		$this->app->instance( __CLASS__, $this );
+		parent::register();
 
 		// We want to register main providers here
 		do_action( 'enpii_base_register_main_service_providers' );

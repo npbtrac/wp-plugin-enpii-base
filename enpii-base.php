@@ -42,4 +42,4 @@ $wp_app = new \Enpii\WP_Plugin\Enpii_Base\Libs\WP_Application( $wp_app_base_path
 $wp_app->init_config( $config );
 
 // We register Enpii_Base plugin as a Service Provider
-$wp_app->register_plugin( \Enpii\WP_Plugin\Enpii_Base\Base\Plugin::class, __DIR__, plugin_dir_url( __FILE__ ) );
+$wp_app->register_plugin( \Enpii\WP_Plugin\Enpii_Base\Base\Enpii_Base_Plugin::class, __DIR__, plugin_dir_url( __FILE__ ) );
