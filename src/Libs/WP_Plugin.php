@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Enpii\WP_Plugin\Enpii_Base\Libs;
 
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
+use Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces\Handler_Inferface;
 use Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces\WP_Plugin_Interface;
 use Enpii\WP_Plugin\Enpii_Base\Support\Traits\Config_Trait;
 use InvalidArgumentException;
@@ -45,6 +46,15 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 		$this->manipulate_hooks();
 
 		$this->app->instance( __CLASS__, $this );
+	}
+
+	public function execute_handler(string $hanlder_classname): void {
+		$handler = new $hanlder_classname( $this->app );
+		if ( !($handler instanceof Handler_Inferface) ) {
+			throw new InvalidArgumentException( sprintf( 'The target classname %s must implement %s', $hanlder_classname, Handler_Inferface::class ) );
+		}
+
+		$handler->handle();
 	}
 
 	/**

@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace Enpii\WP_Plugin\Enpii_Base\Base;
 
-use Enpii\WP_Plugin\Enpii_Base\App\Http\Controllers\Index_Controller;
-use Enpii\WP_Plugin\Enpii_Base\Base\Hook_Handlers\Register_Main_Service_Providers_Hook_Handler;
-use Enpii\WP_Plugin\Enpii_Base\Base\Hook_Handlers\WP_App_Hook_Handler;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Route;
+use Enpii\WP_Plugin\Enpii_Base\Handlers\Process_WP_App_Request_Handler;
+use Enpii\WP_Plugin\Enpii_Base\Handlers\Register_Base_WP_App_Routes_Handler;
+use Enpii\WP_Plugin\Enpii_Base\Handlers\Register_Main_Service_Providers_Handler;
 use Enpii\WP_Plugin\Enpii_Base\Libs\WP_Plugin;
 use Enpii\WP_Plugin\Enpii_Base\Support\Traits\Accessor_Set_Get_Has_Trait;
 
@@ -38,10 +37,10 @@ final class Enpii_Base_Plugin extends WP_Plugin {
 
 	public function manipulate_hooks(): void {
 		// We want to start processing wp-app requests after all plugins and theme loaded
-		add_action( 'init', [ $this, 'handle_wp_app_requests' ], 9999 );
+		add_action( 'init', [ $this, 'process_wp_app_request' ], 9999 );
 
 		// WP app hooks
-		add_action( 'enpii_base_wp_app_register_routes', [ $this, 'register_wp_app_routes' ] );
+		add_action( 'enpii_base_wp_app_register_routes', [ $this, 'register_base_wp_app_routes' ] );
 
 		// General hooks
 		add_action( 'enpii_base_register_main_service_providers', [ $this, 'register_main_service_providers' ] );
@@ -53,24 +52,24 @@ final class Enpii_Base_Plugin extends WP_Plugin {
 		| You can remove this handler to replace with the Service Providers you want
 		 */
 		if ( $this->is_wp_app_mode() ) {
-			( new Register_Main_Service_Providers_Hook_Handler() )->handle();
+			$this->execute_handler(Register_Main_Service_Providers_Handler::class);
 		}
 	}
 
-	public function handle_wp_app_requests(): void {
+	public function process_wp_app_request(): void {
 		// We want to check that if the uri prefix is for wp-app before invoke the handler
 		// to keep the handler lazy-loading
 		if ( $this->is_wp_app_mode() ) {
-			( new WP_App_Hook_Handler() )->handle();
+			$this->execute_handler(Process_WP_App_Request_Handler::class);
+			( new Process_WP_App_Request_Handler($this->app) )->handle();
 		}
 	}
 
-	public function register_wp_app_routes(): void {
+	public function register_base_wp_app_routes(): void {
 		// We want to check that if the uri prefix is for wp-app before invoke the handler
 		// to keep the handler lazy-loading
 		if ( $this->is_wp_app_mode() ) {
-			Route::get( '/', [ Index_Controller::class, 'home' ] );
-			Route::get( '/home', [ Index_Controller::class, 'home' ] );
+			$this->execute_handler(Register_Base_WP_App_Routes_Handler::class);
 		}
 	}
 
