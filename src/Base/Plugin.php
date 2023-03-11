@@ -64,7 +64,7 @@ class Plugin extends WP_Plugin {
 		// We want to check that if the uri prefix is for wp-app before invoke the handler
 		// to keep the handler lazy-loading
 		if ( $this->is_wp_app_mode() ) {
-			( new WP_App_Hook_Handler() )->handle_wp_app_requests();
+			( new WP_App_Hook_Handler() )->handle();
 		}
 	}
 

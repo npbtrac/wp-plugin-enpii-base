@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Enpii\WP_Plugin\Enpii_Base\Libs;
 
+use Enpii\WP_Plugin\Enpii_Base\Base\Plugin;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Config\Repository;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Application;
 use TypeError;
@@ -35,6 +36,13 @@ class WP_Application extends Application {
 
 	public function register_cache_service_provider(): void {
 		$this->register( \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheServiceProvider::class );
+	}
+
+	public function register_plugin( $plugin_base_path, $plugin_base_url ): void {
+		$plugin = new Plugin( $this );
+		$plugin->set_base_path( $plugin_base_path );
+		$plugin->set_base_url( $plugin_base_url );
+		$this->register( $plugin );
 	}
 
 	/**

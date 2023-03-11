@@ -68,7 +68,7 @@ $table_prefix = 'wp_';
 define( 'WP_ENV', getenv( 'WP_ENV' ) );
 
 define( 'WP_DEBUG', ! ! getenv( 'WP_DEBUG' ) );
-define( 'WP_DEBUG_DISPLAY', false );
+define( 'WP_DEBUG_DISPLAY', ! ! getenv( 'WP_DEBUG_DISPLAY' ) );
 // set to 'true' means the default debug.log file would be wp-content/debug.log
 define( 'WP_DEBUG_LOG', ( getenv( 'WP_DEBUG_LOG_PATH' ) ? getenv( 'WP_DEBUG_LOG_PATH' ) : WP_CONTENT_DIR ) . '/debug.log' );
 define( 'SAVEQUERIES', ! ! getenv( 'SAVEQUERIES' ) );
