@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Enpii\WP_Plugin\Enpii_Base\Libs;
 
-use Enpii\WP_Plugin\Enpii_Base\Base\Plugin;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Config\Repository;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Application;
+use Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces\WP_Plugin_Interface;
+use InvalidArgumentException;
 use TypeError;
 
 class WP_Application extends Application {
@@ -38,10 +39,19 @@ class WP_Application extends Application {
 		$this->register( \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheServiceProvider::class );
 	}
 
-	public function register_plugin( $plugin_base_path, $plugin_base_url ): void {
-		$plugin = new Plugin( $this );
-		$plugin->set_base_path( $plugin_base_path );
-		$plugin->set_base_url( $plugin_base_url );
+	public function register_plugin( $plugin_classsname, $plugin_base_path, $plugin_base_url ): void {
+		$plugin = new $plugin_classsname( $this );
+		if ( !($plugin instanceof WP_Plugin_Interface) ) {
+			throw new InvalidArgumentException( sprintf( 'The target classname %s must implement %s', $plugin_classsname, WP_Plugin_Interface::class ) );
+		}
+
+		/** @var \Enpii\WP_Plugin\Enpii_Base\Libs\WP_Plugin $plugin  */
+		$plugin->bind_base_params(
+			[
+				WP_Plugin::PARAM_KEY_PLUGIN_BASE_PATH => $plugin_base_path,
+				WP_Plugin::PARAM_KEY_PLUGIN_BASE_URL => $plugin_base_url,
+			]
+		);
 		$this->register( $plugin );
 	}
 

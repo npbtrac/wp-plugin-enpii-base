@@ -5,12 +5,12 @@
  * Description: Base plugin for WP development
  * Author:      dev@enpii.com, nptrac@yahoo.com
  * Author URI:  https://enpii.com/
- * Version:     0.0.1
+ * Version:     0.1.1
  * Text Domain: enpii
  */
 
 // Update these constants whenever you bump the version
-defined( 'ENPII_BASE_VERSION' ) || define( 'ENPII_BASE_PLUGIN_VERSION', '0.0.1' );
+defined( 'ENPII_BASE_PLUGIN_VERSION' ) || define( 'ENPII_BASE_PLUGIN_VERSION', '0.1.1' );
 
 // General fixed constants
 defined( 'DIR_SEP' ) || define( 'DIR_SEP', DIRECTORY_SEPARATOR );
@@ -42,4 +42,4 @@ $wp_app = new \Enpii\WP_Plugin\Enpii_Base\Libs\WP_Application( $wp_app_base_path
 $wp_app->init_config( $config );
 
 // We register Enpii_Base plugin as a Service Provider
-$wp_app->register_plugin( __DIR__, plugin_dir_url( __FILE__ ) );
+$wp_app->register_plugin( \Enpii\WP_Plugin\Enpii_Base\Base\Plugin::class, __DIR__, plugin_dir_url( __FILE__ ) );

@@ -7,7 +7,6 @@ namespace Enpii\WP_Plugin\Enpii_Base\Support\Traits;
 use InvalidArgumentException;
 
 trait Config_Trait {
-
 	/**
 	 * @param array $config
 	 */
