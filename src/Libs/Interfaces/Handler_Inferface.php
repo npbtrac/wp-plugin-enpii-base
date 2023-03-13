@@ -8,5 +8,5 @@ interface Handler_Inferface {
 	/**
 	 * The method is to handle the action
 	 */
-	public function handle(): void;
+	public function handle( Command_Interface $command ): void;
 }

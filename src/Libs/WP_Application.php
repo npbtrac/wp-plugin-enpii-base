@@ -41,7 +41,7 @@ class WP_Application extends Application {
 
 	public function register_plugin( $plugin_classsname, $plugin_base_path, $plugin_base_url ): void {
 		$plugin = new $plugin_classsname( $this );
-		if ( !($plugin instanceof WP_Plugin_Interface) ) {
+		if ( ! ( $plugin instanceof WP_Plugin_Interface ) ) {
 			throw new InvalidArgumentException( sprintf( 'The target classname %s must implement %s', $plugin_classsname, WP_Plugin_Interface::class ) );
 		}
 
@@ -49,7 +49,7 @@ class WP_Application extends Application {
 		$plugin->bind_base_params(
 			[
 				WP_Plugin::PARAM_KEY_PLUGIN_BASE_PATH => $plugin_base_path,
-				WP_Plugin::PARAM_KEY_PLUGIN_BASE_URL => $plugin_base_url,
+				WP_Plugin::PARAM_KEY_PLUGIN_BASE_URL  => $plugin_base_url,
 			]
 		);
 		$this->register( $plugin );

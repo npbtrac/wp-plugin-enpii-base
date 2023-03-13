@@ -16,13 +16,4 @@ use Enpii\WP_Plugin\Enpii_Base\Support\Traits\Config_Trait;
  * @method \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application get_wp_app()
  */
 abstract class Base_Handler implements Handler_Inferface {
-	use Config_Trait;
-	use Accessor_Set_Get_Has_Trait;
-
-	protected Application $wp_app;
-
-	public function __construct(Application $app, array $config = [], bool $strict = false ) {
-		$this->set_wp_app($app);
-		$this->bind_config( $config, $strict );
-	}
 }

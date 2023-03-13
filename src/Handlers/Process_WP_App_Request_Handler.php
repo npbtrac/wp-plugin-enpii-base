@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace Enpii\WP_Plugin\Enpii_Base\Handlers;
 
 use Enpii\WP_Plugin\Enpii_Base\Libs\Base_Handler;
+use Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces\Command_Interface;
 
 class Process_WP_App_Request_Handler extends Base_Handler {
-	public function handle(): void {
-		$wp_app = wp_app();
+	public function handle( Command_Interface $command ): void {
+		$wp_app = $command->get_wp_app();
 		$wp_app['env'] = wp_app_config( 'app.env' );
 
 		$wp_app->singleton(
