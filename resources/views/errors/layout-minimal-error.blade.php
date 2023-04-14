@@ -1,5 +1,8 @@
+@php
+	$locale = wp_app_config('app.locale');
+@endphp
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ $locale }}">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,14 +11,14 @@
 
         <!-- Fonts -->
         <link rel="dns-prefetch" href="//fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
         <!-- Styles -->
         <style>
             html, body {
                 background-color: #fff;
                 color: #636b6f;
-                font-family: 'Nunito', sans-serif;
+                font-family: 'Raleway', sans-serif;
                 font-weight: 100;
                 height: 100vh;
                 margin: 0;
@@ -37,13 +40,13 @@
 
             .code {
                 border-right: 2px solid;
-                font-size: 26px;
+                font-size: 66px;
                 padding: 0 15px 0 15px;
                 text-align: center;
             }
 
             .message {
-                font-size: 18px;
+                font-size: 24px;
                 text-align: center;
             }
         </style>

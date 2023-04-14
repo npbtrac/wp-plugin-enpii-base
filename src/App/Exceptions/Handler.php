@@ -85,6 +85,16 @@ class Handler extends ExceptionHandler {
 	}
 
 	/**
+	 * @inheritedDoc
+	 * @param HttpExceptionInterface $e
+	 * @return string
+	 */
+    protected function getHttpExceptionView(HttpExceptionInterface $e)
+    {
+        return "errors::error";
+    }
+
+	/**
 	 * Get the Whoops handler for the application.
 	 *
 	 * @return \Whoops\Handler\Handler
