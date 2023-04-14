@@ -31,7 +31,7 @@ class Route_Service_Provider extends RouteServiceProvider {
 	 * @return void
 	 */
 	public function map() {
-		Route::prefix( '/wp-app' )
+		Route::prefix( '/'.ENPII_BASE_WP_APP_PREFIX )
 			->group(
 				function () {
 					do_action( 'enpii_base_wp_app_register_routes' );

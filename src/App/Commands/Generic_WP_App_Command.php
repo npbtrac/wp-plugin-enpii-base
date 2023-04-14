@@ -20,4 +20,9 @@ class Generic_WP_App_Command implements Command_Interface {
 
 	use Config_Trait;
 	use Accessor_Set_Get_Has_Trait;
+
+	public function __construct(Application $wp_app)
+	{
+		$this->wp_app = $wp_app;
+	}
 }

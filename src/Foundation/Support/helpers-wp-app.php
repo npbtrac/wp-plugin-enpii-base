@@ -23,6 +23,7 @@ use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Date;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HtmlString;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response;
 use Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\VarDumper;
 
 /**
 | We want to define helper functions for the app here
@@ -113,7 +114,7 @@ if ( ! function_exists( 'wp_app' ) ) {
 	 *
 	 * @param  string|null  $abstract
 	 * @param  array  $parameters
-	 * @return mixed|\Enpii\WP_Plugin\Enpii_Base\Libs\WP_Application
+	 * @return mixed|\Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application
 	 */
 	function wp_app( $abstract = null, array $parameters = [] ) {
 		if ( is_null( $abstract ) ) {
@@ -912,15 +913,44 @@ if ( ! function_exists( 'wp_app_view' ) ) {
 	}
 }
 
+if ( ! function_exists( 'dev_error_log' ) ) {
+	function dev_error_log( ...$messages ): void {
+		foreach ( $messages as $index => $message ) {
+			error_log(print_r('==== messages '.$index.': =======', true));
+			error_log(print_r($message, true));
+			error_log(print_r("\n", true));
+		}
+		error_log(print_r("=====\n\n\n\n", true));
+	}
+}
+
 if ( ! function_exists( 'dev_logger' ) ) {
 	function dev_logger( ...$messages ): void {
 		foreach ( $messages as $index => $message ) {
-			wp_app_logger( "========== message $index: ============" );
-			ob_start();
+			wp_app_logger()->channel('single')->info( "========== message $index: ============" );
 			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
-			var_dump( $message );
-			$debug_message = ob_get_clean();
-			wp_app_logger( $debug_message );
+			wp_app_logger()->channel('single')->debug( print_r( $message, true ) );
+		}
+		wp_app_logger()->channel('single')->info( "\n\n" );
+	}
+}
+
+if ( ! function_exists( 'dev_dump' ) ) {
+	function dev_dump( ...$messages ): void {
+		foreach ( $messages as $index => $message ) {
+			VarDumper::dump($message);
+		}
+	}
+}
+
+if ( ! function_exists( 'dev_logger_dump' ) ) {
+	function dev_logger_dump( ...$messages ): void {
+		foreach ( $messages as $index => $message ) {
+			wp_app_logger( "========== message $index: ============" );
+			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
+			wp_app_logger( print_r( $message, true ) );
+
+			VarDumper::dump($message);
 		}
 		wp_app_logger( "\n\n" );
 	}

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Enpii\WP_Plugin\Enpii_Base\Foundation\WP;
 
 interface WP_Plugin_Interface {
+	public const PARAM_KEY_PLUGIN_SLUG = 'plugin_slug';
 	public const PARAM_KEY_PLUGIN_BASE_PATH = 'base_path';
 	public const PARAM_KEY_PLUGIN_BASE_URL = 'base_url';
 

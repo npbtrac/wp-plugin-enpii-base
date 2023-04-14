@@ -9,7 +9,13 @@ use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Bindi
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\ViewServiceProvider;
 
 class View_Service_Provider extends ViewServiceProvider {
-	public function boot() {
+	public function register() {
+		$this->before_register();
+
+		parent::register();
+	}
+
+	protected function before_register(): void {
 		wp_app_config(
 			[
 				'view' => apply_filters(
@@ -34,7 +40,6 @@ class View_Service_Provider extends ViewServiceProvider {
 		return [
 			get_stylesheet_directory() . DIR_SEP . 'resources' . DIR_SEP . 'views',
 			get_template_directory() . DIR_SEP . 'resources' . DIR_SEP . 'views',
-			wp_app( Enpii_Base_WP_Plugin::class )->get_base_path() . DIR_SEP . 'resources' . DIR_SEP . 'views',
 		];
 	}
 

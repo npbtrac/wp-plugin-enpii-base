@@ -5,30 +5,17 @@ declare(strict_types=1);
 namespace Enpii\WP_Plugin\Enpii_Base\App\WP;
 
 use Enpii\WP_Plugin\Enpii_Base\App\Commands\Process_WP_App_Request_Command;
-use Enpii\WP_Plugin\Enpii_Base\App\Commands\Process_WP_App_Request_Command_Handler as CommandsProcess_WP_App_Request_Command_Handler;
+use Enpii\WP_Plugin\Enpii_Base\App\Commands\Process_WP_App_Request_Command_Handler;
 use Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Base_WP_App_Routes_Command_Handler;
 use Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Main_Service_Providers_Command;
 use Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Main_Service_Providers_Command_Handler;
-use Enpii\WP_Plugin\Enpii_Base\Handlers\Process_WP_App_Request_Handler;
-use Enpii\WP_Plugin\Enpii_Base\Handlers\Register_Base_WP_App_Routes_Handler;
-use Enpii\WP_Plugin\Enpii_Base\Handlers\Register_Main_Service_Providers_Handler;
 use Enpii\WP_Plugin\Enpii_Base\Foundation\WP\WP_Plugin;
-use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Traits\Accessor_Set_Get_Has_Trait;
-use Enpii\WP_Plugin\Enpii_Base\Handlers\Process_WP_App_Request_Command_Handler;
+use WP_CLI;
 
 /**
  * @package Enpii\WP_Plugin\Enpii_Base\App\WP
- * @property WP_Application $app
- * @method get_base_path() string	the directory path of the plugin
- * @method get_base_url() string	the url to plugin directory
  */
 final class Enpii_Base_WP_Plugin extends WP_Plugin {
-	use Accessor_Set_Get_Has_Trait;
-
-	public function boot() {
-		$this->prepare_views_paths( ENPII_BASE_PLUGIN_SLUG );
-	}
-
 	/**
 	 * Register any application services.
 	 *
@@ -44,6 +31,9 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	public function manipulate_hooks(): void {
 		// We want to start processing wp-app requests after all plugins and theme loaded
 		add_action( 'init', [ $this, 'process_wp_app_request' ], 9999 );
+
+		// WP CLI
+		add_action( 'cli_init', [ $this, 'register_wp_cli_commands' ] );
 
 		// WP App hooks
 		add_action( 'enpii_base_wp_app_register_routes', [ $this, 'register_base_wp_app_routes' ] );
@@ -80,8 +70,8 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 			$command->bind_config([
 				'wp_app' => $this->app,
 			]);
-			/** @var CommandsProcess_WP_App_Request_Command_Handler $command_handler */
-			$command_handler = $this->app->make(CommandsProcess_WP_App_Request_Command_Handler::class);
+			/** @var Process_WP_App_Request_Command_Handler $command_handler */
+			$command_handler = $this->app->make(Process_WP_App_Request_Command_Handler::class);
 			$command_handler->handle($command);
 		}
 	}
@@ -92,6 +82,17 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		if ( $this->is_wp_app_mode() ) {
 			$this->app->execute_command_handler( Register_Base_WP_App_Routes_Command_Handler::class );
 		}
+	}
+
+	public function register_wp_cli_commands(): void {
+		WP_CLI::add_command(
+			'enpii-base info',
+			wp_app_resolve(\Enpii\WP_Plugin\Enpii_Base\App\WP_CLI\Enpii_Base_Info_WP_CLI::class)
+		);
+		WP_CLI::add_command(
+			'enpii-base prepare-folders',
+			$this->app->make(\Enpii\WP_Plugin\Enpii_Base\App\WP_CLI\Enpii_Base_Prepare_Folders_WP_CLI::class)
+		);
 	}
 
 	/**

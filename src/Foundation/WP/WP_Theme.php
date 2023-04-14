@@ -14,7 +14,7 @@ use InvalidArgumentException;
  * This is the base class for plugin to be inherited from
  * We consider each plugin a Laravel Service provider
  * @package Enpii\WP_Plugin\Enpii_Base\Libs
- * @property \Enpii\WP_Plugin\Enpii_Base\Libs\WP_Application $app
+ * @property \Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application $app
  */
 abstract class WP_Theme extends ServiceProvider implements WP_Theme_Interface {
 	use Config_Trait;

@@ -46,7 +46,12 @@ class WP_Application extends Application {
 		return $this;
 	}
 
-	public function register_plugin( $plugin_classsname, $plugin_base_path, $plugin_base_url ): void {
+	public function register_plugin(
+		$plugin_classsname,
+		$plugin_slug,
+		$plugin_base_path,
+		$plugin_base_url
+	): void {
 		$plugin = new $plugin_classsname( $this );
 		if ( ! ( $plugin instanceof WP_Plugin_Interface ) ) {
 			throw new InvalidArgumentException( sprintf( 'The target classname %s must implement %s', $plugin_classsname, WP_Plugin_Interface::class ) );
@@ -55,6 +60,7 @@ class WP_Application extends Application {
 		/** @var \Enpii\WP_Plugin\Enpii_Base\Foundation\WP\WP_Plugin $plugin  */
 		$plugin->bind_base_params(
 			[
+				WP_Plugin_Interface::PARAM_KEY_PLUGIN_SLUG => $plugin_slug,
 				WP_Plugin_Interface::PARAM_KEY_PLUGIN_BASE_PATH => $plugin_base_path,
 				WP_Plugin_Interface::PARAM_KEY_PLUGIN_BASE_URL  => $plugin_base_url,
 			]
@@ -63,7 +69,13 @@ class WP_Application extends Application {
 		$this->register( $plugin );
 	}
 
-	public function register_theme( $theme_classsname, $theme_base_path, $theme_base_url, $child_theme_base_path, $child_theme_base_url = null ): void {
+	public function register_theme(
+		$theme_classsname,
+		$theme_base_path,
+		$theme_base_url,
+		$child_theme_base_path = null,
+		$child_theme_base_url = null
+	): void {
 		$theme = new $theme_classsname( $this );
 		if ( ! ( $theme instanceof WP_Theme_Interface ) ) {
 			throw new InvalidArgumentException( sprintf( 'The target classname %s must implement %s', $theme_classsname, WP_Theme_Interface::class ) );
@@ -99,7 +111,9 @@ class WP_Application extends Application {
 		}
 
 		if ( empty( $command ) ) {
-			$command = new Generic_WP_App_Command( $this );
+			$command = $this->make(Generic_WP_App_Command::class, [
+				'wp_app' => $this,
+			]);
 		}
 
 		$handler->handle( $command );

@@ -18,20 +18,12 @@ defined( 'ENPII_BASE_PLUGIN_VERSION' ) || define( 'ENPII_BASE_PLUGIN_VERSION', '
 defined( 'DIR_SEP' ) || define( 'DIR_SEP', DIRECTORY_SEPARATOR );
 
 // We include composer autoload here
-if ( ! class_exists( \Enpii\WP_Plugin\Enpii_Base\Libs\WP_Application::class ) ) {
+if ( ! class_exists( \Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application::class ) ) {
 	require_once __DIR__ . DIR_SEP . 'vendor' . DIR_SEP . 'autoload.php';
 }
 
 // Plugin constants
-defined( 'ENPII_BASE_PLUGIN_SLUG' ) || define( 'ENPII_BASE_PLUGIN_SLUG', 'enpii-base' );
 defined( 'ENPII_BASE_WP_APP_PREFIX' ) || define( 'ENPII_BASE_WP_APP_PREFIX', env('ENPII_BASE_WP_APP_PREFIX', 'wp-app') );
-
-/**
- | WP CLI handlers
- |
- */
-// Todo: Refactor to use Enpii_Base_WP_Plugin instead
-add_action( 'cli_init', 'enpii_base_wp_cli_register_commands' );
 
 /**
  | Create a wp_app() instance to be used in the whole application
@@ -45,10 +37,10 @@ $wp_app = new Application( $wp_app_base_path );
 $wp_app = new \Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application( $wp_app_base_path );
 $wp_app->init_config( $config );
 
-// echo '<pre> app: ';
-// echo print_r(wp_app(), true);
-// echo '</pre>';
-// die('asdf');
-// return;
 // We register Enpii_Base plugin as a Service Provider
-$wp_app->register_plugin( \Enpii\WP_Plugin\Enpii_Base\App\WP\Enpii_Base_WP_Plugin::class, __DIR__, plugin_dir_url( __FILE__ ) );
+$wp_app->register_plugin(
+	\Enpii\WP_Plugin\Enpii_Base\App\WP\Enpii_Base_WP_Plugin::class,
+	plugin_basename( __FILE__ ),
+	__DIR__,
+	plugin_dir_url( __FILE__ )
+);
