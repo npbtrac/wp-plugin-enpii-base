@@ -2,13 +2,22 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\Support\Traits;
+namespace Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Traits;
 
 use InvalidArgumentException;
 
+/**
+ * This trait allow the object to mass assign array values with properties that map array keys
+ */
 trait Config_Trait {
 	/**
+	 * Mass assign array values with properties that map array keys
 	 * @param array $config
+	 * @param bool $strict 	default = false, that means all existing keys should be assigned
+	 * 						if set to true, that means exception thrown if a key doesn't
+	 * 						match the object property
+	 * @return void
+     * @throws InvalidArgumentException
 	 */
 	public function bind_config( array $config = [], bool $strict = false ): void {
 		if ( is_array( $config ) && ! empty( $config ) ) {

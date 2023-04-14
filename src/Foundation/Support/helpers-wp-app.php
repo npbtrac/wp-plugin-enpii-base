@@ -22,7 +22,7 @@ use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Date;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HtmlString;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response;
-use Enpii\WP_Plugin\Enpii_Base\Libs\WP_Application;
+use Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application;
 
 /**
 | We want to define helper functions for the app here

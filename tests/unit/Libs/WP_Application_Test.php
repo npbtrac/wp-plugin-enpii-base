@@ -3,7 +3,7 @@
 namespace Enpii\WP_Plugin\Enpii_Base\Tests\Unit\Base\Libs;
 
 use Codeception\Stub;
-use Enpii\WP_Plugin\Enpii_Base\Base\Enpii_Base_Plugin;
+use Enpii\WP_Plugin\Enpii_Base\App\WP\Enpii_Base_WP_Plugin;
 use Enpii\WP_Plugin\Enpii_Base\Base\Plugin;
 use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheServiceProvider;
 use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Application;
@@ -30,13 +30,13 @@ class WP_Application_Test extends Unit_Test_Case {
 	}
 
 	public function test_register_plugin(): void {
-		$this->wp_app->register_plugin(Enpii_Base_Plugin::class,__DIR__, $this->wp_app_base_path);
-		$plugin = $this->wp_app->getProvider(Enpii_Base_Plugin::class);
+		$this->wp_app->register_plugin(Enpii_Base_WP_Plugin::class,__DIR__, $this->wp_app_base_path);
+		$plugin = $this->wp_app->getProvider(Enpii_Base_WP_Plugin::class);
 
 		// We need to ensure the plugin is registered as a service provider with all correct configs set
 		$this->assertEquals(__DIR__, $plugin->get_base_path(), 'Base path is not correct');
 		$this->assertEquals($this->wp_app_base_path, $plugin->get_base_url(), 'Base url is not correct');
-		$this->assertNotEmpty($this->wp_app->getProvider(Enpii_Base_Plugin::class), 'Plugin is not registered');
+		$this->assertNotEmpty($this->wp_app->getProvider(Enpii_Base_WP_Plugin::class), 'Plugin is not registered');
 	}
 
 	public function test_resource_path() {

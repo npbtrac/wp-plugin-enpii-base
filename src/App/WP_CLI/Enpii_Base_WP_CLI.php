@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\Base\WP_CLI;
+namespace Enpii\WP_Plugin\Enpii_Base\App\WP_CLI;
 
 use WP_CLI;
 

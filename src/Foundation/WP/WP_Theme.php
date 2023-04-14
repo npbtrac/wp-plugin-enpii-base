@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\Libs;
+namespace Enpii\WP_Plugin\Enpii_Base\Foundation\WP;
 
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
 use Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces\Command_Interface;
 use Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces\Handler_Inferface;
-use Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces\WP_Theme_Interface;
-use Enpii\WP_Plugin\Enpii_Base\Support\Traits\Config_Trait;
+use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Traits\Config_Trait;
 use InvalidArgumentException;
 
 /**

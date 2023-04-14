@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-use Enpii\WP_Plugin\Enpii_Base\Base\WP_CLI\Enpii_Base_WP_CLI;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Filesystem\Filesystem;
 
 if ( ! function_exists( 'enpii_base_wp_app_prepare_folders' ) ) {
@@ -42,6 +41,6 @@ if ( ! function_exists( 'enpii_base_get_wp_app_prefix' ) ) {
 
 if ( ! function_exists( 'enpii_base_wp_cli_register_commands' ) ) {
 	function enpii_base_wp_cli_register_commands(): void {
-		\WP_CLI::add_command( 'enpii-base', Enpii_Base_WP_CLI::class );
+		\WP_CLI::add_command( 'enpii-base', Enpii\WP_Plugin\Enpii_Base\App\WP_CLI\Enpii_Base_WP_CLI::class );
 	}
 }

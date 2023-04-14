@@ -400,9 +400,9 @@ class Handler implements ExceptionHandlerContract
      */
     protected function renderHttpException(HttpExceptionInterface $e)
     {
-        $this->registerErrorViewPaths();
+		$this->registerErrorViewPaths();
 
-        if (view()->exists($view = $this->getHttpExceptionView($e))) {
+        if (wp_app_view()->exists($view = $this->getHttpExceptionView($e))) {
             return wp_app_response()->view($view, [
                 'errors' => new ViewErrorBag,
                 'exception' => $e,

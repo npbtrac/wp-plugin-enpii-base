@@ -2,26 +2,34 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\Libs;
+namespace Enpii\WP_Plugin\Enpii_Base\App\WP;
 
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Config\Repository;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Application;
-use Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces\WP_Plugin_Interface;
-use Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces\WP_Theme_Interface;
+use Enpii\WP_Plugin\Enpii_Base\Foundation\WP\WP_Plugin;
+use Enpii\WP_Plugin\Enpii_Base\Foundation\WP\WP_Plugin_Interface;
+use Enpii\WP_Plugin\Enpii_Base\Foundation\WP\WP_Theme;
+use Enpii\WP_Plugin\Enpii_Base\Foundation\WP\WP_Theme_Interface;
 use InvalidArgumentException;
 use TypeError;
 
+/**
+ * @package Enpii\WP_Plugin\Enpii_Base\App\WP
+ */
 class WP_Application extends Application {
+
+	/**
+     * We override the parent instance for not messing up with other application
+     *
+     * @var static
+     */
+    protected static $instance;
 
 	/**
 	 * We want to use the array to load the config
 	 *
 	 * @param mixed $config
 	 * @return WP_Application
-	 * @throws TypeError
-	 * @throws TypeError
-	 * @throws TypeError
-	 * @throws TypeError
 	 * @throws TypeError
 	 * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException
 	 */
@@ -46,13 +54,14 @@ class WP_Application extends Application {
 			throw new InvalidArgumentException( sprintf( 'The target classname %s must implement %s', $plugin_classsname, WP_Plugin_Interface::class ) );
 		}
 
-		/** @var \Enpii\WP_Plugin\Enpii_Base\Libs\WP_Plugin $plugin  */
+		/** @var \Enpii\WP_Plugin\Enpii_Base\Foundation\WP\WP_Plugin $plugin  */
 		$plugin->bind_base_params(
 			[
 				WP_Plugin::PARAM_KEY_PLUGIN_BASE_PATH => $plugin_base_path,
 				WP_Plugin::PARAM_KEY_PLUGIN_BASE_URL  => $plugin_base_url,
 			]
 		);
+		$this->instance( $plugin_classsname, $plugin );
 		$this->register( $plugin );
 	}
 
@@ -71,6 +80,7 @@ class WP_Application extends Application {
 				WP_Theme::PARAM_KEY_CHILD_THEME_BASE_URL  => $child_theme_base_url,
 			]
 		);
+		$this->instance( $theme_classsname, $theme );
 		$this->register( $theme );
 	}
 
@@ -82,13 +92,5 @@ class WP_Application extends Application {
 	 */
 	public function resourcePath( $path = '' ) {
 		return dirname( dirname( __DIR__ ) ) . DIRECTORY_SEPARATOR . 'resources' . ( $path ? DIRECTORY_SEPARATOR . $path : $path );
-	}
-
-	public static function getInstance() {
-		if ( is_null( static::$instance ) ) {
-			static::$instance = new self();
-		}
-
-		return static::$instance;
 	}
 }

@@ -2,13 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\Libs;
+namespace Enpii\WP_Plugin\Enpii_Base\Foundation\WP;
 
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
 use Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces\Command_Interface;
 use Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces\Handler_Inferface;
-use Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces\WP_Plugin_Interface;
-use Enpii\WP_Plugin\Enpii_Base\Support\Traits\Config_Trait;
+use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Traits\Config_Trait;
 use InvalidArgumentException;
 
 /**
@@ -46,7 +45,8 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 		// We want to handle the hooks first
 		$this->manipulate_hooks();
 
-		$this->app->instance( __CLASS__, $this );
+		// We want to bind services for the plugin to the application
+		$this->bind_services();
 	}
 
 	public function execute_generic_handler( string $handler_classname, Command_Interface $command = null ): void {
@@ -69,5 +69,14 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 		$this->loadViewsFrom( realpath( get_stylesheet_directory() . DIR_SEP . 'views' ), $namespace );
 		$this->loadViewsFrom( realpath( get_template_directory() . DIR_SEP . 'views' ), $namespace );
 		$this->loadViewsFrom( realpath( dirname( __DIR__ ) . '/../resources/views' ), $namespace );
+	}
+
+	/**
+	 * Needed services can be bound to the application via this method
+	 * @return void
+	 */
+	protected function bind_services(): void {
+		// We want to bind the plugin instance to it's classname to be able to use when it's needed
+		$this->app->instance( __CLASS__, $this );
 	}
 }

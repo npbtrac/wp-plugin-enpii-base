@@ -9,6 +9,8 @@
  * Text Domain: enpii
  */
 
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Application;
+
 // Update these constants whenever you bump the version
 defined( 'ENPII_BASE_PLUGIN_VERSION' ) || define( 'ENPII_BASE_PLUGIN_VERSION', '0.1.1' );
 
@@ -28,6 +30,7 @@ defined( 'ENPII_BASE_WP_APP_PREFIX' ) || define( 'ENPII_BASE_WP_APP_PREFIX', env
  | WP CLI handlers
  |
  */
+// Todo: Refactor to use Enpii_Base_WP_Plugin instead
 add_action( 'cli_init', 'enpii_base_wp_cli_register_commands' );
 
 /**
@@ -38,8 +41,14 @@ $config = apply_filters( 'enpii_base_wp_app_prepare_config', [
 	'app' => require_once __DIR__ . DIR_SEP . 'wp-app-config' . DIR_SEP . 'app.php',
 ] );
 // We initiate the WP Application instance
-$wp_app = new \Enpii\WP_Plugin\Enpii_Base\Libs\WP_Application( $wp_app_base_path );
+$wp_app = new Application( $wp_app_base_path );
+$wp_app = new \Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application( $wp_app_base_path );
 $wp_app->init_config( $config );
 
+// echo '<pre> app: ';
+// echo print_r(wp_app(), true);
+// echo '</pre>';
+// die('asdf');
+// return;
 // We register Enpii_Base plugin as a Service Provider
-$wp_app->register_plugin( \Enpii\WP_Plugin\Enpii_Base\Base\Enpii_Base_Plugin::class, __DIR__, plugin_dir_url( __FILE__ ) );
+$wp_app->register_plugin( \Enpii\WP_Plugin\Enpii_Base\App\WP\Enpii_Base_WP_Plugin::class, __DIR__, plugin_dir_url( __FILE__ ) );

@@ -42,8 +42,8 @@
     ],
     "autoload": {
         "files": [
-            "./src/Support/helpers-wp-app.php",
-            "./src/Support/helpers.php",
+            "./src/Foundation/Support/helpers-wp-app.php",
+            "./src/Foundation/Support/helpers.php",
             "./src/Dependencies/Symfony/Polyfill/Php80/bootstrap.php",
             "./src/Dependencies/Illuminate/Support/helpers.php",
             "./src/Dependencies/Symfony/Component/VarDumper/Resources/functions/dump.php"

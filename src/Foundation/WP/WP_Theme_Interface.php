@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces;
+namespace Enpii\WP_Plugin\Enpii_Base\Foundation\WP;
 
-interface WP_Plugin_Interface {
+interface WP_Theme_Interface {
 	/**
 	 * Create a new service provider instance.
 	 *
