@@ -19,9 +19,6 @@ use InvalidArgumentException;
 abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface {
 	use Config_Trait;
 
-	public const PARAM_KEY_PLUGIN_BASE_PATH = 'base_path';
-	public const PARAM_KEY_PLUGIN_BASE_URL = 'base_url';
-
 	protected $base_path;
 	protected $base_url;
 
@@ -44,22 +41,6 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 	public function register() {
 		// We want to handle the hooks first
 		$this->manipulate_hooks();
-
-		// We want to bind services for the plugin to the application
-		$this->bind_services();
-	}
-
-	public function execute_generic_handler( string $handler_classname, Command_Interface $command = null ): void {
-		$handler = new $handler_classname();
-		if ( ! ( $handler instanceof Handler_Inferface ) ) {
-			throw new InvalidArgumentException( sprintf( 'The target classname %s must implement %s', $handler_classname, Handler_Inferface::class ) );
-		}
-
-		if ( empty( $command ) ) {
-			$command = new Generic_Command( $this->app );
-		}
-
-		$handler->handle( $command );
 	}
 
 	/**
@@ -69,14 +50,5 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 		$this->loadViewsFrom( realpath( get_stylesheet_directory() . DIR_SEP . 'views' ), $namespace );
 		$this->loadViewsFrom( realpath( get_template_directory() . DIR_SEP . 'views' ), $namespace );
 		$this->loadViewsFrom( realpath( dirname( __DIR__ ) . '/../resources/views' ), $namespace );
-	}
-
-	/**
-	 * Needed services can be bound to the application via this method
-	 * @return void
-	 */
-	protected function bind_services(): void {
-		// We want to bind the plugin instance to it's classname to be able to use when it's needed
-		$this->app->instance( __CLASS__, $this );
 	}
 }

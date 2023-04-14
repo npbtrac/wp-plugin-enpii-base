@@ -6,6 +6,7 @@ namespace Enpii\WP_Plugin\Enpii_Base\App\WP;
 
 use Enpii\WP_Plugin\Enpii_Base\App\Commands\Process_WP_App_Request_Command;
 use Enpii\WP_Plugin\Enpii_Base\App\Commands\Process_WP_App_Request_Command_Handler as CommandsProcess_WP_App_Request_Command_Handler;
+use Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Base_WP_App_Routes_Command_Handler;
 use Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Main_Service_Providers_Command;
 use Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Main_Service_Providers_Command_Handler;
 use Enpii\WP_Plugin\Enpii_Base\Handlers\Process_WP_App_Request_Handler;
@@ -17,6 +18,7 @@ use Enpii\WP_Plugin\Enpii_Base\Handlers\Process_WP_App_Request_Command_Handler;
 
 /**
  * @package Enpii\WP_Plugin\Enpii_Base\App\WP
+ * @property WP_Application $app
  * @method get_base_path() string	the directory path of the plugin
  * @method get_base_url() string	the url to plugin directory
  */
@@ -43,8 +45,8 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		// We want to start processing wp-app requests after all plugins and theme loaded
 		add_action( 'init', [ $this, 'process_wp_app_request' ], 9999 );
 
-		// WP app hooks
-		// add_action( 'enpii_base_wp_app_register_routes', [ $this, 'register_base_wp_app_routes' ] );
+		// WP App hooks
+		add_action( 'enpii_base_wp_app_register_routes', [ $this, 'register_base_wp_app_routes' ] );
 
 		// General hooks
 		add_action( 'enpii_base_register_main_service_providers', [ $this, 'register_main_service_providers' ] );
@@ -65,7 +67,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 				\Enpii\WP_Plugin\Enpii_Base\App\Providers\View_Service_Provider::class,
 			],
 		]);
-		/** @var \Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Main_Service_Providers_Command_Handler $command_handler */
+		/** @var Register_Main_Service_Providers_Command_Handler $command_handler */
 		$command_handler = $this->app->make(Register_Main_Service_Providers_Command_Handler::class);
 		$command_handler->handle($command);
 	}
@@ -78,7 +80,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 			$command->bind_config([
 				'wp_app' => $this->app,
 			]);
-			/** @var \Enpii\WP_Plugin\Enpii_Base\App\Commands\Process_WP_App_Request_Command_Handler $command_handler */
+			/** @var CommandsProcess_WP_App_Request_Command_Handler $command_handler */
 			$command_handler = $this->app->make(CommandsProcess_WP_App_Request_Command_Handler::class);
 			$command_handler->handle($command);
 		}
@@ -88,7 +90,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		// We want to check that if the uri prefix is for wp-app before invoke the handler
 		// to keep the handler lazy-loading
 		if ( $this->is_wp_app_mode() ) {
-			$this->execute_generic_handler( Register_Base_WP_App_Routes_Handler::class );
+			$this->app->execute_command_handler( Register_Base_WP_App_Routes_Command_Handler::class );
 		}
 	}
 

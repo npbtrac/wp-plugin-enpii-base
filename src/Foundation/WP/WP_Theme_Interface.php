@@ -5,6 +5,11 @@ declare(strict_types=1);
 namespace Enpii\WP_Plugin\Enpii_Base\Foundation\WP;
 
 interface WP_Theme_Interface {
+	public const PARAM_KEY_THEME_BASE_PATH = 'base_path';
+	public const PARAM_KEY_THEME_BASE_URL = 'base_url';
+	public const PARAM_KEY_CHILD_THEME_BASE_PATH = 'child_base_path';
+	public const PARAM_KEY_CHILD_THEME_BASE_URL = 'child_base_url';
+
 	/**
 	 * Create a new service provider instance.
 	 *

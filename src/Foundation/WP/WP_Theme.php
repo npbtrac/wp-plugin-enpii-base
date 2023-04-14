@@ -19,11 +19,6 @@ use InvalidArgumentException;
 abstract class WP_Theme extends ServiceProvider implements WP_Theme_Interface {
 	use Config_Trait;
 
-	public const PARAM_KEY_THEME_BASE_PATH = 'base_path';
-	public const PARAM_KEY_THEME_BASE_URL = 'base_url';
-	public const PARAM_KEY_CHILD_THEME_BASE_PATH = 'child_base_path';
-	public const PARAM_KEY_CHILD_THEME_BASE_URL = 'child_base_url';
-
 	protected $base_path;
 	protected $base_url;
 	protected $child_base_path;

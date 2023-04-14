@@ -9,7 +9,6 @@ use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\Bindi
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\ViewServiceProvider;
 
 class View_Service_Provider extends ViewServiceProvider {
-
 	public function boot() {
 		wp_app_config(
 			[
@@ -30,8 +29,8 @@ class View_Service_Provider extends ViewServiceProvider {
 	 * @return array
 	 */
 	protected function generate_view_storage_paths(): array {
-		// die(wp_app()->make(Enpii_Base_WP_Plugin::class)->get_base_path());
 		// We want to use the child theme and the template as the main views paths
+		// then the fallback is the Enpii Base plugin views
 		return [
 			get_stylesheet_directory() . DIR_SEP . 'resources' . DIR_SEP . 'views',
 			get_template_directory() . DIR_SEP . 'resources' . DIR_SEP . 'views',
