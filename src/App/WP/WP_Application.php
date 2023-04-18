@@ -5,6 +5,9 @@ declare(strict_types=1);
 namespace Enpii\WP_Plugin\Enpii_Base\App\WP;
 
 use Enpii\WP_Plugin\Enpii_Base\App\Commands\Generic_WP_App_Command;
+use Enpii\WP_Plugin\Enpii_Base\App\Providers\Events_Service_Provider;
+use Enpii\WP_Plugin\Enpii_Base\App\Providers\Log_Service_Provider;
+use Enpii\WP_Plugin\Enpii_Base\App\Providers\Routing_Service_Provider;
 use Enpii\WP_Plugin\Enpii_Base\App\Queries\Generic_WP_App_Query;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Config\Repository;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Application;
@@ -19,13 +22,35 @@ use TypeError;
  * @package Enpii\WP_Plugin\Enpii_Base\App\WP
  */
 class WP_Application extends Application {
-
 	/**
      * We override the parent instance for not messing up with other application
      *
      * @var static
      */
     protected static $instance;
+
+	/**
+	 * Config array needed for the initialization process
+	 * @var array
+	 */
+	protected static array $config;
+
+	/**
+     * We don't want to have this class publicly initialized
+     *
+     * @param  string|null  $basePath
+     * @return void
+     */
+    protected function __construct($basePath = null)
+    {
+        if ($basePath) {
+            $this->setBasePath($basePath);
+        }
+
+        $this->registerBaseBindings();
+        $this->registerBaseServiceProviders();
+        $this->registerCoreContainerAliases();
+    }
 
 	/**
 	 * We want to use the array to load the config
@@ -35,15 +60,17 @@ class WP_Application extends Application {
 	 * @throws TypeError
 	 * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException
 	 */
-	public function init_config( $config = null ): self {
-		$this->singleton(
-			'config',
-			function ( $app ) use ( $config ) {
-				return new Repository( $config );
-			}
-		);
+	public static function init_instance_with_config( $basePath = null, $config = null ): self {
+		$instance = static::$instance;
+		if (!empty($instance)) {
+			return $instance;
+		}
 
-		return $this;
+		static::$config = $config;
+		$instance = new static($basePath);
+		static::$instance = $instance;
+
+		return $instance;
 	}
 
 	public function register_plugin(
@@ -94,14 +121,26 @@ class WP_Application extends Application {
 		$this->register( $theme );
 	}
 
+	// Todo: refactor this using constant
 	/**
-	 * Get the path to the resources directory.
+	 * @inheritedDoc
+	 *
+	 * @param  string  $path
+	 * @return string
+	 */
+	public function databasePath( $path = '' ) {
+		return dirname(dirname( dirname( __DIR__ ) )) . DIRECTORY_SEPARATOR . 'database' . ( $path ? DIRECTORY_SEPARATOR . $path : $path );
+	}
+
+	// Todo: refactor this using constant
+	/**
+	 * @inheritedDoc
 	 *
 	 * @param  string  $path
 	 * @return string
 	 */
 	public function resourcePath( $path = '' ) {
-		return dirname( dirname( __DIR__ ) ) . DIRECTORY_SEPARATOR . 'resources' . ( $path ? DIRECTORY_SEPARATOR . $path : $path );
+		return dirname(dirname( dirname( __DIR__ ) )) . DIRECTORY_SEPARATOR . 'resources' . ( $path ? DIRECTORY_SEPARATOR . $path : $path );
 	}
 
 	public function dispatch_command_handler( string $handler_classname, $command = null ): void {
@@ -131,4 +170,51 @@ class WP_Application extends Application {
 
 		return $handler->handle( $command );
 	}
+
+	/**
+     * @inheritedDoc
+     *
+     * @return void
+     */
+    protected function bindPathsInContainer()
+    {
+        $this->instance('path', $this->path());
+        $this->instance('path.base', $this->basePath());
+        $this->instance('path.lang', $this->langPath());
+        $this->instance('path.config', $this->configPath());
+        $this->instance('path.public', $this->publicPath());
+        $this->instance('path.storage', $this->storagePath());
+        $this->instance('path.database', $this->databasePath());
+        $this->instance('path.resources', $this->resourcePath());
+        $this->instance('path.bootstrap', $this->bootstrapPath());
+    }
+
+	/**
+     * @inheritedDoc
+     *
+     * @return void
+     */
+    protected function registerBaseBindings() {
+        parent::registerBaseBindings();
+
+		// We want to have the `config` service ready to use later on
+		$config = static::$config;
+		$this->singleton(
+			'config',
+			function ( $app ) use ( $config ) {
+				return new Repository( $config );
+			}
+		);
+    }
+
+	/**
+     * @inheritedDoc
+     *
+     * @return void
+     */
+    protected function registerBaseServiceProviders() {
+        $this->register(new Events_Service_Provider($this));
+        $this->register(new Log_Service_Provider($this));
+        $this->register(new Routing_Service_Provider($this));
+    }
 }

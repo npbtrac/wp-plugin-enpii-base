@@ -9,10 +9,12 @@
  * Text Domain: enpii
  */
 
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Application;
-
 // Update these constants whenever you bump the version
 defined( 'ENPII_BASE_PLUGIN_VERSION' ) || define( 'ENPII_BASE_PLUGIN_VERSION', '0.1.1' );
+
+// We set the slug for the plugin here.
+// This slug will be used to identify the plugin instance from the WP_Applucation container
+defined( 'ENPII_BASE_PLUGIN_SLUG' ) || define( 'ENPII_BASE_PLUGIN_SLUG', 'enpii-base' );
 
 // General fixed constants
 defined( 'DIR_SEP' ) || define( 'DIR_SEP', DIRECTORY_SEPARATOR );
@@ -22,8 +24,11 @@ if ( ! class_exists( \Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application::class ) 
 	require_once __DIR__ . DIR_SEP . 'vendor' . DIR_SEP . 'autoload.php';
 }
 
-// Plugin constants
-defined( 'ENPII_BASE_WP_APP_PREFIX' ) || define( 'ENPII_BASE_WP_APP_PREFIX', env('ENPII_BASE_WP_APP_PREFIX', 'wp-app') );
+// The prefix for wp_app request
+defined( 'ENPII_BASE_WP_APP_PREFIX' ) || define(
+	'ENPII_BASE_WP_APP_PREFIX',
+	env('ENPII_BASE_WP_APP_PREFIX', 'wp-app')
+);
 
 /**
  | Create a wp_app() instance to be used in the whole application
@@ -33,14 +38,15 @@ $config = apply_filters( 'enpii_base_wp_app_prepare_config', [
 	'app' => require_once __DIR__ . DIR_SEP . 'wp-app-config' . DIR_SEP . 'app.php',
 ] );
 // We initiate the WP Application instance
-$wp_app = new Application( $wp_app_base_path );
-$wp_app = new \Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application( $wp_app_base_path );
-$wp_app->init_config( $config );
+$wp_app = \Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application::init_instance_with_config(
+	$wp_app_base_path,
+	$config
+);
 
 // We register Enpii_Base plugin as a Service Provider
 $wp_app->register_plugin(
 	\Enpii\WP_Plugin\Enpii_Base\App\WP\Enpii_Base_WP_Plugin::class,
-	plugin_basename( __FILE__ ),
+	ENPII_BASE_PLUGIN_SLUG,
 	__DIR__,
 	plugin_dir_url( __FILE__ )
 );
