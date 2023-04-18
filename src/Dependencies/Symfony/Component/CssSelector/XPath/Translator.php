@@ -206,7 +206,7 @@ class Translator implements TranslatorInterface
     public function addAttributeMatching(XPathExpr $xpath, string $operator, string $attribute, ?string $value): XPathExpr
     {
         if (!isset($this->attributeMatchingTranslators[$operator])) {
-            throw new ExpressionErrorException(sprintf('NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Attribute matcher operator "%s" not supported.', $operator));
+            throw new ExpressionErrorException(sprintf('Attribute matcher operator "%s" not supported.', $operator));
         }
 
         return $this->attributeMatchingTranslators[$operator]($xpath, $attribute, $value);

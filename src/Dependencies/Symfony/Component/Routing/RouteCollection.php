@@ -69,7 +69,7 @@ class RouteCollection implements \IteratorAggregate, \Countable
      *
      * @return \ArrayIterator<string, Route>
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         return new \ArrayIterator($this->all());
@@ -80,7 +80,7 @@ class RouteCollection implements \IteratorAggregate, \Countable
      *
      * @return int
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function count()
     {
         return \count($this->routes);

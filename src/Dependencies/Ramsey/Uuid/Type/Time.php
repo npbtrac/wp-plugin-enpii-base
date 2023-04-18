@@ -16,7 +16,7 @@ namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type;
 
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Exception\UnsupportedOperationException;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Integer as IntegerObject;
-use NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_ValueError;
+use ValueError;
 use stdClass;
 
 use function json_decode;
@@ -130,7 +130,7 @@ final class Time implements TypeInterface
     {
         // @codeCoverageIgnoreStart
         if (!isset($data['seconds']) || !isset($data['microseconds'])) {
-            throw new NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_ValueError(sprintf('%s(): Argument #1 ($data) is invalid', __METHOD__));
+            throw new ValueError(sprintf('%s(): Argument #1 ($data) is invalid', __METHOD__));
         }
         // @codeCoverageIgnoreEnd
 

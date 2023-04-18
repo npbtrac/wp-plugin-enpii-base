@@ -26,7 +26,7 @@ class FilecontentFilterIterator extends MultiplePcreFilterIterator
      *
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function accept()
     {
         if (!$this->matchRegexps && !$this->noMatchRegexps) {

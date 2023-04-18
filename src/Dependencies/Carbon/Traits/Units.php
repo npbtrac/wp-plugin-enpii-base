@@ -17,7 +17,7 @@ use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterval;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnitException;
 use Closure;
 use DateInterval;
-use NpWpNPB_ReturnTypeWillChange;
+use ReturnTypeWillChange;
 
 /**
  * Trait Units.
@@ -193,7 +193,7 @@ trait Units
      *
      * @return static
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function add($unit, $value = 1, $overflow = null)
     {
         if (\is_string($unit) && \func_num_args() === 1) {
@@ -358,7 +358,7 @@ trait Units
      *
      * @return static
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function sub($unit, $value = 1, $overflow = null)
     {
         if (\is_string($unit) && \func_num_args() === 1) {

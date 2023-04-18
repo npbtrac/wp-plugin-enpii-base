@@ -70,7 +70,7 @@ class NodeExtension extends AbstractExtension
             'Negation' => [$this, 'translateNegation'],
             'Function' => [$this, 'translateFunction'],
             'Pseudo' => [$this, 'translatePseudo'],
-            'NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Attribute' => [$this, 'translateAttribute'],
+            'Attribute' => [$this, 'translateAttribute'],
             'Class' => [$this, 'translateClass'],
             'Hash' => [$this, 'translateHash'],
             'Element' => [$this, 'translateElement'],

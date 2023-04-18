@@ -377,7 +377,7 @@ class TentativeTypes
             'getErrorCode' => 'int',
             'getErrorMessage' => 'string',
         ],
-        'NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer' => [
+        'Normalizer' => [
             'normalize' => 'string|false',
             'isNormalized' => 'bool',
             'getRawDecomposition' => '?string',

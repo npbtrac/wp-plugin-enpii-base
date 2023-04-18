@@ -209,7 +209,7 @@ class ParameterBag implements \IteratorAggregate, \Countable
      *
      * @return \ArrayIterator<string, mixed>
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         return new \ArrayIterator($this->parameters);
@@ -220,7 +220,7 @@ class ParameterBag implements \IteratorAggregate, \Countable
      *
      * @return int
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function count()
     {
         return \count($this->parameters);

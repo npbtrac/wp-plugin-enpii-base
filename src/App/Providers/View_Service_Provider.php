@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Enpii\WP_Plugin\Enpii_Base\App\Providers;
 
-use Enpii\WP_Plugin\Enpii_Base\App\WP\Enpii_Base_WP_Plugin;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\ViewServiceProvider;
 

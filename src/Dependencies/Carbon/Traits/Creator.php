@@ -22,7 +22,7 @@ use Closure;
 use DateTimeInterface;
 use DateTimeZone;
 use Exception;
-use NpWpNPB_ReturnTypeWillChange;
+use ReturnTypeWillChange;
 
 /**
  * Trait Creator.
@@ -690,7 +690,7 @@ trait Creator
      *
      * @return static|false
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public static function createFromFormat($format, $time, $tz = null)
     {
         $function = static::$createFromFormatFunction;
@@ -942,7 +942,7 @@ trait Creator
      *
      * @return array
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public static function getLastErrors()
     {
         return static::$lastErrors;

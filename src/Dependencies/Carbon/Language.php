@@ -12,7 +12,7 @@
 namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon;
 
 use JsonSerializable;
-use NpWpNPB_ReturnTypeWillChange;
+use ReturnTypeWillChange;
 
 class Language implements JsonSerializable
 {
@@ -334,7 +334,7 @@ class Language implements JsonSerializable
      *
      * @return string
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return $this->getIsoDescription();

@@ -92,7 +92,7 @@ class UnicodeString extends AbstractUnicodeString
             $suffix = (string) $suffix;
         }
 
-        $form = null === $this->ignoreCase ? \NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer::NFD : \NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer::NFC;
+        $form = null === $this->ignoreCase ? \Normalizer::NFD : \Normalizer::NFC;
         normalizer_is_normalized($suffix, $form) ?: $suffix = normalizer_normalize($suffix, $form);
 
         if ('' === $suffix || false === $suffix) {
@@ -116,7 +116,7 @@ class UnicodeString extends AbstractUnicodeString
             $string = (string) $string;
         }
 
-        $form = null === $this->ignoreCase ? \NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer::NFD : \NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer::NFC;
+        $form = null === $this->ignoreCase ? \Normalizer::NFD : \Normalizer::NFC;
         normalizer_is_normalized($string, $form) ?: $string = normalizer_normalize($string, $form);
 
         if ('' !== $string && false !== $string && $this->ignoreCase) {
@@ -136,7 +136,7 @@ class UnicodeString extends AbstractUnicodeString
             $needle = (string) $needle;
         }
 
-        $form = null === $this->ignoreCase ? \NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer::NFD : \NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer::NFC;
+        $form = null === $this->ignoreCase ? \Normalizer::NFD : \Normalizer::NFC;
         normalizer_is_normalized($needle, $form) ?: $needle = normalizer_normalize($needle, $form);
 
         if ('' === $needle || false === $needle) {
@@ -145,7 +145,7 @@ class UnicodeString extends AbstractUnicodeString
 
         try {
             $i = $this->ignoreCase ? grapheme_stripos($this->string, $needle, $offset) : grapheme_strpos($this->string, $needle, $offset);
-        } catch (\NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_ValueError $e) {
+        } catch (\ValueError $e) {
             return null;
         }
 
@@ -162,7 +162,7 @@ class UnicodeString extends AbstractUnicodeString
             $needle = (string) $needle;
         }
 
-        $form = null === $this->ignoreCase ? \NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer::NFD : \NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer::NFC;
+        $form = null === $this->ignoreCase ? \Normalizer::NFD : \Normalizer::NFC;
         normalizer_is_normalized($needle, $form) ?: $needle = normalizer_normalize($needle, $form);
 
         if ('' === $needle || false === $needle) {
@@ -343,7 +343,7 @@ class UnicodeString extends AbstractUnicodeString
             $prefix = (string) $prefix;
         }
 
-        $form = null === $this->ignoreCase ? \NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer::NFD : \NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer::NFC;
+        $form = null === $this->ignoreCase ? \Normalizer::NFD : \Normalizer::NFC;
         normalizer_is_normalized($prefix, $form) ?: $prefix = normalizer_normalize($prefix, $form);
 
         if ('' === $prefix || false === $prefix) {

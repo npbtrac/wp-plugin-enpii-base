@@ -23,7 +23,7 @@ class Stream extends File
      *
      * @return int|false
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function getSize()
     {
         return false;

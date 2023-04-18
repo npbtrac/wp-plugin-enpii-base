@@ -27,7 +27,7 @@ class FilenameFilterIterator extends MultiplePcreFilterIterator
      *
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function accept()
     {
         return $this->isAccepted($this->current()->getFilename());

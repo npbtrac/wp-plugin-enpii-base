@@ -16,5 +16,8 @@ class Enpii_Base_Info_WP_CLI {
 				PHP_VERSION
 			)
 		);
+
+		// Return 0 to tell that everything is alright
+		exit(0);
     }
 }

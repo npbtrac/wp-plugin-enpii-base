@@ -30,12 +30,18 @@ define( 'DB_PASSWORD', getenv( 'DB_PASSWORD' ) );
 
 /** MySQL hostname */
 define( 'DB_HOST', getenv( 'DB_HOST' ) );
+define( 'DB_PORT', getenv( 'DB_PORT' ) ?: '3306' );
+define( 'DB_SOCKET', getenv( 'DB_SOCKET' ) ?: null );
 
 /** Database Charset to use in creating database tables. */
-define( 'DB_CHARSET', 'utf8' );
+define( 'DB_CHARSET', getenv( 'DB_CHARSET' ) ?: 'utf8mb4' );
 
 /** The Database Collate type. Don't change this if in doubt. */
-define( 'DB_COLLATE', '' );
+define( 'DB_COLLATE', getenv( 'DB_COLLATE' ) ?: 'utf8mb4_unicode_ci' );
+
+define( 'DB_TABLE_PREFIX', getenv( 'DB_TABLE_PREFIX' ) ?: 'wp_' );
+define( 'DB_STRICT_MODE', ! ! getenv( 'DB_STRICT_MODE' ) );
+define( 'DB_ENGINE', getenv( 'DB_ENGINE' ) ?: null );
 
 /**
  * Authentication Unique Keys and Salts.
@@ -62,7 +68,7 @@ define( 'WP_CACHE_KEY_SALT', getenv( 'WP_CACHE_KEY_SALT' ) ?: hash( 'sha256', md
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix = 'wp_';
+$table_prefix = DB_TABLE_PREFIX;
 
 /* That's all, stop editing! Happy blogging. */
 define( 'WP_ENV', getenv( 'WP_ENV' ) );

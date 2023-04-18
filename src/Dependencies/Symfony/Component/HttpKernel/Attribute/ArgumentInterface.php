@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Attribute;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Attribute;
 
 trigger_deprecation('symfony/http-kernel', '5.3', 'The "%s" interface is deprecated.', ArgumentInterface::class);
 

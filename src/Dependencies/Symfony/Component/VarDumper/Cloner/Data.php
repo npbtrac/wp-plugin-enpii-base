@@ -113,7 +113,7 @@ class Data implements \ArrayAccess, \Countable, \IteratorAggregate
     /**
      * @return int
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function count()
     {
         return \count($this->getValue());
@@ -122,7 +122,7 @@ class Data implements \ArrayAccess, \Countable, \IteratorAggregate
     /**
      * @return \Traversable
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         if (!\is_array($value = $this->getValue())) {
@@ -154,7 +154,7 @@ class Data implements \ArrayAccess, \Countable, \IteratorAggregate
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetExists($key)
     {
         return $this->__isset($key);
@@ -163,7 +163,7 @@ class Data implements \ArrayAccess, \Countable, \IteratorAggregate
     /**
      * @return mixed
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetGet($key)
     {
         return $this->__get($key);
@@ -172,7 +172,7 @@ class Data implements \ArrayAccess, \Countable, \IteratorAggregate
     /**
      * @return void
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetSet($key, $value)
     {
         throw new \BadMethodCallException(self::class.' objects are immutable.');
@@ -181,7 +181,7 @@ class Data implements \ArrayAccess, \Countable, \IteratorAggregate
     /**
      * @return void
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function offsetUnset($key)
     {
         throw new \BadMethodCallException(self::class.' objects are immutable.');

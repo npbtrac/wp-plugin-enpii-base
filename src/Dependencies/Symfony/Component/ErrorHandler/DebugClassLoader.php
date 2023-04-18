@@ -879,11 +879,11 @@ class DebugClassLoader
     }
 
     /**
-     * Utility method to add #[NpWpNPB_ReturnTypeWillChange] where php triggers deprecations.
+     * Utility method to add #[ReturnTypeWillChange] where php triggers deprecations.
      */
     private function patchReturnTypeWillChange(\ReflectionMethod $method)
     {
-        if (\PHP_VERSION_ID >= 80000 && \count($method->getAttributes(\NpWpNPB_ReturnTypeWillChange::class))) {
+        if (\PHP_VERSION_ID >= 80000 && \count($method->getAttributes(\ReturnTypeWillChange::class))) {
             return;
         }
 
@@ -897,11 +897,11 @@ class DebugClassLoader
 
         $startLine = $method->getStartLine() + $fileOffset - 2;
 
-        if (false !== stripos($code[$startLine], 'NpWpNPB_ReturnTypeWillChange')) {
+        if (false !== stripos($code[$startLine], 'ReturnTypeWillChange')) {
             return;
         }
 
-        $code[$startLine] .= "    #[\\NpWpNPB_ReturnTypeWillChange]\n";
+        $code[$startLine] .= "    #[\\ReturnTypeWillChange]\n";
         self::$fileOffsets[$file] = 1 + $fileOffset;
         file_put_contents($file, $code);
     }

@@ -12,7 +12,7 @@
 namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Intl\Idn;
 
 use Exception;
-use NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer;
+use Normalizer;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Intl\Idn\Resources\unidata\DisallowedRanges;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Polyfill\Intl\Idn\Resources\unidata\Regex;
 
@@ -335,8 +335,8 @@ final class Idn
         $domain = self::mapCodePoints($domain, $options, $info);
 
         // Step 2. Normalize the domain name string to Unicode Normalization Form C.
-        if (!NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer::isNormalized($domain, NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer::FORM_C)) {
-            $domain = NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer::normalize($domain, NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer::FORM_C);
+        if (!Normalizer::isNormalized($domain, Normalizer::FORM_C)) {
+            $domain = Normalizer::normalize($domain, Normalizer::FORM_C);
         }
 
         // Step 3. Break the string into labels at U+002E (.) FULL STOP.
@@ -496,7 +496,7 @@ final class Idn
         }
 
         // Step 1. The label must be in Unicode Normalization Form C.
-        if (!NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer::isNormalized($label, NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Normalizer::FORM_C)) {
+        if (!Normalizer::isNormalized($label, Normalizer::FORM_C)) {
             $info->errors |= self::ERROR_INVALID_ACE_LABEL;
         }
 

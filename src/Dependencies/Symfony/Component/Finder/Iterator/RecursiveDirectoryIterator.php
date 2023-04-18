@@ -58,7 +58,7 @@ class RecursiveDirectoryIterator extends \RecursiveDirectoryIterator
      *
      * @return SplFileInfo
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function current()
     {
         // the logic here avoids redoing the same work in all iterations
@@ -83,7 +83,7 @@ class RecursiveDirectoryIterator extends \RecursiveDirectoryIterator
      *
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function hasChildren($allowLinks = false)
     {
         $hasChildren = parent::hasChildren($allowLinks);
@@ -107,7 +107,7 @@ class RecursiveDirectoryIterator extends \RecursiveDirectoryIterator
      *
      * @throws AccessDeniedException
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function getChildren()
     {
         try {
@@ -133,7 +133,7 @@ class RecursiveDirectoryIterator extends \RecursiveDirectoryIterator
      *
      * @return void
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function rewind()
     {
         if (false === $this->isRewindable()) {

@@ -12,7 +12,7 @@
 namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\InvalidFormatException;
-use NpWpNPB_ReturnTypeWillChange;
+use ReturnTypeWillChange;
 use Throwable;
 
 /**
@@ -102,7 +102,7 @@ trait Serialization
      *
      * @return static
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public static function __set_state($dump)
     {
         if (\is_string($dump)) {
@@ -172,7 +172,7 @@ trait Serialization
      *
      * @return void
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function __wakeup()
     {
         if (parent::class && method_exists(parent::class, '__wakeup')) {
@@ -231,7 +231,7 @@ trait Serialization
      *
      * @return array|string
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $serializer = $this->localSerializer ?? static::$serializer;

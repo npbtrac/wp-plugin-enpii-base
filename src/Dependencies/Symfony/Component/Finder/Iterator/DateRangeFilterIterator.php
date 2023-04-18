@@ -40,7 +40,7 @@ class DateRangeFilterIterator extends \FilterIterator
      *
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function accept()
     {
         $fileinfo = $this->current();

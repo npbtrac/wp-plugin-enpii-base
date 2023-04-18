@@ -622,7 +622,7 @@ class Process implements \IteratorAggregate
      *
      * @return \Generator<string, string>
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function getIterator(int $flags = 0)
     {
         $this->readPipesForOutput(__FUNCTION__, false);

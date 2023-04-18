@@ -100,7 +100,7 @@ class HelperSet implements \IteratorAggregate
     /**
      * @return \Traversable<string, Helper>
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         return new \ArrayIterator($this->helpers);

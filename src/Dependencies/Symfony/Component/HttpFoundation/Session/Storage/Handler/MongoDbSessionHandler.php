@@ -87,7 +87,7 @@ class MongoDbSessionHandler extends AbstractSessionHandler
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function close()
     {
         return true;
@@ -108,7 +108,7 @@ class MongoDbSessionHandler extends AbstractSessionHandler
     /**
      * @return int|false
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function gc($maxlifetime)
     {
         return $this->getCollection()->deleteMany([
@@ -141,7 +141,7 @@ class MongoDbSessionHandler extends AbstractSessionHandler
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function updateTimestamp($sessionId, $data)
     {
         $expiry = new UTCDateTime((time() + (int) \ini_get('session.gc_maxlifetime')) * 1000);
