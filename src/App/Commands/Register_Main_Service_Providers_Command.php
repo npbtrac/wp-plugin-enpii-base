@@ -20,7 +20,6 @@ class Register_Main_Service_Providers_Command implements Command_Interface {
 	{
 		$this->wp_app = !empty($wp_app) ? $wp_app : wp_app();
 		$this->providers = !empty($providers) ? $providers :[
-			\Enpii\WP_Plugin\Enpii_Base\App\Providers\Log_Service_Provider::class,
 			\Enpii\WP_Plugin\Enpii_Base\App\Providers\View_Service_Provider::class,
 			\Enpii\WP_Plugin\Enpii_Base\App\Providers\Route_Service_Provider::class,
 			\Enpii\WP_Plugin\Enpii_Base\App\Providers\Filesystem_Service_Provider::class,

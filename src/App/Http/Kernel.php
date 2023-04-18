@@ -15,7 +15,8 @@ class Kernel extends HttpKernel {
 	 *
 	 * @var array
 	 */
-	protected $middleware = [];
+	protected $middleware = [
+	];
 
 	/**
      * The bootstrap classes for the application.
@@ -47,5 +48,7 @@ class Kernel extends HttpKernel {
 	 *
 	 * @var array
 	 */
-	protected $routeMiddleware = [];
+	protected $routeMiddleware = [
+		'wp_user_session_validation' => \Enpii\WP_Plugin\Enpii_Base\App\Http\Middleware\WP_User_Session_Validation::class,
+	];
 }

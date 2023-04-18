@@ -11,7 +11,6 @@ use Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Base_WP_App_Routes_Command_
 use Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Main_Service_Providers_Command;
 use Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Main_Service_Providers_Command_Handler;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Providers\ArtisanServiceProvider;
 use Enpii\WP_Plugin\Enpii_Base\Foundation\WP\WP_Plugin;
 use InvalidArgumentException;
 use WP_CLI;

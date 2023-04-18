@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Enpii\WP_Plugin\Enpii_Base\App\Providers;
 
+use Enpii\WP_Plugin\Enpii_Base\App\WP\Enpii_Base_WP_Plugin;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\ViewServiceProvider;
 
@@ -39,6 +40,7 @@ class View_Service_Provider extends ViewServiceProvider {
 		return [
 			get_stylesheet_directory() . DIR_SEP . 'resources' . DIR_SEP . 'views',
 			get_template_directory() . DIR_SEP . 'resources' . DIR_SEP . 'views',
+			wp_app(Enpii_Base_WP_Plugin::class)->get_base_path() . DIR_SEP . 'resources' . DIR_SEP . 'views',
 		];
 	}
 

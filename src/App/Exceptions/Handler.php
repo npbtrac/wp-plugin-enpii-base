@@ -4,17 +4,15 @@ declare(strict_types=1);
 
 namespace Enpii\WP_Plugin\Enpii_Base\App\Exceptions;
 
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Exceptions\WhoopsHandler;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\View;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ViewErrorBag;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\HandlerInterface;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpException;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Exception;
-use Illuminate\Contracts\Container\BindingResolutionException;
 use Throwable;
 
 class Handler extends ExceptionHandler {
@@ -91,7 +89,7 @@ class Handler extends ExceptionHandler {
 	 */
     protected function getHttpExceptionView(HttpExceptionInterface $e)
     {
-        return "errors::error";
+        return "errors/error";
     }
 
 	/**
