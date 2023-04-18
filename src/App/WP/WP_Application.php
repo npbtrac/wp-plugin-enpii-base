@@ -104,7 +104,7 @@ class WP_Application extends Application {
 		return dirname( dirname( __DIR__ ) ) . DIRECTORY_SEPARATOR . 'resources' . ( $path ? DIRECTORY_SEPARATOR . $path : $path );
 	}
 
-	public function execute_command_handler( string $handler_classname, $command = null ): void {
+	public function dispatch_command_handler( string $handler_classname, $command = null ): void {
 		$handler = $this->make($handler_classname);
 		if ( ! ( $handler instanceof Base_Command_Handler ) ) {
 			throw new InvalidArgumentException( sprintf( 'The target classname %s must implement %s', $handler_classname, Base_Command_Handler::class ) );

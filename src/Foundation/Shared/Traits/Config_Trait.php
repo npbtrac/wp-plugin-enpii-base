@@ -16,10 +16,10 @@ trait Config_Trait {
 	 * @param bool $strict 	default = false, that means all existing keys should be assigned
 	 * 						if set to true, that means exception thrown if a key doesn't
 	 * 						match the object property
-	 * @return void
+	 * @return self
      * @throws InvalidArgumentException
 	 */
-	public function bind_config( array $config = [], bool $strict = false ): void {
+	public function bind_config( array $config = [], bool $strict = false ): self {
 		if ( is_array( $config ) && ! empty( $config ) ) {
 			foreach ( $config as $attr_name => $attr_value ) {
 				if ( property_exists( $this, $attr_name ) ) {
@@ -29,5 +29,7 @@ trait Config_Trait {
 				}
 			}
 		}
+
+		return $this;
 	}
 }

@@ -43,17 +43,23 @@
     "autoload": {
         "files": [
             "./src/Foundation/Support/helpers-wp-app.php",
+            "./src/Foundation/Support/helpers-wp-app-overrides.php",
             "./src/Foundation/Support/helpers.php",
-            "./src/Dependencies/Symfony/Polyfill/Php80/bootstrap.php",
-            "./src/Dependencies/Illuminate/Support/helpers.php",
-            "./src/Dependencies/Symfony/Component/VarDumper/Resources/functions/dump.php"
+            "./src/Dependencies/Illuminate/Support/helpers.php"
         ],
         "psr-4": {
-            "Enpii\\WP_Plugin\\Enpii_Base\\": "src",
-            "Enpii\\WP_Plugin\\Enpii_Base\\Tests\\": "tests",
-            "Enpii\\WP_Plugin\\Enpii_Base\\Tests\\Unit\\": "tests/unit"
+            "Enpii\\WP_Plugin\\Enpii_Base\\": "src"
         }
     },
+    "autoload-dev": {
+      "files": [
+          "./src/Dependencies/Symfony/Component/VarDumper/Resources/functions/dump.php"
+      ],
+      "psr-4": {
+          "Enpii\\WP_Plugin\\Enpii_Base\\Tests\\": "tests",
+          "Enpii\\WP_Plugin\\Enpii_Base\\Tests\\Unit\\": "tests/unit"
+      }
+  },
     "config": {
         "allow-plugins": {
             "composer/installers": true,
