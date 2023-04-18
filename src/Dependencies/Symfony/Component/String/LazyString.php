@@ -16,7 +16,7 @@ namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\String;
  *
  * @author Nicolas Grekas <p@tchwork.com>
  */
-class LazyString implements \NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Stringable, \JsonSerializable
+class LazyString implements \Stringable, \JsonSerializable
 {
     private $value;
 
@@ -50,7 +50,7 @@ class LazyString implements \NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpW
     }
 
     /**
-     * @param string|int|float|bool|\NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Stringable $value
+     * @param string|int|float|bool|\Stringable $value
      *
      * @return static
      */

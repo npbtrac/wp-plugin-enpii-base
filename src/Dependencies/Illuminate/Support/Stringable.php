@@ -6,7 +6,7 @@ use Closure;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\VarDumper;
 
-class NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Stringable
+class Stringable
 {
     use Macroable;
 

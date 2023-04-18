@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Enpii\WP_Plugin\Enpii_Base\App\WP_CLI;
 
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Artisan;
 use WP_CLI;
 
 class Enpii_Base_Artisan_WP_CLI {
