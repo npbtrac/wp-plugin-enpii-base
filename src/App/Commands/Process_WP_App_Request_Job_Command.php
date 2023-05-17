@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace Enpii\WP_Plugin\Enpii_Base\App\Commands;
 
-use Enpii\WP_Plugin\Enpii_Base\App\Commands\Process_WP_App_Request_Command;
-use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Base_Command_Handler;
+use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Base_Job_Command;
 
-class Process_WP_App_Request_Command_Handler extends Base_Command_Handler {
-	public function handle( Process_WP_App_Request_Command $command ): void {
+class Process_WP_App_Request_Job_Command extends Base_Job_Command {
+	public function handle(): void {
 		/** @var \Enpii\WP_Plugin\Enpii_Base\App\Http\Kernel $kernel */
-		$wp_app = $command->get_wp_app();
+		$wp_app = wp_app();
 		$kernel = $wp_app->make( \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Http\Kernel::class );
 
 		$request = \Enpii\WP_Plugin\Enpii_Base\App\Http\Request::capture();

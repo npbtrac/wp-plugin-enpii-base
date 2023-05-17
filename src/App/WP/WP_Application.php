@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace Enpii\WP_Plugin\Enpii_Base\App\WP;
 
 use Enpii\WP_Plugin\Enpii_Base\App\Commands\Generic_WP_App_Command;
+use Enpii\WP_Plugin\Enpii_Base\App\Providers\Bus_Service_Provider;
 use Enpii\WP_Plugin\Enpii_Base\App\Providers\Events_Service_Provider;
 use Enpii\WP_Plugin\Enpii_Base\App\Providers\Log_Service_Provider;
 use Enpii\WP_Plugin\Enpii_Base\App\Providers\Routing_Service_Provider;
 use Enpii\WP_Plugin\Enpii_Base\App\Queries\Generic_WP_App_Query;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Config\Repository;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Application;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Mix;
 use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Base_Command_Handler;
 use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Base_Query_Handler;
 use Enpii\WP_Plugin\Enpii_Base\Foundation\WP\WP_Plugin_Interface;
@@ -143,34 +145,6 @@ class WP_Application extends Application {
 		return dirname(dirname( dirname( __DIR__ ) )) . DIRECTORY_SEPARATOR . 'resources' . ( $path ? DIRECTORY_SEPARATOR . $path : $path );
 	}
 
-	public function dispatch_command_handler( string $handler_classname, $command = null ): void {
-		$handler = $this->make($handler_classname);
-		if ( ! ( $handler instanceof Base_Command_Handler ) ) {
-			throw new InvalidArgumentException( sprintf( 'The target classname %s must implement %s', $handler_classname, Base_Command_Handler::class ) );
-		}
-
-		if ( empty( $command ) ) {
-			$command = $this->make(Generic_WP_App_Command::class, [
-				'wp_app' => $this,
-			]);
-		}
-
-		$handler->handle( $command );
-	}
-
-	public function execute_query_handler( string $handler_classname, $command = null ): mixed {
-		$handler = $this->make($handler_classname);
-		if ( ! ( $handler instanceof Base_Query_Handler ) ) {
-			throw new InvalidArgumentException( sprintf( 'The target classname %s must implement %s', $handler_classname, Base_Query_Handler::class ) );
-		}
-
-		if ( empty( $command ) ) {
-			$command = new Generic_WP_App_Query( $this );
-		}
-
-		return $handler->handle( $command );
-	}
-
 	/**
      * @inheritedDoc
      *
@@ -205,6 +179,9 @@ class WP_Application extends Application {
 				return new Repository( $config );
 			}
 		);
+
+		$this->instance(WP_Application::class, $this);
+        $this->singleton(Mix::class);
     }
 
 	/**
@@ -216,5 +193,6 @@ class WP_Application extends Application {
         $this->register(new Events_Service_Provider($this));
         $this->register(new Log_Service_Provider($this));
         $this->register(new Routing_Service_Provider($this));
+        $this->register(new Bus_Service_Provider($this));
     }
 }

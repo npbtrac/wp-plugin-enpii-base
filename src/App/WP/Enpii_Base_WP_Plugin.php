@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace Enpii\WP_Plugin\Enpii_Base\App\WP;
 
-use Enpii\WP_Plugin\Enpii_Base\App\Commands\Init_WP_App_Bootstrap_Command_Handler;
-use Enpii\WP_Plugin\Enpii_Base\App\Commands\Process_WP_App_Request_Command;
-use Enpii\WP_Plugin\Enpii_Base\App\Commands\Process_WP_App_Request_Command_Handler;
-use Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Base_WP_App_Routes_Command_Handler;
-use Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Main_Service_Providers_Command;
-use Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Main_Service_Providers_Command_Handler;
+use Enpii\WP_Plugin\Enpii_Base\App\Commands\Init_WP_App_Bootstrap_Job_Command;
+use Enpii\WP_Plugin\Enpii_Base\App\Commands\Process_WP_App_Request_Job_Command;
+use Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Base_WP_App_Routes_Job_Command;
+use Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Main_Service_Providers_Job_Command;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException;
 use Enpii\WP_Plugin\Enpii_Base\Foundation\WP\WP_Plugin;
 use InvalidArgumentException;
@@ -58,7 +56,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	}
 
 	public function bootstrap_wp_app(): void {
-		wp_app_dispatch_command_handler( Init_WP_App_Bootstrap_Command_Handler::class );
+		Init_WP_App_Bootstrap_Job_Command::dispatchNow();
 	}
 
 	/**
@@ -69,16 +67,24 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 * @throws InvalidArgumentException
 	 */
 	public function register_main_service_providers(): void {
-		wp_app_dispatch_command_handler( Register_Main_Service_Providers_Command_Handler::class, (new Register_Main_Service_Providers_Command()) );
+		Register_Main_Service_Providers_Job_Command::dispatchNow([
+			\Enpii\WP_Plugin\Enpii_Base\App\Providers\View_Service_Provider::class,
+			\Enpii\WP_Plugin\Enpii_Base\App\Providers\Route_Service_Provider::class,
+			\Enpii\WP_Plugin\Enpii_Base\App\Providers\Filesystem_Service_Provider::class,
+			\Enpii\WP_Plugin\Enpii_Base\App\Providers\Cache_Service_Provider::class,
+			\Enpii\WP_Plugin\Enpii_Base\App\Providers\Artisan_Service_Provider::class,
+			\Enpii\WP_Plugin\Enpii_Base\App\Providers\Queue_Service_Provider::class,
+			\Enpii\WP_Plugin\Enpii_Base\App\Providers\Database_Service_Provider::class,
+			\Enpii\WP_Plugin\Enpii_Base\App\Providers\Composer_Service_Provider::class,
+			\Enpii\WP_Plugin\Enpii_Base\App\Providers\Migration_Service_Provider::class,
+		]);
 	}
 
 	public function process_wp_app_request(): void {
 		// We want to check that if the uri prefix is for wp-app before invoke the handler
 		// to keep the handler lazy-loading
 		if ( $this->is_wp_app_mode() ) {
-			wp_app_dispatch_command_handler( Process_WP_App_Request_Command_Handler::class, (new Process_WP_App_Request_Command())->bind_config([
-				'wp_app' => $this->app,
-			]) );
+			Process_WP_App_Request_Job_Command::dispatchNow();
 		}
 	}
 
@@ -86,7 +92,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		// We want to check that if the uri prefix is for wp-app before invoke the handler
 		// to keep the handler lazy-loading
 		if ( $this->is_wp_app_mode() ) {
-			wp_app_dispatch_command_handler( Register_Base_WP_App_Routes_Command_Handler::class );
+			Register_Base_WP_App_Routes_Job_Command::dispatchNow();
 		}
 	}
 

@@ -8,10 +8,10 @@ use Enpii\WP_Plugin\Enpii_Base\App\Http\Controllers\Admin\Index_Controller as Ad
 use Enpii\WP_Plugin\Enpii_Base\App\Http\Controllers\Api\Index_Controller as Api_Index_Controller;
 use Enpii\WP_Plugin\Enpii_Base\App\Http\Controllers\Index_Controller;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Route;
-use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Base_Command_Handler;
+use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Base_Job_Command;
 
-class Register_Base_WP_App_Routes_Command_Handler extends Base_Command_Handler {
-	public function handle( $command = null ): void {
+class Register_Base_WP_App_Routes_Job_Command extends Base_Job_Command {
+	public function handle(): void {
 		// For Frontend
 		Route::get( '/', [ Index_Controller::class, 'home' ] );
 		Route::get( '/home', [ Index_Controller::class, 'home' ] );

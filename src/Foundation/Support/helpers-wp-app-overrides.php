@@ -938,8 +938,17 @@ if ( ! function_exists( 'dev_logger' ) ) {
 if ( ! function_exists( 'dev_dump' ) ) {
 	function dev_dump( ...$messages ): void {
 		foreach ( $messages as $index => $message ) {
+			VarDumper::dump("========== message $index: ============");
 			VarDumper::dump($message);
 		}
+	}
+}
+
+if ( ! function_exists( 'dev_dump_die' ) ) {
+	function dev_dump_die( ...$messages ): void {
+		dev_dump($messages);
+		VarDumper::dump("========== Dumping ends here ============");
+		die();
 	}
 }
 
