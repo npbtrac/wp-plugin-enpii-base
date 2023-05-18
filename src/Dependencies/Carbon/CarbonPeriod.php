@@ -37,7 +37,7 @@ use InvalidArgumentException;
 use Iterator;
 use JsonSerializable;
 use ReflectionException;
-use NpWpNPB_ReturnTypeWillChange;
+use ReturnTypeWillChange;
 use RuntimeException;
 
 /**
@@ -1323,7 +1323,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
      *
      * @return bool
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function valid()
     {
         return $this->validateCurrentDate() === true;
@@ -1334,7 +1334,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
      *
      * @return int|null
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function key()
     {
         return $this->valid()
@@ -1347,7 +1347,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
      *
      * @return CarbonInterface|null
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function current()
     {
         return $this->valid()
@@ -1362,7 +1362,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
      *
      * @return void
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function next()
     {
         if ($this->current === null) {
@@ -1389,7 +1389,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
      *
      * @return void
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function rewind()
     {
         $this->key = 0;
@@ -1608,7 +1608,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
      *
      * @return int
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function count()
     {
         return \count($this->toArray());
@@ -2277,7 +2277,7 @@ class CarbonPeriod implements Iterator, Countable, JsonSerializable
      *
      * @return CarbonInterface[]
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize()
     {
         return $this->toArray();

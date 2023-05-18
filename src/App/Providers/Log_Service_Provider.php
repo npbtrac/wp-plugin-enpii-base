@@ -7,7 +7,13 @@ namespace Enpii\WP_Plugin\Enpii_Base\App\Providers;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Log\LogServiceProvider;
 
 class Log_Service_Provider extends LogServiceProvider {
-	public function boot() {
+	public function register() {
+		$this->before_register();
+
+		parent::register();
+	}
+
+	protected function before_register(): void {
 		wp_app_config(
 			[
 				'logging' => apply_filters(
@@ -39,16 +45,16 @@ class Log_Service_Provider extends LogServiceProvider {
 		return [
 			'stack' => [
 				'driver'   => 'stack',
-				'channels' => [ 'daily' ],
+				'channels' => [ 'single' ],
 			],
 			'single' => [
 				'driver' => 'single',
-				'path'   => wp_app_storage_path( '/logs' ) . '/laravel.log',
+				'path'   => wp_app_storage_path( 'logs/laravel.log' ),
 				'level'  => 'debug',
 			],
 			'daily' => [
 				'driver' => 'daily',
-				'path'   => wp_app_storage_path( '/logs' ) . '/laravel.log',
+				'path'   => wp_app_storage_path( 'logs/laravel.log' ),
 				'level'  => 'debug',
 				'days'   => 14,
 			],

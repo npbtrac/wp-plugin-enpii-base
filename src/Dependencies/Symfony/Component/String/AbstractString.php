@@ -27,7 +27,7 @@ use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\String\Exception\R
  *
  * @throws ExceptionInterface
  */
-abstract class AbstractString implements \NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Stringable, \JsonSerializable
+abstract class AbstractString implements \Stringable, \JsonSerializable
 {
     public const PREG_PATTERN_ORDER = \PREG_PATTERN_ORDER;
     public const PREG_SET_ORDER = \PREG_SET_ORDER;

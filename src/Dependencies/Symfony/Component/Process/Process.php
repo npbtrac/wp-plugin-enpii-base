@@ -622,7 +622,7 @@ class Process implements \IteratorAggregate
      *
      * @return \Generator<string, string>
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function getIterator(int $flags = 0)
     {
         $this->readPipesForOutput(__FUNCTION__, false);
@@ -1141,7 +1141,7 @@ class Process implements \IteratorAggregate
     /**
      * Sets the environment variables.
      *
-     * @param array<string|\NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Stringable> $env The new environment variables
+     * @param array<string|\Stringable> $env The new environment variables
      *
      * @return $this
      */

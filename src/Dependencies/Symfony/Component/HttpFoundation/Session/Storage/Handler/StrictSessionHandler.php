@@ -43,7 +43,7 @@ class StrictSessionHandler extends AbstractSessionHandler
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function open($savePath, $sessionName)
     {
         parent::open($savePath, $sessionName);
@@ -62,7 +62,7 @@ class StrictSessionHandler extends AbstractSessionHandler
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function updateTimestamp($sessionId, $data)
     {
         return $this->write($sessionId, $data);
@@ -79,7 +79,7 @@ class StrictSessionHandler extends AbstractSessionHandler
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function destroy($sessionId)
     {
         $this->doDestroy = true;
@@ -101,7 +101,7 @@ class StrictSessionHandler extends AbstractSessionHandler
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function close()
     {
         return $this->handler->close();
@@ -110,7 +110,7 @@ class StrictSessionHandler extends AbstractSessionHandler
     /**
      * @return int|false
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function gc($maxlifetime)
     {
         return $this->handler->gc($maxlifetime);

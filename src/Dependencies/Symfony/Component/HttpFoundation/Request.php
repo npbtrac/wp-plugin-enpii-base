@@ -12,7 +12,7 @@
 namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation;
 
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Exception\ConflictingHeadersException;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Exception\NpWpNPB_NpWpNPB_NpWpNPB_JsonException;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Exception\JsonException;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Exception\SessionNotFoundException;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Exception\SuspiciousOperationException;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -1573,28 +1573,28 @@ class Request
     /**
      * Gets the request body decoded as array, typically from a JSON payload.
      *
-     * @throws NpWpNPB_NpWpNPB_NpWpNPB_JsonException When the body cannot be decoded to an array
+     * @throws JsonException When the body cannot be decoded to an array
      *
      * @return array
      */
     public function toArray()
     {
         if ('' === $content = $this->getContent()) {
-            throw new NpWpNPB_NpWpNPB_NpWpNPB_JsonException('Request body is empty.');
+            throw new JsonException('Request body is empty.');
         }
 
         try {
             $content = json_decode($content, true, 512, \JSON_BIGINT_AS_STRING | (\PHP_VERSION_ID >= 70300 ? \JSON_THROW_ON_ERROR : 0));
-        } catch (\NpWpNPB_NpWpNPB_NpWpNPB_JsonException $e) {
-            throw new NpWpNPB_NpWpNPB_NpWpNPB_JsonException('Could not decode request body.', $e->getCode(), $e);
+        } catch (\JsonException $e) {
+            throw new JsonException('Could not decode request body.', $e->getCode(), $e);
         }
 
         if (\PHP_VERSION_ID < 70300 && \JSON_ERROR_NONE !== json_last_error()) {
-            throw new NpWpNPB_NpWpNPB_NpWpNPB_JsonException('Could not decode request body: '.json_last_error_msg(), json_last_error());
+            throw new JsonException('Could not decode request body: '.json_last_error_msg(), json_last_error());
         }
 
         if (!\is_array($content)) {
-            throw new NpWpNPB_NpWpNPB_NpWpNPB_JsonException(sprintf('JSON content was expected to decode to an array, "%s" returned.', get_debug_type($content)));
+            throw new JsonException(sprintf('JSON content was expected to decode to an array, "%s" returned.', get_debug_type($content)));
         }
 
         return $content;

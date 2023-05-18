@@ -10,7 +10,7 @@
  */
 
 if (\PHP_VERSION_ID < 80000) {
-    interface NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Stringable
+    interface Stringable
     {
         /**
          * @return string

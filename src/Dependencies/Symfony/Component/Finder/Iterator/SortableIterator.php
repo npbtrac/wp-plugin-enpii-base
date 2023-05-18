@@ -84,7 +84,7 @@ class SortableIterator implements \IteratorAggregate
     /**
      * @return \Traversable<string, \SplFileInfo>
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         if (1 === $this->sort) {

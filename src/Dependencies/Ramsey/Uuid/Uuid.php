@@ -23,7 +23,7 @@ use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Lazy\LazyUuidFromString;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Rfc4122\FieldsInterface as Rfc4122FieldsInterface;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Hexadecimal;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type\Integer as IntegerObject;
-use NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_ValueError;
+use ValueError;
 
 use function assert;
 use function bin2hex;
@@ -330,7 +330,7 @@ class Uuid implements UuidInterface
     {
         // @codeCoverageIgnoreStart
         if (!isset($data['bytes'])) {
-            throw new NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_ValueError(sprintf('%s(): Argument #1 ($data) is invalid', __METHOD__));
+            throw new ValueError(sprintf('%s(): Argument #1 ($data) is invalid', __METHOD__));
         }
         // @codeCoverageIgnoreEnd
 

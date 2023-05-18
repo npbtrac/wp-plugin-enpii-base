@@ -55,7 +55,7 @@ class ExcludeDirectoryFilterIterator extends \FilterIterator implements \Recursi
      *
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function accept()
     {
         if ($this->isRecursive && isset($this->excludedDirs[$this->getFilename()]) && $this->isDir()) {
@@ -75,7 +75,7 @@ class ExcludeDirectoryFilterIterator extends \FilterIterator implements \Recursi
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function hasChildren()
     {
         return $this->isRecursive && $this->iterator->hasChildren();
@@ -84,7 +84,7 @@ class ExcludeDirectoryFilterIterator extends \FilterIterator implements \Recursi
     /**
      * @return self
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function getChildren()
     {
         $children = new self($this->iterator->getChildren(), []);

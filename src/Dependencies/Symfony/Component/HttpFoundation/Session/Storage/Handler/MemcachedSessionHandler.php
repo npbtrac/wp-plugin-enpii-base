@@ -57,7 +57,7 @@ class MemcachedSessionHandler extends AbstractSessionHandler
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function close()
     {
         return $this->memcached->quit();
@@ -74,7 +74,7 @@ class MemcachedSessionHandler extends AbstractSessionHandler
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function updateTimestamp($sessionId, $data)
     {
         $this->memcached->touch($this->prefix.$sessionId, time() + (int) ($this->ttl ?? \ini_get('session.gc_maxlifetime')));
@@ -103,7 +103,7 @@ class MemcachedSessionHandler extends AbstractSessionHandler
     /**
      * @return int|false
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function gc($maxlifetime)
     {
         // not required here because memcached will auto expire the records anyhow.

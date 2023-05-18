@@ -43,7 +43,7 @@ class DepthRangeFilterIterator extends \FilterIterator
      *
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function accept()
     {
         return $this->getInnerIterator()->getDepth() >= $this->minDepth;

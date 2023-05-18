@@ -10,6 +10,20 @@ use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Console\Kernel
 class Kernel extends ConsoleKernel {
 
 	/**
+     * The bootstrap classes for the application.
+     *
+     * @var array
+     */
+    protected $bootstrappers = [
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\HandleExceptions::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\RegisterFacades::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\SetRequestForConsole::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\RegisterProviders::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\BootProviders::class,
+    ];
+
+	/**
 	 * The Artisan commands provided by your application.
 	 *
 	 * @var array

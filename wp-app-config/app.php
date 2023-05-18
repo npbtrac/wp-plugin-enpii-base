@@ -51,7 +51,7 @@ return [
 	|
 	*/
 
-	'url' => defined( 'WP_HOME' ) ? WP_HOME : null,
+	'url' => defined( 'WP_HOME' ) ? WP_HOME : home_url(),
 
 	'asset_url' => '/assets/wp-app',
 
@@ -121,4 +121,40 @@ return [
 	'key' => defined( 'AUTH_KEY' ) ? AUTH_KEY : uniqid(),
 
 	'cipher' => 'AES-256-CBC',
+
+	'aliases' => [
+		'App' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\App::class,
+        'Artisan' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Artisan::class,
+        'Auth' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Auth::class,
+        'Blade' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Blade::class,
+        'Broadcast' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Broadcast::class,
+        'Bus' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Bus::class,
+        'Cache' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Cache::class,
+        'Config' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Config::class,
+        'Cookie' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Cookie::class,
+        'Crypt' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Crypt::class,
+        'DB' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\DB::class,
+        'Eloquent' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Model::class,
+        'Event' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Event::class,
+        'File' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\File::class,
+        'Gate' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Gate::class,
+        'Hash' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Hash::class,
+        'Lang' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Lang::class,
+        'Log' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Log::class,
+        'Mail' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Mail::class,
+        'Notification' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Notification::class,
+        'Password' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Password::class,
+        'Queue' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Queue::class,
+        'Redirect' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Redirect::class,
+        'Redis' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Redis::class,
+        'Request' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Request::class,
+        'Response' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Response::class,
+        'Route' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Route::class,
+        'Schema' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Schema::class,
+        'Session' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Session::class,
+        'Storage' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Storage::class,
+        'URL' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\URL::class,
+        'Validator' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Validator::class,
+        'View' => \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\View::class,
+	],
 ];

@@ -1,0 +1,31 @@
+<?php
+
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Migrations\Migration;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Schema\Blueprint;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Schema;
+
+class CreateActivityLogsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('activity_logs', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('activity_logs');
+    }
+}

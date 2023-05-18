@@ -14,7 +14,7 @@ declare(strict_types=1);
 
 namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Fields;
 
-use NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_ValueError;
+use ValueError;
 
 use function base64_decode;
 use function sprintf;
@@ -77,7 +77,7 @@ trait SerializableFieldsTrait
     {
         // @codeCoverageIgnoreStart
         if (!isset($data['bytes'])) {
-            throw new NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_ValueError(sprintf('%s(): Argument #1 ($data) is invalid', __METHOD__));
+            throw new ValueError(sprintf('%s(): Argument #1 ($data) is invalid', __METHOD__));
         }
         // @codeCoverageIgnoreEnd
 

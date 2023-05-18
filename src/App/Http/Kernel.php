@@ -15,19 +15,21 @@ class Kernel extends HttpKernel {
 	 *
 	 * @var array
 	 */
-	protected $middleware = [];
+	protected $middleware = [
+	];
 
 	/**
-	 * The bootstrap classes for the application.
-	 *
-	 * @var array
-	 */
-	protected $bootstrappers = [
-		\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\HandleExceptions::class,
-		\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\RegisterFacades::class,
-		\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\RegisterProviders::class,
-		\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\BootProviders::class,
-	];
+     * The bootstrap classes for the application.
+     *
+     * @var array
+     */
+    protected $bootstrappers = [
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\HandleExceptions::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\RegisterFacades::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\RegisterProviders::class,
+        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\BootProviders::class,
+    ];
 
 	/**
 	 * The application's route middleware groups.
@@ -46,5 +48,7 @@ class Kernel extends HttpKernel {
 	 *
 	 * @var array
 	 */
-	protected $routeMiddleware = [];
+	protected $routeMiddleware = [
+		'wp_user_session_validation' => \Enpii\WP_Plugin\Enpii_Base\App\Http\Middleware\WP_User_Session_Validation::class,
+	];
 }

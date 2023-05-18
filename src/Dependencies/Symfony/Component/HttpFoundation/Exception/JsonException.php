@@ -16,6 +16,6 @@ namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundati
  *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */
-final class NpWpNPB_NpWpNPB_NpWpNPB_JsonException extends \UnexpectedValueException implements RequestExceptionInterface
+final class JsonException extends \UnexpectedValueException implements RequestExceptionInterface
 {
 }

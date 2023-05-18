@@ -48,7 +48,7 @@ class MigratingSessionHandler implements \SessionHandlerInterface, \SessionUpdat
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function close()
     {
         $result = $this->currentHandler->close();
@@ -60,7 +60,7 @@ class MigratingSessionHandler implements \SessionHandlerInterface, \SessionUpdat
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function destroy($sessionId)
     {
         $result = $this->currentHandler->destroy($sessionId);
@@ -72,7 +72,7 @@ class MigratingSessionHandler implements \SessionHandlerInterface, \SessionUpdat
     /**
      * @return int|false
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function gc($maxlifetime)
     {
         $result = $this->currentHandler->gc($maxlifetime);
@@ -84,7 +84,7 @@ class MigratingSessionHandler implements \SessionHandlerInterface, \SessionUpdat
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function open($savePath, $sessionName)
     {
         $result = $this->currentHandler->open($savePath, $sessionName);
@@ -96,7 +96,7 @@ class MigratingSessionHandler implements \SessionHandlerInterface, \SessionUpdat
     /**
      * @return string
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function read($sessionId)
     {
         // No reading from new handler until switch-over
@@ -106,7 +106,7 @@ class MigratingSessionHandler implements \SessionHandlerInterface, \SessionUpdat
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function write($sessionId, $sessionData)
     {
         $result = $this->currentHandler->write($sessionId, $sessionData);
@@ -118,7 +118,7 @@ class MigratingSessionHandler implements \SessionHandlerInterface, \SessionUpdat
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function validateId($sessionId)
     {
         // No reading from new handler until switch-over
@@ -128,7 +128,7 @@ class MigratingSessionHandler implements \SessionHandlerInterface, \SessionUpdat
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function updateTimestamp($sessionId, $sessionData)
     {
         $result = $this->currentHandler->updateTimestamp($sessionId, $sessionData);

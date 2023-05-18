@@ -11,7 +11,7 @@
 
 namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\ControllerMetadata;
 
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Attribute\ArgumentInterface;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Attribute\ArgumentInterface;
 
 /**
  * Responsible for storing metadata of an argument.

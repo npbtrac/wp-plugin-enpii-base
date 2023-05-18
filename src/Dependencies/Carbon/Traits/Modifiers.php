@@ -12,7 +12,7 @@
 namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Traits;
 
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\CarbonInterface;
-use NpWpNPB_ReturnTypeWillChange;
+use ReturnTypeWillChange;
 
 /**
  * Trait Modifiers.
@@ -433,7 +433,7 @@ trait Modifiers
      *
      * @return static|false
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function modify($modify)
     {
         return parent::modify((string) $modify);

@@ -289,7 +289,7 @@ trait FormatsMessages
     protected function replaceAttributePlaceholder($message, $value)
     {
         return str_replace(
-            [':attribute', ':ATTRIBUTE', ':NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Attribute'],
+            [':attribute', ':ATTRIBUTE', ':Attribute'],
             [$value, Str::upper($value), Str::ucfirst($value)],
             $message
         );

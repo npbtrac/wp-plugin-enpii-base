@@ -3,7 +3,7 @@
 namespace Enpii\WP_Plugin\Enpii_Base\Tests\Support\Unit\Libs;
 
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Application;
-use Enpii\WP_Plugin\Enpii_Base\Libs\WP_Application;
+use Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application;
 
 class Unit_Test_Case extends \Codeception\Test\Unit {
 	protected WP_Application $wp_app;

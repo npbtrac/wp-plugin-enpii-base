@@ -12,7 +12,7 @@
 namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command;
 
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Application;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Attribute\AsCommand;
+use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Attribute\AsCommand;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Completion\CompletionInput;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Completion\CompletionSuggestions;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\ExceptionInterface;

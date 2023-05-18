@@ -20,7 +20,7 @@ use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Translator;
 use Closure;
 use DateInterval;
 use DateTimeInterface;
-use NpWpNPB_ReturnTypeWillChange;
+use ReturnTypeWillChange;
 
 /**
  * Trait Difference.
@@ -120,7 +120,7 @@ trait Difference
      *
      * @return DateInterval
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function diff($date = null, $absolute = false)
     {
         $other = $this->resolveCarbon($date);

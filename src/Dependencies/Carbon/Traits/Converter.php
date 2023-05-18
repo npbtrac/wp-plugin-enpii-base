@@ -20,7 +20,7 @@ use Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon\Exceptions\UnitException;
 use Closure;
 use DateTime;
 use DateTimeImmutable;
-use NpWpNPB_ReturnTypeWillChange;
+use ReturnTypeWillChange;
 
 /**
  * Trait Converter.
@@ -45,7 +45,7 @@ trait Converter
      *
      * @return string
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function format($format)
     {
         $function = $this->localFormatFunction ?: static::$formatFunction;

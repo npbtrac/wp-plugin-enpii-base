@@ -2,7 +2,7 @@
     "name": "enpii/enpii-base",
     "type": "wordpress-muplugin",
     "require": {
-        "php": "^7.2.5|^8.0",
+        "php": "^7.2.5|~8.0.0",
         "laravel/framework": "7.30.6",
         "mcaskill/composer-exclude-files": "^3.0.0",
         "symfony/translation-contracts": "~2.5.2",
@@ -42,18 +42,24 @@
     ],
     "autoload": {
         "files": [
-            "./src/Support/helpers-wp-app.php",
-            "./src/Support/helpers.php",
-            "./src/Dependencies/Symfony/Polyfill/Php80/bootstrap.php",
-            "./src/Dependencies/Illuminate/Support/helpers.php",
-            "./src/Dependencies/Symfony/Component/VarDumper/Resources/functions/dump.php"
+            "./src/Foundation/Support/helpers-wp-app.php",
+            "./src/Foundation/Support/helpers-wp-app-overrides.php",
+            "./src/Foundation/Support/helpers.php",
+            "./src/Dependencies/Illuminate/Support/helpers.php"
         ],
         "psr-4": {
-            "Enpii\\WP_Plugin\\Enpii_Base\\": "src",
-            "Enpii\\WP_Plugin\\Enpii_Base\\Tests\\": "tests",
-            "Enpii\\WP_Plugin\\Enpii_Base\\Tests\\Unit\\": "tests/unit"
+            "Enpii\\WP_Plugin\\Enpii_Base\\": "src"
         }
     },
+    "autoload-dev": {
+      "files": [
+          "./src/Dependencies/Symfony/Component/VarDumper/Resources/functions/dump.php"
+      ],
+      "psr-4": {
+          "Enpii\\WP_Plugin\\Enpii_Base\\Tests\\": "tests",
+          "Enpii\\WP_Plugin\\Enpii_Base\\Tests\\Unit\\": "tests/unit"
+      }
+  },
     "config": {
         "allow-plugins": {
             "composer/installers": true,

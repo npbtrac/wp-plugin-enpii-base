@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Session\NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Attribute;
+namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Session\Attribute;
 
 /**
  * This class relates to session attribute storage.
@@ -133,7 +133,7 @@ class AttributeBag implements AttributeBagInterface, \IteratorAggregate, \Counta
      *
      * @return \ArrayIterator<string, mixed>
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         return new \ArrayIterator($this->attributes);
@@ -144,7 +144,7 @@ class AttributeBag implements AttributeBagInterface, \IteratorAggregate, \Counta
      *
      * @return int
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function count()
     {
         return \count($this->attributes);

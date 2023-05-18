@@ -10,7 +10,7 @@
  */
 
 if (\PHP_VERSION_ID < 70300) {
-    class NpWpNPB_NpWpNPB_NpWpNPB_JsonException extends Exception
+    class JsonException extends Exception
     {
     }
 }

@@ -9,8 +9,8 @@
  * file that was distributed with this source code.
  */
 
-#[NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Attribute(Attribute::TARGET_CLASS)]
-final class NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_Attribute
+#[Attribute(Attribute::TARGET_CLASS)]
+final class Attribute
 {
     public const TARGET_CLASS = 1;
     public const TARGET_FUNCTION = 2;

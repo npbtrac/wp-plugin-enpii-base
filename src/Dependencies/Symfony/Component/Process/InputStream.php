@@ -71,7 +71,7 @@ class InputStream implements \IteratorAggregate
     /**
      * @return \Traversable<int, string>
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         $this->open = true;

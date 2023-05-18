@@ -257,7 +257,7 @@ class HeaderBag implements \IteratorAggregate, \Countable
      *
      * @return \ArrayIterator<string, list<string|null>>
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function getIterator()
     {
         return new \ArrayIterator($this->headers);
@@ -268,7 +268,7 @@ class HeaderBag implements \IteratorAggregate, \Countable
      *
      * @return int
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function count()
     {
         return \count($this->headers);

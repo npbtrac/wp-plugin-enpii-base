@@ -21,7 +21,7 @@ class NullSessionHandler extends AbstractSessionHandler
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function close()
     {
         return true;
@@ -30,7 +30,7 @@ class NullSessionHandler extends AbstractSessionHandler
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function validateId($sessionId)
     {
         return true;
@@ -47,7 +47,7 @@ class NullSessionHandler extends AbstractSessionHandler
     /**
      * @return bool
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function updateTimestamp($sessionId, $data)
     {
         return true;
@@ -72,7 +72,7 @@ class NullSessionHandler extends AbstractSessionHandler
     /**
      * @return int|false
      */
-    #[\NpWpNPB_ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function gc($maxlifetime)
     {
         return 0;

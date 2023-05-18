@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Type;
 
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Ramsey\Uuid\Exception\InvalidArgumentException;
-use NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_ValueError;
+use ValueError;
 
 use function ctype_digit;
 use function ltrim;
@@ -144,7 +144,7 @@ final class Integer implements NumberInterface
     {
         // @codeCoverageIgnoreStart
         if (!isset($data['string'])) {
-            throw new NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_NpWpNPB_ValueError(sprintf('%s(): Argument #1 ($data) is invalid', __METHOD__));
+            throw new ValueError(sprintf('%s(): Argument #1 ($data) is invalid', __METHOD__));
         }
         // @codeCoverageIgnoreEnd
 

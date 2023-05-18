@@ -31,7 +31,7 @@ use DateTimeInterface;
 use DateTimeZone;
 use Exception;
 use ReflectionException;
-use NpWpNPB_ReturnTypeWillChange;
+use ReturnTypeWillChange;
 use Throwable;
 
 /**
@@ -1021,7 +1021,7 @@ class CarbonInterval extends DateInterval implements CarbonConverterInterface
      *
      * @link https://php.net/manual/en/dateinterval.createfromdatestring.php
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public static function createFromDateString($time)
     {
         $interval = @parent::createFromDateString(strtr($time, [

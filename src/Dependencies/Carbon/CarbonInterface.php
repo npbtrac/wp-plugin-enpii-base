@@ -27,7 +27,7 @@ use DateTimeInterface;
 use DateTimeZone;
 use JsonSerializable;
 use ReflectionException;
-use NpWpNPB_ReturnTypeWillChange;
+use ReturnTypeWillChange;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Translation\TranslatorInterface;
 use Throwable;
 
@@ -721,7 +721,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * @return static
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public static function __set_state($dump);
 
     /**
@@ -756,7 +756,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * @return static
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function add($unit, $value = 1, $overflow = null);
 
     /**
@@ -1078,7 +1078,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * @return static|false
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public static function createFromFormat($format, $time, $tz = null);
 
     /**
@@ -2161,7 +2161,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * @return array
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public static function getLastErrors();
 
     /**
@@ -3041,7 +3041,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * @return array|string
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function jsonSerialize();
 
     /**
@@ -3354,7 +3354,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * @return static|false
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function modify($modify);
 
     /**
@@ -3738,7 +3738,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * @return static
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function setDate($year, $month, $day);
 
     /**
@@ -3803,7 +3803,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * @return static
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function setISODate($year, $week, $day = 1);
 
     /**
@@ -3898,7 +3898,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * @return static
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function setTime($hour, $minute, $second = 0, $microseconds = 0);
 
     /**
@@ -3928,7 +3928,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * @return static
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function setTimestamp($unixTimestamp);
 
     /**
@@ -3938,7 +3938,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * @return static
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function setTimezone($value);
 
     /**
@@ -4280,7 +4280,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * @return static
      */
-    #[NpWpNPB_ReturnTypeWillChange]
+    #[ReturnTypeWillChange]
     public function sub($unit, $value = 1, $overflow = null);
 
     public function subRealUnit($unit, $value = 1);
