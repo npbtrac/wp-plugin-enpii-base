@@ -253,7 +253,7 @@ class ArrayCollection implements \IteratorAggregate, \Countable, \ArrayAccess
      * @phpstan-return TValue|null
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return $this->elements[$offset] ?? null;
     }

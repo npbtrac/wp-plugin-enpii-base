@@ -146,7 +146,7 @@ abstract class AbstractRepository implements RepositoryInterface
      * {@inheritdoc}
      */
     #[ReturnTypeWillChange]
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return $this->has($offset);
     }
@@ -155,7 +155,7 @@ abstract class AbstractRepository implements RepositoryInterface
      * {@inheritdoc}
      */
     #[ReturnTypeWillChange]
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return $this->get($offset);
     }
@@ -164,7 +164,7 @@ abstract class AbstractRepository implements RepositoryInterface
      * {@inheritdoc}
      */
     #[ReturnTypeWillChange]
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         $this->set($offset, $value);
     }
@@ -173,7 +173,7 @@ abstract class AbstractRepository implements RepositoryInterface
      * {@inheritdoc}
      */
     #[ReturnTypeWillChange]
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         $this->clear($offset);
     }
