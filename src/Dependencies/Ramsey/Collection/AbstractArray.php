@@ -87,7 +87,7 @@ abstract class AbstractArray implements ArrayInterface
      * @psalm-suppress InvalidAttribute
      */
     #[\ReturnTypeWillChange] // phpcs:ignore
-    public function offsetGet($offset)
+    public function offsetGet($offset): mixed
     {
         return $this->data[$offset] ?? null;
     }

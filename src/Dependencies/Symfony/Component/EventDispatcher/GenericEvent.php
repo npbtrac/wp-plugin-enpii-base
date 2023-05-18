@@ -122,7 +122,7 @@ class GenericEvent extends Event implements \ArrayAccess, \IteratorAggregate
      * @throws \InvalidArgumentException if key does not exist in $this->args
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet($key)
+    public function offsetGet($key): mixed
     {
         return $this->getArgument($key);
     }
@@ -136,7 +136,7 @@ class GenericEvent extends Event implements \ArrayAccess, \IteratorAggregate
      * @return void
      */
     #[\ReturnTypeWillChange]
-    public function offsetSet($key, $value)
+    public function offsetSet($key, $value): void
     {
         $this->setArgument($key, $value);
     }
@@ -149,7 +149,7 @@ class GenericEvent extends Event implements \ArrayAccess, \IteratorAggregate
      * @return void
      */
     #[\ReturnTypeWillChange]
-    public function offsetUnset($key)
+    public function offsetUnset($key): void
     {
         if ($this->hasArgument($key)) {
             unset($this->arguments[$key]);
@@ -164,7 +164,7 @@ class GenericEvent extends Event implements \ArrayAccess, \IteratorAggregate
      * @return bool
      */
     #[\ReturnTypeWillChange]
-    public function offsetExists($key)
+    public function offsetExists($key): bool
     {
         return $this->hasArgument($key);
     }
