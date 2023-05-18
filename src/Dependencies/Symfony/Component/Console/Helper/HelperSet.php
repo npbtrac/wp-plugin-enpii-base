@@ -13,6 +13,7 @@ namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Help
 
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Command\Command;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Exception\InvalidArgumentException;
+use Traversable;
 
 /**
  * HelperSet represents a set of helpers to be used with a command.
@@ -101,7 +102,7 @@ class HelperSet implements \IteratorAggregate
      * @return \Traversable<string, Helper>
      */
     #[\ReturnTypeWillChange]
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return new \ArrayIterator($this->helpers);
     }

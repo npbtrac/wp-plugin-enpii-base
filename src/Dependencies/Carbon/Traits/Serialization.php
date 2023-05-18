@@ -232,7 +232,7 @@ trait Serialization
      * @return array|string
      */
     #[ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         $serializer = $this->localSerializer ?? static::$serializer;
 

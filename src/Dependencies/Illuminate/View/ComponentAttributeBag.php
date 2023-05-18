@@ -10,6 +10,7 @@ use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HtmlString;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 use IteratorAggregate;
+use Traversable;
 
 class ComponentAttributeBag implements ArrayAccess, Htmlable, IteratorAggregate
 {
@@ -277,7 +278,7 @@ class ComponentAttributeBag implements ArrayAccess, Htmlable, IteratorAggregate
      *
      * @return \ArrayIterator
      */
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return new ArrayIterator($this->attributes);
     }

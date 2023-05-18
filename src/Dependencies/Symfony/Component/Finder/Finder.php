@@ -23,6 +23,7 @@ use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\Fi
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\LazyIterator;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\SizeRangeFilterIterator;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator\SortableIterator;
+use Traversable;
 
 /**
  * Finder allows to build rules to find files and directories.
@@ -608,7 +609,7 @@ class Finder implements \IteratorAggregate, \Countable
      * @throws \LogicException if the in() method has not been called
      */
     #[\ReturnTypeWillChange]
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         if (0 === \count($this->dirs) && 0 === \count($this->iterators)) {
             throw new \LogicException('You must call one of in() or append() methods before iterating over a Finder.');
@@ -691,7 +692,7 @@ class Finder implements \IteratorAggregate, \Countable
      * @return int
      */
     #[\ReturnTypeWillChange]
-    public function count()
+    public function count(): int
     {
         return iterator_count($this->getIterator());
     }

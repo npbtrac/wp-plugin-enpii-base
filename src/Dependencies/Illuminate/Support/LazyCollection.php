@@ -8,6 +8,7 @@ use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Enumerates
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 use IteratorAggregate;
 use stdClass;
+use Traversable;
 
 class LazyCollection implements Enumerable
 {
@@ -1305,7 +1306,7 @@ class LazyCollection implements Enumerable
      *
      * @return \Traversable
      */
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return $this->makeIterator($this->source);
     }
@@ -1315,7 +1316,7 @@ class LazyCollection implements Enumerable
      *
      * @return int
      */
-    public function count()
+    public function count(): int
     {
         if (is_array($this->source)) {
             return count($this->source);

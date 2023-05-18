@@ -12,6 +12,7 @@
 namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process;
 
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Process\Exception\RuntimeException;
+use Traversable;
 
 /**
  * Provides a way to continuously write to the input of a Process until the InputStream is closed.
@@ -72,7 +73,7 @@ class InputStream implements \IteratorAggregate
      * @return \Traversable<int, string>
      */
     #[\ReturnTypeWillChange]
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         $this->open = true;
 

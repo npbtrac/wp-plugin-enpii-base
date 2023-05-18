@@ -8,6 +8,7 @@ use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Arr;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\ForwardsCalls;
+use Traversable;
 
 /**
  * @mixin \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
@@ -579,7 +580,7 @@ abstract class AbstractPaginator implements Htmlable
      *
      * @return \ArrayIterator
      */
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return $this->items->getIterator();
     }

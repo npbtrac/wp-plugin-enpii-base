@@ -675,4 +675,15 @@ class SerializableClosure implements Serializable
         }
     }
 
+	public function __serialize(): array
+	{
+		return [
+            'serializable' => $this->serialize(),
+        ];
+	}
+
+	public function __unserialize(array $data): void
+	{
+		$this->unserialize($data);
+	}
 }

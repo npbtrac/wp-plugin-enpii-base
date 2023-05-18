@@ -5,6 +5,7 @@ namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Resources;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Pagination\AbstractPaginator;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Str;
+use Traversable;
 
 trait CollectsResources
 {
@@ -57,7 +58,7 @@ trait CollectsResources
      *
      * @return \ArrayIterator
      */
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return $this->collection->getIterator();
     }

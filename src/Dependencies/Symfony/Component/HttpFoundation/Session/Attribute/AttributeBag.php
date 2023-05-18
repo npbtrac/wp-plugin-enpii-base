@@ -11,6 +11,8 @@
 
 namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Session\Attribute;
 
+use Traversable;
+
 /**
  * This class relates to session attribute storage.
  *
@@ -134,7 +136,7 @@ class AttributeBag implements AttributeBagInterface, \IteratorAggregate, \Counta
      * @return \ArrayIterator<string, mixed>
      */
     #[\ReturnTypeWillChange]
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return new \ArrayIterator($this->attributes);
     }
@@ -145,7 +147,7 @@ class AttributeBag implements AttributeBagInterface, \IteratorAggregate, \Counta
      * @return int
      */
     #[\ReturnTypeWillChange]
-    public function count()
+    public function count(): int
     {
         return \count($this->attributes);
     }

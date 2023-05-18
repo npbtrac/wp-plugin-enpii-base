@@ -7,6 +7,7 @@ use ArrayIterator;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\EnumeratesValues;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Traits\Macroable;
 use stdClass;
+use Traversable;
 
 class Collection implements ArrayAccess, Enumerable
 {
@@ -1291,7 +1292,7 @@ class Collection implements ArrayAccess, Enumerable
      *
      * @return \ArrayIterator
      */
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return new ArrayIterator($this->items);
     }
@@ -1301,7 +1302,7 @@ class Collection implements ArrayAccess, Enumerable
      *
      * @return int
      */
-    public function count()
+    public function count(): int
     {
         return count($this->items);
     }

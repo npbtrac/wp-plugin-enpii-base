@@ -13,6 +13,7 @@ use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Excepti
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\Matcher\Dumper\CompiledUrlMatcherDumper;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Routing\RouteCollection as SymfonyRouteCollection;
+use Traversable;
 
 abstract class AbstractRouteCollection implements Countable, IteratorAggregate, RouteCollectionInterface
 {
@@ -232,7 +233,7 @@ abstract class AbstractRouteCollection implements Countable, IteratorAggregate, 
      *
      * @return \ArrayIterator
      */
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return new ArrayIterator($this->getRoutes());
     }
@@ -242,7 +243,7 @@ abstract class AbstractRouteCollection implements Countable, IteratorAggregate, 
      *
      * @return int
      */
-    public function count()
+    public function count(): int
     {
         return count($this->getRoutes());
     }

@@ -7,6 +7,7 @@ use Closure;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\DeferringDisplayableValue;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Enumerable;
 use IteratorAggregate;
+use Traversable;
 
 class InvokableComponentVariable implements DeferringDisplayableValue, IteratorAggregate
 {
@@ -43,7 +44,7 @@ class InvokableComponentVariable implements DeferringDisplayableValue, IteratorA
      *
      * @return \ArrayIterator
      */
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         $result = $this->__invoke();
 

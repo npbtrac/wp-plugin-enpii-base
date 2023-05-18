@@ -13,6 +13,7 @@ namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Cl
 
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Caster\Caster;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\Dumper\ContextProvider\SourceContextProvider;
+use Traversable;
 
 /**
  * @author Nicolas Grekas <p@tchwork.com>
@@ -114,7 +115,7 @@ class Data implements \ArrayAccess, \Countable, \IteratorAggregate
      * @return int
      */
     #[\ReturnTypeWillChange]
-    public function count()
+    public function count(): int
     {
         return \count($this->getValue());
     }
@@ -123,7 +124,7 @@ class Data implements \ArrayAccess, \Countable, \IteratorAggregate
      * @return \Traversable
      */
     #[\ReturnTypeWillChange]
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         if (!\is_array($value = $this->getValue())) {
             throw new \LogicException(sprintf('"%s" object holds non-iterable type "%s".', self::class, get_debug_type($value)));

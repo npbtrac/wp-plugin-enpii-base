@@ -17,6 +17,7 @@ use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Ses
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Session\Flash\FlashBagInterface;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Session\Storage\SessionStorageInterface;
+use Traversable;
 
 // Help opcache.preload discover always-needed symbols
 class_exists(AttributeBag::class);
@@ -131,7 +132,7 @@ class Session implements SessionInterface, \IteratorAggregate, \Countable
      * @return \ArrayIterator<string, mixed>
      */
     #[\ReturnTypeWillChange]
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return new \ArrayIterator($this->getAttributeBag()->all());
     }
@@ -142,7 +143,7 @@ class Session implements SessionInterface, \IteratorAggregate, \Countable
      * @return int
      */
     #[\ReturnTypeWillChange]
-    public function count()
+    public function count(): int
     {
         return \count($this->getAttributeBag()->all());
     }

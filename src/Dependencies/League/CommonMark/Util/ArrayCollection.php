@@ -11,6 +11,8 @@
 
 namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\League\CommonMark\Util;
 
+use Traversable;
+
 /**
  * Array collection
  *
@@ -73,7 +75,7 @@ class ArrayCollection implements \IteratorAggregate, \Countable, \ArrayAccess
      * @return \ArrayIterator<int|string, mixed>
      */
     #[\ReturnTypeWillChange]
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return new \ArrayIterator($this->elements);
     }

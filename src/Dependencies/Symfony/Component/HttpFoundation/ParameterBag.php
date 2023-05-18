@@ -12,6 +12,7 @@
 namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation;
 
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Exception\BadRequestException;
+use Traversable;
 
 /**
  * ParameterBag is a container for key/value pairs.
@@ -210,7 +211,7 @@ class ParameterBag implements \IteratorAggregate, \Countable
      * @return \ArrayIterator<string, mixed>
      */
     #[\ReturnTypeWillChange]
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return new \ArrayIterator($this->parameters);
     }
@@ -221,7 +222,7 @@ class ParameterBag implements \IteratorAggregate, \Countable
      * @return int
      */
     #[\ReturnTypeWillChange]
-    public function count()
+    public function count(): int
     {
         return \count($this->parameters);
     }

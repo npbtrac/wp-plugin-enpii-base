@@ -335,7 +335,7 @@ class Language implements JsonSerializable
      * @return string
      */
     #[ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return $this->getIsoDescription();
     }

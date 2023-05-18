@@ -11,6 +11,8 @@
 
 namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation;
 
+use Traversable;
+
 /**
  * HeaderBag is a container for HTTP headers.
  *
@@ -258,7 +260,7 @@ class HeaderBag implements \IteratorAggregate, \Countable
      * @return \ArrayIterator<string, list<string|null>>
      */
     #[\ReturnTypeWillChange]
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return new \ArrayIterator($this->headers);
     }
@@ -269,7 +271,7 @@ class HeaderBag implements \IteratorAggregate, \Countable
      * @return int
      */
     #[\ReturnTypeWillChange]
-    public function count()
+    public function count(): int
     {
         return \count($this->headers);
     }

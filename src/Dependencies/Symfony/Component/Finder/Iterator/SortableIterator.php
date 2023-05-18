@@ -11,6 +11,8 @@
 
 namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Finder\Iterator;
 
+use Traversable;
+
 /**
  * SortableIterator applies a sort on a given Iterator.
  *
@@ -85,7 +87,7 @@ class SortableIterator implements \IteratorAggregate
      * @return \Traversable<string, \SplFileInfo>
      */
     #[\ReturnTypeWillChange]
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         if (1 === $this->sort) {
             return $this->iterator;

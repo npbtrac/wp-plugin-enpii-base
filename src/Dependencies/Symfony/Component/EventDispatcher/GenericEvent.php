@@ -12,6 +12,7 @@
 namespace Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\EventDispatcher;
 
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Contracts\EventDispatcher\Event;
+use Traversable;
 
 /**
  * Event encapsulation class.
@@ -175,7 +176,7 @@ class GenericEvent extends Event implements \ArrayAccess, \IteratorAggregate
      * @return \ArrayIterator<string, mixed>
      */
     #[\ReturnTypeWillChange]
-    public function getIterator()
+    public function getIterator(): Traversable
     {
         return new \ArrayIterator($this->arguments);
     }
