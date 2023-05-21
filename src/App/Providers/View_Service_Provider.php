@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Enpii\WP_Plugin\Enpii_Base\App\Providers;
 
-use Enpii\WP_Plugin\Enpii_Base\App\WP\Enpii_Base_WP_Plugin;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\ViewServiceProvider;
 
@@ -13,6 +12,12 @@ class View_Service_Provider extends ViewServiceProvider {
 		$this->before_register();
 
 		parent::register();
+	}
+
+	public function boot() {
+		/** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Factory $view */
+		$view = wp_app_view();
+		$view->addExtension('php', 'blade');
 	}
 
 	protected function before_register(): void {
@@ -37,11 +42,14 @@ class View_Service_Provider extends ViewServiceProvider {
 	protected function generate_view_storage_paths(): array {
 		// We want to use the child theme and the template as the main views paths
 		// then the fallback is the Enpii Base plugin views
-		return [
-			get_stylesheet_directory() . DIR_SEP . 'resources' . DIR_SEP . 'views',
-			get_template_directory() . DIR_SEP . 'resources' . DIR_SEP . 'views',
-			wp_app(Enpii_Base_WP_Plugin::class)->get_base_path() . DIR_SEP . 'resources' . DIR_SEP . 'views',
-		];
+		return get_stylesheet_directory() === get_template_directory() ?
+			[
+				get_stylesheet_directory(),
+			]
+		 	: [
+				get_stylesheet_directory(),
+				get_template_directory(),
+			];
 	}
 
 	/**

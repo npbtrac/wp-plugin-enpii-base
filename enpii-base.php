@@ -30,12 +30,19 @@ defined( 'ENPII_BASE_WP_APP_PREFIX' ) || define(
 	env('ENPII_BASE_WP_APP_PREFIX', 'wp-app')
 );
 
+defined( 'ENPII_BASE_WP_APP_API_PREFIX' ) || define(
+	'ENPII_BASE_WP_APP_API_PREFIX',
+	env('ENPII_BASE_WP_APP_API_PREFIX', 'wp-app-api')
+);
+
 /**
  | Create a wp_app() instance to be used in the whole application
  */
 $wp_app_base_path = enpii_base_wp_app_get_base_path();
 $config = apply_filters( 'enpii_base_wp_app_prepare_config', [
 	'app' => require_once __DIR__ . DIR_SEP . 'wp-app-config' . DIR_SEP . 'app.php',
+	'wp_app_slug' => ENPII_BASE_WP_APP_PREFIX,
+	'wp_app_api_slug' => ENPII_BASE_WP_APP_API_PREFIX,
 ] );
 // We initiate the WP Application instance
 $wp_app = \Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application::init_instance_with_config(

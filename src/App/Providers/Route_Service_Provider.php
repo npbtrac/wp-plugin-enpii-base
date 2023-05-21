@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Enpii\WP_Plugin\Enpii_Base\App\Providers;
 
+use Enpii\WP_Plugin\Enpii_Base\App\Http\Controllers\Index_Controller;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Route;
 
@@ -31,10 +32,17 @@ class Route_Service_Provider extends RouteServiceProvider {
 	 * @return void
 	 */
 	public function map() {
-		Route::prefix( '/'.ENPII_BASE_WP_APP_PREFIX )
+		Route::prefix( '/'. wp_app()->get_wp_app_slug() )
 			->group(
 				function () {
 					do_action( 'enpii_base_wp_app_register_routes' );
+				}
+			);
+
+		Route::prefix( '/'. wp_app()->get_wp_app_api_slug() )
+			->group(
+				function () {
+					do_action( 'enpii_base_wp_app_api_register_routes' );
 				}
 			);
 	}

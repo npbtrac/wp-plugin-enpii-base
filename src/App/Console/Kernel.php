@@ -15,7 +15,6 @@ class Kernel extends ConsoleKernel {
      * @var array
      */
     protected $bootstrappers = [
-        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables::class,
         \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\HandleExceptions::class,
         \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\RegisterFacades::class,
         \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\SetRequestForConsole::class,
