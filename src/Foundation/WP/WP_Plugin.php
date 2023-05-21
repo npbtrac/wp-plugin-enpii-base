@@ -54,6 +54,10 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 		$this->prepare_views_paths( $this->get_plugin_slug() );
 	}
 
+	public function get_views_path() {
+		$this->get_base_path() . DIR_SEP . 'resources' . DIR_SEP . 'views';
+	}
+
 	protected function validate_needed_properties(): void {
 		foreach (['plugin_slug', 'base_path', 'base_url'] as $property) {
 			if ( empty($this->$property) ) {
@@ -74,16 +78,22 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 	protected function prepare_views_paths( $namespace ): void {
 		$this->loadViewsFrom(
 			realpath(
-				get_stylesheet_directory() . DIR_SEP . 'resources' . DIR_SEP . 'views' . DIR_SEP . $namespace
+				get_stylesheet_directory() . DIR_SEP . 'resources' . DIR_SEP . 'views'
+				. DIR_SEP . '_plugins' . DIR_SEP . $namespace
 			),
 			$namespace
 		);
+		if ( get_template_directory() !== get_stylesheet_directory() ) {
+			$this->loadViewsFrom(
+				realpath(
+					get_template_directory() . DIR_SEP . 'resources' . DIR_SEP . 'views'
+					. DIR_SEP . '_plugins' . DIR_SEP . $namespace
+				),
+				$namespace
+			);
+		}
 		$this->loadViewsFrom(
-			realpath(
-				get_template_directory() . DIR_SEP . 'resources' . DIR_SEP . 'views' . DIR_SEP . $namespace
-			),
-			$namespace
+			realpath( $this->get_base_path() . DIR_SEP . 'resources' . DIR_SEP . 'views' ), $namespace
 		);
-		$this->loadViewsFrom( realpath( $this->get_base_path() . '/resources/views' ), $namespace );
 	}
 }

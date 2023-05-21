@@ -15,12 +15,16 @@ class Index_Controller extends Base_Controller {
 	}
 
 	public function info(): JsonResponse {
+		$data = [
+			'wp_version' => get_bloginfo('version'),
+			'enpii_base_version' => ENPII_BASE_PLUGIN_VERSION,
+		];
+		if (!empty(wp_get_current_user( ))) {
+			$data['current_logged_in_user'] = wp_get_current_user( );
+		}
 		return wp_app_response()->json([
 			'message' => 'WP App API Info',
-            'data' => [
-				'wp_version' => get_bloginfo('version'),
-				'enpii_base_version' => ENPII_BASE_PLUGIN_VERSION,
-			],
+            'data' => $data,
         ]);
 	}
 }
