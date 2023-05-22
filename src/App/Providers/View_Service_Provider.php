@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\App\Providers;
+namespace Enpii_Base\App\Providers;
 
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\ViewServiceProvider;
+use Enpii_Base\Deps\Illuminate\Contracts\Container\BindingResolutionException;
+use Enpii_Base\Deps\Illuminate\View\ViewServiceProvider;
 
 class View_Service_Provider extends ViewServiceProvider {
 	public function register() {
@@ -15,7 +15,7 @@ class View_Service_Provider extends ViewServiceProvider {
 	}
 
 	public function boot() {
-		/** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\Factory $view */
+		/** @var \Enpii_Base\Deps\Illuminate\View\Factory $view */
 		$view = wp_app_view();
 		$view->addExtension('php', 'blade');
 	}

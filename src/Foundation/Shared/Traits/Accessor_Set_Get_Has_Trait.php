@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Traits;
+namespace Enpii_Base\Foundation\Shared\Traits;
 
 use BadMethodCallException;
 use InvalidArgumentException;

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\App\WP_CLI;
+namespace Enpii_Base\App\WP_CLI;
 
-use Enpii\WP_Plugin\Enpii_Base\App\Commands\WP_CLI\Prepare_WP_App_Folders_Command_Handler;
-use Enpii\WP_Plugin\Enpii_Base\App\Commands\WP_CLI\Prepare_WP_App_Folders_Job_Command;
+use Enpii_Base\App\Commands\WP_CLI\Prepare_WP_App_Folders_Command_Handler;
+use Enpii_Base\App\Commands\WP_CLI\Prepare_WP_App_Folders_Job_Command;
 use WP_CLI;
 
 class Enpii_Base_Prepare_Folders_WP_CLI {

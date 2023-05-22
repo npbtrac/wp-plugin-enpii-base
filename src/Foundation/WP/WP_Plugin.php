@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\Foundation\WP;
+namespace Enpii_Base\Foundation\WP;
 
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
-use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Traits\Accessor_Set_Get_Has_Trait;
-use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Traits\Config_Trait;
+use Enpii_Base\Deps\Illuminate\Support\ServiceProvider;
+use Enpii_Base\Foundation\Shared\Traits\Accessor_Set_Get_Has_Trait;
+use Enpii_Base\Foundation\Shared\Traits\Config_Trait;
 use InvalidArgumentException;
 
 /**
  * This is the base class for plugin to be inherited from
  * We consider each plugin a Laravel Service provider
- * @package \Enpii\WP_Plugin\Enpii_Base\App\WP
- * @property \Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application $app
+ * @package \Enpii_Base\App\WP
+ * @property \Enpii_Base\App\WP\WP_Application $app
  * @method get_plugin_slug() string	the slug name of the plugin (folder name)
  * @method get_base_path() string	the directory path of the plugin
  * @method get_base_url() string	the url to plugin directory

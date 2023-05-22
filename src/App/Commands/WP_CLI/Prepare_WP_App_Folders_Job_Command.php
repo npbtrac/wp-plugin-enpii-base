@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\App\Commands\WP_CLI;
+namespace Enpii_Base\App\Commands\WP_CLI;
 
-use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Base_Job_Command;
+use Enpii_Base\Foundation\Shared\Base_Job_Command;
 
 class Prepare_WP_App_Folders_Job_Command extends Base_Job_Command {
 	public function handle(): void {

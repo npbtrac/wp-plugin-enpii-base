@@ -1,5 +1,5 @@
 <?php
-/** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\League\Plates\Template\Template $this */
+/** @var \Enpii_Base\Deps\League\Plates\Template\Template $this */
 ?>
 <?php $this->layout('layouts/main' , ['title' => 'Home']) ?>
 

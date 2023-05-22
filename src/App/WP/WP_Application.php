@@ -2,27 +2,27 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\App\WP;
+namespace Enpii_Base\App\WP;
 
-use Enpii\WP_Plugin\Enpii_Base\App\Commands\Generic_WP_App_Command;
-use Enpii\WP_Plugin\Enpii_Base\App\Providers\Bus_Service_Provider;
-use Enpii\WP_Plugin\Enpii_Base\App\Providers\Events_Service_Provider;
-use Enpii\WP_Plugin\Enpii_Base\App\Providers\Log_Service_Provider;
-use Enpii\WP_Plugin\Enpii_Base\App\Providers\Routing_Service_Provider;
-use Enpii\WP_Plugin\Enpii_Base\App\Queries\Generic_WP_App_Query;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Config\Repository;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Application;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Mix;
-use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Base_Command_Handler;
-use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Base_Query_Handler;
-use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Traits\Accessor_Set_Get_Has_Trait;
-use Enpii\WP_Plugin\Enpii_Base\Foundation\WP\WP_Plugin_Interface;
-use Enpii\WP_Plugin\Enpii_Base\Foundation\WP\WP_Theme_Interface;
+use Enpii_Base\App\Commands\Generic_WP_App_Command;
+use Enpii_Base\App\Providers\Bus_Service_Provider;
+use Enpii_Base\App\Providers\Events_Service_Provider;
+use Enpii_Base\App\Providers\Log_Service_Provider;
+use Enpii_Base\App\Providers\Routing_Service_Provider;
+use Enpii_Base\App\Queries\Generic_WP_App_Query;
+use Enpii_Base\Deps\Illuminate\Config\Repository;
+use Enpii_Base\Deps\Illuminate\Foundation\Application;
+use Enpii_Base\Deps\Illuminate\Foundation\Mix;
+use Enpii_Base\Foundation\Shared\Base_Command_Handler;
+use Enpii_Base\Foundation\Shared\Base_Query_Handler;
+use Enpii_Base\Foundation\Shared\Traits\Accessor_Set_Get_Has_Trait;
+use Enpii_Base\Foundation\WP\WP_Plugin_Interface;
+use Enpii_Base\Foundation\WP\WP_Theme_Interface;
 use InvalidArgumentException;
 use TypeError;
 
 /**
- * @package Enpii\WP_Plugin\Enpii_Base\App\WP
+ * @package Enpii_Base\App\WP
  */
 class WP_Application extends Application {
 
@@ -65,7 +65,7 @@ class WP_Application extends Application {
 	 * @param mixed $config
 	 * @return WP_Application
 	 * @throws TypeError
-	 * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException
+	 * @throws \Enpii_Base\Deps\Illuminate\Contracts\Container\BindingResolutionException
 	 */
 	public static function init_instance_with_config( $basePath = null, $config = null ): self {
 		$instance = static::$instance;
@@ -94,7 +94,7 @@ class WP_Application extends Application {
 			throw new InvalidArgumentException( sprintf( 'The target classname %s must implement %s', $plugin_classsname, WP_Plugin_Interface::class ) );
 		}
 
-		/** @var \Enpii\WP_Plugin\Enpii_Base\Foundation\WP\WP_Plugin $plugin  */
+		/** @var \Enpii_Base\Foundation\WP\WP_Plugin $plugin  */
 		$plugin->bind_base_params(
 			[
 				WP_Plugin_Interface::PARAM_KEY_PLUGIN_SLUG => $plugin_slug,
@@ -124,7 +124,7 @@ class WP_Application extends Application {
 			$parent_theme_base_url = get_template_directory_uri();
 		}
 
-		/** @var \Enpii\WP_Plugin\Enpii_Base\Libs\WP_Theme $theme  */
+		/** @var \Enpii_Base\Libs\WP_Theme $theme  */
 		$theme->bind_base_params(
 			[
 				WP_Theme_Interface::PARAM_KEY_THEME_BASE_PATH => $theme_base_path,

@@ -2,20 +2,20 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\Foundation\WP;
+namespace Enpii_Base\Foundation\WP;
 
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
-use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Traits\Accessor_Set_Get_Has_Trait;
-use Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces\Command_Interface;
-use Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces\Handler_Inferface;
-use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Traits\Config_Trait;
+use Enpii_Base\Deps\Illuminate\Support\ServiceProvider;
+use Enpii_Base\Foundation\Shared\Traits\Accessor_Set_Get_Has_Trait;
+use Enpii_Base\Libs\Interfaces\Command_Interface;
+use Enpii_Base\Libs\Interfaces\Handler_Inferface;
+use Enpii_Base\Foundation\Shared\Traits\Config_Trait;
 use InvalidArgumentException;
 
 /**
  * This is the base class for plugin to be inherited from
  * We consider each plugin a Laravel Service provider
- * @package Enpii\WP_Plugin\Enpii_Base\Libs
- * @property \Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application $app
+ * @package Enpii_Base\Libs
+ * @property \Enpii_Base\App\WP\WP_Application $app
  */
 abstract class WP_Theme extends ServiceProvider implements WP_Theme_Interface {
 	use Config_Trait;

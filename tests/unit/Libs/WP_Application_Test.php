@@ -1,15 +1,15 @@
 <?php
 
-namespace Enpii\WP_Plugin\Enpii_Base\Tests\Unit\Base\Libs;
+namespace Enpii_Base\Tests\Unit\Base\Libs;
 
 use Codeception\Stub;
-use Enpii\WP_Plugin\Enpii_Base\App\WP\Enpii_Base_WP_Plugin;
-use Enpii\WP_Plugin\Enpii_Base\Base\Plugin;
+use Enpii_Base\App\WP\Enpii_Base_WP_Plugin;
+use Enpii_Base\Base\Plugin;
 use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheServiceProvider;
 use Enpii\Wp_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Application;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
+use Enpii_Base\Deps\Illuminate\Support\ServiceProvider;
 use Enpii\Wp_Plugin\Enpii_Base\Libs\WP_Application;
-use Enpii\WP_Plugin\Enpii_Base\Tests\Support\Unit\Libs\Unit_Test_Case;
+use Enpii_Base\Tests\Support\Unit\Libs\Unit_Test_Case;
 
 class WP_Application_Test extends Unit_Test_Case {
 	public function test_init_config(): void {

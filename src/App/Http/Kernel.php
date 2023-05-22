@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\App\Http;
+namespace Enpii_Base\App\Http;
 
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Enpii_Base\Deps\Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel {
 
@@ -24,10 +24,10 @@ class Kernel extends HttpKernel {
      * @var array
      */
     protected $bootstrappers = [
-        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\HandleExceptions::class,
-        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\RegisterFacades::class,
-        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\RegisterProviders::class,
-        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\BootProviders::class,
+        \Enpii_Base\Deps\Illuminate\Foundation\Bootstrap\HandleExceptions::class,
+        \Enpii_Base\Deps\Illuminate\Foundation\Bootstrap\RegisterFacades::class,
+        \Enpii_Base\Deps\Illuminate\Foundation\Bootstrap\RegisterProviders::class,
+        \Enpii_Base\Deps\Illuminate\Foundation\Bootstrap\BootProviders::class,
     ];
 
 	/**
@@ -48,6 +48,6 @@ class Kernel extends HttpKernel {
 	 * @var array
 	 */
 	protected $routeMiddleware = [
-		'wp_user_session_validation' => \Enpii\WP_Plugin\Enpii_Base\App\Http\Middleware\WP_User_Session_Validation::class,
+		'wp_user_session_validation' => \Enpii_Base\App\Http\Middleware\WP_User_Session_Validation::class,
 	];
 }

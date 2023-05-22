@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\App\WP_CLI;
+namespace Enpii_Base\App\WP_CLI;
 
-use Enpii\WP_Plugin\Enpii_Base\App\Commands\WP_CLI\Show_Basic_Info_Command_Handler;
-use Enpii\WP_Plugin\Enpii_Base\App\Commands\WP_CLI\Show_Basic_Info_Job_Command;
+use Enpii_Base\App\Commands\WP_CLI\Show_Basic_Info_Command_Handler;
+use Enpii_Base\App\Commands\WP_CLI\Show_Basic_Info_Job_Command;
 
 class Enpii_Base_Info_WP_CLI {
 	public function __invoke( $args ) {

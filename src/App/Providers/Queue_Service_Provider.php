@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\App\Providers;
+namespace Enpii_Base\App\Providers;
 
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\QueueServiceProvider;
+use Enpii_Base\Deps\Illuminate\Queue\QueueServiceProvider;
 
 class Queue_Service_Provider extends QueueServiceProvider {
 	public function register() {

@@ -20,7 +20,7 @@ defined( 'ENPII_BASE_PLUGIN_SLUG' ) || define( 'ENPII_BASE_PLUGIN_SLUG', 'enpii-
 defined( 'DIR_SEP' ) || define( 'DIR_SEP', DIRECTORY_SEPARATOR );
 
 // We include composer autoload here
-if ( ! class_exists( \Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application::class ) ) {
+if ( ! class_exists( \Enpii_Base\App\WP\WP_Application::class ) ) {
 	require_once __DIR__ . DIR_SEP . 'vendor' . DIR_SEP . 'autoload.php';
 }
 
@@ -45,14 +45,14 @@ $config = apply_filters( 'enpii_base_wp_app_prepare_config', [
 	'wp_app_api_slug' => ENPII_BASE_WP_APP_API_PREFIX,
 ] );
 // We initiate the WP Application instance
-$wp_app = \Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application::init_instance_with_config(
+$wp_app = \Enpii_Base\App\WP\WP_Application::init_instance_with_config(
 	$wp_app_base_path,
 	$config
 );
 
 // We register Enpii_Base plugin as a Service Provider
 $wp_app->register_plugin(
-	\Enpii\WP_Plugin\Enpii_Base\App\WP\Enpii_Base_WP_Plugin::class,
+	\Enpii_Base\App\WP\Enpii_Base_WP_Plugin::class,
 	ENPII_BASE_PLUGIN_SLUG,
 	__DIR__,
 	plugin_dir_url( __FILE__ )

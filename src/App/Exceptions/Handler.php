@@ -2,16 +2,16 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\App\Exceptions;
+namespace Enpii_Base\App\Exceptions;
 
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Exceptions\WhoopsHandler;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Monolog\Handler\HandlerInterface;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpException;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
+use Enpii_Base\Deps\Illuminate\Contracts\Container\BindingResolutionException;
+use Enpii_Base\Deps\Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Enpii_Base\Deps\Illuminate\Foundation\Exceptions\WhoopsHandler;
+use Enpii_Base\Deps\Illuminate\Http\Request;
+use Enpii_Base\Deps\Monolog\Handler\HandlerInterface;
+use Enpii_Base\Deps\Symfony\Component\HttpFoundation\Response;
+use Enpii_Base\Deps\Symfony\Component\HttpKernel\Exception\HttpException;
+use Enpii_Base\Deps\Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Exception;
 use Throwable;
 
@@ -50,10 +50,10 @@ class Handler extends ExceptionHandler {
 	/**
 	 * Render an exception into an HTTP response.
 	 *
-	 * @param \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request $request
+	 * @param \Enpii_Base\Deps\Illuminate\Http\Request $request
 	 * @param Throwable $exception
 	 *
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\JsonResponse|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response
+	 * @return \Enpii_Base\Deps\Illuminate\Http\JsonResponse|\Enpii_Base\Deps\Illuminate\Http\Response|\Enpii_Base\Deps\Symfony\Component\HttpFoundation\Response
 	 * @throws Throwable
 	 */
 	public function render( $request, Throwable $exception ) {

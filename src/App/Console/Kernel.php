@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\App\Console;
+namespace Enpii_Base\App\Console;
 
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Console\Scheduling\Schedule;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Enpii_Base\Deps\Illuminate\Console\Scheduling\Schedule;
+use Enpii_Base\Deps\Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
 class Kernel extends ConsoleKernel {
 
@@ -15,11 +15,11 @@ class Kernel extends ConsoleKernel {
      * @var array
      */
     protected $bootstrappers = [
-        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\HandleExceptions::class,
-        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\RegisterFacades::class,
-        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\SetRequestForConsole::class,
-        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\RegisterProviders::class,
-        \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bootstrap\BootProviders::class,
+        \Enpii_Base\Deps\Illuminate\Foundation\Bootstrap\HandleExceptions::class,
+        \Enpii_Base\Deps\Illuminate\Foundation\Bootstrap\RegisterFacades::class,
+        \Enpii_Base\Deps\Illuminate\Foundation\Bootstrap\SetRequestForConsole::class,
+        \Enpii_Base\Deps\Illuminate\Foundation\Bootstrap\RegisterProviders::class,
+        \Enpii_Base\Deps\Illuminate\Foundation\Bootstrap\BootProviders::class,
     ];
 
 	/**

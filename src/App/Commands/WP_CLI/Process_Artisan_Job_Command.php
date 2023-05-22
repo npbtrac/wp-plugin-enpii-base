@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\App\Commands\WP_CLI;
+namespace Enpii_Base\App\Commands\WP_CLI;
 
-use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Base_Job_Command;
+use Enpii_Base\Foundation\Shared\Base_Job_Command;
 
 class Process_Artisan_Job_Command extends Base_Job_Command {
 	public function handle(): void {
-		/** @var \Enpii\WP_Plugin\Enpii_Base\App\Console\Kernel $kernel */
+		/** @var \Enpii_Base\App\Console\Kernel $kernel */
 		$kernel = wp_app()->make(
-			\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Console\Kernel::class
+			\Enpii_Base\Deps\Illuminate\Contracts\Console\Kernel::class
 		);
 
 		// We need to remove 2 first items to match the artisan arguments
@@ -18,11 +18,11 @@ class Process_Artisan_Job_Command extends Base_Job_Command {
 		array_shift($args);
 		array_shift($args);
 
-		$input = new \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Input\ArgvInput( $args );
+		$input = new \Enpii_Base\Deps\Symfony\Component\Console\Input\ArgvInput( $args );
 
 		$status = $kernel->handle(
 		 	$input,
-			new \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\Console\Output\ConsoleOutput
+			new \Enpii_Base\Deps\Symfony\Component\Console\Output\ConsoleOutput
 		);
 
 		exit($status);

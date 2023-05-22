@@ -2,28 +2,28 @@
 
 declare(strict_types=1);
 
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Access\Gate;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Factory as AuthFactory;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Broadcasting\Factory as BroadcastFactory;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Bus\Dispatcher;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Cookie\Factory as CookieFactory;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Debug\ExceptionHandler;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\ResponseFactory;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\UrlGenerator;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Responsable;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\Factory as ValidationFactory;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory as ViewFactory;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\Factory as EloquentFactory;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus\PendingDispatch;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Mix;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Exceptions\HttpResponseException;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Queue\CallQueuedClosure;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Facades\Date;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HtmlString;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response;
-use Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\VarDumper\VarDumper;
+use Enpii_Base\Deps\Illuminate\Contracts\Auth\Access\Gate;
+use Enpii_Base\Deps\Illuminate\Contracts\Auth\Factory as AuthFactory;
+use Enpii_Base\Deps\Illuminate\Contracts\Broadcasting\Factory as BroadcastFactory;
+use Enpii_Base\Deps\Illuminate\Contracts\Bus\Dispatcher;
+use Enpii_Base\Deps\Illuminate\Contracts\Cookie\Factory as CookieFactory;
+use Enpii_Base\Deps\Illuminate\Contracts\Debug\ExceptionHandler;
+use Enpii_Base\Deps\Illuminate\Contracts\Routing\ResponseFactory;
+use Enpii_Base\Deps\Illuminate\Contracts\Routing\UrlGenerator;
+use Enpii_Base\Deps\Illuminate\Contracts\Support\Responsable;
+use Enpii_Base\Deps\Illuminate\Contracts\Validation\Factory as ValidationFactory;
+use Enpii_Base\Deps\Illuminate\Contracts\View\Factory as ViewFactory;
+use Enpii_Base\Deps\Illuminate\Database\Eloquent\Factory as EloquentFactory;
+use Enpii_Base\Deps\Illuminate\Foundation\Bus\PendingDispatch;
+use Enpii_Base\Deps\Illuminate\Foundation\Mix;
+use Enpii_Base\Deps\Illuminate\Http\Exceptions\HttpResponseException;
+use Enpii_Base\Deps\Illuminate\Queue\CallQueuedClosure;
+use Enpii_Base\Deps\Illuminate\Support\Collection;
+use Enpii_Base\Deps\Illuminate\Support\Facades\Date;
+use Enpii_Base\Deps\Illuminate\Support\HtmlString;
+use Enpii_Base\Deps\Symfony\Component\HttpFoundation\Response;
+use Enpii_Base\App\WP\WP_Application;
+use Enpii_Base\Deps\Symfony\Component\VarDumper\VarDumper;
 
 /**
 | We want to define helper functions for the app here
@@ -35,13 +35,13 @@ if ( ! function_exists( 'wp_app_abort' ) ) {
 	/**
 	 * Throw an HttpException with the given data.
 	 *
-	 * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Responsable|int  $code
+	 * @param  \Enpii_Base\Deps\Symfony\Component\HttpFoundation\Response|\Enpii_Base\Deps\Illuminate\Contracts\Support\Responsable|int  $code
 	 * @param  string  $message
 	 * @param  array  $headers
 	 * @return void
 	 *
-	 * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpException
-	 * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+	 * @throws \Enpii_Base\Deps\Symfony\Component\HttpKernel\Exception\HttpException
+	 * @throws \Enpii_Base\Deps\Symfony\Component\HttpKernel\Exception\NotFoundHttpException
 	 */
 	function wp_app_abort( $code, $message = '', array $headers = [] ) {
 		if ( $code instanceof Response ) {
@@ -59,13 +59,13 @@ if ( ! function_exists( 'wp_app_abort_if' ) ) {
 	 * Throw an HttpException with the given data if the given condition is true.
 	 *
 	 * @param  bool  $boolean
-	 * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Responsable|int  $code
+	 * @param  \Enpii_Base\Deps\Symfony\Component\HttpFoundation\Response|\Enpii_Base\Deps\Illuminate\Contracts\Support\Responsable|int  $code
 	 * @param  string  $message
 	 * @param  array  $headers
 	 * @return void
 	 *
-	 * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpException
-	 * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+	 * @throws \Enpii_Base\Deps\Symfony\Component\HttpKernel\Exception\HttpException
+	 * @throws \Enpii_Base\Deps\Symfony\Component\HttpKernel\Exception\NotFoundHttpException
 	 */
 	function wp_app_abort_if( $boolean, $code, $message = '', array $headers = [] ) {
 		if ( $boolean ) {
@@ -79,13 +79,13 @@ if ( ! function_exists( 'wp_app_abort_unless' ) ) {
 	 * Throw an HttpException with the given data unless the given condition is true.
 	 *
 	 * @param  bool  $boolean
-	 * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Response|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Responsable|int  $code
+	 * @param  \Enpii_Base\Deps\Symfony\Component\HttpFoundation\Response|\Enpii_Base\Deps\Illuminate\Contracts\Support\Responsable|int  $code
 	 * @param  string  $message
 	 * @param  array  $headers
 	 * @return void
 	 *
-	 * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\HttpException
-	 * @throws \Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+	 * @throws \Enpii_Base\Deps\Symfony\Component\HttpKernel\Exception\HttpException
+	 * @throws \Enpii_Base\Deps\Symfony\Component\HttpKernel\Exception\NotFoundHttpException
 	 */
 	function wp_app_abort_unless( $boolean, $code, $message = '', array $headers = [] ) {
 		if ( ! $boolean ) {
@@ -114,7 +114,7 @@ if ( ! function_exists( 'wp_app' ) ) {
 	 *
 	 * @param  string|null  $abstract
 	 * @param  array  $parameters
-	 * @return mixed|\Enpii\WP_Plugin\Enpii_Base\App\WP\WP_Application
+	 * @return mixed|\Enpii_Base\App\WP\WP_Application
 	 */
 	function wp_app( $abstract = null, array $parameters = [] ) {
 		if ( is_null( $abstract ) ) {
@@ -155,7 +155,7 @@ if ( ! function_exists( 'wp_app_auth' ) ) {
 	 * Get the available auth instance.
 	 *
 	 * @param  string|null  $guard
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Factory|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\Guard|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Auth\StatefulGuard
+	 * @return \Enpii_Base\Deps\Illuminate\Contracts\Auth\Factory|\Enpii_Base\Deps\Illuminate\Contracts\Auth\Guard|\Enpii_Base\Deps\Illuminate\Contracts\Auth\StatefulGuard
 	 */
 	function wp_app_auth( $guard = null ) {
 		if ( is_null( $guard ) ) {
@@ -173,7 +173,7 @@ if ( ! function_exists( 'wp_app_back' ) ) {
 	 * @param  int  $status
 	 * @param  array  $headers
 	 * @param  mixed  $fallback
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+	 * @return \Enpii_Base\Deps\Illuminate\Http\RedirectResponse
 	 */
 	function wp_app_back( $status = 302, $headers = [], $fallback = false ) {
 		return wp_app( 'redirect' )->back( $status, $headers, $fallback );
@@ -210,7 +210,7 @@ if ( ! function_exists( 'wp_app_broadcast' ) ) {
 	 * Begin broadcasting an event.
 	 *
 	 * @param  mixed|null  $event
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Broadcasting\PendingBroadcast
+	 * @return \Enpii_Base\Deps\Illuminate\Broadcasting\PendingBroadcast
 	 */
 	function wp_app_broadcast( $event = null ) {
 		return wp_app( BroadcastFactory::class )->event( $event );
@@ -224,7 +224,7 @@ if ( ! function_exists( 'wp_app_cache' ) ) {
 	 * If an array is passed, we'll assume you want to put to the cache.
 	 *
 	 * @param  dynamic  key|key,default|data,expiration|null
-	 * @return mixed|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cache\CacheManager
+	 * @return mixed|\Enpii_Base\Deps\Illuminate\Cache\CacheManager
 	 *
 	 * @throws \Exception
 	 */
@@ -254,7 +254,7 @@ if ( ! function_exists( 'wp_app_collect' ) ) {
 	 * Create a collection from the given value.
 	 *
 	 * @param  mixed  $value
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Collection
+	 * @return \Enpii_Base\Deps\Illuminate\Support\Collection
 	 */
 	function wp_app_collect( $value = null ) {
 		return new Collection( $value );
@@ -269,7 +269,7 @@ if ( ! function_exists( 'wp_app_config' ) ) {
 	 *
 	 * @param  array|string|null  $key
 	 * @param  mixed  $default
-	 * @return mixed|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Config\Repository
+	 * @return mixed|\Enpii_Base\Deps\Illuminate\Config\Repository
 	 */
 	function wp_app_config( $key = null, $default = null ) {
 		if ( is_null( $key ) ) {
@@ -309,7 +309,7 @@ if ( ! function_exists( 'wp_app_cookie' ) ) {
 	 * @param  bool  $httpOnly
 	 * @param  bool  $raw
 	 * @param  string|null  $sameSite
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Cookie\CookieJar|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Symfony\Component\HttpFoundation\Cookie
+	 * @return \Enpii_Base\Deps\Illuminate\Cookie\CookieJar|\Enpii_Base\Deps\Symfony\Component\HttpFoundation\Cookie
 	 */
 	function wp_app_cookie( $name = null, $value = null, $minutes = 0, $path = null, $domain = null, $secure = null, $httpOnly = true, $raw = false, $sameSite = null ) {
 		$cookie = wp_app( CookieFactory::class );
@@ -326,7 +326,7 @@ if ( ! function_exists( 'wp_app_csrf_field' ) ) {
 	/**
 	 * Generate a CSRF token form field.
 	 *
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HtmlString
+	 * @return \Enpii_Base\Deps\Illuminate\Support\HtmlString
 	 */
 	function wp_app_csrf_field() {
 		return new HtmlString( '<input type="hidden" name="_token" value="' . wp_app_csrf_token() . '">' );
@@ -382,7 +382,7 @@ if ( ! function_exists( 'wp_app_dispatch' ) ) {
 	 * Dispatch a job to its appropriate handler.
 	 *
 	 * @param  mixed  $job
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Bus\PendingDispatch
+	 * @return \Enpii_Base\Deps\Illuminate\Foundation\Bus\PendingDispatch
 	 */
 	function wp_app_dispatch( $job ) {
 		if ( $job instanceof Closure ) {
@@ -481,7 +481,7 @@ if ( ! function_exists( 'wp_app_factory' ) ) {
 	 *
 	 * @param  string  $class
 	 * @param  int  $amount
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Database\Eloquent\FactoryBuilder
+	 * @return \Enpii_Base\Deps\Illuminate\Database\Eloquent\FactoryBuilder
 	 */
 	function wp_app_factory( $class, $amount = null ) {
 		$factory = wp_app( EloquentFactory::class );
@@ -513,7 +513,7 @@ if ( ! function_exists( 'wp_app_logger' ) ) {
 	 *
 	 * @param  string|null  $message
 	 * @param  array  $context
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Log\LogManager|null
+	 * @return \Enpii_Base\Deps\Illuminate\Log\LogManager|null
 	 */
 	function wp_app_logger( $message = null, array $context = [] ) {
 		if ( is_null( $message ) ) {
@@ -529,7 +529,7 @@ if ( ! function_exists( 'wp_app_logs' ) ) {
 	 * Get a log driver instance.
 	 *
 	 * @param  string|null  $driver
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Log\LogManager|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Psr\Log\LoggerInterface
+	 * @return \Enpii_Base\Deps\Illuminate\Log\LogManager|\Enpii_Base\Deps\Psr\Log\LoggerInterface
 	 */
 	function wp_app_logs( $driver = null ) {
 		return $driver ? wp_app( 'log' )->driver( $driver ) : wp_app( 'log' );
@@ -541,7 +541,7 @@ if ( ! function_exists( 'wp_app_method_field' ) ) {
 	 * Generate a form field to spoof the HTTP verb used by forms.
 	 *
 	 * @param  string  $method
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HtmlString
+	 * @return \Enpii_Base\Deps\Illuminate\Support\HtmlString
 	 */
 	function wp_app_method_field( $method ) {
 		return new HtmlString( '<input type="hidden" name="_method" value="' . $method . '">' );
@@ -554,7 +554,7 @@ if ( ! function_exists( 'wp_app_mix' ) ) {
 	 *
 	 * @param  string  $path
 	 * @param  string  $manifestDirectory
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\HtmlString|string
+	 * @return \Enpii_Base\Deps\Illuminate\Support\HtmlString|string
 	 *
 	 * @throws \Exception
 	 */
@@ -565,10 +565,10 @@ if ( ! function_exists( 'wp_app_mix' ) ) {
 
 if ( ! function_exists( 'wp_app_now' ) ) {
 	/**
-	 * Create a new Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance for the current time.
+	 * Create a new Enpii_Base\Deps\Carbon instance for the current time.
 	 *
 	 * @param  \DateTimeZone|string|null  $tz
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon
+	 * @return \Enpii_Base\Deps\Illuminate\Support\Carbon
 	 */
 	function wp_app_now( $tz = null ) {
 		return Date::now( $tz );
@@ -622,7 +622,7 @@ if ( ! function_exists( 'wp_app_redirect' ) ) {
 	 * @param  int  $status
 	 * @param  array  $headers
 	 * @param  bool|null  $secure
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Routing\Redirector|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\RedirectResponse
+	 * @return \Enpii_Base\Deps\Illuminate\Routing\Redirector|\Enpii_Base\Deps\Illuminate\Http\RedirectResponse
 	 */
 	function wp_app_redirect( $to = null, $status = 302, $headers = [], $secure = null ) {
 		if ( is_null( $to ) ) {
@@ -651,7 +651,7 @@ if ( ! function_exists( 'wp_app_request' ) ) {
 	 *
 	 * @param  array|string|null  $key
 	 * @param  mixed  $default
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Request|string|array
+	 * @return \Enpii_Base\Deps\Illuminate\Http\Request|string|array
 	 */
 	function wp_app_request( $key = null, $default = null ) {
 		if ( is_null( $key ) ) {
@@ -719,10 +719,10 @@ if ( ! function_exists( 'wp_app_response' ) ) {
 	/**
 	 * Return a new response from the application.
 	 *
-	 * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\View|string|array|null  $content
+	 * @param  \Enpii_Base\Deps\Illuminate\View\View|string|array|null  $content
 	 * @param  int  $status
 	 * @param  array  $headers
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\ResponseFactory
+	 * @return \Enpii_Base\Deps\Illuminate\Http\Response|\Enpii_Base\Deps\Illuminate\Contracts\Routing\ResponseFactory
 	 */
 	function wp_app_response( $content = '', $status = 200, array $headers = [] ) {
 		$factory = wp_app( ResponseFactory::class );
@@ -782,7 +782,7 @@ if ( ! function_exists( 'wp_app_session' ) ) {
 	 *
 	 * @param  array|string|null  $key
 	 * @param  mixed  $default
-	 * @return mixed|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\Store|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Session\SessionManager
+	 * @return mixed|\Enpii_Base\Deps\Illuminate\Session\Store|\Enpii_Base\Deps\Illuminate\Session\SessionManager
 	 */
 	function wp_app_session( $key = null, $default = null ) {
 		if ( is_null( $key ) ) {
@@ -811,10 +811,10 @@ if ( ! function_exists( 'wp_app_storage_path' ) ) {
 
 if ( ! function_exists( 'wp_app_today' ) ) {
 	/**
-	 * Create a new Enpii\WP_Plugin\Enpii_Base\Dependencies\Carbon instance for the current date.
+	 * Create a new Enpii_Base\Deps\Carbon instance for the current date.
 	 *
 	 * @param  \DateTimeZone|string|null  $tz
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\Carbon
+	 * @return \Enpii_Base\Deps\Illuminate\Support\Carbon
 	 */
 	function wp_app_today( $tz = null ) {
 		return Date::today( $tz );
@@ -828,7 +828,7 @@ if ( ! function_exists( 'wp_app_trans' ) ) {
 	 * @param  string|null  $key
 	 * @param  array  $replace
 	 * @param  string|null  $locale
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Translation\Translator|string|array|null
+	 * @return \Enpii_Base\Deps\Illuminate\Contracts\Translation\Translator|string|array|null
 	 */
 	function wp_app_trans( $key = null, $replace = [], $locale = null ) {
 		if ( is_null( $key ) ) {
@@ -861,7 +861,7 @@ if ( ! function_exists( 'wp_app_url' ) ) {
 	 * @param  string|null  $path
 	 * @param  mixed  $parameters
 	 * @param  bool|null  $secure
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Routing\UrlGenerator|string
+	 * @return \Enpii_Base\Deps\Illuminate\Contracts\Routing\UrlGenerator|string
 	 */
 	function wp_app_url( $path = null, $parameters = [], $secure = null ) {
 		if ( is_null( $path ) ) {
@@ -880,7 +880,7 @@ if ( ! function_exists( 'wp_app_validator' ) ) {
 	 * @param  array  $rules
 	 * @param  array  $messages
 	 * @param  array  $customAttributes
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\Validator|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Validation\Factory
+	 * @return \Enpii_Base\Deps\Illuminate\Contracts\Validation\Validator|\Enpii_Base\Deps\Illuminate\Contracts\Validation\Factory
 	 */
 	function wp_app_validator( array $data = [], array $rules = [], array $messages = [], array $customAttributes = [] ) {
 		$factory = wp_app( ValidationFactory::class );
@@ -898,9 +898,9 @@ if ( ! function_exists( 'wp_app_view' ) ) {
 	 * Get the evaluated view contents for the given view.
 	 *
 	 * @param  string|null  $view
-	 * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Support\Arrayable|array  $data
+	 * @param  \Enpii_Base\Deps\Illuminate\Contracts\Support\Arrayable|array  $data
 	 * @param  array  $mergeData
-	 * @return \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\View|\Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\View\Factory
+	 * @return \Enpii_Base\Deps\Illuminate\View\View|\Enpii_Base\Deps\Illuminate\Contracts\View\Factory
 	 */
 	function wp_app_view( $view = null, $data = [], $mergeData = [] ) {
 		$factory = wp_app( ViewFactory::class );

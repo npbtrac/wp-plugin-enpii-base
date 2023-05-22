@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\App\WP;
+namespace Enpii_Base\App\WP;
 
-use Enpii\WP_Plugin\Enpii_Base\App\Commands\Init_WP_App_Bootstrap_Job_Command;
-use Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Base_WP_App_Api_Routes_Job_Command;
-use Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Base_WP_App_Routes_Job_Command;
-use Enpii\WP_Plugin\Enpii_Base\App\Commands\Register_Main_Service_Providers_Job_Command;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Container\BindingResolutionException;
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Http\Response;
-use Enpii\WP_Plugin\Enpii_Base\Foundation\WP\WP_Plugin;
+use Enpii_Base\App\Commands\Init_WP_App_Bootstrap_Job_Command;
+use Enpii_Base\App\Commands\Register_Base_WP_App_Api_Routes_Job_Command;
+use Enpii_Base\App\Commands\Register_Base_WP_App_Routes_Job_Command;
+use Enpii_Base\App\Commands\Register_Main_Service_Providers_Job_Command;
+use Enpii_Base\Deps\Illuminate\Contracts\Container\BindingResolutionException;
+use Enpii_Base\Deps\Illuminate\Http\Response;
+use Enpii_Base\Foundation\WP\WP_Plugin;
 use InvalidArgumentException;
 use WP_CLI;
 use WP_Query;
 
 /**
- * @package Enpii\WP_Plugin\Enpii_Base\App\WP
+ * @package Enpii_Base\App\WP
  */
 final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	/**
@@ -82,15 +82,15 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	public function register_wp_cli_commands(): void {
 		WP_CLI::add_command(
 			'enpii-base info',
-			wp_app_resolve(\Enpii\WP_Plugin\Enpii_Base\App\WP_CLI\Enpii_Base_Info_WP_CLI::class)
+			wp_app_resolve(\Enpii_Base\App\WP_CLI\Enpii_Base_Info_WP_CLI::class)
 		);
 		WP_CLI::add_command(
 			'enpii-base prepare-folders',
-			$this->app->make(\Enpii\WP_Plugin\Enpii_Base\App\WP_CLI\Enpii_Base_Prepare_Folders_WP_CLI::class)
+			$this->app->make(\Enpii_Base\App\WP_CLI\Enpii_Base_Prepare_Folders_WP_CLI::class)
 		);
 		WP_CLI::add_command(
 			'enpii-base artisan',
-			$this->app->make(\Enpii\WP_Plugin\Enpii_Base\App\WP_CLI\Enpii_Base_Artisan_WP_CLI::class)
+			$this->app->make(\Enpii_Base\App\WP_CLI\Enpii_Base_Artisan_WP_CLI::class)
 		);
 	}
 
@@ -144,11 +144,11 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 
 		$wp_app = wp_app();
 
-		/** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Foundation\Http\Kernel $kernel */
-		$kernel = $wp_app->make( \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Http\Kernel::class );
+		/** @var \Enpii_Base\Deps\Illuminate\Foundation\Http\Kernel $kernel */
+		$kernel = $wp_app->make( \Enpii_Base\Deps\Illuminate\Contracts\Http\Kernel::class );
 
-		/** @var \Enpii\WP_Plugin\Enpii_Base\App\Http\Request $request */
-		$request = \Enpii\WP_Plugin\Enpii_Base\App\Http\Request::capture();
+		/** @var \Enpii_Base\App\Http\Request $request */
+		$request = \Enpii_Base\App\Http\Request::capture();
 		$response = $kernel->handle( $request );
 
 		$response->sendHeaders();

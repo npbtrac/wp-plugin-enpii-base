@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii\WP_Plugin\Enpii_Base\Foundation\WP;
+namespace Enpii_Base\Foundation\WP;
 
 interface WP_Theme_Interface {
 	public const PARAM_KEY_THEME_BASE_PATH = 'base_path';
@@ -13,7 +13,7 @@ interface WP_Theme_Interface {
 	/**
 	 * Create a new service provider instance.
 	 *
-	 * @param  \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Contracts\Foundation\Application  $app
+	 * @param  \Enpii_Base\Deps\Illuminate\Contracts\Foundation\Application  $app
 	 * @return void
 	 */
 	public function __construct( $app);
