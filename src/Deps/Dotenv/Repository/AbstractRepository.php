@@ -155,7 +155,7 @@ abstract class AbstractRepository implements RepositoryInterface
      * {@inheritdoc}
      */
     #[ReturnTypeWillChange]
-    public function offsetGet($offset): mixed
+    public function offsetGet($offset)
     {
         return $this->get($offset);
     }

@@ -128,7 +128,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 * @param WP_Query $query
 	 * @return mixed
 	 */
-	public function skip_wp_main_query( $request, $query ): mixed {
+	public function skip_wp_main_query( $request, $query ) {
 		/** @var WP_Query $query */
 		if( $query->is_main_query() && ! $query->is_admin ) {
 			do_action( 'enpii_base_wp_app_do_wp_main_query', $request, $query );
@@ -157,7 +157,10 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		$kernel->terminate($request, $response);
 	}
 
-	public function skip_wp_template_include( $template ): mixed {
+	/**
+	 * @return mixed
+	 */
+	public function skip_wp_template_include( $template ) {
 		do_action( 'enpii_base_wp_app_render_wp_template', $template );
 
 		return false;
@@ -168,7 +171,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 * 	and add an action 'enpii_base_wp_app_skip_use_wp_theme' for further actions
 	 * @return mixed
 	 */
-	public function skip_use_wp_theme(): mixed {
+	public function skip_use_wp_theme() {
 		do_action( 'enpii_base_wp_app_skip_use_wp_theme' );
 
 		return false;

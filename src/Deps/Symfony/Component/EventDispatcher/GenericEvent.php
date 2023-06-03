@@ -123,7 +123,7 @@ class GenericEvent extends Event implements \ArrayAccess, \IteratorAggregate
      * @throws \InvalidArgumentException if key does not exist in $this->args
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet($key): mixed
+    public function offsetGet($key)
     {
         return $this->getArgument($key);
     }

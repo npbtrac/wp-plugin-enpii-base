@@ -389,7 +389,7 @@ class MessageBag implements Arrayable, Countable, Jsonable, JsonSerializable, Me
      *
      * @return array
      */
-    public function jsonSerialize(): mixed
+    public function jsonSerialize()
     {
         return $this->toArray();
     }
