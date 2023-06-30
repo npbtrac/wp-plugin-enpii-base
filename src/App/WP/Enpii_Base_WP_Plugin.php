@@ -11,6 +11,7 @@ use Enpii_Base\App\Commands\Register_Main_Service_Providers_Job_Command;
 use Enpii_Base\Deps\Illuminate\Contracts\Container\BindingResolutionException;
 use Enpii_Base\Deps\Illuminate\Http\Response;
 use Enpii_Base\Foundation\WP\WP_Plugin;
+use Exception;
 use InvalidArgumentException;
 use WP_CLI;
 use WP_Query;
@@ -54,6 +55,9 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( 'enpii_base_wp_app_api_register_routes', [ $this, 'register_base_wp_app_api_routes' ] );
 
 		// Other hooks
+		if ($this->is_blade_for_template_available()) {
+			add_filter( 'template_include', [ $this, 'use_blade_to_compile_template' ], 99999);
+		}
 	}
 
 	public function bootstrap_wp_app(): void {
@@ -177,6 +181,30 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		return false;
 	}
 
+	public function use_blade_to_compile_template( $template) {
+		/** @var \Enpii_Base\Deps\Illuminate\View\Factory $view */
+		$view = wp_app_view();
+		// We want to have blade to compile the php file as well
+		$view->addExtension('php', 'blade');
+
+		/** @var \Enpii_Base\Deps\Illuminate\View\View $wp_app_view */
+		// $wp_app_view = wp_app_view(basename($template, '.php'))
+
+		// We catch exception if view is not rendered correctly
+		// 	exception InvalidArgumentException for view file not found in FileViewFinder
+		try {
+			$tmp = wp_app_view(basename($template, '.php'));
+			// dev_dump($blade_compiler->getCompiledPath());
+			echo $tmp;
+			$template = false;
+		} catch (InvalidArgumentException $e) {
+		} catch (Exception $e) {
+			throw $e;
+		}
+
+		return $template;
+	}
+
 	public function wp_app_complete_execution(): void {
 		// We only want to run this
 		do_action( 'enpii_base_wp_app_complete_execution' );
@@ -222,5 +250,10 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 			add_action( 'wp', [$this, 'wp_app_render_content'], 9999, 1 );
 			add_action( 'shutdown', [$this, 'wp_app_complete_execution'], 9999, 0 );
 		}
+	}
+
+	private function is_blade_for_template_available(): bool {
+		// We only want to use Blade
+		return !wp_app()->is_wp_app_mode();
 	}
 }

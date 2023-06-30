@@ -12,31 +12,34 @@ use Enpii_Base\Foundation\Shared\Base_Job_Command;
 
 class Register_Base_WP_App_Routes_Job_Command extends Base_Job_Command {
 	public function handle(): void {
-		// For Frontend
-		Route::get( '/', [ Index_Controller::class, 'home' ] );
-		Route::get( '/home', [ Index_Controller::class, 'home' ] );
+		if (wp_app()->is_debug_mode()) {
+			// For Frontend
+			Route::get( '/', [ Index_Controller::class, 'home' ] );
+			Route::get( '/home', [ Index_Controller::class, 'home' ] );
+			Route::get( '/enpii-base', [ Index_Controller::class, 'enpii_base' ] );
 
-		// For API
-		Route::group(
-			[
-				'prefix' => '/wp-admin',
-				'middleware' => [
-					'wp_user_session_validation',
+			// For Admin
+			Route::group(
+				[
+					'prefix' => '/wp-admin',
+					'middleware' => [
+						'wp_user_session_validation',
+					],
 				],
-			],
-			function () {
-				Route::get( '/', [ Admin_Index_Controller::class, 'home' ] );
-			}
-		);
+				function () {
+					Route::get( '/', [ Admin_Index_Controller::class, 'home' ] );
+				}
+			);
 
-		// For API
-		Route::group(
-			[
-				'prefix' => '/api',
-			], function () {
-				Route::get( '/', [ Api_Index_Controller::class, 'home' ] );
-				Route::get( '/info', [ Api_Index_Controller::class, 'info' ] );
-			}
-		);
+			// For API
+			Route::group(
+				[
+					'prefix' => '/api',
+				], function () {
+					Route::get( '/', [ Api_Index_Controller::class, 'home' ] );
+					Route::get( '/info', [ Api_Index_Controller::class, 'info' ] );
+				}
+			);
+		}
 	}
 }

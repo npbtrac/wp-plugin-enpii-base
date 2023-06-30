@@ -137,6 +137,10 @@ class WP_Application extends Application {
 		$this->register( $theme );
 	}
 
+	public function is_debug_mode(): bool {
+		return wp_app_config('app.debug');
+	}
+
 	/**
 	 * For checking if the request uri is for 'wp-app'
 	 *

@@ -1,10 +1,8 @@
-<html>
-<head>
-    <title><?=$this->e($title)?></title>
-</head>
-<body>
+<?php
+get_header();
+?>
 
-<?=$this->section('content')?>
+@yield('content')
 
-</body>
-</html>
+<?php
+get_footer();
