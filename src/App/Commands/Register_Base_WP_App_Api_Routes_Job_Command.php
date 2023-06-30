@@ -10,20 +10,22 @@ use Enpii_Base\Foundation\Shared\Base_Job_Command;
 
 class Register_Base_WP_App_Api_Routes_Job_Command extends Base_Job_Command {
 	public function handle(): void {
-		// For API
-		Route::get( '/', [ Api_Index_Controller::class, 'home' ] );
+		if (wp_app()->is_debug_mode()) {
+			// For API
+			Route::get( '/', [ Api_Index_Controller::class, 'home' ] );
 
-		// For API with session validation
-		Route::group(
-			[
-				'prefix' => '/wp-admin',
-				'middleware' => [
-					'wp_user_session_validation',
+			// For API with session validation
+			Route::group(
+				[
+					'prefix' => '/wp-admin',
+					'middleware' => [
+						'wp_user_session_validation',
+					],
 				],
-			],
-			function () {
-				Route::get( '/', [ Api_Index_Controller::class, 'info' ] );
-			}
-		);
+				function () {
+					Route::get( '/', [ Api_Index_Controller::class, 'info' ] );
+				}
+			);
+		}
 	}
 }

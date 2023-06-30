@@ -93,7 +93,8 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 			);
 		}
 		$this->loadViewsFrom(
-			realpath( $this->get_base_path() . DIR_SEP . 'resources' . DIR_SEP . 'views' ), $namespace
+			realpath( $this->get_base_path() . DIR_SEP . 'resources' . DIR_SEP . 'views' ),
+			$namespace
 		);
 	}
 }
