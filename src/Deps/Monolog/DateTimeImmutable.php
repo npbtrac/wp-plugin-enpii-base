@@ -33,6 +33,7 @@ class DateTimeImmutable extends \DateTimeImmutable implements \JsonSerializable
         parent::__construct('now', $timezone);
     }
 
+	#[\ReturnTypeWillChange]
     public function jsonSerialize(): string
     {
         if ($this->useMicroseconds) {

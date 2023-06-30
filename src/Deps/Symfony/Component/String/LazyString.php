@@ -127,6 +127,7 @@ class LazyString implements \Stringable, \JsonSerializable
         return ['value'];
     }
 
+	#[\ReturnTypeWillChange]
     public function jsonSerialize(): string
     {
         return $this->__toString();

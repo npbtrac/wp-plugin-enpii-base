@@ -401,6 +401,7 @@ abstract class AbstractString implements \Stringable, \JsonSerializable
      */
     abstract public function join(array $strings, string $lastGlue = null): self;
 
+	#[\ReturnTypeWillChange]
     public function jsonSerialize(): string
     {
         return $this->string;

@@ -302,6 +302,7 @@ final class LazyUuidFromString implements UuidInterface
         return $this->uuid;
     }
 
+	#[\ReturnTypeWillChange]
     public function jsonSerialize(): string
     {
         return $this->uuid;

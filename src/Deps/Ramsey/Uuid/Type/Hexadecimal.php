@@ -69,6 +69,7 @@ final class Hexadecimal implements TypeInterface
         return $this->toString();
     }
 
+	#[\ReturnTypeWillChange]
     public function jsonSerialize(): string
     {
         return $this->toString();

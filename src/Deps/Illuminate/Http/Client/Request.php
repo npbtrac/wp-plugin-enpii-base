@@ -271,6 +271,7 @@ class Request implements ArrayAccess
      * @param  string  $offset
      * @return mixed
      */
+	#[\ReturnTypeWillChange]
     public function offsetGet($offset)
     {
         return $this->data()[$offset];

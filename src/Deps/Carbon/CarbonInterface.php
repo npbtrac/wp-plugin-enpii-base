@@ -3041,7 +3041,7 @@ interface CarbonInterface extends DateTimeInterface, JsonSerializable
      *
      * @return array|string
      */
-    #[ReturnTypeWillChange]
+    #[\ReturnTypeWillChange]
     public function jsonSerialize();
 
     /**

@@ -106,6 +106,7 @@ final class Integer implements NumberInterface
         return $this->toString();
     }
 
+	#[\ReturnTypeWillChange]
     public function jsonSerialize(): string
     {
         return $this->toString();

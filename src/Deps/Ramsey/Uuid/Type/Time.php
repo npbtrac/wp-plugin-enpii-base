@@ -77,6 +77,7 @@ final class Time implements TypeInterface
     /**
      * @return string[]
      */
+	#[\ReturnTypeWillChange]
     public function jsonSerialize(): array
     {
         return [
