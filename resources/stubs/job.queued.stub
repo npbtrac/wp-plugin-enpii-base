@@ -1,0 +1,35 @@
+<?php
+
+namespace {{ namespace }};
+
+use Enpii_Base\Deps\Illuminate\Bus\Queueable;
+use Enpii_Base\Deps\Illuminate\Contracts\Queue\ShouldQueue;
+use Enpii_Base\Deps\Illuminate\Queue\InteractsWithQueue;
+use Enpii_Base\Deps\Illuminate\Queue\SerializesModels;
+use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
+use Enpii_Base\Foundation\Jobs\Base_Job;
+
+class {{ class }} extends Base_Job implements ShouldQueue
+{
+    use Dispatchable_Trait, InteractsWithQueue, Queueable, SerializesModels;
+
+    /**
+     * Create a new job instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Execute the job.
+     *
+     * @return void
+     */
+    public function handle(): void
+    {
+        //
+    }
+}

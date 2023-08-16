@@ -19,6 +19,7 @@ use Enpii_Base\Foundation\Shared\Traits\Accessor_Set_Get_Has_Trait;
 use Enpii_Base\Foundation\WP\WP_Plugin_Interface;
 use Enpii_Base\Foundation\WP\WP_Theme_Interface;
 use InvalidArgumentException;
+use RuntimeException;
 use TypeError;
 
 /**
@@ -40,7 +41,7 @@ class WP_Application extends Application {
 	protected static array $config;
 
 	protected string $wp_app_slug = 'wp-app';
-	protected string $wp_app_api_slug = 'wp-app-api';
+	protected string $wp_api_slug = 'wp-api';
 
 	/**
      * We don't want to have this class publicly initialized
@@ -76,7 +77,7 @@ class WP_Application extends Application {
 		static::$config = $config;
 		$instance = new static($basePath);
 		$instance->wp_app_slug = $config['wp_app_slug'];
-		$instance->wp_app_api_slug = $config['wp_app_api_slug'];
+		$instance->wp_api_slug = $config['wp_api_slug'];
 
 		static::$instance = $instance;
 
@@ -137,6 +138,44 @@ class WP_Application extends Application {
 		$this->register( $theme );
 	}
 
+	/**
+	 * A shortcut to register actions for enpii_base_wp_app_register_routes
+	 * @param mixed $callback
+	 * @param int $priority
+	 * @param int $accepted_args
+	 * @return void
+	 */
+	public function register_routes($callback, $priority = 10, $accepted_args = 1): void {
+		add_action( 'enpii_base_wp_app_register_routes', $callback, $priority, $accepted_args );
+	}
+
+	/**
+	 * A shortcut to register actions for enpii_base_wp_api_register_routes
+	 * @param mixed $callback
+	 * @param int $priority
+	 * @param int $accepted_args
+	 * @return void
+	 */
+	public function register_api_routes($callback, $priority = 10, $accepted_args = 1): void {
+		add_action( 'enpii_base_wp_api_register_routes', $callback, $priority, $accepted_args );
+	}
+
+	/**
+	 * Get the slug for wp-app mode
+	 * @return string
+	 */
+	public function get_wp_app_slug(): string {
+		return $this->wp_app_slug;
+	}
+
+	/**
+	 * Get the slug for wp-api mode
+	 * @return string
+	 */
+	public function get_wp_api_slug(): string {
+		return $this->wp_api_slug;
+	}
+
 	public function is_debug_mode(): bool {
 		return wp_app_config('app.debug');
 	}
@@ -157,26 +196,10 @@ class WP_Application extends Application {
 	 *
 	 * @return bool
 	 */
-	public function is_wp_app_api_mode(): bool {
-		$wp_site_prefix = $this->wp_app_api_slug;
+	public function is_wp_api_mode(): bool {
+		$wp_site_prefix = $this->wp_api_slug;
 		$uri = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( $_SERVER['REQUEST_URI'] ) : '/';
 		return ( strpos( $uri, '/' . $wp_site_prefix . '/' ) === 0 || $uri === '/' . $wp_site_prefix );
-	}
-
-	/**
-	 * Get the slug for wp-app mode
-	 * @return string
-	 */
-	public function get_wp_app_slug(): string {
-		return $this->wp_app_slug;
-	}
-
-	/**
-	 * Get the slug for wp-app-api mode
-	 * @return string
-	 */
-	public function get_wp_app_api_slug(): string {
-		return $this->wp_app_api_slug;
 	}
 
 	/**
@@ -211,6 +234,22 @@ class WP_Application extends Application {
 	public function resourcePath( $path = '' ) {
 		return dirname(dirname( dirname( __DIR__ ) )) . DIRECTORY_SEPARATOR . 'resources' . ( $path ? DIRECTORY_SEPARATOR . $path : $path );
 	}
+
+	/**
+     * Get the application namespace.
+     *
+     * @return string
+     *
+     * @throws \RuntimeException
+     */
+    public function getNamespace()
+    {
+        if (! is_null($this->namespace)) {
+            return $this->namespace;
+        }
+
+		return $this->namespace = 'Enpii_Base\\';
+    }
 
 	/**
      * @inheritedDoc

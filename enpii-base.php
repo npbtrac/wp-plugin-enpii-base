@@ -5,7 +5,7 @@
  * Description: Base plugin for WP development using Laravel
  * Author:      dev@enpii.com, nptrac@yahoo.com
  * Author URI:  https://enpii.com/
- * Version:     0.2.1
+ * Version:     0.2.2
  * Text Domain: enpii
  */
 
@@ -30,9 +30,9 @@ defined( 'ENPII_BASE_WP_APP_PREFIX' ) || define(
 	env('ENPII_BASE_WP_APP_PREFIX', 'wp-app')
 );
 
-defined( 'ENPII_BASE_WP_APP_API_PREFIX' ) || define(
-	'ENPII_BASE_WP_APP_API_PREFIX',
-	env('ENPII_BASE_WP_APP_API_PREFIX', 'wp-app-api')
+defined( 'ENPII_BASE_WP_API_PREFIX' ) || define(
+	'ENPII_BASE_WP_API_PREFIX',
+	env('ENPII_BASE_WP_API_PREFIX', 'wp-api')
 );
 
 /**
@@ -42,7 +42,7 @@ $wp_app_base_path = enpii_base_wp_app_get_base_path();
 $config = apply_filters( 'enpii_base_wp_app_prepare_config', [
 	'app' => require_once __DIR__ . DIR_SEP . 'wp-app-config' . DIR_SEP . 'app.php',
 	'wp_app_slug' => ENPII_BASE_WP_APP_PREFIX,
-	'wp_app_api_slug' => ENPII_BASE_WP_APP_API_PREFIX,
+	'wp_api_slug' => ENPII_BASE_WP_API_PREFIX,
 ] );
 // We initiate the WP Application instance
 $wp_app = \Enpii_Base\App\WP\WP_Application::init_instance_with_config(

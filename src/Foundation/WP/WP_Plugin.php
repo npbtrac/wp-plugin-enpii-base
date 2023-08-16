@@ -58,6 +58,10 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 		$this->get_base_path() . DIR_SEP . 'resources' . DIR_SEP . 'views';
 	}
 
+	public function view($view) {
+		return wp_app_view( $this->get_plugin_slug() . '::' . $view );
+	}
+
 	protected function validate_needed_properties(): void {
 		foreach (['plugin_slug', 'base_path', 'base_url'] as $property) {
 			if ( empty($this->$property) ) {

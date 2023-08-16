@@ -1,14 +1,22 @@
 <?php
 
-declare(strict_types=1);
+namespace Enpii_Base\App\Jobs;
 
-namespace Enpii_Base\App\Commands\WP_CLI;
+use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
+use Enpii_Base\Foundation\Jobs\Base_Job;
 
-use Enpii_Base\Foundation\Shared\Base_Job_Command;
+class Process_Artisan_Job extends Base_Job
+{
+    use Dispatchable_Trait;
 
-class Process_Artisan_Job_Command extends Base_Job_Command {
-	public function handle(): void {
-		/** @var \Enpii_Base\App\Console\Kernel $kernel */
+    /**
+     * Execute the job.
+     *
+     * @return void
+     */
+    public function handle(): void
+    {
+        /** @var \Enpii_Base\App\Console\Kernel $kernel */
 		$kernel = wp_app()->make(
 			\Enpii_Base\Deps\Illuminate\Contracts\Console\Kernel::class
 		);
@@ -26,5 +34,5 @@ class Process_Artisan_Job_Command extends Base_Job_Command {
 		);
 
 		exit($status);
-	}
+    }
 }

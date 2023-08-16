@@ -14,5 +14,5 @@ use Enpii_Base\Deps\Illuminate\Queue\SerializesModels;
  * @package Enpii_Base\Foundation\Shared
  */
 abstract class Base_Job_Command extends Base_Command {
-	use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
+	use Dispatchable;
 }

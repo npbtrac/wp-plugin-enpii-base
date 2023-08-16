@@ -1,21 +1,28 @@
 <?php
 
-declare(strict_types=1);
-
-namespace Enpii_Base\App\Commands;
+namespace Enpii_Base\App\Jobs;
 
 use Enpii_Base\App\Http\Controllers\Admin\Index_Controller as Admin_Index_Controller;
 use Enpii_Base\App\Http\Controllers\Api\Index_Controller as Api_Index_Controller;
 use Enpii_Base\App\Http\Controllers\Index_Controller;
 use Enpii_Base\Deps\Illuminate\Support\Facades\Route;
-use Enpii_Base\Foundation\Shared\Base_Job_Command;
+use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
+use Enpii_Base\Foundation\Jobs\Base_Job;
 
-class Register_Base_WP_App_Routes_Job_Command extends Base_Job_Command {
-	public function handle(): void {
-		if (wp_app()->is_debug_mode()) {
+class Register_Base_WP_App_Routes_Job extends Base_Job
+{
+    use Dispatchable_Trait;
+
+    /**
+     * Execute the job.
+     *
+     * @return void
+     */
+    public function handle(): void
+    {
+        if (wp_app()->is_debug_mode()) {
 			// For Frontend
-			Route::get( '/', [ Index_Controller::class, 'home' ] );
-			Route::get( '/home', [ Index_Controller::class, 'home' ] );
+			Route::get( '/', [ Index_Controller::class, 'index' ] );
 			Route::get( '/enpii-base', [ Index_Controller::class, 'enpii_base' ] );
 
 			// For Admin
@@ -41,5 +48,5 @@ class Register_Base_WP_App_Routes_Job_Command extends Base_Job_Command {
 				}
 			);
 		}
-	}
+    }
 }

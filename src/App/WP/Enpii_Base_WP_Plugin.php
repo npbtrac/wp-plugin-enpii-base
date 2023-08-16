@@ -4,10 +4,14 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\WP;
 
-use Enpii_Base\App\Commands\Init_WP_App_Bootstrap_Job_Command;
-use Enpii_Base\App\Commands\Register_Base_WP_App_Api_Routes_Job_Command;
+use Enpii_Base\App\Commands\Register_Base_WP_Api_Routes_Job_Command;
 use Enpii_Base\App\Commands\Register_Base_WP_App_Routes_Job_Command;
 use Enpii_Base\App\Commands\Register_Main_Service_Providers_Job_Command;
+use Enpii_Base\App\Jobs\Init_WP_App_Bootstrap_Job;
+use Enpii_Base\App\Jobs\Process_WP_App_Request_Job;
+use Enpii_Base\App\Jobs\Register_Base_WP_Api_Routes_Job;
+use Enpii_Base\App\Jobs\Register_Base_WP_App_Routes_Job;
+use Enpii_Base\App\Jobs\Register_Main_Service_Providers_Job;
 use Enpii_Base\Deps\Illuminate\Contracts\Container\BindingResolutionException;
 use Enpii_Base\Deps\Illuminate\Http\Response;
 use Enpii_Base\Foundation\WP\WP_Plugin;
@@ -52,7 +56,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( 'enpii_base_wp_app_init', [ $this, 'register_main_service_providers' ] );
 
 		add_action( 'enpii_base_wp_app_register_routes', [ $this, 'register_base_wp_app_routes' ] );
-		add_action( 'enpii_base_wp_app_api_register_routes', [ $this, 'register_base_wp_app_api_routes' ] );
+		add_action( 'enpii_base_wp_api_register_routes', [ $this, 'register_base_wp_api_routes' ] );
 
 		// Other hooks
 		if ($this->is_blade_for_template_available()) {
@@ -61,7 +65,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	}
 
 	public function bootstrap_wp_app(): void {
-		Init_WP_App_Bootstrap_Job_Command::dispatchNow();
+		Init_WP_App_Bootstrap_Job::dispatchSync();
 	}
 
 	/**
@@ -72,15 +76,28 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 * @throws InvalidArgumentException
 	 */
 	public function register_main_service_providers(): void {
-		Register_Main_Service_Providers_Job_Command::dispatchNow();
+		$providers = [
+			\Enpii_Base\App\Providers\View_Service_Provider::class,
+			\Enpii_Base\App\Providers\Route_Service_Provider::class,
+			\Enpii_Base\App\Providers\Filesystem_Service_Provider::class,
+			\Enpii_Base\App\Providers\Cache_Service_Provider::class,
+			\Enpii_Base\App\Providers\Artisan_Service_Provider::class,
+			\Enpii_Base\App\Providers\Queue_Service_Provider::class,
+			\Enpii_Base\App\Providers\Database_Service_Provider::class,
+			\Enpii_Base\App\Providers\Composer_Service_Provider::class,
+			\Enpii_Base\App\Providers\Migration_Service_Provider::class,
+		];
+		Register_Main_Service_Providers_Job::dispatchSync([
+			'providers' => $providers,
+		]);
 	}
 
 	public function register_base_wp_app_routes(): void {
-		Register_Base_WP_App_Routes_Job_Command::dispatchNow();
+		Register_Base_WP_App_Routes_Job::dispatchSync();
 	}
 
-	public function register_base_wp_app_api_routes(): void {
-		Register_Base_WP_App_Api_Routes_Job_Command::dispatchNow();
+	public function register_base_wp_api_routes(): void {
+		Register_Base_WP_Api_Routes_Job::dispatchSync();
 	}
 
 	public function register_wp_cli_commands(): void {
@@ -144,21 +161,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	}
 
 	public function wp_app_render_content($wp): void {
-		// $GLOBALS['wp_query']->is_404 = false;
-
-		$wp_app = wp_app();
-
-		/** @var \Enpii_Base\Deps\Illuminate\Foundation\Http\Kernel $kernel */
-		$kernel = $wp_app->make( \Enpii_Base\Deps\Illuminate\Contracts\Http\Kernel::class );
-
-		/** @var \Enpii_Base\App\Http\Request $request */
-		$request = \Enpii_Base\App\Http\Request::capture();
-		$response = $kernel->handle( $request );
-
-		$response->sendHeaders();
-		$response->sendContent();
-
-		$kernel->terminate($request, $response);
+		Process_WP_App_Request_Job::dispatchSync();
 	}
 
 	/**
@@ -234,7 +237,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		// For `enpii_base_wp_app_init`
 		add_action( 'init', [$this, 'wp_app_init'], 9999 );
 
-		if (wp_app()->is_wp_app_mode() || wp_app()->is_wp_app_api_mode()) {
+		if (wp_app()->is_wp_app_mode() || wp_app()->is_wp_api_mode()) {
 			add_filter( 'do_parse_request', [$this, 'wp_app_parse_request'], 9999, 0 );
 			add_filter( 'posts_request', [$this, 'skip_wp_main_query'], 9999, 2 );
 		}
@@ -245,7 +248,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 			add_action( 'shutdown', [$this, 'wp_app_complete_execution'], 9999, 0 );
 		}
 
-		if (wp_app()->is_wp_app_api_mode()) {
+		if (wp_app()->is_wp_api_mode()) {
 			add_filter( 'wp_using_themes', [$this, 'skip_use_wp_theme'], 9999, 0 );
 			add_action( 'wp', [$this, 'wp_app_render_content'], 9999, 1 );
 			add_action( 'shutdown', [$this, 'wp_app_complete_execution'], 9999, 0 );

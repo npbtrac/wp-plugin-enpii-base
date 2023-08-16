@@ -1,14 +1,22 @@
 <?php
 
-declare(strict_types=1);
+namespace Enpii_Base\App\Jobs;
 
-namespace Enpii_Base\App\Commands;
+use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
+use Enpii_Base\Foundation\Jobs\Base_Job;
 
-use Enpii_Base\Foundation\Shared\Base_Job_Command;
+class Init_WP_App_Bootstrap_Job extends Base_Job
+{
+    use Dispatchable_Trait;
 
-class Init_WP_App_Bootstrap_Job_Command extends Base_Job_Command {
-	public function handle(): void {
-		$wp_app = wp_app();
+    /**
+     * Execute the job.
+     *
+     * @return void
+     */
+    public function handle(): void
+    {
+        $wp_app = wp_app();
 		$wp_app['env'] = wp_app_config( 'app.env' );
 
 		$wp_app->singleton(
@@ -25,5 +33,5 @@ class Init_WP_App_Bootstrap_Job_Command extends Base_Job_Command {
 			\Enpii_Base\Deps\Illuminate\Contracts\Debug\ExceptionHandler::class,
 			\Enpii_Base\App\Exceptions\Handler::class
 		);
-	}
+    }
 }
