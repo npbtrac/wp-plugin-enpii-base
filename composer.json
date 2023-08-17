@@ -3,7 +3,6 @@
   "type": "wordpress-muplugin",
   "require": {
     "php": "^7.2.5|~8.0.0|~8.1.0",
-    "laravel/telescope": "3.5.1",
     "mcaskill/composer-exclude-files": "^3.0.0",
     "symfony/translation-contracts": "~2.5.2",
     "symfony/translation": "~5.4.14",
