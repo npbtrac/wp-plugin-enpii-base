@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Console\Commands;
 
-use Enpii_Base\Deps\Illuminate\Filesystem\Filesystem;
-use Enpii_Base\Deps\Illuminate\Foundation\Console\JobMakeCommand;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Foundation\Console\JobMakeCommand;
 
 class Job_Make_Command extends JobMakeCommand {
 
@@ -35,7 +35,7 @@ class Job_Make_Command extends JobMakeCommand {
      *
      * @return bool|null
      *
-     * @throws \Enpii_Base\Deps\Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     public function handle()
     {
@@ -112,7 +112,7 @@ class Job_Make_Command extends JobMakeCommand {
      * @param  string  $name
      * @return string
      *
-     * @throws \Enpii_Base\Deps\Illuminate\Contracts\Filesystem\FileNotFoundException
+     * @throws \Illuminate\Contracts\Filesystem\FileNotFoundException
      */
     protected function buildClass($name)
     {

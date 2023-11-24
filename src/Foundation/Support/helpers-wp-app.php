@@ -2,56 +2,92 @@
 
 declare(strict_types=1);
 
-use Enpii_Base\Deps\Symfony\Component\VarDumper\VarDumper;
+use Symfony\Component\VarDumper\Caster\ReflectionCaster;
+use Symfony\Component\VarDumper\Cloner\VarCloner;
+use Symfony\Component\VarDumper\Dumper\CliDumper;
+use Symfony\Component\VarDumper\VarDumper;
 
 /**
  * Below functions are for development debugging
  */
-if ( ! function_exists( 'dev_dump' ) ) {
-	function dev_dump( ...$vars ): void {
-		VarDumper::dump("==========>>>>>>");
-		VarDumper::dump("========== start dumping ============");
-		foreach ( $vars as $index => $var ) {
-			VarDumper::dump("=== var $index: === type: ".gettype($var));
-			VarDumper::dump($var);
-		}
-		VarDumper::dump("============ end dumping ============");
-		VarDumper::dump("============================<<<<<<<<<");
+if ( ! function_exists( 'devd' ) ) {
+	function devd( ...$vars ) {
+		$dev_trace = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 7);
+
+		// We want to put the file name and the 7 steps trace to know where
+		//	where the dump is produced
+		return dump(['=== start of dump ===', $dev_trace[0]['file']. ':' .$dev_trace[0]['line'], $dev_trace], $vars, '=== end of dump ===');
 	}
 }
 
-if ( ! function_exists( 'dev_dump_die' ) ) {
-	function dev_dump_die( ...$vars ): void {
-		dev_dump(...$vars);
-		die();
+if ( ! function_exists( 'devdd' ) ) {
+	function devdd( ...$vars ): void {
+		$dev_trace = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 7);
+		dd(['=== start of dump ===', $dev_trace[0]['file']. ':' .$dev_trace[0]['line'], $dev_trace], $vars, '=== end of dump ===');
 	}
 }
 
 if ( ! function_exists( 'dev_error_log' ) ) {
 	function dev_error_log( ...$vars ): void {
+		$cloner = new VarCloner();
+		$cloner->addCasters(ReflectionCaster::UNSET_CLOSURE_FILE_INFO);
+
+		$dev_trace = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 7);
+
+		VarDumper::setHandler(function ($var) use ($cloner) {
+			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
+			return print_r($var, true);
+		});
+
+		$log_message = '';
+		$log_message .= "Debugging dev_error_log \n======= Dev logging start here \n".$dev_trace[0]['file']. ':' .$dev_trace[0]['line']." \n";
 		foreach ( $vars as $index => $var ) {
-			error_log(print_r("=== var $index: === type: ".gettype($var), true));
-			error_log(print_r($var, true));
-			error_log(print_r("\n", true));
+			$log_message .= "Var no $index: ". VarDumper::dump($var);
 		}
-		error_log(print_r("end dev_error_log =====\n\n\n\n", true));
+		$log_message .= "======= Dev logging ends here\n\n\n\n";
+		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
+		error_log($log_message);
 	}
 }
 
 if ( ! function_exists( 'dev_logger' ) ) {
 	function dev_logger( ...$vars ): void {
+		$cloner = new VarCloner();
+		$cloner->addCasters(ReflectionCaster::UNSET_CLOSURE_FILE_INFO);
+		$dumper = new CliDumper();
+
+		$dev_trace = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 7);
+
+		VarDumper::setHandler(function ($var) use ($cloner, $dumper) {
+			return $dumper->dump($cloner->cloneVar($var), true);
+		});
+
+		$logger = wp_app_logger()->channel('single');
+
+		$log_message = '';
+		$log_message .= "Debugging dev_logger \n======= Dev logging start here \n".$dev_trace[0]['file']. ':' .$dev_trace[0]['line']." \n";
 		foreach ( $vars as $index => $var ) {
-			wp_app_logger()->channel('single')->info( "=== var $index: === type: ".gettype($var) );
-			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
-			wp_app_logger()->channel('single')->debug( print_r( $var, true ) );
+			$log_message .= "Var no $index: ". VarDumper::dump($var);
+
 		}
-		wp_app_logger()->channel('single')->info( "end dev_logger =====\n\n\n\n" );
+		$log_message .= "======= Dev logging ends here\n\n\n\n";
+
+		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
+		$logger->debug($log_message);
 	}
 }
 
-if ( ! function_exists( 'dev_logger_dump' ) ) {
-	function dev_logger_dump( ...$vars ): void {
-		dev_dump( ...$vars );
+if ( ! function_exists( 'dev_log' ) ) {
+	function dev_log( ...$vars ): void {
+		dev_error_log( ...$vars );
+		dev_logger( ...$vars );
+	}
+}
+
+if ( ! function_exists( 'dev_dump_log' ) ) {
+	function dev_dump_log( ...$vars ): void {
+		devd( ...$vars );
+		dev_error_log( ...$vars );
 		dev_logger( ...$vars );
 	}
 }

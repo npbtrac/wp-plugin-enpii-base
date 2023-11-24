@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Providers;
 
-use Enpii_Base\Deps\Illuminate\Database\DatabaseServiceProvider;
+use Illuminate\Database\DatabaseServiceProvider;
 
 class Database_Service_Provider extends DatabaseServiceProvider {
 	public function register() {

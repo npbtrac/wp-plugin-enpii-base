@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Providers;
 
-use Enpii_Base\Deps\Illuminate\Cache\CacheServiceProvider;
+use Illuminate\Cache\CacheServiceProvider;
 
 class Cache_Service_Provider extends CacheServiceProvider {
 	public function register() {

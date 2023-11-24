@@ -1,0 +1,36 @@
+{
+  "name": "enpii/enpii-base",
+  "type": "wordpress-muplugin",
+  "description": "For using with with PHP <= 8.0",
+  "require": {
+    "php": "^7.2.5|~8.0.0",
+    "mcaskill/composer-exclude-files": "^3.0.0",
+    "psr/log": "~1.1.4",
+    "symfony/var-dumper": "~5.4.29",
+    "laravel/framework": "~7.30.6"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "autoload": {
+    "files": [
+      "./src/Foundation/Support/helpers-wp-app.php",
+      "./src/Foundation/Support/helpers-wp-app-overrides.php",
+      "./src/Foundation/Support/helpers.php"
+    ],
+    "psr-4": {
+      "Enpii_Base\\": "src"
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "mcaskill/composer-exclude-files": true
+    },
+    "vendor-dir": "./vendor-php80down",
+    "sort-packages": true
+  },
+  "extra": {
+    "exclude-from-files": [
+      "laravel/framework/src/Illuminate/Foundation/helpers.php"
+    ]
+  }
+}

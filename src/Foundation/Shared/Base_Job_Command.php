@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace Enpii_Base\Foundation\Shared;
 
-use Enpii_Base\Deps\Illuminate\Bus\Queueable;
-use Enpii_Base\Deps\Illuminate\Foundation\Bus\Dispatchable;
-use Enpii_Base\Deps\Illuminate\Queue\InteractsWithQueue;
-use Enpii_Base\Deps\Illuminate\Queue\SerializesModels;
+use Illuminate\Bus\Queueable;
+use Illuminate\Foundation\Bus\Dispatchable;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 
 /**
  * This works as the base one for other Command Handlers to inherit

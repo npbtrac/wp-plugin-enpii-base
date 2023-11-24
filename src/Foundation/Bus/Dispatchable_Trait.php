@@ -4,17 +4,17 @@ declare(strict_types=1);
 
 namespace Enpii_Base\Foundation\Bus;
 
-use Enpii_Base\Deps\Illuminate\Contracts\Bus\Dispatcher;
-use Enpii_Base\Deps\Illuminate\Foundation\Bus\PendingChain;
-use Enpii_Base\Deps\Illuminate\Foundation\Bus\PendingDispatch;
-use Enpii_Base\Deps\Illuminate\Support\Fluent;
+use Illuminate\Contracts\Bus\Dispatcher;
+use Illuminate\Foundation\Bus\PendingChain;
+use Illuminate\Foundation\Bus\PendingDispatch;
+use Illuminate\Support\Fluent;
 
 trait Dispatchable_Trait
 {
     /**
      * Dispatch the job with the given arguments.
      *
-     * @return \Enpii_Base\Deps\Illuminate\Foundation\Bus\PendingDispatch
+     * @return \Illuminate\Foundation\Bus\PendingDispatch
      */
     public static function dispatch()
     {
@@ -25,7 +25,7 @@ trait Dispatchable_Trait
      * Dispatch the job with the given arguments if the given truth test passes.
      *
      * @param  bool  $boolean
-     * @return \Enpii_Base\Deps\Illuminate\Foundation\Bus\PendingDispatch|\Enpii_Base\Deps\Illuminate\Support\Fluent
+     * @return \Illuminate\Foundation\Bus\PendingDispatch|\Illuminate\Support\Fluent
      */
     public static function dispatchIf($boolean, ...$arguments)
     {
@@ -38,7 +38,7 @@ trait Dispatchable_Trait
      * Dispatch the job with the given arguments unless the given truth test passes.
      *
      * @param  bool  $boolean
-     * @return \Enpii_Base\Deps\Illuminate\Foundation\Bus\PendingDispatch|\Enpii_Base\Deps\Illuminate\Support\Fluent
+     * @return \Illuminate\Foundation\Bus\PendingDispatch|\Illuminate\Support\Fluent
      */
     public static function dispatchUnless($boolean, ...$arguments)
     {
@@ -71,7 +71,7 @@ trait Dispatchable_Trait
      * Set the jobs that should run if this job is successful.
      *
      * @param  array  $chain
-     * @return \Enpii_Base\Deps\Illuminate\Foundation\Bus\PendingChain
+     * @return \Illuminate\Foundation\Bus\PendingChain
      */
     public static function withChain($chain)
     {

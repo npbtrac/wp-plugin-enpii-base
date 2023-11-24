@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Enpii_Base\Foundation\WP;
 
-use Enpii_Base\Deps\Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider;
 use Enpii_Base\Foundation\Shared\Traits\Accessor_Set_Get_Has_Trait;
 use Enpii_Base\Foundation\Shared\Traits\Config_Trait;
 use InvalidArgumentException;

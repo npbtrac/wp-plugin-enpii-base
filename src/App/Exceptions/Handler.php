@@ -4,15 +4,17 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Exceptions;
 
-use Enpii_Base\Deps\Illuminate\Contracts\Container\BindingResolutionException;
-use Enpii_Base\Deps\Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Enpii_Base\Deps\Illuminate\Foundation\Exceptions\WhoopsHandler;
-use Enpii_Base\Deps\Illuminate\Http\Request;
-use Enpii_Base\Deps\Monolog\Handler\HandlerInterface;
-use Enpii_Base\Deps\Symfony\Component\HttpFoundation\Response;
-use Enpii_Base\Deps\Symfony\Component\HttpKernel\Exception\HttpException;
-use Enpii_Base\Deps\Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
+use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Foundation\Exceptions\WhoopsHandler;
+use Illuminate\Http\Request;
+use Monolog\Handler\HandlerInterface;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\HttpException;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 use Exception;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\ViewErrorBag;
 use Throwable;
 
 class Handler extends ExceptionHandler {
@@ -50,15 +52,72 @@ class Handler extends ExceptionHandler {
 	/**
 	 * Render an exception into an HTTP response.
 	 *
-	 * @param \Enpii_Base\Deps\Illuminate\Http\Request $request
+	 * @param \Illuminate\Http\Request $request
 	 * @param Throwable $exception
 	 *
-	 * @return \Enpii_Base\Deps\Illuminate\Http\JsonResponse|\Enpii_Base\Deps\Illuminate\Http\Response|\Enpii_Base\Deps\Symfony\Component\HttpFoundation\Response
+	 * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response
 	 * @throws Throwable
 	 */
 	public function render( $request, Throwable $exception ) {
 		return parent::render( $request, $exception );
 	}
+
+	/**
+     * Register the error template hint paths.
+     *
+     * @return void
+     */
+    protected function registerErrorViewPaths()
+    {
+        View::replaceNamespace('errors', collect(wp_app_config('view.paths'))->map(function ($path) {
+            return "{$path}/errors";
+        })->push(__DIR__.'/views')->all());
+    }
+
+	/**
+     * Render the given HttpException.
+     *
+     * @param  \Symfony\Component\HttpKernel\Exception\HttpExceptionInterface  $e
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    protected function renderHttpException(HttpExceptionInterface $e)
+    {
+        $this->registerErrorViewPaths();
+		// devdd(wp_app_config('app.debug'));
+        if ($view = $this->getHttpExceptionView($e)) {
+            try {
+                return response()->view($view, [
+                    'errors' => new ViewErrorBag,
+                    'exception' => $e,
+                ], $e->getStatusCode(), $e->getHeaders());
+            } catch (Throwable $t) {
+				if (!wp_app_config('app.debug')) {
+					throw $t;
+				}
+
+                $this->report($t);
+            }
+        }
+
+        return $this->convertExceptionToResponse($e);
+    }
+
+	/**
+     * Get the response content for the given exception.
+     *
+     * @param  \Throwable  $e
+     * @return string
+     */
+    protected function renderExceptionContent(Throwable $e)
+    {
+        try {
+            return wp_app_config('app.debug') && wp_app()->has(ExceptionRenderer::class)
+                        ? $this->renderExceptionWithCustomRenderer($e)
+                        : $this->renderExceptionWithSymfony($e, wp_app_config('app.debug'));
+        } catch (Throwable $e) {
+            return $this->renderExceptionWithSymfony($e, wp_app_config('app.debug'));
+        }
+    }
 
 	/**
 	 * @inheritedDoc

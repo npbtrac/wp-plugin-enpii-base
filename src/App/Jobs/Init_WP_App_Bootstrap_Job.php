@@ -16,21 +16,21 @@ class Init_WP_App_Bootstrap_Job extends Base_Job
      */
     public function handle(): void
     {
-        $wp_app = wp_app();
+		$wp_app = wp_app();
 		$wp_app['env'] = wp_app_config( 'app.env' );
 
 		$wp_app->singleton(
-			\Enpii_Base\Deps\Illuminate\Contracts\Http\Kernel::class,
+			\Illuminate\Contracts\Http\Kernel::class,
 			\Enpii_Base\App\Http\Kernel::class
 		);
 
 		$wp_app->singleton(
-			\Enpii_Base\Deps\Illuminate\Contracts\Console\Kernel::class,
+			\Illuminate\Contracts\Console\Kernel::class,
 			\Enpii_Base\App\Console\Kernel::class
 		);
 
 		$wp_app->singleton(
-			\Enpii_Base\Deps\Illuminate\Contracts\Debug\ExceptionHandler::class,
+			\Illuminate\Contracts\Debug\ExceptionHandler::class,
 			\Enpii_Base\App\Exceptions\Handler::class
 		);
     }

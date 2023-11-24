@@ -1,8 +1,8 @@
 <?php
 
-use Enpii_Base\Deps\Illuminate\Database\Migrations\Migration;
-use Enpii_Base\Deps\Illuminate\Database\Schema\Blueprint;
-use Enpii_Base\Deps\Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateActivityLogsTable extends Migration
 {

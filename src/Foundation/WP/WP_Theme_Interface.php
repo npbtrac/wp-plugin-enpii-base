@@ -13,7 +13,7 @@ interface WP_Theme_Interface {
 	/**
 	 * Create a new service provider instance.
 	 *
-	 * @param  \Enpii_Base\Deps\Illuminate\Contracts\Foundation\Application  $app
+	 * @param  \Illuminate\Contracts\Foundation\Application  $app
 	 * @return void
 	 */
 	public function __construct( $app);

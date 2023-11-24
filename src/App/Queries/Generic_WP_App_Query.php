@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Queries;
 
-use Enpii_Base\Deps\Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\Foundation\Application;
 use Enpii_Base\Foundation\Shared\Interfaces\Query_Interface;
 use Enpii_Base\Foundation\Shared\Traits\Accessor_Set_Get_Has_Trait;
 use Enpii_Base\Foundation\Shared\Traits\Config_Trait;

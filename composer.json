@@ -2,28 +2,21 @@
   "name": "enpii/enpii-base",
   "type": "wordpress-muplugin",
   "require": {
-    "php": "^7.2.5|~8.0.0|~8.1.0",
+    "php": "^8.1.0",
     "mcaskill/composer-exclude-files": "^3.0.0",
-    "symfony/translation-contracts": "~2.5.2",
-    "symfony/translation": "~5.4.14",
-    "symfony/string": "~5.4.15",
-    "symfony/event-dispatcher-contracts": "~2.5.2",
-    "symfony/event-dispatcher": "~5.4.9",
-    "symfony/deprecation-contracts": "~2.5.2",
-    "symfony/css-selector": "~5.4.11"
+    "symfony/var-dumper": "^6.0.0",
+    "laravel/framework": "^10.0.0"
   },
   "require-dev": {
     "10up/wp_mock": "dev-trunk",
     "automattic/vipwpcs": "^2.3",
-    "codeception/codeception": "^4.2",
-    "codeception/module-asserts": "2.0.1",
-    "codeception/module-phpbrowser": "^1.0.0",
-    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
+    "codeception/codeception": "^5.0.0",
+    "codeception/module-asserts": "^3.0.0",
+    "codeception/module-phpbrowser": "^3.0.0",
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
+    "phpcompatibility/php-compatibility": "^9.3.5",
     "johnpbloch/wordpress-core": "^6.0",
-    "phpcompatibility/php-compatibility": "*",
-    "psr/log": "~1.1.4",
-    "ramsey/uuid": "~4.2.3",
-    "wpackagist-plugin/woocommerce": "^6.0",
+    "wpackagist-plugin/woocommerce": "^8.0",
     "wpackagist-theme/storefront": "^4.0",
     "wpackagist-theme/twentytwentythree": "^1.0.0"
   },
@@ -44,7 +37,7 @@
       "./src/Foundation/Support/helpers-wp-app.php",
       "./src/Foundation/Support/helpers-wp-app-overrides.php",
       "./src/Foundation/Support/helpers.php",
-      "./src-deps/Illuminate/Support/helpers.php"
+      "./src/Foundation/helpers.php"
     ],
     "psr-4": {
       "Enpii_Base\\Deps\\": "src-deps",
@@ -53,7 +46,6 @@
   },
   "autoload-dev": {
     "files": [
-      "./src-deps/Symfony/Component/VarDumper/Resources/functions/dump.php"
     ],
     "psr-4": {
       "Enpii_Base\\Tests\\": "tests",
@@ -72,8 +64,7 @@
   },
   "extra": {
     "exclude-from-files": [
-      "laravel/framework/src/Illuminate/Foundation/helpers.php",
-      "laravel/framework/src/Illuminate/Support/helpers.php"
+      "laravel/framework/src/Illuminate/Foundation/helpers.php"
     ],
     "installer-paths": {
       "dev-docker/wordpress/wp-content/themes/{$name}/": [
@@ -89,7 +80,6 @@
       "classmap_directory": "/classes/deps/",
       "classmap_prefix": "Enpii_Base_",
       "packages": [
-        "laravel/framework"
       ],
       "excluded_packages": [],
       "override_autoload": [],

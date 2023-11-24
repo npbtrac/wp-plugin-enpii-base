@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Enpii_Base\App\Providers;
 
 use Enpii_Base\App\Http\Controllers\Index_Controller;
-use Enpii_Base\Deps\Illuminate\Foundation\Support\Providers\RouteServiceProvider;
-use Enpii_Base\Deps\Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class Route_Service_Provider extends RouteServiceProvider {
 

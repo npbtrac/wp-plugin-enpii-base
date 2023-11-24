@@ -3,15 +3,15 @@
 namespace Enpii_Base\App\Http\Middleware;
 
 use Closure;
-use Enpii_Base\Deps\Illuminate\Contracts\Container\BindingResolutionException;
-use Enpii_Base\Deps\Illuminate\Http\Request;
-use Enpii_Base\Deps\Symfony\Component\HttpFoundation\Response;
+use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class WP_User_Session_Validation
 {
     /**
 	  * Perform if there's a logged in user in the current session
-	  * @param Enpii_Base\Deps\Illuminate\Http\Request $request
+	  * @param Illuminate\Http\Request $request
 	  * @param Closure $next
 	  * @return Enpii_Base\DepsSymfony\Component\HttpFoundation\Response
 	  * @throws BindingResolutionException

@@ -2,10 +2,10 @@
 
 namespace {{ namespace }};
 
-use Enpii_Base\Deps\Illuminate\Bus\Queueable;
-use Enpii_Base\Deps\Illuminate\Contracts\Queue\ShouldQueue;
-use Enpii_Base\Deps\Illuminate\Queue\InteractsWithQueue;
-use Enpii_Base\Deps\Illuminate\Queue\SerializesModels;
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Queue\SerializesModels;
 use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
 use Enpii_Base\Foundation\Jobs\Base_Job;
 

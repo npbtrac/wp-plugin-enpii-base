@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Providers;
 
-use Enpii_Base\Deps\Illuminate\Log\LogServiceProvider;
+use Illuminate\Log\LogServiceProvider;
 
 class Log_Service_Provider extends LogServiceProvider {
 	public function register() {

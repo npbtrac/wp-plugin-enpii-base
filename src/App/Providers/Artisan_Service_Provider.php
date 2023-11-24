@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Enpii_Base\App\Providers;
 
 use Enpii_Base\App\Console\Commands\Job_Make_Command;
-use Enpii_Base\Deps\Illuminate\Foundation\Providers\ArtisanServiceProvider;
+use Illuminate\Foundation\Providers\ArtisanServiceProvider;
 
 class Artisan_Service_Provider extends ArtisanServiceProvider {
 	/**

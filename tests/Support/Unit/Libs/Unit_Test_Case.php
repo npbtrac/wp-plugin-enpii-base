@@ -2,7 +2,7 @@
 
 namespace Enpii_Base\Tests\Support\Unit\Libs;
 
-use Enpii_Base\Deps\Illuminate\Foundation\Application;
+use Illuminate\Foundation\Application;
 use Enpii_Base\App\WP\WP_Application;
 
 class Unit_Test_Case extends \Codeception\Test\Unit {

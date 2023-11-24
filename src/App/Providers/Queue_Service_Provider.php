@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Providers;
 
-use Enpii_Base\Deps\Illuminate\Queue\QueueServiceProvider;
+use Illuminate\Queue\QueueServiceProvider;
 
 class Queue_Service_Provider extends QueueServiceProvider {
 	public function register() {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Http;
 
-use Enpii_Base\Deps\Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel {
 
@@ -24,10 +24,10 @@ class Kernel extends HttpKernel {
      * @var array
      */
     protected $bootstrappers = [
-        \Enpii_Base\Deps\Illuminate\Foundation\Bootstrap\HandleExceptions::class,
-        \Enpii_Base\Deps\Illuminate\Foundation\Bootstrap\RegisterFacades::class,
-        \Enpii_Base\Deps\Illuminate\Foundation\Bootstrap\RegisterProviders::class,
-        \Enpii_Base\Deps\Illuminate\Foundation\Bootstrap\BootProviders::class,
+        \Illuminate\Foundation\Bootstrap\HandleExceptions::class,
+        \Illuminate\Foundation\Bootstrap\RegisterFacades::class,
+        \Illuminate\Foundation\Bootstrap\RegisterProviders::class,
+        \Illuminate\Foundation\Bootstrap\BootProviders::class,
     ];
 
 	/**

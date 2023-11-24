@@ -5,7 +5,7 @@ namespace Enpii_Base\App\Jobs;
 use Enpii_Base\App\Http\Controllers\Admin\Index_Controller as Admin_Index_Controller;
 use Enpii_Base\App\Http\Controllers\Api\Index_Controller as Api_Index_Controller;
 use Enpii_Base\App\Http\Controllers\Index_Controller;
-use Enpii_Base\Deps\Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Route;
 use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
 use Enpii_Base\Foundation\Jobs\Base_Job;
 

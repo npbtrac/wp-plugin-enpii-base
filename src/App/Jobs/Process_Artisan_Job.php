@@ -18,7 +18,7 @@ class Process_Artisan_Job extends Base_Job
     {
         /** @var \Enpii_Base\App\Console\Kernel $kernel */
 		$kernel = wp_app()->make(
-			\Enpii_Base\Deps\Illuminate\Contracts\Console\Kernel::class
+			\Illuminate\Contracts\Console\Kernel::class
 		);
 
 		// We need to remove 2 first items to match the artisan arguments
@@ -26,11 +26,11 @@ class Process_Artisan_Job extends Base_Job
 		array_shift($args);
 		array_shift($args);
 
-		$input = new \Enpii_Base\Deps\Symfony\Component\Console\Input\ArgvInput( $args );
+		$input = new \Symfony\Component\Console\Input\ArgvInput( $args );
 
 		$status = $kernel->handle(
 		 	$input,
-			new \Enpii_Base\Deps\Symfony\Component\Console\Output\ConsoleOutput
+			new \Symfony\Component\Console\Output\ConsoleOutput
 		);
 
 		exit($status);
