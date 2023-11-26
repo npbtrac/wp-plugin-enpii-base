@@ -12,18 +12,20 @@ use Symfony\Component\VarDumper\VarDumper;
  */
 if ( ! function_exists( 'devd' ) ) {
 	function devd( ...$vars ) {
-		$dev_trace = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 7);
+		$dev_trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 7);
 
 		// We want to put the file name and the 7 steps trace to know where
 		//	where the dump is produced
-		return dump(['=== start of dump ===', $dev_trace[0]['file']. ':' .$dev_trace[0]['line'], $dev_trace], $vars, '=== end of dump ===');
+		dump(['=== start of dump ===', $dev_trace[0]['file']. ':' .$dev_trace[0]['line'], $dev_trace]);
+		return dump(...$vars);
 	}
 }
 
 if ( ! function_exists( 'devdd' ) ) {
 	function devdd( ...$vars ): void {
-		$dev_trace = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 7);
-		dd(['=== start of dump ===', $dev_trace[0]['file']. ':' .$dev_trace[0]['line'], $dev_trace], $vars, '=== end of dump ===');
+		$dev_trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 7);
+		dump(['=== start of dump ===', $dev_trace[0]['file']. ':' .$dev_trace[0]['line'], $dev_trace]);
+		dd(...$vars);
 	}
 }
 
@@ -44,7 +46,7 @@ if ( ! function_exists( 'dev_error_log' ) ) {
 		foreach ( $vars as $index => $var ) {
 			$log_message .= "Var no $index: ". VarDumper::dump($var);
 		}
-		$log_message .= "======= Dev logging ends here\n\n\n\n";
+		$log_message .= "\n======= Dev logging ends here\n\n\n\n";
 		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
 		error_log($log_message);
 	}
@@ -70,7 +72,7 @@ if ( ! function_exists( 'dev_logger' ) ) {
 			$log_message .= "Var no $index: ". VarDumper::dump($var);
 
 		}
-		$log_message .= "======= Dev logging ends here\n\n\n\n";
+		$log_message .= "\n======= Dev logging ends here\n\n\n\n";
 
 		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
 		$logger->debug($log_message);

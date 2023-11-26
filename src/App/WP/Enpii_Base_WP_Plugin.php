@@ -4,15 +4,13 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\WP;
 
-use Enpii_Base\App\Commands\Register_Base_WP_Api_Routes_Job_Command;
-use Enpii_Base\App\Commands\Register_Base_WP_App_Routes_Job_Command;
-use Enpii_Base\App\Commands\Register_Main_Service_Providers_Job_Command;
 use Enpii_Base\App\Jobs\Init_WP_App_Bootstrap_Job;
 use Enpii_Base\App\Jobs\Process_WP_Api_Request_Job;
 use Enpii_Base\App\Jobs\Process_WP_App_Request_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_Api_Routes_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_App_Routes_Job;
 use Enpii_Base\App\Jobs\Register_Main_Service_Providers_Job;
+use Enpii_Base\App\Jobs\Register_Telescope_Job;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\Response;
 use Enpii_Base\Foundation\WP\WP_Plugin;
@@ -45,10 +43,10 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	}
 
 	public function manipulate_hooks(): void {
-		// WP CLI
+		/** WP CLI */
 		add_action( 'cli_init', [ $this, 'register_wp_cli_commands' ] );
 
-		// WP App hooks
+		/** WP App hooks */
 
 		// We want to initialize wp_app bootstrap after plugins loaded
 		add_action( 'enpii_base_wp_app_bootstrap', [ $this, 'bootstrap_wp_app' ], 5 );
@@ -59,7 +57,9 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( 'enpii_base_wp_app_register_routes', [ $this, 'register_base_wp_app_routes' ] );
 		add_action( 'enpii_base_wp_api_register_routes', [ $this, 'register_base_wp_api_routes' ] );
 
-		// Other hooks
+		add_filter( 'enpii_base_wp_app_main_service_providers' , [ $this, 'register_telescope' ] );
+
+		/** Other hooks */
 		if ($this->is_blade_for_template_available()) {
 			add_filter( 'template_include', [ $this, 'use_blade_to_compile_template' ], 99999);
 		}
@@ -77,20 +77,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 * @throws InvalidArgumentException
 	 */
 	public function register_main_service_providers(): void {
-		$providers = [
-			\Enpii_Base\App\Providers\View_Service_Provider::class,
-			\Enpii_Base\App\Providers\Route_Service_Provider::class,
-			\Enpii_Base\App\Providers\Filesystem_Service_Provider::class,
-			\Enpii_Base\App\Providers\Cache_Service_Provider::class,
-			\Enpii_Base\App\Providers\Artisan_Service_Provider::class,
-			\Enpii_Base\App\Providers\Queue_Service_Provider::class,
-			\Enpii_Base\App\Providers\Database_Service_Provider::class,
-			\Enpii_Base\App\Providers\Composer_Service_Provider::class,
-			\Enpii_Base\App\Providers\Migration_Service_Provider::class,
-		];
-		Register_Main_Service_Providers_Job::dispatchSync([
-			'providers' => $providers,
-		]);
+		Register_Main_Service_Providers_Job::dispatchSync();
 	}
 
 	public function register_base_wp_app_routes(): void {
@@ -227,8 +214,8 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
         }
 	}
 
-	public function get_views_path() {
-		return $this->get_base_path() . DIR_SEP . 'resources' . DIR_SEP . 'views';
+	public function register_telescope($providers) {
+		return Register_Telescope_Job::dispatchSync($providers);
 	}
 
 	/**
