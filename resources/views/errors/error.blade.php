@@ -17,7 +17,7 @@
 	$error_message = !empty($errors[$http_code]) ? $errors[$http_code] : __('Error');
 @endphp
 
-@extends('errors/layout-minimal-error')
+@extends('enpii-base::errors/layout-minimal-error')
 
 @section('title', sprintf(__('WP App Error %s'), $http_code))
 @section('code', $http_code)

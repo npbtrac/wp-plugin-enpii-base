@@ -4,10 +4,6 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\WP;
 
-use Enpii_Base\App\Providers\Bus_Service_Provider;
-use Enpii_Base\App\Providers\Events_Service_Provider;
-use Enpii_Base\App\Providers\Log_Service_Provider;
-use Enpii_Base\App\Providers\Routing_Service_Provider;
 use Illuminate\Config\Repository;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Mix;
@@ -183,6 +179,7 @@ class WP_Application extends Application {
 	public function is_wp_app_mode(): bool {
 		$wp_app_prefix = $this->wp_app_slug;
 		$uri = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( $_SERVER['REQUEST_URI'] ) : '/';
+
 		return ( strpos( $uri, '/' . $wp_app_prefix . '/' ) === 0 || $uri === '/' . $wp_app_prefix );
 	}
 
@@ -194,6 +191,7 @@ class WP_Application extends Application {
 	public function is_wp_api_mode(): bool {
 		$wp_site_prefix = $this->wp_api_slug;
 		$uri = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( $_SERVER['REQUEST_URI'] ) : '/';
+
 		return ( strpos( $uri, '/' . $wp_site_prefix . '/' ) === 0 || $uri === '/' . $wp_site_prefix );
 	}
 
@@ -205,6 +203,7 @@ class WP_Application extends Application {
 	public function is_wp_site_mode(): bool {
 		$wp_site_prefix = 'site';
 		$uri = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( $_SERVER['REQUEST_URI'] ) : '/';
+
 		return ( strpos( $uri, '/' . $wp_site_prefix . '/' ) === 0 || $uri === '/' . $wp_site_prefix );
 	}
 
@@ -293,9 +292,18 @@ class WP_Application extends Application {
      * @return void
      */
     protected function registerBaseServiceProviders() {
-        $this->register(new Events_Service_Provider($this));
-        $this->register(new Log_Service_Provider($this));
-        $this->register(new Routing_Service_Provider($this));
-        $this->register(new Bus_Service_Provider($this));
+		// We allow to change the Base Service Providers via WordPress filter
+		$providers = apply_filters(
+			'enpii_base_wp_app_main_service_providers',
+			[
+				\Enpii_Base\App\Providers\Events_Service_Provider::class,
+				\Enpii_Base\App\Providers\Log_Service_Provider::class,
+				\Enpii_Base\App\Providers\Routing_Service_Provider::class,
+				\Enpii_Base\App\Providers\Bus_Service_Provider::class,
+			]
+		);
+		foreach ($providers as $provider_classname) {
+			$this->register( $provider_classname );
+		}
     }
 }

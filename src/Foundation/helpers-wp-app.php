@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Date;
 use Illuminate\Support\HtmlString;
 use Symfony\Component\HttpFoundation\Response;
 use Enpii_Base\App\WP\WP_Application;
+use Illuminate\Foundation\Application;
 use Illuminate\Routing\Router;
 
 /**

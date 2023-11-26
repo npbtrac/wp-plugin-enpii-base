@@ -7,6 +7,7 @@ namespace Enpii_Base\Foundation\WP;
 use Illuminate\Support\ServiceProvider;
 use Enpii_Base\Foundation\Shared\Traits\Accessor_Set_Get_Has_Trait;
 use Enpii_Base\Foundation\Shared\Traits\Config_Trait;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use InvalidArgumentException;
 
 /**
@@ -25,6 +26,17 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 	protected $plugin_slug;
 	protected $base_path;
 	protected $base_url;
+
+	/**
+	 * Get the wp_app instance of the plugin
+	 *
+	 * @return static
+	 * @throws BindingResolutionException
+	 */
+	public static function wp_app_instance(): self {
+		// We return the wp_app instance of the successor's class
+		return wp_app(static::class);
+	}
 
 	/**
 	 * We want to bind the the base params using an array
@@ -55,7 +67,7 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 	}
 
 	public function get_views_path() {
-		$this->get_base_path() . DIR_SEP . 'resources' . DIR_SEP . 'views';
+		return $this->get_base_path() . DIR_SEP . 'resources' . DIR_SEP . 'views';
 	}
 
 	public function view($view) {

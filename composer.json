@@ -3,9 +3,10 @@
   "type": "wordpress-muplugin",
   "require": {
     "php": "^8.1.0",
+    "laravel/framework": "^10.0.0",
+    "laravel/telescope": "^4.17",
     "mcaskill/composer-exclude-files": "^3.0.0",
-    "symfony/var-dumper": "^6.0.0",
-    "laravel/framework": "^10.0.0"
+    "symfony/var-dumper": "^6.0.0"
   },
   "require-dev": {
     "10up/wp_mock": "dev-trunk",
@@ -34,10 +35,10 @@
   ],
   "autoload": {
     "files": [
-      "./src/Foundation/Support/helpers-wp-app.php",
-      "./src/Foundation/Support/helpers-wp-app-overrides.php",
       "./src/Foundation/Support/helpers.php",
-      "./src/Foundation/helpers.php"
+      "./src/Foundation/Support/helpers-utils.php",
+      "./src/Foundation/helpers-wp-app.php",
+      "./src/Foundation/helpers-overrides.php"
     ],
     "psr-4": {
       "Enpii_Base\\Deps\\": "src-deps",

@@ -53,7 +53,7 @@ return [
 
 	'url' => defined( 'WP_HOME' ) ? WP_HOME : home_url(),
 
-	'asset_url' => '/assets/wp-app',
+	'asset_url' => env('ASSET_URL', '/wp-content/uploads/wp-app/public'),
 
 	/**
 	|--------------------------------------------------------------------------

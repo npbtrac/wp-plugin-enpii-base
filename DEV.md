@@ -7,3 +7,18 @@ COMPOSER=composer-php80down.json composer install --no-dev --ignore-platform-req
 ```
 composer update --ignore-platform-reqs
 ```
+
+### For telescope
+- Publish telescope assets
+```
+wp enpii-base artisan vendor:publish --tag=telescope-assets
+```
+For php 7.4 (wp74 should be the wp-cli running with php 7.4)
+```
+wp74 enpii-base artisan telescope:publish --force
+wp74 enpii-base artisan --force vendor:publish --tag=telescope-assets # alternative way
+```
+- Publish telescope migrations
+```
+wp enpii-base artisan vendor:publish --tag=telescope-migrations
+```

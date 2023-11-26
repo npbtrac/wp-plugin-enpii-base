@@ -6,16 +6,19 @@
     "php": "^7.2.5|~8.0.0",
     "mcaskill/composer-exclude-files": "^3.0.0",
     "psr/log": "~1.1.4",
-    "symfony/var-dumper": "~5.4.29",
-    "laravel/framework": "~7.30.6"
+    "laravel/framework": "~7.30.6",
+    "laravel/telescope": "^3.5.1",
+    "ramsey/uuid": "^3.0.0",
+    "symfony/var-dumper": "~5.4.29"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
   "autoload": {
     "files": [
-      "./src/Foundation/Support/helpers-wp-app.php",
-      "./src/Foundation/Support/helpers-wp-app-overrides.php",
-      "./src/Foundation/Support/helpers.php"
+      "./src/Foundation/Support/helpers.php",
+      "./src/Foundation/Support/helpers-utils.php",
+      "./src/Foundation/helpers-wp-app.php",
+      "./src/Foundation/helpers-overrides.php"
     ],
     "psr-4": {
       "Enpii_Base\\": "src"

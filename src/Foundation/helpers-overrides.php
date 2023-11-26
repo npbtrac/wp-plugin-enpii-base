@@ -1,28 +1,7 @@
 <?php
 /**
- * This is the overriding helpers to \Illuminate\Foundation\helpers.php
+ | This is the overriding helpers to \Illuminate\Foundation\helpers.php
  */
-use Illuminate\Container\Container;
-use Illuminate\Contracts\Auth\Access\Gate;
-use Illuminate\Contracts\Auth\Factory as AuthFactory;
-use Illuminate\Contracts\Broadcasting\Factory as BroadcastFactory;
-use Illuminate\Contracts\Bus\Dispatcher;
-use Illuminate\Contracts\Cookie\Factory as CookieFactory;
-use Illuminate\Contracts\Debug\ExceptionHandler;
-use Illuminate\Contracts\Routing\ResponseFactory;
-use Illuminate\Contracts\Routing\UrlGenerator;
-use Illuminate\Contracts\Support\Responsable;
-use Illuminate\Contracts\Validation\Factory as ValidationFactory;
-use Illuminate\Contracts\View\Factory as ViewFactory;
-use Illuminate\Foundation\Bus\PendingClosureDispatch;
-use Illuminate\Foundation\Bus\PendingDispatch;
-use Illuminate\Foundation\Mix;
-use Illuminate\Http\Exceptions\HttpResponseException;
-use Illuminate\Queue\CallQueuedClosure;
-use Illuminate\Routing\Router;
-use Illuminate\Support\Facades\Date;
-use Illuminate\Support\HtmlString;
-use Symfony\Component\HttpFoundation\Response;
 
 if (! function_exists('abort')) {
     /**
@@ -673,6 +652,10 @@ if (! function_exists('response')) {
      */
     function response($content = '', $status = 200, array $headers = [])
     {
+		if ( func_num_args() === 0 ) {
+			return wp_app_response();
+		}
+
         return wp_app_response($content, $status, $headers);
     }
 }
@@ -835,6 +818,10 @@ if (! function_exists('validator')) {
      */
     function validator(array $data = [], array $rules = [], array $messages = [], array $attributes = [])
     {
+		if ( func_num_args() === 0 ) {
+			return wp_app_validator();
+		}
+
         return wp_app_validator($data, $rules, $messages, $attributes);
     }
 }
@@ -850,6 +837,10 @@ if (! function_exists('view')) {
      */
     function view($view = null, $data = [], $mergeData = [])
     {
+		if ( func_num_args() === 0 ) {
+			return wp_app_view();
+		}
+
         return wp_app_view($view, $data, $mergeData);
     }
 }
