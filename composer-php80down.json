@@ -8,6 +8,7 @@
     "psr/log": "~1.1.4",
     "laravel/framework": "~7.30.6",
     "laravel/telescope": "^3.5.1",
+    "laravel/tinker": "^2.8",
     "ramsey/uuid": "^3.0.0",
     "symfony/var-dumper": "~5.4.29"
   },

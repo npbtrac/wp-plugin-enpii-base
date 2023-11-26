@@ -205,7 +205,7 @@ class Telescope_Service_Provider extends TelescopeServiceProvider {
 		}
 
 		// We only want to have these Watches on Laravel 8+
-		if (version_compare('8.0.0', Application::VERSION, '<=')) {
+		if (version_compare('8.0.0', Application::VERSION, '<')) {
 			if (class_exists(\Laravel\Telescope\Watchers\BatchWatcher::class)) {
 				$config['watchers'][\Laravel\Telescope\Watchers\BatchWatcher::class] = env('TELESCOPE_BATCH_WATCHER', true);
 			}
@@ -214,8 +214,6 @@ class Telescope_Service_Provider extends TelescopeServiceProvider {
 				$config['watchers'][\Laravel\Telescope\Watchers\ClientRequestWatcher::class] = env('TELESCOPE_CLIENT_REQUEST_WATCHER', true);
 			}
 		}
-
-		$config['enabled'] = apply_filters('enpii_base_wp_app_telescope_enabled', $config['enabled']);
 
 		return $config;
 	}

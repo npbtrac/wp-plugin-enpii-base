@@ -245,6 +245,21 @@ class WP_Application extends Application {
 		return $this->namespace = 'Enpii_Base\\';
     }
 
+	public function get_composer_folder_name(): string
+	{
+		// We only want to have these Watches on Laravel 8+
+		if (version_compare('8.0.0', Application::VERSION, '>=')) {
+			return 'vendor-php80down';
+		}
+
+		return 'vendor';
+	}
+
+	public function get_composer_path(): string
+	{
+		return dirname($this->resourcePath()). DIR_SEP . $this->get_composer_folder_name();
+	}
+
 	/**
      * @inheritedDoc
      *
