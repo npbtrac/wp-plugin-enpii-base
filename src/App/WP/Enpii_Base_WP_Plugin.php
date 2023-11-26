@@ -10,7 +10,7 @@ use Enpii_Base\App\Jobs\Process_WP_App_Request_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_Api_Routes_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_App_Routes_Job;
 use Enpii_Base\App\Jobs\Register_Main_Service_Providers_Job;
-use Enpii_Base\App\Jobs\Register_Telescope_Job;
+use Enpii_Base\App\Jobs\Register_Telescope_Tinker_Job;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\Response;
 use Enpii_Base\Foundation\WP\WP_Plugin;
@@ -215,7 +215,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	}
 
 	public function register_telescope($providers) {
-		return Register_Telescope_Job::dispatchSync($providers);
+		return Register_Telescope_Tinker_Job::dispatchSync($providers);
 	}
 
 	/**
