@@ -4,13 +4,31 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Providers;
 
+use Enpii_Base\Foundation\Database\Connectors\Connection_Factory;
+use Illuminate\Database\DatabaseManager;
 use Illuminate\Database\DatabaseServiceProvider;
+use Illuminate\Database\DatabaseTransactionsManager;
 
 class Database_Service_Provider extends DatabaseServiceProvider {
 	public function register() {
 		$this->before_register();
 
 		parent::register();
+
+		$this->app->extend('db.factory', function ($instance, $app) {
+            return new Connection_Factory($app);
+        });
+
+		// Add database driver.
+        $this->app->resolving('db', function ($db) {
+            $db->extend('wpdb', function ($config, $name) {
+				$config['name'] = $name;
+
+				/** @var Connection_Factory  */
+				$db_factory = wp_app('db.factory');
+				return $db_factory->make($config, $name);
+            });
+        });
 	}
 
 	protected function before_register(): void {
@@ -25,38 +43,26 @@ class Database_Service_Provider extends DatabaseServiceProvider {
 	}
 
 	protected function get_default_config(): array {
+		/** @var \wpdb $wpdb */
+		$wpdb = $GLOBALS['wpdb'];
 		$default_mysql_config = [
 			'driver' => 'mysql',
-			'host' => DB_HOST,
-			'port' => DB_PORT,
-			'database' => DB_NAME,
-			'username' => DB_USER,
-			'password' => DB_PASSWORD,
+			'host' => $wpdb->dbhost,
+			'database' => $wpdb->dbname,
+			'username' => $wpdb->dbuser,
+			'password' => $wpdb->dbpassword,
 		];
 
-		if (defined('DB_SOCKET') && !empty(DB_SOCKET) && empty($default_mysql_config['host'])) {
-			$default_mysql_config['socker'] = DB_SOCKET;
-			unset($default_mysql_config['host'], $default_mysql_config['port']);
+		if (!empty($wpdb->base_prefix)) {
+			$default_mysql_config['prefix'] = $wpdb->base_prefix;
 		}
 
-		if (defined('DB_CHARSET') && !empty(DB_CHARSET)) {
-			$default_mysql_config['charset'] = DB_CHARSET;
+		if (!empty($wpdb->charset)) {
+			$default_mysql_config['charset'] = $wpdb->charset;
 		}
 
-		if (defined('DB_TABLE_PREFIX') && !empty(DB_TABLE_PREFIX)) {
-			$default_mysql_config['prefix'] = DB_TABLE_PREFIX;
-		}
-
-		if (defined('DB_COLLATE') && !empty(DB_COLLATE)) {
-			$default_mysql_config['collate'] = DB_COLLATE;
-		}
-
-		if (defined('DB_STRICT_MODE') && !empty(DB_STRICT_MODE)) {
-			$default_mysql_config['strict'] = DB_STRICT_MODE;
-		}
-
-		if (defined('DB_ENGINE') && !empty(DB_ENGINE)) {
-			$default_mysql_config['engine'] = DB_ENGINE;
+		if (!empty($wpdb->collate)) {
+			$default_mysql_config['collate'] = $wpdb->collate;
 		}
 
 		$config = [
@@ -94,6 +100,10 @@ class Database_Service_Provider extends DatabaseServiceProvider {
 				'mysql' => $default_mysql_config,
 				'mysql_logs' => $default_mysql_config,
 				'mysql_queues' => $default_mysql_config,
+				'wpdb' => array_merge($default_mysql_config, [
+					'driver' => 'wpdb',
+					'wpdb' => $wpdb,
+				]),
 			],
 
 			/*
@@ -106,7 +116,7 @@ class Database_Service_Provider extends DatabaseServiceProvider {
 			| the migrations on disk haven't actually been run in the database.
 			|
 			*/
-			'migrations' => 'zzz_migrations',
+			'migrations' => 'migrations',
 		];
 
 		return $config;
