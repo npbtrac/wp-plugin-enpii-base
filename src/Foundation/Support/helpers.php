@@ -41,6 +41,12 @@ if ( ! function_exists( 'enpii_base_get_wp_app_prefix' ) ) {
 	}
 }
 
+if ( ! function_exists( 'enpii_base_get_wp_api_prefix' ) ) {
+	function enpii_base_get_wp_api_prefix(): string {
+		return ENPII_BASE_WP_API_PREFIX;
+	}
+}
+
 if ( ! function_exists( 'enpii_base_wp_cli_register_commands' ) ) {
 	function enpii_base_wp_cli_register_commands(): void {
 		\WP_CLI::add_command( 'enpii-base', Enpii_Base\App\WP_CLI\Enpii_Base_WP_CLI::class );
