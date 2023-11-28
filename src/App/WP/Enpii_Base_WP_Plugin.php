@@ -38,8 +38,8 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		// We want to handle the hooks first
 		$this->manipulate_hooks();
 
-		// We trigger the action when wp_app loaded
-		do_action( 'enpii_base_wp_app_loaded' );
+		// We trigger the action when wp_app is registered
+		do_action( 'enpii_base_wp_app_registered' );
 	}
 
 	public function manipulate_hooks(): void {

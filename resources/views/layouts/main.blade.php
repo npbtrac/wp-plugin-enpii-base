@@ -1,10 +1,15 @@
-<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!doctype html>
+<html <?php language_attributes(); ?>>
+<head>
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
-<h1>layout</h1>
-<main class="wp-block-group">
-	@yield('content')
-</main>
-<!-- /wp:group -->
+	<?php echo '<title>' . wp_get_document_title() . '</title>'; ?>
+</head>
 
-<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
+<body>
+	<main class="wp-block-group">
+		@yield('content')
+	</main>
+</body>
+</html>
