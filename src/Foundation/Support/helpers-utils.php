@@ -12,70 +12,74 @@ use Symfony\Component\VarDumper\VarDumper;
  */
 if ( ! function_exists( 'devd' ) ) {
 	function devd( ...$vars ) {
-		$dev_trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 7);
+		$dev_trace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS, 7 );
 
 		// We want to put the file name and the 7 steps trace to know where
-		//	where the dump is produced
-		dump(['=== start of dump ===', $dev_trace[0]['file']. ':' .$dev_trace[0]['line'], $dev_trace]);
-		return dump(...$vars);
+		//  where the dump is produced
+		dump( array( '=== start of dump ===', $dev_trace[0]['file'] . ':' . $dev_trace[0]['line'], $dev_trace ) );
+		return dump( ...$vars );
 	}
 }
 
 if ( ! function_exists( 'devdd' ) ) {
 	function devdd( ...$vars ): void {
-		$dev_trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 7);
-		dump(['=== start of dump ===', $dev_trace[0]['file']. ':' .$dev_trace[0]['line'], $dev_trace]);
-		dd(...$vars);
+		$dev_trace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS, 7 );
+		dump( array( '=== start of dump ===', $dev_trace[0]['file'] . ':' . $dev_trace[0]['line'], $dev_trace ) );
+		dd( ...$vars );
 	}
 }
 
 if ( ! function_exists( 'dev_error_log' ) ) {
 	function dev_error_log( ...$vars ): void {
 		$cloner = new VarCloner();
-		$cloner->addCasters(ReflectionCaster::UNSET_CLOSURE_FILE_INFO);
+		$cloner->addCasters( ReflectionCaster::UNSET_CLOSURE_FILE_INFO );
 
-		$dev_trace = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 7);
+		$dev_trace = debug_backtrace( DEBUG_BACKTRACE_PROVIDE_OBJECT, 7 );
 
-		VarDumper::setHandler(function ($var) use ($cloner) {
+		VarDumper::setHandler(
+			function ( $var ) use ( $cloner ) {
 			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
-			return print_r($var, true);
-		});
+				return print_r( $var, true );
+			}
+		);
 
 		$log_message = '';
-		$log_message .= "Debugging dev_error_log \n======= Dev logging start here \n".$dev_trace[0]['file']. ':' .$dev_trace[0]['line']." \n";
+		$log_message .= "Debugging dev_error_log \n======= Dev logging start here \n" . $dev_trace[0]['file'] . ':' . $dev_trace[0]['line'] . " \n";
 		foreach ( $vars as $index => $var ) {
-			$log_message .= "Var no $index: ". VarDumper::dump($var);
+			$log_message .= "Var no $index: " . VarDumper::dump( $var );
 		}
 		$log_message .= "\n======= Dev logging ends here\n\n\n\n";
 		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
-		error_log($log_message);
+		error_log( $log_message );
 	}
 }
 
 if ( ! function_exists( 'dev_logger' ) ) {
 	function dev_logger( ...$vars ): void {
 		$cloner = new VarCloner();
-		$cloner->addCasters(ReflectionCaster::UNSET_CLOSURE_FILE_INFO);
+		$cloner->addCasters( ReflectionCaster::UNSET_CLOSURE_FILE_INFO );
 		$dumper = new CliDumper();
 
-		$dev_trace = debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT, 7);
+		$dev_trace = debug_backtrace( DEBUG_BACKTRACE_PROVIDE_OBJECT, 7 );
 
-		VarDumper::setHandler(function ($var) use ($cloner, $dumper) {
-			return $dumper->dump($cloner->cloneVar($var), true);
-		});
+		VarDumper::setHandler(
+			function ( $var ) use ( $cloner, $dumper ) {
+				return $dumper->dump( $cloner->cloneVar( $var ), true );
+			}
+		);
 
-		$logger = wp_app_logger()->channel('single');
+		$logger = wp_app_logger()->channel( 'single' );
 
 		$log_message = '';
-		$log_message .= "Debugging dev_logger \n======= Dev logging start here \n".$dev_trace[0]['file']. ':' .$dev_trace[0]['line']." \n";
+		$log_message .= "Debugging dev_logger \n======= Dev logging start here \n" . $dev_trace[0]['file'] . ':' . $dev_trace[0]['line'] . " \n";
 		foreach ( $vars as $index => $var ) {
-			$log_message .= "Var no $index: ". VarDumper::dump($var);
+			$log_message .= "Var no $index: " . VarDumper::dump( $var );
 
 		}
 		$log_message .= "\n======= Dev logging ends here\n\n\n\n";
 
 		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
-		$logger->debug($log_message);
+		$logger->debug( $log_message );
 	}
 }
 

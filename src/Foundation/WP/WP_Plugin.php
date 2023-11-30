@@ -15,9 +15,9 @@ use InvalidArgumentException;
  * We consider each plugin a Laravel Service provider
  * @package \Enpii_Base\App\WP
  * @property \Enpii_Base\App\WP\WP_Application $app
- * @method get_plugin_slug() string	the slug name of the plugin (folder name)
- * @method get_base_path() string	the directory path of the plugin
- * @method get_base_url() string	the url to plugin directory
+ * @method get_plugin_slug() string the slug name of the plugin (folder name)
+ * @method get_base_path() string   the directory path of the plugin
+ * @method get_base_url() string    the url to plugin directory
  */
 abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface {
 	use Config_Trait;
@@ -35,7 +35,7 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 	 */
 	public static function wp_app_instance(): self {
 		// We return the wp_app instance of the successor's class
-		return wp_app(static::class);
+		return wp_app( static::class );
 	}
 
 	/**
@@ -70,18 +70,18 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 		return $this->get_base_path() . DIR_SEP . 'resources' . DIR_SEP . 'views';
 	}
 
-	public function view($view) {
+	public function view( $view ) {
 		return wp_app_view( $this->get_plugin_slug() . '::' . $view );
 	}
 
 	protected function validate_needed_properties(): void {
-		foreach (['plugin_slug', 'base_path', 'base_url'] as $property) {
-			if ( empty($this->$property) ) {
+		foreach ( array( 'plugin_slug', 'base_path', 'base_url' ) as $property ) {
+			if ( empty( $this->$property ) ) {
 				throw new InvalidArgumentException(
 					sprintf(
 						'Property %s must be set for %s',
 						$property,
-						get_class($this)
+						get_class( $this )
 					)
 				);
 			}

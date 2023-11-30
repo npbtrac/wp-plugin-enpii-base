@@ -5,10 +5,8 @@ declare(strict_types=1);
 namespace Enpii_Base\Foundation\WP;
 
 use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
-use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Traits\Accessor_Set_Get_Has_Trait;
-use Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces\Command_Interface;
-use Enpii\WP_Plugin\Enpii_Base\Libs\Interfaces\Handler_Inferface;
-use Enpii\WP_Plugin\Enpii_Base\Foundation\Shared\Traits\Config_Trait;
+use Enpii_Base\Foundation\Shared\Traits\Config_Trait;
+use Enpii_Base\Foundation\Shared\Traits\Accessor_Set_Get_Has_Trait;
 use InvalidArgumentException;
 
 /**
@@ -54,7 +52,7 @@ abstract class WP_Theme extends ServiceProvider implements WP_Theme_Interface {
 	 */
 	protected function prepare_views_paths( $namespace ): void {
 		$this->loadViewsFrom( realpath( $this->get_base_path() ), $namespace );
-		if (!empty($this->get_parent_base_path())) {
+		if ( ! empty( $this->get_parent_base_path() ) ) {
 			$this->loadViewsFrom( realpath( $this->get_parent_base_path() ), $namespace );
 		}
 	}
