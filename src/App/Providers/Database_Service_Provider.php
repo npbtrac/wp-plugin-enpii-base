@@ -15,20 +15,29 @@ class Database_Service_Provider extends DatabaseServiceProvider {
 
 		parent::register();
 
-		$this->app->extend('db.factory', function ($instance, $app) {
-            return new Connection_Factory($app);
-        });
+		$this->app->extend(
+			'db.factory',
+			function ( $instance, $app ) {
+				return new Connection_Factory( $app );
+			}
+		);
 
 		// Add database driver.
-        $this->app->resolving('db', function ($db) {
-            $db->extend('wpdb', function ($config, $name) {
-				$config['name'] = $name;
+		$this->app->resolving(
+			'db',
+			function ( $db ) {
+				$db->extend(
+					'wpdb',
+					function ( $config, $name ) {
+						$config['name'] = $name;
 
-				/** @var Connection_Factory  */
-				$db_factory = wp_app('db.factory');
-				return $db_factory->make($config, $name);
-            });
-        });
+						/** @var Connection_Factory  */
+						$db_factory = wp_app( 'db.factory' );
+						return $db_factory->make( $config, $name );
+					}
+				);
+			}
+		);
 	}
 
 	protected function before_register(): void {
@@ -46,26 +55,26 @@ class Database_Service_Provider extends DatabaseServiceProvider {
 		/** @var \wpdb $wpdb */
 		$wpdb = $GLOBALS['wpdb'];
 		$default_mysql_config = [
-			'driver' => 'mysql',
-			'host' => $wpdb->dbhost,
+			'driver'   => 'mysql',
+			'host'     => $wpdb->dbhost,
 			'database' => $wpdb->dbname,
 			'username' => $wpdb->dbuser,
 			'password' => $wpdb->dbpassword,
 		];
 
-		if (!empty($wpdb->base_prefix)) {
+		if ( ! empty( $wpdb->base_prefix ) ) {
 			$default_mysql_config['prefix'] = $wpdb->base_prefix;
 		}
 
-		if (!empty($wpdb->charset)) {
+		if ( ! empty( $wpdb->charset ) ) {
 			$default_mysql_config['charset'] = $wpdb->charset;
 		}
 
-		if (!empty($wpdb->collate)) {
+		if ( ! empty( $wpdb->collate ) ) {
 			$default_mysql_config['collate'] = $wpdb->collate;
 		}
 
-		$config = [
+		$config = array(
 
 			/*
 			|--------------------------------------------------------------------------
@@ -78,7 +87,7 @@ class Database_Service_Provider extends DatabaseServiceProvider {
 			|
 			*/
 
-			'default' => env('DB_CONNECTION', 'mysql'),
+			'default'     => env( 'DB_CONNECTION', 'mysql' ),
 
 			/*
 			|--------------------------------------------------------------------------
@@ -96,15 +105,18 @@ class Database_Service_Provider extends DatabaseServiceProvider {
 			|
 			*/
 
-			'connections' => [
-				'mysql' => $default_mysql_config,
-				'mysql_logs' => $default_mysql_config,
+			'connections' => array(
+				'mysql'        => $default_mysql_config,
+				'mysql_logs'   => $default_mysql_config,
 				'mysql_queues' => $default_mysql_config,
-				'wpdb' => array_merge($default_mysql_config, [
-					'driver' => 'wpdb',
-					'wpdb' => $wpdb,
-				]),
-			],
+				'wpdb'         => array_merge(
+					$default_mysql_config,
+					[
+						'driver' => 'wpdb',
+						'wpdb'   => $wpdb,
+					]
+				),
+			),
 
 			/*
 			|--------------------------------------------------------------------------
@@ -116,8 +128,8 @@ class Database_Service_Provider extends DatabaseServiceProvider {
 			| the migrations on disk haven't actually been run in the database.
 			|
 			*/
-			'migrations' => 'migrations',
-		];
+			'migrations'  => 'migrations',
+		);
 
 		return $config;
 	}

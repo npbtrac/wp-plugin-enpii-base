@@ -9,14 +9,16 @@ use Illuminate\Foundation\Providers\ArtisanServiceProvider;
 
 class Artisan_Service_Provider extends ArtisanServiceProvider {
 	/**
-     * Register the command.
-     *
-     * @return void
-     */
-    protected function registerJobMakeCommand()
-    {
-        $this->app->singleton('command.job.make', function ($app) {
-            return new Job_Make_Command($app['files']);
-        });
-    }
+	 * Register the command.
+	 *
+	 * @return void
+	 */
+	protected function registerJobMakeCommand() {
+		$this->app->singleton(
+			'command.job.make',
+			function ( $app ) {
+				return new Job_Make_Command( $app['files'] );
+			}
+		);
+	}
 }

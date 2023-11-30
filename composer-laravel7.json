@@ -29,7 +29,7 @@
     "allow-plugins": {
       "mcaskill/composer-exclude-files": true
     },
-    "vendor-dir": "./vendor-php80down",
+    "vendor-dir": "./vendor-laravel7",
     "sort-packages": true
   },
   "extra": {

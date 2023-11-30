@@ -1,11 +1,15 @@
 ### For pushing to WordPress.org repo
-- To get dependencies for PHP 8.0
+- To get dependencies for PHP 7.2.5 - 8.0
 ```
-COMPOSER=composer-php80down.json composer install --no-dev --ignore-platform-reqs
+COMPOSER=composer-laravel7.json composer install --no-dev --ignore-platform-reqs
 ```
 - Get all needed dependencies
 ```
 composer update --ignore-platform-reqs
+```
+- For standalone plugin development, we need to setup docker and pull WordPress installation
+```
+COMPOSER=composer-standalone.json composer install --no-dev --ignore-platform-reqs
 ```
 
 ### For telescope
@@ -21,4 +25,10 @@ wp74 enpii-base artisan --force vendor:publish --tag=telescope-assets # alternat
 - Publish telescope migrations
 ```
 wp enpii-base artisan vendor:publish --tag=telescope-migrations
+```
+
+### For phpcs
+- To suppress phpcs check for a single line, put this boefore that line and use the proper ruleset
+```
+// phpcs:ignore PHPCompatibility.Operators.NewOperators.t_coalesce_equalFound
 ```

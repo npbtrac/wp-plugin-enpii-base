@@ -32,14 +32,14 @@ class Route_Service_Provider extends RouteServiceProvider {
 	 * @return void
 	 */
 	public function map() {
-		Route::prefix( '/'. wp_app()->get_wp_app_slug() )
+		Route::prefix( '/' . wp_app()->get_wp_app_slug() )
 			->group(
 				function () {
 					do_action( 'enpii_base_wp_app_register_routes' );
 				}
 			);
 
-		Route::prefix( '/'. wp_app()->get_wp_api_slug() )
+		Route::prefix( '/' . wp_app()->get_wp_api_slug() )
 			->group(
 				function () {
 					do_action( 'enpii_base_wp_api_register_routes' );

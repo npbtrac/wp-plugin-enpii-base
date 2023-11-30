@@ -2,13 +2,12 @@
 
 namespace Enpii_Base\App\Jobs;
 
-use Enpii_Base\App\Http\Controllers\Admin\Index_Controller as Admin_Index_Controller;
-use Enpii_Base\App\Http\Controllers\Api\Index_Controller as Api_Index_Controller;
-use Enpii_Base\App\Http\Controllers\Index_Controller;
+use Enpii_Base\App\Http\Controllers\Admin\Main_Controller as Admin_Main_Controller;
+use Enpii_Base\App\Http\Controllers\Api\Main_Controller as Api_Main_Controller;
 use Enpii_Base\App\Http\Controllers\Main_Controller;
 use Illuminate\Support\Facades\Route;
 use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
-use Enpii_Base\Foundation\Jobs\Base_Job;
+use Enpii_Base\Foundation\Shared\Base_Job;
 
 class Register_Base_WP_App_Routes_Job extends Base_Job
 {
@@ -26,7 +25,6 @@ class Register_Base_WP_App_Routes_Job extends Base_Job
 			Route::get( '/', [ Main_Controller::class, 'index' ] );
 			Route::get( '/post', [ Main_Controller::class, 'post' ] );
 			Route::get( '/page', [ Main_Controller::class, 'page' ] );
-			Route::get( '/enpii-base', [ Index_Controller::class, 'enpii_base' ] );
 
 			// For Admin
 			Route::group(
@@ -37,7 +35,7 @@ class Register_Base_WP_App_Routes_Job extends Base_Job
 					],
 				],
 				function () {
-					Route::get( '/', [ Admin_Index_Controller::class, 'home' ] );
+					Route::get( '/', [ Admin_Main_Controller::class, 'home' ] );
 				}
 			);
 
@@ -46,8 +44,8 @@ class Register_Base_WP_App_Routes_Job extends Base_Job
 				[
 					'prefix' => '/api',
 				], function () {
-					Route::get( '/', [ Api_Index_Controller::class, 'home' ] );
-					Route::get( '/info', [ Api_Index_Controller::class, 'info' ] );
+					Route::get( '/', [ Api_Main_Controller::class, 'home' ] );
+					Route::get( '/info', [ Api_Main_Controller::class, 'info' ] );
 				}
 			);
 		}

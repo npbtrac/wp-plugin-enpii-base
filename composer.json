@@ -2,25 +2,21 @@
   "name": "enpii/enpii-base",
   "type": "wordpress-muplugin",
   "require": {
-    "php": "^8.1.0",
     "laravel/framework": "^10.0.0",
     "laravel/telescope": "^4.17",
     "laravel/tinker": "^2.8",
     "mcaskill/composer-exclude-files": "^3.0.0",
-    "symfony/var-dumper": "^6.0.0"
+    "symfony/var-dumper": "5.4.29 as 6.2.0",
+    "php": "^8.1.0"
   },
   "require-dev": {
-    "10up/wp_mock": "dev-trunk",
-    "automattic/vipwpcs": "^2.3",
+    "10up/wp_mock": "^1.0.0",
+    "automattic/vipwpcs": "^3.0.0",
     "codeception/codeception": "^5.0.0",
     "codeception/module-asserts": "^3.0.0",
     "codeception/module-phpbrowser": "^3.0.0",
     "dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
-    "phpcompatibility/php-compatibility": "^9.3.5",
-    "johnpbloch/wordpress-core": "^6.0",
-    "wpackagist-plugin/woocommerce": "^8.0",
-    "wpackagist-theme/storefront": "^4.0",
-    "wpackagist-theme/twentytwentythree": "^1.0.0"
+    "phpcompatibility/php-compatibility": "^9.3.5"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
@@ -57,7 +53,6 @@
   "config": {
     "allow-plugins": {
       "composer/installers": true,
-      "johnpbloch/wordpress-core-installer": true,
       "mcaskill/composer-exclude-files": true,
       "dealerdirect/phpcodesniffer-composer-installer": true
     },
@@ -67,38 +62,9 @@
   "extra": {
     "exclude-from-files": [
       "laravel/framework/src/Illuminate/Foundation/helpers.php"
-    ],
-    "installer-paths": {
-      "dev-docker/wordpress/wp-content/themes/{$name}/": [
-        "type:wordpress-theme"
-      ],
-      "dev-docker/wordpress/wp-content/plugins/{$name}/": [
-        "type:wordpress-plugin"
-      ]
-    },
-    "mozart": {
-      "dep_namespace": "Enpii_Base\\Deps\\",
-      "dep_directory": "/src-deps/",
-      "classmap_directory": "/classes/deps/",
-      "classmap_prefix": "Enpii_Base_",
-      "packages": [
-      ],
-      "excluded_packages": [],
-      "override_autoload": [],
-      "delete_vendor_directories": false
-    }
+    ]
   },
   "scripts": {
-    "post-install-cmd": [
-      "[ $COMPOSER_DEV_MODE -eq 0 ] || cp -r `find ./vendor/johnpbloch/wordpress-core -maxdepth 1 -mindepth 1 | cut -c3- | grep -v 'wp-content'` dev-docker/wordpress"
-    ],
-    "post-update-cmd": [
-      "[ $COMPOSER_DEV_MODE -eq 0 ] || cp -r `find ./vendor/johnpbloch/wordpress-core -maxdepth 1 -mindepth 1 | cut -c3- | grep -v 'wp-content'` dev-docker/wordpress"
-    ],
-    "dev-update": [
-      "@composer update --dev",
-      "cp -r `find ./vendor/johnpbloch/wordpress-core -maxdepth 1 -mindepth 1 | cut -c3- | grep -v 'wp-content'` dev-docker/wordpress"
-    ],
     "phpcs": [
       "./vendor/bin/phpcs"
     ],

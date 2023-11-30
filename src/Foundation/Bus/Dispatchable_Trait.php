@@ -4,88 +4,114 @@ declare(strict_types=1);
 
 namespace Enpii_Base\Foundation\Bus;
 
+use Closure;
 use Illuminate\Contracts\Bus\Dispatcher;
 use Illuminate\Foundation\Bus\PendingChain;
 use Illuminate\Foundation\Bus\PendingDispatch;
 use Illuminate\Support\Fluent;
 
-trait Dispatchable_Trait
-{
-    /**
-     * Dispatch the job with the given arguments.
-     *
-     * @return \Illuminate\Foundation\Bus\PendingDispatch
-     */
-    public static function dispatch()
-    {
-        return new PendingDispatch(new static(...func_get_args()));
-    }
-
-    /**
-     * Dispatch the job with the given arguments if the given truth test passes.
-     *
-     * @param  bool  $boolean
-     * @return \Illuminate\Foundation\Bus\PendingDispatch|\Illuminate\Support\Fluent
-     */
-    public static function dispatchIf($boolean, ...$arguments)
-    {
-        return $boolean
-            ? new PendingDispatch(new static(...$arguments))
-            : new Fluent;
-    }
-
-    /**
-     * Dispatch the job with the given arguments unless the given truth test passes.
-     *
-     * @param  bool  $boolean
-     * @return \Illuminate\Foundation\Bus\PendingDispatch|\Illuminate\Support\Fluent
-     */
-    public static function dispatchUnless($boolean, ...$arguments)
-    {
-        return ! $boolean
-            ? new PendingDispatch(new static(...$arguments))
-            : new Fluent;
-    }
-
-    /**
-     * Dispatch a command to its appropriate handler in the current process.
-     *
-     * @return mixed
-     */
-    public static function dispatchNow()
-    {
-        return wp_app(Dispatcher::class)->dispatchNow(new static(...func_get_args()));
-    }
-
-    /**
-     * Dispatch a command to its appropriate handler after the current process.
-     *
-     * @return mixed
-     */
-    public static function dispatchAfterResponse()
-    {
-        return wp_app(Dispatcher::class)->dispatchAfterResponse(new static(...func_get_args()));
-    }
-
-    /**
-     * Set the jobs that should run if this job is successful.
-     *
-     * @param  array  $chain
-     * @return \Illuminate\Foundation\Bus\PendingChain
-     */
-    public static function withChain($chain)
-    {
-        return new PendingChain(static::class, $chain);
-    }
+trait Dispatchable_Trait {
+	/**
+	 * Dispatch the job with the given arguments.
+	 *
+	 * @param  mixed  ...$arguments
+	 * @return \Illuminate\Foundation\Bus\PendingDispatch
+	 */
+	public static function dispatch( ...$arguments ) {
+		return new PendingDispatch( new static( ...$arguments ) );
+	}
 
 	/**
-     * Dispatch a command to its appropriate handler in the current process.
-	 * 	We use the name dispatchSync to match future updates of Laravel
-     *
-     * @return mixed
-     */
-    public static function dispatchSync()
-    {
-        return wp_app(Dispatcher::class)->dispatchNow(new static(...func_get_args()));
-    }
+	 * Dispatch the job with the given arguments if the given truth test passes.
+	 *
+	 * @param  bool|\Closure  $boolean
+	 * @param  mixed  ...$arguments
+	 * @return \Illuminate\Foundation\Bus\PendingDispatch|\Illuminate\Support\Fluent
+	 */
+	public static function dispatchIf( $boolean, ...$arguments ) {
+		if ( $boolean instanceof Closure ) {
+			$dispatchable = new static( ...$arguments );
+
+			return value( $boolean, $dispatchable )
+				? new PendingDispatch( $dispatchable )
+				: new Fluent();
+		}
+
+		return value( $boolean )
+			? new PendingDispatch( new static( ...$arguments ) )
+			: new Fluent();
+	}
+
+	/**
+	 * Dispatch the job with the given arguments unless the given truth test passes.
+	 *
+	 * @param  bool|\Closure  $boolean
+	 * @param  mixed  ...$arguments
+	 * @return \Illuminate\Foundation\Bus\PendingDispatch|\Illuminate\Support\Fluent
+	 */
+	public static function dispatchUnless( $boolean, ...$arguments ) {
+		if ( $boolean instanceof Closure ) {
+			$dispatchable = new static( ...$arguments );
+
+			return ! value( $boolean, $dispatchable )
+				? new PendingDispatch( $dispatchable )
+				: new Fluent();
+		}
+
+		return ! value( $boolean )
+			? new PendingDispatch( new static( ...$arguments ) )
+			: new Fluent();
+	}
+
+	/**
+	 * Dispatch a command to its appropriate handler in the current process.
+	 *
+	 * Queueable jobs will be dispatched to the "sync" queue.
+	 *
+	 * @param  mixed  ...$arguments
+	 * @return mixed
+	 */
+	public static function dispatchNow( ...$arguments ) {
+		if ( enpii_base_get_major_version( \Illuminate\Foundation\Application::VERSION ) < 8 ) {
+			return wp_app( Dispatcher::class )->dispatchNow( new static( ...$arguments ) );
+		} else {
+			return wp_app( Dispatcher::class )->dispatchSync( new static( ...$arguments ) );
+		}
+	}
+
+	/**
+	 * Dispatch a command to its appropriate handler in the current process.
+	 *
+	 * Queueable jobs will be dispatched to the "sync" queue.
+	 *
+	 * @param  mixed  ...$arguments
+	 * @return mixed
+	 */
+	public static function dispatchSync( ...$arguments ) {
+		if ( enpii_base_get_major_version( \Illuminate\Foundation\Application::VERSION ) >= 8 ) {
+			return wp_app( Dispatcher::class )->dispatchSync( new static( ...$arguments ) );
+		} else {
+			return wp_app( Dispatcher::class )->dispatchNow( new static( ...$arguments ) );
+		}
+	}
+
+	/**
+	 * Dispatch a command to its appropriate handler after the current process.
+	 *
+	 * @param  mixed  ...$arguments
+	 * @return mixed
+	 */
+	public static function dispatchAfterResponse( ...$arguments ) {
+		return self::dispatch( ...$arguments )->afterResponse();
+	}
+
+	/**
+	 * Set the jobs that should run if this job is successful.
+	 *
+	 * @param  array  $chain
+	 * @return \Illuminate\Foundation\Bus\PendingChain
+	 */
+	public static function withChain( $chain ) {
+		return new PendingChain( static::class, $chain );
+	}
 }

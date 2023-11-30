@@ -10,7 +10,7 @@ use Enpii_Base\App\Jobs\Process_WP_App_Request_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_Api_Routes_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_App_Routes_Job;
 use Enpii_Base\App\Jobs\Register_Main_Service_Providers_Job;
-use Enpii_Base\App\Jobs\Register_Telescope_Tinker_Job;
+use Enpii_Base\App\Queries\Add_Telescope_Tinker_Query;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\Response;
 use Enpii_Base\Foundation\WP\WP_Plugin;
@@ -31,6 +31,9 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	public function register() {
 		// We need to ensure all needed properties are set
 		$this->validate_needed_properties();
+
+		// We want to stop some default actions of WordPress
+		$this->prevent_defaults();
 
 		// We want to create hooks for this plugin here
 		$this->enroll_self_hooks();
@@ -57,7 +60,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( 'enpii_base_wp_app_register_routes', [ $this, 'register_base_wp_app_routes' ] );
 		add_action( 'enpii_base_wp_api_register_routes', [ $this, 'register_base_wp_api_routes' ] );
 
-		add_filter( 'enpii_base_wp_app_main_service_providers' , [ $this, 'register_telescope' ] );
+		add_filter( 'enpii_base_wp_app_main_service_providers' , [ $this, 'register_telescope_tinker' ] );
 
 		/** Other hooks */
 		if ($this->is_blade_for_template_available()) {
@@ -153,7 +156,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	}
 
 	public function wp_api_process_request($wp): void {
-		Process_WP_Api_Request_Job::dispatchNow();
+		Process_WP_Api_Request_Job::dispatchSync();
 	}
 
 	/**
@@ -214,8 +217,21 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
         }
 	}
 
-	public function register_telescope($providers) {
-		return Register_Telescope_Tinker_Job::dispatchSync($providers);
+	public function register_telescope_tinker($providers) {
+		return Add_Telescope_Tinker_Query::dispatchSync($providers);
+	}
+
+	/**
+	 * All hooks created by this plugin should be enrolled here
+	 * @return void
+	 */
+	private function prevent_defaults(): void {
+		if (wp_app()->is_wp_app_mode() || wp_app()->is_wp_api_mode()) {
+			// We want to cancel all headers set by WP
+			add_filter( 'wp_headers', function () {
+				return [];
+			}, 999999);
+		}
 	}
 
 	/**
@@ -224,10 +240,12 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 */
 	private function enroll_self_hooks(): void {
 		// For `enpii_base_wp_app_bootstrap`
+		//	We add this hook to perform the bootstrap actions needed for WP App
 		add_action( 'plugins_loaded', [ $this, 'wp_app_bootstrap' ], 5 );
 
 		// For `enpii_base_wp_app_init`
-		add_action( 'init', [$this, 'wp_app_init'], 9999 );
+		//	We want this hook works after all the init steps worked on all plugins
+		add_action( 'init', [$this, 'wp_app_init'], 999999 );
 
 		if (wp_app()->is_wp_app_mode() || wp_app()->is_wp_api_mode()) {
 			add_filter( 'do_parse_request', [$this, 'wp_app_parse_request'], 9999, 0 );

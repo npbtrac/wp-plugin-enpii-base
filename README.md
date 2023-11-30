@@ -90,12 +90,12 @@ Or you can do the alternative way
 	- With docker (we need to use php 7.4 to avoid errors)
 	```shell script
 	# Run the docker pull once if you haven't run that before
-	docker pull serversideup/php:7.4-cli
-	docker run --rm --interactive --tty -v $PWD:/var/www/html serversideup/php:7.4-cli ./vendor/bin/phpcbf <path-to-file-need-to-be-fixed>
+	docker pull serversideup/php:8.0-cli
+	docker run --rm --interactive --tty -v $PWD:/var/www/html serversideup/php:8.0-cli ./vendor/bin/phpcbf <path-to-file-need-to-be-fixed>
 	```
 	- Or if you have your executable php 7.4 on your machine (we need to use php 7.4 to avoid errors)
 	```shell script
-	/path/to/your/php7.4/executable/file ./vendor/bin/phpcbf <path-to-file-need-to-be-fixed>
+	/path/to/your/php8.0/executable/file ./vendor/bin/phpcbf <path-to-file-need-to-be-fixed>
 	```
 ### Testing
 - To run unit test

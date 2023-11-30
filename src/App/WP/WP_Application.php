@@ -52,6 +52,44 @@ class WP_Application extends Application {
     }
 
 	/**
+	 * @inheritedDoc
+	 *
+	 * @param  string  $path
+	 * @return string
+	 */
+	public function databasePath( $path = '' ) {
+		// Todo: refactor this using constant
+		return dirname(dirname( dirname( __DIR__ ) )) . DIRECTORY_SEPARATOR . 'database' . ( $path ? DIRECTORY_SEPARATOR . $path : $path );
+	}
+
+	/**
+	 * @inheritedDoc
+	 *
+	 * @param  string  $path
+	 * @return string
+	 */
+	public function resourcePath( $path = '' ) {
+		// Todo: refactor this using constant
+		return dirname(dirname( dirname( __DIR__ ) )) . DIRECTORY_SEPARATOR . 'resources' . ( $path ? DIRECTORY_SEPARATOR . $path : $path );
+	}
+
+	/**
+     * @inheritedDoc
+     *
+     * @return string
+     *
+     * @throws \RuntimeException
+     */
+    public function getNamespace()
+    {
+        if (! is_null($this->namespace)) {
+            return $this->namespace;
+        }
+
+		return $this->namespace = 'Enpii_Base\\';
+    }
+
+	/**
 	 * We want to use the array to load the config
 	 *
 	 * @param mixed $config
@@ -101,6 +139,7 @@ class WP_Application extends Application {
 
 	public function register_theme(
 		$theme_classsname,
+		$theme_slug,
 		$theme_base_path,
 		$theme_base_url,
 		$parent_theme_base_path = null,
@@ -126,6 +165,7 @@ class WP_Application extends Application {
 			]
 		);
 		$this->instance( $theme_classsname, $theme );
+		$this->alias( $theme_classsname, $theme_slug );
 		$this->register( $theme );
 	}
 
@@ -207,49 +247,17 @@ class WP_Application extends Application {
 		return ( strpos( $uri, '/' . $wp_site_prefix . '/' ) === 0 || $uri === '/' . $wp_site_prefix );
 	}
 
-	// Todo: refactor this using constant
-	/**
-	 * @inheritedDoc
-	 *
-	 * @param  string  $path
-	 * @return string
-	 */
-	public function databasePath( $path = '' ) {
-		return dirname(dirname( dirname( __DIR__ ) )) . DIRECTORY_SEPARATOR . 'database' . ( $path ? DIRECTORY_SEPARATOR . $path : $path );
+	public function get_laravel_major_version()
+	{
+		return enpii_base_get_major_version(Application::VERSION);
+		return (int) enpii_base_get_major_version(Application::VERSION);
 	}
-
-	// Todo: refactor this using constant
-	/**
-	 * @inheritedDoc
-	 *
-	 * @param  string  $path
-	 * @return string
-	 */
-	public function resourcePath( $path = '' ) {
-		return dirname(dirname( dirname( __DIR__ ) )) . DIRECTORY_SEPARATOR . 'resources' . ( $path ? DIRECTORY_SEPARATOR . $path : $path );
-	}
-
-	/**
-     * Get the application namespace.
-     *
-     * @return string
-     *
-     * @throws \RuntimeException
-     */
-    public function getNamespace()
-    {
-        if (! is_null($this->namespace)) {
-            return $this->namespace;
-        }
-
-		return $this->namespace = 'Enpii_Base\\';
-    }
 
 	public function get_composer_folder_name(): string
 	{
 		// We only want to have these Watches on Laravel 8+
-		if (version_compare('8.0.0', Application::VERSION, '>=')) {
-			return 'vendor-php80down';
+		if (version_compare('8.0.0', Application::VERSION, '>')) {
+			return 'vendor-laravel7';
 		}
 
 		return 'vendor';
@@ -258,6 +266,11 @@ class WP_Application extends Application {
 	public function get_composer_path(): string
 	{
 		return dirname($this->resourcePath()). DIR_SEP . $this->get_composer_folder_name();
+	}
+
+	public static function isset(): bool
+	{
+		return ! is_null(static::$instance);
 	}
 
 	/**

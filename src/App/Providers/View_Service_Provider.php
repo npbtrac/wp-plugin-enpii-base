@@ -17,7 +17,7 @@ class View_Service_Provider extends ViewServiceProvider {
 	public function boot() {
 		/** @var \Illuminate\View\Factory $view */
 		$view = wp_app_view();
-		$view->addExtension('php', 'blade');
+		$view->addExtension( 'php', 'blade' );
 	}
 
 	protected function before_register(): void {
@@ -46,7 +46,7 @@ class View_Service_Provider extends ViewServiceProvider {
 			[
 				get_stylesheet_directory(),
 			]
-		 	: [
+			: [
 				get_stylesheet_directory(),
 				get_template_directory(),
 			];

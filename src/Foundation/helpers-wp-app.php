@@ -1,4 +1,11 @@
 <?php
+/**
+| We want to define helper functions for the wp_app here
+| We don't need to use the prefix for these functions
+| This helper will add the prefix 'wp_app'
+| to the base Laravel \Illuminate\Support\helpers.php
+| to use with WP_Application rather than the Application from Laravel
+*/
 
 declare(strict_types=1);
 
@@ -23,16 +30,7 @@ use Illuminate\Support\Facades\Date;
 use Illuminate\Support\HtmlString;
 use Symfony\Component\HttpFoundation\Response;
 use Enpii_Base\App\WP\WP_Application;
-use Illuminate\Foundation\Application;
 use Illuminate\Routing\Router;
-
-/**
-| We want to define helper functions for the wp_app here
-| We don't need to use the prefix for these functions
-| This helper will add the prefix 'wp_app'
-| to the base Laravel \Illuminate\Support\helpers.php
-| to use with WP_Application rather than the Application from Laravel
-*/
 
 if ( ! function_exists( 'wp_app_abort' ) ) {
 	/**
@@ -48,8 +46,10 @@ if ( ! function_exists( 'wp_app_abort' ) ) {
 	 */
 	function wp_app_abort( $code, $message = '', array $headers = [] ) {
 		if ( $code instanceof Response ) {
+			// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
 			throw new HttpResponseException( $code );
 		} elseif ( $code instanceof Responsable ) {
+			// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
 			throw new HttpResponseException( $code->toResponse( wp_app_request() ) );
 		}
 
@@ -119,6 +119,7 @@ if ( ! function_exists( 'wp_app' ) ) {
 	 * @param  array  $parameters
 	 * @return mixed|\Enpii_Base\App\WP\WP_Application
 	 */
+	// phpcs:ignore Universal.NamingConventions.NoReservedKeywordParameterNames.abstractFound
 	function wp_app( $abstract = null, array $parameters = [] ) {
 		if ( is_null( $abstract ) ) {
 			return WP_Application::getInstance();
@@ -407,7 +408,7 @@ if ( ! function_exists( 'wp_app_dispatch_now' ) ) {
 	function wp_app_dispatch_now( $job, $handler = null ) {
 		/** @var Dispatcher $dispatcher */
 		$dispatcher = wp_app( Dispatcher::class );
-		return method_exists($dispatcher, 'dispatchNow') ? $dispatcher->dispatchNow( $job, $handler ) : $dispatcher->dispatchSync( $job, $handler );
+		return method_exists( $dispatcher, 'dispatchNow' ) ? $dispatcher->dispatchNow( $job, $handler ) : $dispatcher->dispatchSync( $job, $handler );
 	}
 }
 
@@ -422,7 +423,7 @@ if ( ! function_exists( 'wp_app_dispatch_sync' ) ) {
 	function wp_app_dispatch_sync( $job, $handler = null ) {
 		/** @var Dispatcher $dispatcher */
 		$dispatcher = wp_app( Dispatcher::class );
-		return method_exists($dispatcher, 'dispatchSync') ? $dispatcher->dispatchSync( $job, $handler ) : $dispatcher->dispatchNow( $job, $handler );
+		return method_exists( $dispatcher, 'dispatchSync' ) ? $dispatcher->dispatchSync( $job, $handler ) : $dispatcher->dispatchNow( $job, $handler );
 	}
 }
 
@@ -464,6 +465,7 @@ if ( ! function_exists( 'wp_app_elixir' ) ) {
 			return '/' . trim( $file, '/' );
 		}
 
+		// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
 		throw new InvalidArgumentException( "File {$file} not defined in asset manifest." );
 	}
 }
@@ -503,6 +505,7 @@ if ( ! function_exists( 'wp_app_factory' ) ) {
 	 * @param  int  $amount
 	 * @return \Illuminate\Database\Eloquent\FactoryBuilder
 	 */
+	// phpcs:ignore Universal.NamingConventions.NoReservedKeywordParameterNames.abstractFound
 	function wp_app_factory( $class, $amount = null ) {
 		$factory = wp_app( EloquentFactory::class );
 
@@ -622,33 +625,35 @@ if ( ! function_exists( 'wp_app_policy' ) ) {
 	}
 }
 
-if (! function_exists('wp_app_precognitive')) {
+if ( ! function_exists( 'wp_app_precognitive' ) ) {
 	/**
-     * Handle a Precognition controller hook.
-     *
-     * @param  null|callable  $callable
-     * @return mixed
-     */
-    function wp_app_precognitive($callable = null)
-    {
-        $callable ??= function () {
-            //
-        };
+	 * Handle a Precognition controller hook.
+	 *
+	 * @param  null|callable  $callable
+	 * @return mixed
+	 */
+	function wp_app_precognitive( $callable = null ) {
+		// phpcs:ignore PHPCompatibility.Operators.NewOperators.t_coalesce_equalFound
+		$callable ??= function () {
+			//
+		};
 
-        $payload = $callable(function ($default, $precognition = null) {
-            $response = wp_app_request()->isPrecognitive()
-                ? ($precognition ?? $default)
-                : $default;
+		$payload = $callable(
+			function ( $default, $precognition = null ) {
+				$response = wp_app_request()->isPrecognitive()
+				? ( $precognition ?? $default )
+				: $default;
 
-				wp_app_abort(Router::toResponse(request(), value($response)));
-        });
+				wp_app_abort( Router::toResponse( request(), value( $response ) ) );
+			}
+		);
 
-        if (wp_app_request()->isPrecognitive()) {
-            wp_app_abort(204, 'precognitive', ['Precognition-Success' => 'true']);
-        }
+		if ( wp_app_request()->isPrecognitive() ) {
+			wp_app_abort( 204, 'precognitive', [ 'Precognition-Success' => 'true' ] );
+		}
 
-        return $payload;
-    }
+		return $payload;
+	}
 }
 
 if ( ! function_exists( 'wp_app_public_path' ) ) {
