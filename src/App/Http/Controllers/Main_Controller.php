@@ -10,6 +10,7 @@ use Enpii_Base\Foundation\Http\Base_Controller;
 
 class Main_Controller extends Base_Controller {
 	public function index() {
+		devdd(wp_app()->publicPath());
 		return Enpii_Base_WP_Plugin::wp_app_instance()->view( 'main/index' );
 	}
 

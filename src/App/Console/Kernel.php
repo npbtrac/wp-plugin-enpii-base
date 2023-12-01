@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Console;
 
+use Enpii_Base\App\Console\Commands\WP_App_Setup_Command;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use Illuminate\Support\Facades\Artisan;
 
 class Kernel extends ConsoleKernel {
 
@@ -27,7 +29,9 @@ class Kernel extends ConsoleKernel {
 	 *
 	 * @var array
 	 */
-	protected $commands = [];
+	protected $commands = [
+		WP_App_Setup_Command::class,
+	];
 
 	/**
 	 * Define the application's command schedule.
@@ -47,6 +51,12 @@ class Kernel extends ConsoleKernel {
 	 * @return void
 	 */
 	protected function commands() {
+		Artisan::command('wp-app:hello', function () {
+			$this->comment('Hello from wp_app()');
+		})->describe('Display an inspiring quote');
+		// return [
+		// 	WP_App_Setup_Command::class,
+		// ];
 		// $this->load(__DIR__.'/Commands');
 
 		// require wp_app_base_path('routes/console.php');

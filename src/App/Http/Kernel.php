@@ -49,5 +49,6 @@ class Kernel extends HttpKernel {
 	 */
 	protected $routeMiddleware = [
 		'wp_user_session_validation' => \Enpii_Base\App\Http\Middleware\WP_User_Session_Validation::class,
+		'wp_user_session_is_admin_user_validation' => \Enpii_Base\App\Http\Middleware\WP_User_Session_Is_Admin_User_Validation::class,
 	];
 }

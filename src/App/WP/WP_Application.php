@@ -57,17 +57,6 @@ class WP_Application extends Application {
 	 * @param  string  $path
 	 * @return string
 	 */
-	public function databasePath( $path = '' ) {
-		// Todo: refactor this using constant
-		return dirname(dirname( dirname( __DIR__ ) )) . DIRECTORY_SEPARATOR . 'database' . ( $path ? DIRECTORY_SEPARATOR . $path : $path );
-	}
-
-	/**
-	 * @inheritedDoc
-	 *
-	 * @param  string  $path
-	 * @return string
-	 */
 	public function resourcePath( $path = '' ) {
 		// Todo: refactor this using constant
 		return dirname(dirname( dirname( __DIR__ ) )) . DIRECTORY_SEPARATOR . 'resources' . ( $path ? DIRECTORY_SEPARATOR . $path : $path );
@@ -87,6 +76,20 @@ class WP_Application extends Application {
         }
 
 		return $this->namespace = 'Enpii_Base\\';
+    }
+
+	/**
+     * @inheritDoc
+     */
+    public function runningInConsole()
+    {
+		if ($this->isRunningInConsole === null) {
+			if (strpos(wp_app_request()->getPathInfo(), 'wp-admin/admin/setup') !== false && wp_app_request()->get('force_app_running_in_console')) {
+				$this->isRunningInConsole = true;
+			}
+		}
+
+        return parent::runningInConsole();
     }
 
 	/**

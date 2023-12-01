@@ -36,6 +36,17 @@ class Register_Base_WP_App_Routes_Job extends Base_Job
 				],
 				function () {
 					Route::get( '/', [ Admin_Main_Controller::class, 'home' ] );
+					Route::group(
+						[
+							'prefix' => '/admin',
+							'middleware' => [
+								'wp_user_session_is_admin_user_validation',
+							],
+						],
+						function () {
+							Route::get( 'setup', [ Admin_Main_Controller::class, 'setup' ] );
+						}
+					);
 				}
 			);
 
