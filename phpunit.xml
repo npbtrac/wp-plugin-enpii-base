@@ -1,0 +1,14 @@
+<phpunit xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.5/phpunit.xsd" backupGlobals="false" colors="true" verbose="true">
+    <testsuites>
+        <testsuite name="EnpiiBase plugin Unit Tests">
+            <directory>tests/unit</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="WP_TESTS_DIR" value="./tests/unit" />
+        <env name="WP_CORE_DIR" value="./dev-docker/wordpress" />
+        <env name="WP_DEBUG" value="true" />
+        <env name="WP_CONTENT_DIR" value="./dev-docker/wordpress/wp-content" />
+        <env name="WP_PLUGIN_DIR" value="./dev-docker/wordpress/wp-content/plugins" />
+    </php>
+</phpunit>
