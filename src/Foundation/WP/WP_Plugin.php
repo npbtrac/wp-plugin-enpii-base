@@ -91,6 +91,7 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 	/**
 	 * We want to get the views for each plugin by this order: child theme, parent theme, and the plugin it self
 	 */
+	// phpcs:ignore Universal.NamingConventions.NoReservedKeywordParameterNames.namespaceFound
 	protected function prepare_views_paths( $namespace ): void {
 		$this->loadViewsFrom(
 			realpath(

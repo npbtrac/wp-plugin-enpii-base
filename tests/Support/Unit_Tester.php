@@ -1,5 +1,5 @@
 <?php
-namespace Enpii_Base\Tests;
+namespace Enpii_Base\Tests\Support;
 
 /**
  * Inherited Methods
@@ -16,7 +16,7 @@ namespace Enpii_Base\Tests;
  *
  * @SuppressWarnings(PHPMD)
 */
-class UnitTester extends \Codeception\Actor {
+class Unit_Tester extends \Codeception\Actor {
 
 	use _generated\UnitTesterActions;
 

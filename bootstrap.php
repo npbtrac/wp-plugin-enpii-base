@@ -1,14 +1,27 @@
 <?php
+// General fixed constants
+defined( 'DIR_SEP' ) || define( 'DIR_SEP', DIRECTORY_SEPARATOR );
 
-// First we need to load the composer autoloader, so we can use WP Mock
-require_once __DIR__ . '/vendor/autoload.php';
+// The prefix for wp_app request
+defined( 'ENPII_BASE_WP_APP_PREFIX' ) || define(
+	'ENPII_BASE_WP_APP_PREFIX',
+	!empty( getenv( 'ENPII_BASE_WP_APP_PREFIX' ) ) ? : 'wp-app'
+);
 
-// Bootstrap WP_Mock to initialize built-in features
-WP_Mock::setUsePatchwork( true );
-WP_Mock::bootstrap();
+defined( 'ENPII_BASE_WP_API_PREFIX' ) || define(
+	'ENPII_BASE_WP_API_PREFIX',
+	!empty( getenv( 'ENPII_BASE_WP_API_PREFIX' ) ) ? : 'wp-api'
+);
 
-/**
- * Now we include any plugin files that we need to be able to run the tests. This
- * should be files that define the functions and classes you're going to test.
- */
-require_once __DIR__ . '/enpii-base.php';
+require_once __DIR__ . DIR_SEP . 'src' . DIR_SEP . 'helpers.php';
+
+// We include the vendor in the repo if there is no vendor loaded before
+if ( ! class_exists( \Enpii_Base\App\WP\WP_Application::class ) ) {
+	if ( version_compare( phpversion(), '8.1.0', '<' ) ) {
+		// Lower that 8.1, we load dependencies for <= 8.0, we use Laravel 7
+		require_once __DIR__ . DIR_SEP . 'vendor-laravel7' . DIR_SEP . 'autoload.php';
+	} else {
+		// PHP >= 8.1, we use Laravel 10 as the latest
+		require_once __DIR__ . DIR_SEP . 'vendor' . DIR_SEP . 'autoload.php';
+	}
+}
