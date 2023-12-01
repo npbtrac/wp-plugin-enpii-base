@@ -4,12 +4,12 @@
  * should be files that define the functions and classes you're going to test.
  */
 
-require_once dirname(__DIR__) . '/bootstrap.php';
+require_once dirname( __DIR__ ) . '/bootstrap.php';
 
-function output_debug($string) {
-	fwrite(STDERR, print_r($string, true));
+function output_debug( $debug_string ) {
+	// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r, WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_fwrite
+	fwrite( STDERR, print_r( $debug_string, true ) );
 }
-
 
 // Bootstrap WP_Mock to initialize built-in features
 WP_Mock::setUsePatchwork( true );

@@ -9,7 +9,6 @@ use Exception;
 use Illuminate\Database\MySqlConnection;
 use Illuminate\Database\QueryException;
 use Illuminate\Database\UniqueConstraintViolationException;
-use PDO;
 
 class Wpdb_Connection extends MySqlConnection {
 	/** @var \wpdb $wpdb */
@@ -31,46 +30,6 @@ class Wpdb_Connection extends MySqlConnection {
 	}
 
 	/**
-	 * Run a SQL statement.
-	 *
-	 * @param  string  $query
-	 * @param  array  $bindings
-	 * @param  \Closure  $callback
-	 * @return mixed
-	 *
-	 * @throws \Illuminate\Database\QueryException
-	 */
-	protected function runQueryCallback( $query, $bindings, Closure $callback ) {
-		// To execute the statement, we'll simply call the callback, which will actually
-		// run the SQL against the PDO connection. Then we can calculate the time it
-		// took to execute and log the query SQL, bindings and time in our memory.
-		try {
-			return $callback( $query, $bindings );
-		}
-
-		// If an exception occurs when attempting to run a query, we'll format the error
-		// message to include the bindings with SQL, which will make this exception a
-		// lot more helpful to the developer instead of just the database's errors.
-		catch ( Exception $e ) {
-			if ( $this->isUniqueConstraintError( $e ) ) {
-				throw new UniqueConstraintViolationException(
-					$this->getName(),
-					$query,
-					$this->prepareBindings( $bindings ),
-					$e
-				);
-			}
-
-			throw new QueryException(
-				$this->getName(),
-				$query,
-				$this->prepareBindings( $bindings ),
-				$e
-			);
-		}
-	}
-
-	/**
 	 * Run a select statement against the database.
 	 *
 	 * @param  string  $query
@@ -79,26 +38,27 @@ class Wpdb_Connection extends MySqlConnection {
 	 * @return array
 	 */
 	public function select( $query, $bindings = [], $useReadPdo = true ) {
-		// TODO: we need to use the $wpdb to query queries later
+		// TODO: we need to use the $wpdb to query queries later & fix phpcs rule WordPress.DB.PreparedSQL.NotPrepared
 		return $this->run(
 			$query,
 			$bindings,
 			function ( $query, $bindings ) use ( $useReadPdo ) {
 				list($unbound_query, $to_be_bound, $new_bindings) = $this->convert_query_with_namespace( $query, $bindings );
 				if ( ! empty( $to_be_bound ) ) {
+					// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 					$prepared_query = $this->wpdb->prepare( $unbound_query, $new_bindings );
 				} else {
 					$prepared_query = $query;
 				}
-
 
 				list($unbound_query, $to_be_bound, $new_bindings) = $this->convert_query_with_question_marks( $query, $bindings );
 				if ( ! empty( $to_be_bound ) ) {
+					// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 					$prepared_query = $this->wpdb->prepare( $unbound_query, $new_bindings );
 				} else {
 					$prepared_query = $query;
 				}
-
+				// phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
 				$result = $this->wpdb->get_results( $prepared_query );
 
 				return $result;
@@ -136,7 +96,7 @@ class Wpdb_Connection extends MySqlConnection {
 			$query
 		);
 
-		return array( $new_query, $new_bind_strings, $new_bindings );
+		return [ $new_query, $new_bind_strings, $new_bindings ];
 	}
 
 	/**
@@ -168,7 +128,7 @@ class Wpdb_Connection extends MySqlConnection {
 			}
 		}
 
-		return array( $new_query, $new_bind_strings, $new_bindings );
+		return [ $new_query, $new_bind_strings, $new_bindings ];
 	}
 
 	/**
