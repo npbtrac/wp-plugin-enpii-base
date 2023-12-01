@@ -27,6 +27,7 @@
 		<exclude name="WordPress.PHP.YodaConditions"/>
 		<exclude name="Generic.Formatting.MultipleStatementAlignment.NotSameWarning"/>
 		<exclude name="Universal.Arrays.DisallowShortArraySyntax.Found"/>
+		<exclude name="WordPress.Arrays.MultipleStatementAlignment.DoubleArrowNotAligned"/>
 	</rule>
 
 	<rule ref="WordPress-VIP-Go"/>
