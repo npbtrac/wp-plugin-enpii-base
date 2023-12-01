@@ -36,7 +36,6 @@
   ],
   "autoload": {
     "files": [
-      "./src/Foundation/Support/helpers.php",
       "./src/Foundation/Support/helpers-utils.php",
       "./src/Foundation/helpers-wp-app.php",
       "./src/Foundation/helpers-overrides.php"
