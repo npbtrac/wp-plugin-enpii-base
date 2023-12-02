@@ -34,6 +34,5 @@ if ( version_compare( phpversion(), '8.1.0', '<' ) ) {
 }
 
 if (file_exists($autoload_file) && !$enpii_base_existed) {
-	error_log(' autoload ');
 	require_once $autoload_file;
 }
