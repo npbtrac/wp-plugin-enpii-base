@@ -29,4 +29,6 @@ return array(
     '05606250504f1174fd702cad64105781' => $baseDir . '/src/Foundation/Support/helpers-utils.php',
     '7d5f78e8cb8025ac305683f3d838a3fc' => $baseDir . '/src/Foundation/helpers-wp-app.php',
     'ab9c87db46218bf6a8d5a29aea0ad298' => $baseDir . '/src/Foundation/helpers-overrides.php',
+    '0f59fad7c9b61fab8c403fdbffb776bb' => $baseDir . '/enpii-base-bootstrap.php',
+    'd784741bc6b753c2977bb46f2ba02513' => $baseDir . '/enpii-base-init.php',
 );

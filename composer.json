@@ -7,7 +7,7 @@
     "laravel/tinker": "^2.8",
     "mcaskill/composer-exclude-files": "^3.0.0",
     "symfony/var-dumper": "^5.4.29|^6.2.0",
-    "php": "^7.2.5|^8.1.0"
+    "php": "^7.2.5|^8.0.0"
   },
   "require-dev": {
     "10up/wp_mock": "^1.0.0",
@@ -34,7 +34,9 @@
     "files": [
       "./src/Foundation/Support/helpers-utils.php",
       "./src/Foundation/helpers-wp-app.php",
-      "./src/Foundation/helpers-overrides.php"
+      "./src/Foundation/helpers-overrides.php",
+      "./enpii-base-bootstrap.php",
+      "./enpii-base-init.php"
     ],
     "psr-4": {
       "Enpii_Base\\Deps\\": "src-deps",
