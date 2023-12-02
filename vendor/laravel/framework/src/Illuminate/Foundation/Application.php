@@ -702,7 +702,7 @@ class Application extends Container implements ApplicationContract, CachesConfig
      */
     public function runningInConsole()
     {
-		if ($this->isRunningInConsole === null) {
+        if ($this->isRunningInConsole === null) {
             $this->isRunningInConsole = Env::get('APP_RUNNING_IN_CONSOLE') ?? (\PHP_SAPI === 'cli' || \PHP_SAPI === 'phpdbg');
         }
 
