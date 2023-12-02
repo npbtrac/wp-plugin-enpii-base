@@ -85,7 +85,6 @@ class WP_Application extends Application {
     public function runningInConsole()
     {
 		if ($this->isRunningInConsole === null) {
-			dev_error_log(Env::get('DOING_ENPII_BASE_ACTIVATION'));
 			if (strpos(wp_app_request()->getPathInfo(), 'wp-admin/admin/setup') !== false && wp_app_request()->get('force_app_running_in_console')) {
 				$this->isRunningInConsole = true;
 			}
