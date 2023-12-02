@@ -3,7 +3,7 @@
         'name' => 'enpii/enpii-base',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => 'ae087e30a6fd228a4542e242e4207ffbcdd9421d',
+        'reference' => '430cb2b6197d280d2e7933de5f2b76b9fe5ae5ec',
         'type' => 'wordpress-muplugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -49,7 +49,7 @@
         'enpii/enpii-base' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => 'ae087e30a6fd228a4542e242e4207ffbcdd9421d',
+            'reference' => '430cb2b6197d280d2e7933de5f2b76b9fe5ae5ec',
             'type' => 'wordpress-muplugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -439,8 +439,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0',
             ),
         ),
         'psr/simple-cache' => array(
@@ -564,9 +564,9 @@
             'dev_requirement' => false,
         ),
         'symfony/http-kernel' => array(
-            'pretty_version' => 'v5.4.32',
-            'version' => '5.4.32.0',
-            'reference' => '442472752e3adc9810a7e425824497dc22f75acf',
+            'pretty_version' => 'v5.4.33',
+            'version' => '5.4.33.0',
+            'reference' => '892636f9279f953dc266dc088f900b03eecb4ffa',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/http-kernel',
             'aliases' => array(),
@@ -672,9 +672,9 @@
             'dev_requirement' => false,
         ),
         'symfony/routing' => array(
-            'pretty_version' => 'v5.4.26',
-            'version' => '5.4.26.0',
-            'reference' => '853fc7df96befc468692de0a48831b38f04d2cb2',
+            'pretty_version' => 'v5.4.33',
+            'version' => '5.4.33.0',
+            'reference' => '5b5b86670f947db92ab54cdcff585e76064d0b04',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/routing',
             'aliases' => array(),
