@@ -9,6 +9,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Mix;
 use Enpii_Base\Foundation\WP\WP_Plugin_Interface;
 use Enpii_Base\Foundation\WP\WP_Theme_Interface;
+use Illuminate\Support\Env;
 use InvalidArgumentException;
 use RuntimeException;
 use TypeError;
@@ -84,6 +85,7 @@ class WP_Application extends Application {
     public function runningInConsole()
     {
 		if ($this->isRunningInConsole === null) {
+			dev_error_log(Env::get('DOING_ENPII_BASE_ACTIVATION'));
 			if (strpos(wp_app_request()->getPathInfo(), 'wp-admin/admin/setup') !== false && wp_app_request()->get('force_app_running_in_console')) {
 				$this->isRunningInConsole = true;
 			}
@@ -325,9 +327,9 @@ class WP_Application extends Application {
     protected function registerBaseServiceProviders() {
 		// We allow to change the Base Service Providers via WordPress filter
 		$providers = apply_filters(
-			'enpii_base_wp_app_main_service_providers',
+			'enpii_base_wp_app_base_service_providers',
 			[
-				\Enpii_Base\App\Providers\Events_Service_Provider::class,
+				\Enpii_Base\App\Providers\Event_Service_Provider::class,
 				\Enpii_Base\App\Providers\Log_Service_Provider::class,
 				\Enpii_Base\App\Providers\Routing_Service_Provider::class,
 				\Enpii_Base\App\Providers\Bus_Service_Provider::class,

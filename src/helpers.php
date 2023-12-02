@@ -39,34 +39,42 @@ if ( ! function_exists( 'enpii_base_setup_wp_app' ) ) {
 }
 
 if ( ! function_exists( 'enpii_base_wp_app_prepare_folders' ) ) {
-	function enpii_base_wp_app_prepare_folders( string $wp_app_base_path = null ): void {
+	/**
+	 *
+	 * @param string|null $wp_app_base_path
+	 * @param int $chmod We may want to use `0755` if running this function in console
+	 * @return void
+	 */
+	function enpii_base_wp_app_prepare_folders( $chmod = 0777, string $wp_app_base_path = null): void {
 		if (empty($wp_app_base_path)) {
 			$wp_app_base_path = enpii_base_wp_app_get_base_path();
 		}
 
 		$file_system = new Filesystem();
-		$file_system->ensureDirectoryExists( $wp_app_base_path, 0777 );
+		$file_system->ensureDirectoryExists( $wp_app_base_path, $chmod );
 
-		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'database', 0777 );
-		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'database' . DIR_SEP . 'migrations', 0777 );
+		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'config', $chmod );
 
-		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'bootstrap', 0777 );
-		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'bootstrap' . DIR_SEP . 'cache', 0777 );
+		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'database', $chmod );
+		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'database' . DIR_SEP . 'migrations', $chmod );
 
-		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'lang', 0777 );
-		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'resources', 0777 );
+		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'bootstrap', $chmod );
+		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'bootstrap' . DIR_SEP . 'cache', $chmod );
 
-		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'storage', 0777 );
-		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'logs', 0777 );
-		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'framework', 0777 );
-		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'framework' . DIR_SEP . 'views', 0777 );
-		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'framework' . DIR_SEP . 'cache', 0777 );
-		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'framework' . DIR_SEP . 'cache' . DIR_SEP . 'data', 0777 );
+		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'lang', $chmod );
+		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'resources', $chmod );
 
-		$file_system->chmod( $wp_app_base_path . DIR_SEP . 'bootstrap' . DIR_SEP . 'cache', 0777 );
-		$file_system->chmod( $wp_app_base_path . DIR_SEP . 'storage', 0777 );
-		$file_system->chmod( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'framework', 0777 );
-		$file_system->chmod( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'logs', 0777 );
+		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'storage', $chmod );
+		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'logs', $chmod );
+		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'framework', $chmod );
+		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'framework' . DIR_SEP . 'views', $chmod );
+		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'framework' . DIR_SEP . 'cache', $chmod );
+		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'framework' . DIR_SEP . 'cache' . DIR_SEP . 'data', $chmod );
+
+		$file_system->chmod( $wp_app_base_path . DIR_SEP . 'bootstrap' . DIR_SEP . 'cache', $chmod );
+		$file_system->chmod( $wp_app_base_path . DIR_SEP . 'storage', $chmod );
+		$file_system->chmod( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'framework', $chmod );
+		$file_system->chmod( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'logs', $chmod );
 	}
 }
 

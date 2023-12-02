@@ -10,6 +10,7 @@ use Enpii_Base\App\Jobs\Process_WP_App_Request_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_Api_Routes_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_App_Routes_Job;
 use Enpii_Base\App\Jobs\Register_Main_Service_Providers_Job;
+use Enpii_Base\App\Jobs\Write_Setup_Client_Script_Job;
 use Enpii_Base\App\Queries\Add_Telescope_Tinker_Query;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\Response;
@@ -38,14 +39,13 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		// We want to create hooks for this plugin here
 		$this->enroll_self_hooks();
 
-		// We want to handle the hooks first
-		$this->manipulate_hooks();
-
-		// We trigger the action when wp_app is registered
-		do_action( 'enpii_base_wp_app_registered' );
+		parent::register();
 	}
 
 	public function boot() {
+		// We trigger the action when wp_app is registered
+		do_action( 'enpii_base_wp_app_registered' );
+
 		if ($this->app->runningInConsole()) {
 			// Register migrations rules
 			$this->publishes([
@@ -57,6 +57,8 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 				$this->get_base_path().'/public-assets/dist' => wp_app_public_path('plugins/'. $this->get_plugin_slug()),
 			], ['enpii-base-assets', 'laravel-assets']);
 		}
+
+		parent::boot();
 	}
 
 	public function manipulate_hooks(): void {
@@ -64,7 +66,6 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( 'cli_init', [ $this, 'register_wp_cli_commands' ] );
 
 		/** WP App hooks */
-
 		// We want to initialize wp_app bootstrap after plugins loaded
 		add_action( 'enpii_base_wp_app_bootstrap', [ $this, 'bootstrap_wp_app' ], 5 );
 
@@ -80,10 +81,16 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		if ($this->is_blade_for_template_available()) {
 			add_filter( 'template_include', [ $this, 'use_blade_to_compile_template' ], 99999);
 		}
+
+		add_action( 'admin_print_footer_scripts', [ $this, 'write_setup_client_script' ] );
 	}
 
 	public function bootstrap_wp_app(): void {
 		Init_WP_App_Bootstrap_Job::dispatchSync();
+	}
+
+	public function write_setup_client_script(): void {
+		Write_Setup_Client_Script_Job::dispatchSync();
 	}
 
 	/**
@@ -114,8 +121,6 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 			'enpii-base prepare-folders',
 			$this->app->make(\Enpii_Base\App\WP_CLI\Enpii_Base_Prepare_Folders_WP_CLI::class)
 		);
-		$args = $_SERVER['argv'];
-		// devdd($args);
 		WP_CLI::add_command(
 			'enpii-base artisan',
 			$this->app->make(\Enpii_Base\App\WP_CLI\Enpii_Base_Artisan_WP_CLI::class)
@@ -208,7 +213,6 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		// 	exception InvalidArgumentException for view file not found in FileViewFinder
 		try {
 			$tmp = wp_app_view(basename($template, '.php'));
-			// dev_dump($blade_compiler->getCompiledPath());
 			echo $tmp;
 			$template = false;
 		} catch (InvalidArgumentException $e) {

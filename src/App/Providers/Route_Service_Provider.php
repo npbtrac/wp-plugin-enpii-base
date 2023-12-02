@@ -24,7 +24,7 @@ class Route_Service_Provider extends RouteServiceProvider {
 	 *
 	 * @var string
 	 */
-	public const HOME = '/home';
+	public const HOME = '/';
 
 	/**
 	 * Define the routes for the application.
