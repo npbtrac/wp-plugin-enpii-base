@@ -79,24 +79,6 @@ trait Dispatchable_Trait {
 	 * @return mixed
 	 */
 	// phpcs:ignore WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid
-	public static function dispatchNow( ...$arguments ) {
-		if ( enpii_base_get_major_version( \Illuminate\Foundation\Application::VERSION ) < 8 ) {
-			return wp_app( Dispatcher::class )->dispatchNow( new static( ...$arguments ) );
-		} else {
-			return wp_app( Dispatcher::class )->dispatchSync( new static( ...$arguments ) );
-		}
-	}
-
-	/**
-	 * Dispatch a command to its appropriate handler in the current process.
-	 * Inherited from Laravel Illuminate\Foundation\Bus\Dispatchable
-	 *
-	 * Queueable jobs will be dispatched to the "sync" queue.
-	 *
-	 * @param  mixed  ...$arguments
-	 * @return mixed
-	 */
-	// phpcs:ignore WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid
 	public static function dispatchSync( ...$arguments ) {
 		if ( enpii_base_get_major_version( \Illuminate\Foundation\Application::VERSION ) >= 8 ) {
 			return wp_app( Dispatcher::class )->dispatchSync( new static( ...$arguments ) );

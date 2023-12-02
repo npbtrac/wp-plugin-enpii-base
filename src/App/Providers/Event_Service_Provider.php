@@ -6,6 +6,6 @@ namespace Enpii_Base\App\Providers;
 
 use Illuminate\Events\EventServiceProvider;
 
-class Events_Service_Provider extends EventServiceProvider {
+class Event_Service_Provider extends EventServiceProvider {
 
 }

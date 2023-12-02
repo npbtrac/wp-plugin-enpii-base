@@ -2,6 +2,13 @@
 // General fixed constants
 defined( 'DIR_SEP' ) || define( 'DIR_SEP', DIRECTORY_SEPARATOR );
 
+// Update these constants whenever you bump the version
+defined( 'ENPII_BASE_PLUGIN_VERSION' ) || define( 'ENPII_BASE_PLUGIN_VERSION', '0.2.3' );
+
+// We set the slug for the plugin here.
+// This slug will be used to identify the plugin instance from the WP_Applucation container
+defined( 'ENPII_BASE_PLUGIN_SLUG' ) || define( 'ENPII_BASE_PLUGIN_SLUG', 'enpii-base' );
+
 // The prefix for wp_app request
 defined( 'ENPII_BASE_WP_APP_PREFIX' ) || define(
 	'ENPII_BASE_WP_APP_PREFIX',
