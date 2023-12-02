@@ -1,4 +1,6 @@
 <?php
+$enpii_base_existed = defined( 'ENPII_BASE_PLUGIN_VERSION' );
+
 // General fixed constants
 defined( 'DIR_SEP' ) || define( 'DIR_SEP', DIRECTORY_SEPARATOR );
 
@@ -31,6 +33,7 @@ if ( version_compare( phpversion(), '8.1.0', '<' ) ) {
 	$autoload_file = __DIR__ . DIR_SEP . 'vendor' . DIR_SEP . 'autoload.php';
 }
 
-if (file_exists($autoload_file) && ! class_exists('\Enpii_Base\App\WP\WP_Application')) {
+if (file_exists($autoload_file) && !$enpii_base_existed) {
+	error_log(' autoload ');
 	require_once $autoload_file;
 }
