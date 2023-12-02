@@ -269,7 +269,7 @@ class WP_Application extends Application {
 
 	public function get_composer_path(): string
 	{
-		return dirname($this->resourcePath()). DIR_SEP . $this->get_composer_folder_name();
+		return defined('COMPOSER_VENDOR_DIR') ? COMPOSER_VENDOR_DIR : dirname($this->resourcePath()). DIR_SEP . $this->get_composer_folder_name();
 	}
 
 	public static function isset(): bool
