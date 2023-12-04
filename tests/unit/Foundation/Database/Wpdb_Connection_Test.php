@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii_Base\Tests\Unit\Database;
+namespace Enpii_Base\Tests\Unit\Foundation\Database;
 
 use Enpii_Base\Tests\Support\Unit\Libs\Unit_Test_Case;
 use Enpii_Base\Foundation\Database\Wpdb_Connection;
@@ -11,7 +11,7 @@ class Wpdb_Connection_Test extends Unit_Test_Case {
 	/**
 	 * @throws \ReflectionException
 	 */
-	public function testConstructor() {
+	public function test_constructor() {
 		$pdoMock = $this->getMockBuilder( PDO::class )
 						->disableOriginalConstructor()
 						->getMock();
