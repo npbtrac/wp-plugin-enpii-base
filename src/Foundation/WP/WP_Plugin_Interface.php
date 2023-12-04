@@ -14,4 +14,22 @@ interface WP_Plugin_Interface {
 	 * @return void
 	 */
 	public function manipulate_hooks(): void;
+
+	/**
+	 * The plugin should have a human readable name
+	 * @return string
+	 */
+	public function get_name(): string;
+
+	/**
+	 * The plugin should have a version for being tracked
+	 * @return string
+	 */
+	public function get_version(): string;
+
+	/**
+	 * The plugin should have a text domain
+	 * @return string
+	 */
+	public function get_text_domain(): string;
 }
