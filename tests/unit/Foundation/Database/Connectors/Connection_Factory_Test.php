@@ -1,6 +1,6 @@
 <?php
 
-namespace Enpii_Base\Tests\Unit\Database\Connectors;
+namespace Enpii_Base\Tests\Unit\Foundation\Database\Connectors;
 
 use Enpii_Base\Foundation\Database\Connectors\Connection_Factory;
 use Enpii_Base\Foundation\Database\Connectors\Wpdb_Connector;
