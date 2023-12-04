@@ -85,6 +85,21 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( 'admin_print_footer_scripts', [ $this, 'write_setup_client_script' ] );
 	}
 
+	public function get_name(): string
+	{
+		return 'Enpii Base';
+	}
+
+	public function get_version(): string
+	{
+		return ENPII_BASE_PLUGIN_VERSION;
+	}
+
+	public function get_text_domain(): string
+	{
+		return 'enpii';
+	}
+
 	public function bootstrap_wp_app(): void {
 		Init_WP_App_Bootstrap_Job::dispatchSync();
 	}
