@@ -12,15 +12,12 @@ use InvalidArgumentException;
 trait Config_Trait {
 	/**
 	 * Mass assign array values with properties that map array keys
-	 *
-	 * @param  array  $config
-	 * @param  bool  $strict  default = false, that means all existing keys should be assigned
-	 *                      if set to true, that means exception thrown if a key doesn't
-	 *                      match the object property
-	 *
+	 * @param array $config
+	 * @param bool $strict 	default = false, that means all existing keys should be assigned
+	 * 						if set to true, that means exception thrown if a key doesn't
+	 * 						match the object property
 	 * @return self
-	 * @throws InvalidArgumentException
-	 * @throws \Exception
+     * @throws InvalidArgumentException
 	 */
 	public function bind_config( array $config = [], bool $strict = false ): self {
 		if ( is_array( $config ) && ! empty( $config ) ) {
@@ -28,7 +25,7 @@ trait Config_Trait {
 				if ( property_exists( $this, $attr_name ) ) {
 					$this->$attr_name = $attr_value;
 				} elseif ( $strict ) {
-					throw new InvalidArgumentException( sprintf( 'Property "%s" does not exist in class "%s"', esc_html( $attr_name ), esc_html( __CLASS__ ) ) );
+					throw new InvalidArgumentException( sprintf( 'Property "%s" does not exist in class "%s"', $attr_name, __CLASS__ ) );
 				}
 			}
 		}

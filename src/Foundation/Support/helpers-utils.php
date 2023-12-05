@@ -46,7 +46,7 @@ if ( ! function_exists( 'dev_error_log' ) ) {
 		$log_message = '';
 		$log_message .= "Debugging dev_error_log \n======= Dev logging start here \n" . $dev_trace[0]['file'] . ':' . $dev_trace[0]['line'] . " \n";
 		foreach ( $vars as $index => $var ) {
-			$log_message .= "Var no $index: type ".gettype($var)." - " . VarDumper::dump( $var );
+			$log_message .= "Var no $index: type ".gettype($var)." - " . VarDumper::dump( $var ). " \n";
 		}
 		$log_message .= "\n======= Dev logging ends here\n\n\n\n";
 		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
@@ -73,7 +73,7 @@ if ( ! function_exists( 'dev_logger' ) ) {
 		$log_message = '';
 		$log_message .= "Debugging dev_logger \n======= Dev logging start here \n" . $dev_trace[0]['file'] . ':' . $dev_trace[0]['line'] . " \n";
 		foreach ( $vars as $index => $var ) {
-			$log_message .= "Var no $index: " . VarDumper::dump( $var );
+			$log_message .= "Var no $index: " . VarDumper::dump( $var ). "\n";
 
 		}
 		$log_message .= "\n======= Dev logging ends here\n\n\n\n";
