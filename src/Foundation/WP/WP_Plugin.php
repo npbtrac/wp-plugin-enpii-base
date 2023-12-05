@@ -78,6 +78,18 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 		return plugin_basename( $this->get_base_path().DIR_SEP.$this->get_plugin_slug().'.php' );
 	}
 
+	// phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	/**
+	 * Translate a text using the plugin's text domain
+	 *
+	 * @param mixed $untranslated_text Text to be translated
+	 * @return string Translated tet
+	 * @throws BindingResolutionException
+	 */
+	public function _t($untranslated_text) {
+		return __($untranslated_text, $this->get_text_domain());
+	}
+
 	protected function validate_needed_properties(): void {
 		foreach ( array( 'plugin_slug', 'base_path', 'base_url' ) as $property ) {
 			if ( empty( $this->$property ) ) {
