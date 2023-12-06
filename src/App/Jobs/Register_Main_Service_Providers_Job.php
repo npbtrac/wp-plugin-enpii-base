@@ -47,6 +47,7 @@ class Register_Main_Service_Providers_Job extends Base_Job {
 				\Enpii_Base\App\Providers\Session_Service_Provider::class,
 				\Enpii_Base\App\Providers\Auth_Service_Provider::class,
 				\Enpii_Base\App\Providers\Validation_Service_Provider::class,
+				\Enpii_Base\App\Providers\Translation_Service_Provider::class,
 			];
 		// We want to use the the WordPress filter to allow changing the
 		//  the Main Service Providers to load
