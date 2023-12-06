@@ -6,9 +6,11 @@ namespace Enpii_Base\Foundation\Bus;
 
 use Closure;
 use Illuminate\Contracts\Bus\Dispatcher;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Foundation\Bus\PendingChain;
 use Illuminate\Foundation\Bus\PendingDispatch;
 use Illuminate\Support\Fluent;
+use InvalidArgumentException;
 
 trait Dispatchable_Trait {
 	/**
@@ -67,6 +69,23 @@ trait Dispatchable_Trait {
 		return ! value( $boolean )
 			? new PendingDispatch( new static( ...$arguments ) )
 			: new Fluent();
+	}
+
+	/**
+	 * We want to execute the job right away
+	 * @param mixed $arguments
+	 * @return mixed
+	 * @throws BindingResolutionException
+	 * @throws InvalidArgumentException
+	 */
+	public static function executeNow(...$arguments) {
+		$command = new static( ...$arguments );
+		$handler = wp_app( Dispatcher::class )->getCommandHandler($command);
+		if ($handler) {
+            return $handler->handle($command);
+        } else {
+            return wp_app( )->call([$command, 'handle']);
+		}
 	}
 
 	/**
