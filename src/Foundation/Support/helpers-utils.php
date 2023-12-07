@@ -17,15 +17,24 @@ if ( ! function_exists( 'devd' ) ) {
 		// We want to put the file name and the 7 steps trace to know where
 		//  where the dump is produced
 		dump( array( '=== start of dump ===', $dev_trace[0]['file'] . ':' . $dev_trace[0]['line'], $dev_trace ) );
-		return dump( ...$vars );
+		if (!enpii_base_is_console_mode()) {
+			echo '<pre>';
+		}
+		echo '=== start of dump ===', $dev_trace[0]['file'] . ':' . $dev_trace[0]['line'].' ';
+		print_r($dev_trace);
+		foreach ($vars as $var) {
+			var_dump($var);
+		}
+		if (!enpii_base_is_console_mode()) {
+			echo '</pre>';
+		}
 	}
 }
 
 if ( ! function_exists( 'devdd' ) ) {
 	function devdd( ...$vars ): void {
-		$dev_trace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS, 7 );
-		dump( array( '=== start of dump ===', $dev_trace[0]['file'] . ':' . $dev_trace[0]['line'], $dev_trace ) );
-		dd( ...$vars );
+		devd(...$vars);
+		die(' end of devdd ');
 	}
 }
 
@@ -38,7 +47,7 @@ if ( ! function_exists( 'dev_error_log' ) ) {
 
 		VarDumper::setHandler(
 			function ( $var ) use ( $cloner ) {
-			// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
+				// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
 				return $var === false ? 'bool value false' : print_r( $var, true );
 			}
 		);
@@ -46,7 +55,7 @@ if ( ! function_exists( 'dev_error_log' ) ) {
 		$log_message = '';
 		$log_message .= "Debugging dev_error_log \n======= Dev logging start here \n" . $dev_trace[0]['file'] . ':' . $dev_trace[0]['line'] . " \n";
 		foreach ( $vars as $index => $var ) {
-			$log_message .= "Var no $index: type ".gettype($var)." - " . VarDumper::dump( $var ). " \n";
+			$log_message .= "Var no $index: type ".(gettype($var) === 'object' ? get_class($var) : gettype($var) )." - " . ($var === false ? 'bool value false' : json_encode($var, JSON_PRETTY_PRINT, 5)) . " \n";
 		}
 		$log_message .= "\n======= Dev logging ends here\n\n\n\n";
 		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump

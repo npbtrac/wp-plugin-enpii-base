@@ -15,6 +15,7 @@ class Init_WP_App_Bootstrap_Job extends Base_Job {
 	 * @return void
 	 */
 	public function handle(): void {
+		/** @var \Enpii_Base\App\WP\WP_Application $wp_app  */
 		$wp_app = wp_app();
 		$wp_app['env'] = wp_app_config( 'app.env' );
 
@@ -32,5 +33,11 @@ class Init_WP_App_Bootstrap_Job extends Base_Job {
 			\Illuminate\Contracts\Debug\ExceptionHandler::class,
 			\Enpii_Base\App\Exceptions\Handler::class
 		);
+
+		// As we may not use Contracts\Kernel::handle(), we need to call bootstrap method
+		//	to iinitialize all boostrappers
+		$wp_app->instance('request', \Enpii_Base\App\Http\Request::capture());
+		$wp_app->make(\Illuminate\Contracts\Http\Kernel::class)->bootstrap();
+		$wp_app->make(\Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 	}
 }
