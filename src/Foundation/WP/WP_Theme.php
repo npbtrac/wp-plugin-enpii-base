@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Enpii_Base\Foundation\WP;
 
-use Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\Support\ServiceProvider;
 use Enpii_Base\Foundation\Shared\Traits\Config_Trait;
 use Enpii_Base\Foundation\Shared\Traits\Accessor_Set_Get_Has_Trait;
+use Illuminate\Support\ServiceProvider;
 use InvalidArgumentException;
 
 /**
@@ -28,8 +28,9 @@ abstract class WP_Theme extends ServiceProvider implements WP_Theme_Interface {
 	 * We want to bind the the base params using an array
 	 *
 	 * @param array $base_params_arr
+	 *
 	 * @return void
-	 * @throws InvalidArgumentException
+	 * @throws InvalidArgumentException|\Exception
 	 */
 	public function bind_base_params( array $base_params_arr ): void {
 		$this->bind_config( $base_params_arr, true );
@@ -50,10 +51,10 @@ abstract class WP_Theme extends ServiceProvider implements WP_Theme_Interface {
 	/**
 	 * We want to get the views for each plugin by this order: child theme, parent theme, and the plugin it self
 	 */
-	protected function prepare_views_paths( $namespace ): void {
-		$this->loadViewsFrom( realpath( $this->get_base_path() ), $namespace );
+	protected function prepare_views_paths( $theme_namespace ): void {
+		$this->loadViewsFrom( realpath( $this->get_base_path() ), $theme_namespace );
 		if ( ! empty( $this->get_parent_base_path() ) ) {
-			$this->loadViewsFrom( realpath( $this->get_parent_base_path() ), $namespace );
+			$this->loadViewsFrom( realpath( $this->get_parent_base_path() ), $theme_namespace );
 		}
 	}
 }

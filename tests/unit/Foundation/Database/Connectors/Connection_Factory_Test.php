@@ -76,7 +76,7 @@ class Connection_Factory_Test extends Unit_Test_Case {
 		$config = [];
 
 		// Invoke the createConnection method
-		$result = $this->invoke_method( $this->connection_factory, 'createConnection', [ $driver, $connection, $database, $prefix, $config ] );
+		$result = $this->invoke_protected_method( $this->connection_factory, 'createConnection', [ $driver, $connection, $database, $prefix, $config ] );
 
 		// Assert that the result is an instance of Connection
 		$this->assertInstanceOf( Connection::class, $result );
@@ -102,7 +102,7 @@ class Connection_Factory_Test extends Unit_Test_Case {
 		$wpdb->db = $connection;
 
 		// Invoke the createConnection method
-		$result = $this->invoke_method( $this->connection_factory, 'createConnection', [ $driver, $wpdb->db, $database, $prefix, $config ] );
+		$result = $this->invoke_protected_method( $this->connection_factory, 'createConnection', [ $driver, $wpdb->db, $database, $prefix, $config ] );
 
 		// Assert that the result is an instance of Wpdb_Connection
 		$this->assertInstanceOf( Wpdb_Connection::class, $result );
@@ -119,7 +119,7 @@ class Connection_Factory_Test extends Unit_Test_Case {
 		$config     = [ 'customConfig' ];
 
 		// Invoke the createConnection method
-		$result = $this->invoke_method( $this->connection_factory, 'createConnection', [ $driver, $connection, $database, $prefix, $config ] );
+		$result = $this->invoke_protected_method( $this->connection_factory, 'createConnection', [ $driver, $connection, $database, $prefix, $config ] );
 
 		// Assert that the result is an instance of MySqlConnection
 		$this->assertInstanceOf( MySqlConnection::class, $result );

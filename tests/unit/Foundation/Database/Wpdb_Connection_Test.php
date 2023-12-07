@@ -20,7 +20,7 @@ class Wpdb_Connection_Test extends Unit_Test_Case {
 		];
 
 		$wpdb_connection = new Wpdb_Connection( $pdoMock, 'database', 'prefix', $config );
-		$property_value  = $this->get_class_property_value( $wpdb_connection, 'wpdb' );
+		$property_value  = $this->get_protected_property_value( $wpdb_connection, 'wpdb' );
 
 		// Verify that the $wpdb property is set correctly
 		$this->assertEquals( 'mock_wpdb_instance', $property_value );

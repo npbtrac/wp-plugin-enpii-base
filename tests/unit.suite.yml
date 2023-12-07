@@ -3,3 +3,14 @@ modules:
   enabled:
     - Asserts
     - Enpii_Base\Tests\Support\Helpers\Unit
+coverage:
+  enabled: true
+  include:
+    - src/*
+  exclude:
+    - src/Foundation/Shared/Interfaces/*
+    - src/Foundation/Shared/Traits/*
+  format: html
+  lower_limit: 50
+  upper_limit: 90
+  processUncoveredFiles: false
