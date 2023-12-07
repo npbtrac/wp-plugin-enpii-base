@@ -72,23 +72,6 @@ trait Dispatchable_Trait {
 	}
 
 	/**
-	 * We want to execute the job right away
-	 * @param mixed $arguments
-	 * @return mixed
-	 * @throws BindingResolutionException
-	 * @throws InvalidArgumentException
-	 */
-	public static function executeNow(...$arguments) {
-		$command = new static( ...$arguments );
-		$handler = wp_app( Dispatcher::class )->getCommandHandler($command);
-		if ($handler) {
-            return $handler->handle($command);
-        } else {
-            return wp_app( )->call([$command, 'handle']);
-		}
-	}
-
-	/**
 	 * Dispatch a command to its appropriate handler in the current process.
 	 * Inherited from Laravel Illuminate\Foundation\Bus\Dispatchable
 	 *

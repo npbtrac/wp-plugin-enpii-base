@@ -10,12 +10,14 @@ use Enpii_Base\App\Jobs\Process_WP_App_Request_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_Api_Routes_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_App_Routes_Job;
 use Enpii_Base\App\Jobs\Register_Main_Service_Providers_Job;
+use Enpii_Base\App\Jobs\Show_Admin_Notice_From_Flash_Messages_Job;
 use Enpii_Base\App\Jobs\Write_Setup_Client_Script_Job;
 use Enpii_Base\App\Queries\Add_Telescope_Tinker_Query;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\Response;
 use Enpii_Base\Foundation\WP\WP_Plugin;
 use Exception;
+use Illuminate\Support\Facades\Session;
 use InvalidArgumentException;
 use WP_CLI;
 use WP_Query;
@@ -70,7 +72,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( 'enpii_base_wp_app_bootstrap', [ $this, 'bootstrap_wp_app' ], 5 );
 
 		// We want to start processing wp-app requests after all plugins and theme loaded
-		add_action( 'enpii_base_wp_app_init', [ $this, 'register_main_service_providers' ] );
+		add_action( 'enpii_base_wp_app_init', [ $this, 'register_main_service_providers' ], -100 );
 
 		add_action( 'enpii_base_wp_app_register_routes', [ $this, 'register_base_wp_app_routes' ] );
 		add_action( 'enpii_base_wp_api_register_routes', [ $this, 'register_base_wp_api_routes' ] );
@@ -83,6 +85,9 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		}
 
 		add_action( 'admin_print_footer_scripts', [ $this, 'write_setup_client_script' ] );
+
+		add_action( 'admin_head', [ $this, 'handle_admin_head' ] );
+
 	}
 
 	public function get_name(): string
@@ -257,6 +262,16 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	}
 
 	/**
+	 * We want to put all handler for Admin Head here
+	 *
+	 * @return void
+	 * @throws BindingResolutionException
+	 */
+	public function handle_admin_head() {
+		Show_Admin_Notice_From_Flash_Messages_Job::dispatchSync();
+	}
+
+	/**
 	 * All hooks created by this plugin should be enrolled here
 	 * @return void
 	 */
@@ -280,6 +295,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 
 		// For `enpii_base_wp_app_init`
 		//	We want this hook works after all the init steps worked on all plugins
+		//	for other plugins can hook to this process
 		add_action( 'init', [$this, 'wp_app_init'], 999999 );
 
 		if (wp_app()->is_wp_app_mode() || wp_app()->is_wp_api_mode()) {

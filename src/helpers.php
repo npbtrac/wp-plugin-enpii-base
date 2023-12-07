@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 use Illuminate\Filesystem\Filesystem;
 
+if ( ! function_exists( 'enpii_base_is_console_mode' ) ) {
+	function enpii_base_is_console_mode(): bool {
+		return (\PHP_SAPI === 'cli' || \PHP_SAPI === 'phpdbg');
+	}
+}
+
 if ( ! function_exists( 'enpii_base_get_major_version' ) ) {
 	function enpii_base_get_major_version( $version ): int {
 		$parts = explode( '.', $version );
