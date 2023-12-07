@@ -3,7 +3,7 @@
         'name' => 'enpii/enpii-base',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => '15e8cb5ff1608a6f67e6ea10e89a281ce5c86828',
+        'reference' => '20e7c9a7ecc862fa187280bbd2a5aaddb38965a6',
         'type' => 'wordpress-muplugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -67,7 +67,7 @@
         'enpii/enpii-base' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => '15e8cb5ff1608a6f67e6ea10e89a281ce5c86828',
+            'reference' => '20e7c9a7ecc862fa187280bbd2a5aaddb38965a6',
             'type' => 'wordpress-muplugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -523,8 +523,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
