@@ -87,7 +87,6 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( 'admin_print_footer_scripts', [ $this, 'write_setup_client_script' ] );
 
 		add_action( 'admin_head', [ $this, 'handle_admin_head' ] );
-
 	}
 
 	public function get_name(): string

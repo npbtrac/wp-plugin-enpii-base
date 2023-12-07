@@ -45,7 +45,7 @@ class Job_Make_Command extends JobMakeCommand {
 
 			return false;
 		}
-
+		// phpcs:ignore Generic.Strings.UnnecessaryStringConcat.Found
 		$name = ! empty( $this->get_base_namespace_option() ) ? $this->get_base_namespace_option() . '\\' . '\\' . $this->getNameInput() : $this->qualifyClass( $this->getNameInput() );
 
 		$path = ! empty( $this->get_target_path_option() ) ? $this->get_target_path_option() . DIR_SEP . $this->getNameInput() : $this->getPath( $name );
@@ -124,15 +124,15 @@ class Job_Make_Command extends JobMakeCommand {
 	 */
 	protected function replaceNamespace( &$stub, $name ) {
 		$searches = [
-			array( 'DummyNamespace', 'DummyRootNamespace', 'NamespacedDummyUserModel' ),
-			array( '{{ namespace }}', '{{ rootNamespace }}', '{{ namespacedUserModel }}' ),
-			array( '{{namespace}}', '{{rootNamespace}}', '{{namespacedUserModel}}' ),
+			[ 'DummyNamespace', 'DummyRootNamespace', 'NamespacedDummyUserModel' ],
+			[ '{{ namespace }}', '{{ rootNamespace }}', '{{ namespacedUserModel }}' ],
+			[ '{{namespace}}', '{{rootNamespace}}', '{{namespacedUserModel}}' ],
 		];
 
 		foreach ( $searches as $search ) {
 			$stub = str_replace(
 				$search,
-				array( $this->getNamespace( $name ), $this->rootNamespace(), $this->userProviderModel() ),
+				[ $this->getNamespace( $name ), $this->rootNamespace(), $this->userProviderModel() ],
 				$stub
 			);
 		}
@@ -150,7 +150,7 @@ class Job_Make_Command extends JobMakeCommand {
 	protected function replaceClass( $stub, $name ) {
 		$class = str_replace( $this->getNamespace( $name ) . '\\', '', $name );
 
-		return str_replace( array( 'DummyClass', '{{ class }}', '{{class}}' ), $class, $stub );
+		return str_replace( [ 'DummyClass', '{{ class }}', '{{class}}' ], $class, $stub );
 	}
 
 	/**
@@ -173,10 +173,12 @@ class Job_Make_Command extends JobMakeCommand {
 
 	/**
 	 * Some namespace may have duplicated `\` backslash character, we need to repair it
-	 * @param mixed $namespace
+	 *
+	 * @param mixed  $namespace_to_repair
+	 *
 	 * @return void
 	 */
-	protected function correct_namespace( $namespace ) {
-		return str_replace( '\\\\', '\\', $namespace );
+	protected function correct_namespace(mixed $namespace_to_repair ) {
+		return str_replace( '\\\\', '\\', $namespace_to_repair );
 	}
 }

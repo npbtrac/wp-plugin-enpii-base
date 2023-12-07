@@ -4,13 +4,13 @@ namespace Enpii_Base\Tests\Support\Helpers;
 
 use ReflectionClass;
 
-trait Test_Utils {
+trait Test_Utils_Trait {
 
 	/**
 	 * @description: For testing protected, private method in class
 	 * @throws \ReflectionException
 	 */
-	protected function invoke_method( &$class_object, $method_name, array $method_parameters = [] ) {
+	protected function invoke_protected_method( &$class_object, $method_name, array $method_parameters = [] ) {
 		$reflection = new ReflectionClass( get_class( $class_object ) );
 		$method     = $reflection->getMethod( $method_name );
 		$method->setAccessible( true );
@@ -26,7 +26,7 @@ trait Test_Utils {
 	 *
 	 * @throws \ReflectionException
 	 */
-	protected function get_class_property_value( object $class_object, string $property_name ) {
+	protected function get_protected_property_value( object $class_object, string $property_name ) {
 		$reflection = new \ReflectionClass( get_class( $class_object ) );
 		$property   = $reflection->getProperty( $property_name );
 		$property->setAccessible( true );
@@ -43,7 +43,7 @@ trait Test_Utils {
 	 *
 	 * @throws \ReflectionException
 	 */
-	protected function set_class_property_value( object $class_object, string $property, mixed $value ): void {
+	protected function set_property_value( object $class_object, string $property, mixed $value ): void {
 		$reflection = new \ReflectionClass( get_class( $class_object ) );
 		$property   = $reflection->getProperty( $property );
 		$property->setAccessible( true );

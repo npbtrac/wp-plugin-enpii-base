@@ -24,7 +24,9 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 	use Accessor_Set_Get_Has_Trait;
 
 	protected $plugin_slug;
+	// phpcs:ignore PHPCompatibility.Classes.NewTypedProperties.Found
 	protected $base_path;
+	// phpcs:ignore PHPCompatibility.Classes.NewTypedProperties.Found
 	protected $base_url;
 
 	/**
@@ -91,12 +93,14 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 	}
 
 	protected function validate_needed_properties(): void {
-		foreach ( array( 'plugin_slug', 'base_path', 'base_url' ) as $property ) {
+		foreach ( [ 'plugin_slug', 'base_path', 'base_url' ] as $property ) {
 			if ( empty( $this->$property ) ) {
 				throw new InvalidArgumentException(
 					sprintf(
 						'Property %s must be set for %s',
+						// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
 						$property,
+						// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
 						get_class( $this )
 					)
 				);
