@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii_Base\App\Providers;
+namespace Enpii_Base\App\Providers\Support;
 
 use Enpii_Base\App\Console\Commands\Job_Make_Command;
 use Illuminate\Foundation\Providers\ArtisanServiceProvider;

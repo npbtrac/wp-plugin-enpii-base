@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Providers;
 
+use Enpii_Base\App\Support\App_Const;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\View\ViewServiceProvider;
 
 class View_Service_Provider extends ViewServiceProvider {
 	public function register() {
-		$this->before_register();
+		$this->fetch_config();
 
 		parent::register();
 	}
@@ -20,13 +21,13 @@ class View_Service_Provider extends ViewServiceProvider {
 		$view->addExtension( 'php', 'blade' );
 	}
 
-	protected function before_register(): void {
+	protected function fetch_config(): void {
 		wp_app_config(
 			[
 				'view' => apply_filters(
-					'enpii_base_wp_app_view_config',
+					App_Const::FILTER_WP_APP_VIEW_CONFIG,
 					[
-						'paths'    => $this->generate_view_storage_paths(),
+						'paths' => $this->generate_view_storage_paths(),
 						'compiled' => $this->generate_view_compiled_path(),
 					]
 				),

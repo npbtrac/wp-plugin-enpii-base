@@ -9,7 +9,6 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Mix;
 use Enpii_Base\Foundation\WP\WP_Plugin_Interface;
 use Enpii_Base\Foundation\WP\WP_Theme_Interface;
-use Illuminate\Support\Env;
 use InvalidArgumentException;
 use RuntimeException;
 use TypeError;
@@ -324,16 +323,13 @@ class WP_Application extends Application {
      * @return void
      */
     protected function registerBaseServiceProviders() {
-		// We allow to change the Base Service Providers via WordPress filter
-		$providers = apply_filters(
-			'enpii_base_wp_app_base_service_providers',
-			[
-				\Enpii_Base\App\Providers\Event_Service_Provider::class,
-				\Enpii_Base\App\Providers\Log_Service_Provider::class,
-				\Enpii_Base\App\Providers\Routing_Service_Provider::class,
-				\Enpii_Base\App\Providers\Bus_Service_Provider::class,
-			]
-		);
+		$providers = [
+			\Enpii_Base\App\Providers\Event_Service_Provider::class,
+			\Enpii_Base\App\Providers\Log_Service_Provider::class,
+			\Enpii_Base\App\Providers\Routing_Service_Provider::class,
+			\Enpii_Base\App\Providers\Bus_Service_Provider::class,
+		];
+
 		foreach ($providers as $provider_classname) {
 			$this->register( $provider_classname );
 		}

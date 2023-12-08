@@ -2,23 +2,24 @@
 
 declare(strict_types=1);
 
-namespace Enpii_Base\App\Providers;
+namespace Enpii_Base\App\Providers\Support;
 
+use Enpii_Base\App\Support\App_Const;
 use Illuminate\Foundation\Application;
 use Laravel\Telescope\TelescopeServiceProvider;
 
 class Telescope_Service_Provider extends TelescopeServiceProvider {
 	public function register() {
-		$this->before_register();
+		$this->fetch_config();
 
 		parent::register();
 	}
 
-	protected function before_register(): void {
+	protected function fetch_config(): void {
 		wp_app_config(
 			[
 				'telescope' => apply_filters(
-					'enpii_base_wp_app_telescope_config',
+					App_Const::FILTER_WP_APP_TELESCOPE_CONFIG,
 					$this->get_default_config()
 				),
 			]
@@ -27,7 +28,6 @@ class Telescope_Service_Provider extends TelescopeServiceProvider {
 
 	protected function get_default_config(): array {
 		$config = [
-
 			/*
 			|--------------------------------------------------------------------------
 			| Telescope Domain

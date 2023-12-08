@@ -2,14 +2,15 @@
 
 declare(strict_types=1);
 
-namespace Enpii_Base\App\Providers;
+namespace Enpii_Base\App\Providers\Support;
 
 use Enpii_Base\App\Console\Commands\Tinker\Tinker_Command;
+use Enpii_Base\App\Support\App_Const;
 use Laravel\Tinker\TinkerServiceProvider;
 
 class Tinker_Service_Provider extends TinkerServiceProvider {
 	public function register() {
-		$this->before_register();
+		$this->fetch_config();
 
 		$this->app->singleton(
 			'command.tinker',
@@ -21,11 +22,11 @@ class Tinker_Service_Provider extends TinkerServiceProvider {
 		$this->commands( array( 'command.tinker' ) );
 	}
 
-	protected function before_register(): void {
+	protected function fetch_config(): void {
 		wp_app_config(
 			array(
 				'tinker' => apply_filters(
-					'enpii_base_wp_app_tinker_config',
+					App_Const::FILTER_WP_APP_TINKER_CONFIG,
 					$this->get_default_config()
 				),
 			)

@@ -17,7 +17,6 @@ use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\Response;
 use Enpii_Base\Foundation\WP\WP_Plugin;
 use Exception;
-use Illuminate\Support\Facades\Session;
 use InvalidArgumentException;
 use WP_CLI;
 use WP_Query;
@@ -71,8 +70,8 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		// We want to initialize wp_app bootstrap after plugins loaded
 		add_action( 'enpii_base_wp_app_bootstrap', [ $this, 'bootstrap_wp_app' ], 5 );
 
-		// We want to start processing wp-app requests after all plugins and theme loaded
-		add_action( 'enpii_base_wp_app_init', [ $this, 'register_main_service_providers' ], -100 );
+		// // We want to start processing wp-app requests after all plugins and theme loaded
+		// add_action( 'enpii_base_wp_app_init', [ $this, 'register_main_service_providers' ], -100 );
 
 		add_action( 'enpii_base_wp_app_register_routes', [ $this, 'register_base_wp_app_routes' ] );
 		add_action( 'enpii_base_wp_api_register_routes', [ $this, 'register_base_wp_api_routes' ] );
@@ -290,7 +289,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	private function enroll_self_hooks(): void {
 		// For `enpii_base_wp_app_bootstrap`
 		//	We add this hook to perform the bootstrap actions needed for WP App
-		add_action( 'plugins_loaded', [ $this, 'wp_app_bootstrap' ], 5 );
+		add_action( 'after_setup_theme', [ $this, 'wp_app_bootstrap' ], 5 );
 
 		// For `enpii_base_wp_app_init`
 		//	We want this hook works after all the init steps worked on all plugins
