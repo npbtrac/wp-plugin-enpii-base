@@ -13,6 +13,7 @@ use Enpii_Base\App\Jobs\Register_Main_Service_Providers_Job;
 use Enpii_Base\App\Jobs\Show_Admin_Notice_From_Flash_Messages_Job;
 use Enpii_Base\App\Jobs\Write_Setup_Client_Script_Job;
 use Enpii_Base\App\Queries\Add_Telescope_Tinker_Query;
+use Enpii_Base\App\Support\App_Const;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\Response;
 use Enpii_Base\Foundation\WP\WP_Plugin;
@@ -45,7 +46,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 
 	public function boot() {
 		// We trigger the action when wp_app is registered
-		do_action( 'enpii_base_wp_app_registered' );
+		do_action( App_Const::ACTION_WP_APP_REGISTERED );
 
 		if ($this->app->runningInConsole()) {
 			// Register migrations rules
@@ -68,15 +69,12 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 
 		/** WP App hooks */
 		// We want to initialize wp_app bootstrap after plugins loaded
-		add_action( 'enpii_base_wp_app_bootstrap', [ $this, 'bootstrap_wp_app' ], 5 );
+		add_action( App_Const::ACTION_WP_APP_BOOTSTRAP, [ $this, 'bootstrap_wp_app' ], 5 );
 
-		// // We want to start processing wp-app requests after all plugins and theme loaded
-		// add_action( 'enpii_base_wp_app_init', [ $this, 'register_main_service_providers' ], -100 );
+		add_action( App_Const::ACTION_WP_APP_REGISTER_ROUTES, [ $this, 'register_base_wp_app_routes' ] );
+		add_action( App_Const::ACTION_WP_API_REGISTER_ROUTES, [ $this, 'register_base_wp_api_routes' ] );
 
-		add_action( 'enpii_base_wp_app_register_routes', [ $this, 'register_base_wp_app_routes' ] );
-		add_action( 'enpii_base_wp_api_register_routes', [ $this, 'register_base_wp_api_routes' ] );
-
-		add_filter( 'enpii_base_wp_app_main_service_providers' , [ $this, 'register_telescope_tinker' ] );
+		add_filter( App_Const::FILTER_WP_APP_MAIN_SERVICE_PROVIDERS , [ $this, 'register_telescope_tinker' ] );
 
 		/** Other hooks */
 		if ($this->is_blade_for_template_available()) {
@@ -150,7 +148,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 * @return void
 	 */
 	public function wp_app_bootstrap(): void {
-		do_action( 'enpii_base_wp_app_bootstrap' );
+		do_action( App_Const::ACTION_WP_APP_BOOTSTRAP );
 	}
 
 	/**
@@ -158,7 +156,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 * @return void
 	 */
 	public function wp_app_init(): void {
-		do_action( 'enpii_base_wp_app_init' );
+		do_action( App_Const::ACTION_WP_APP_INIT );
 	}
 
 	/**
@@ -167,7 +165,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 * @return bool
 	 */
 	public function wp_app_parse_request(): bool {
-		do_action( 'enpii_base_wp_app_parse_request' );
+		do_action( App_Const::ACTION_WP_APP_PARSE_REQUEST );
 
 		return false;
 	}
@@ -182,7 +180,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	public function skip_wp_main_query( $request, $query ) {
 		/** @var WP_Query $query */
 		if( $query->is_main_query() && ! $query->is_admin ) {
-			do_action( 'enpii_base_wp_app_do_wp_main_query', $request, $query );
+			do_action( App_Const::ACTION_WP_APP_DO_WP_MAIN_QUERY, $request, $query );
 
 			return false;
 		}
@@ -202,7 +200,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 * @return mixed
 	 */
 	public function skip_wp_template_include( $template ) {
-		do_action( 'enpii_base_wp_app_render_wp_template', $template );
+		do_action( App_Const::ACTION_WP_APP_RENDER_WP_TEMPLATE, $template );
 
 		return false;
 	}
@@ -213,7 +211,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 * @return mixed
 	 */
 	public function skip_use_wp_theme() {
-		do_action( 'enpii_base_wp_app_skip_use_wp_theme' );
+		do_action( App_Const::ACTION_WP_APP_SKIP_USE_WP_THEME );
 
 		return false;
 	}
@@ -243,7 +241,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 
 	public function wp_app_complete_execution(): void {
 		// We only want to run this
-		do_action( 'enpii_base_wp_app_complete_execution' );
+		do_action( App_Const::ACTION_WP_APP_COMPLETE_EXECUTION );
 
 		if (\function_exists('fastcgi_finish_request')) {
             fastcgi_finish_request();
