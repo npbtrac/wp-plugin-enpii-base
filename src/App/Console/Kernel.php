@@ -13,19 +13,18 @@ class Kernel extends ConsoleKernel {
 
 	/**
 	 * The bootstrap classes for the application.
-   * 	As we are loading configurations from memory (array) with WP_Application
-	 * 	  we don't need to load config from files.
-	 * 	  So we exclude `\Illuminate\Foundation\Bootstrap\LoadConfiguration`
+   	 * 	As we are loading configurations from memory (array) with WP_Application
+	 *	we don't need to load config from files.
+	 *	So we exclude `\Illuminate\Foundation\Bootstrap\LoadConfiguration`
 	 *
 	 * @var array
 	 */
 	protected $bootstrappers = [
-		\Illuminate\Foundation\Bootstrap\LoadEnvironmentVariables::class,
-    \Illuminate\Foundation\Bootstrap\HandleExceptions::class,
-    \Illuminate\Foundation\Bootstrap\RegisterFacades::class,
-    \Illuminate\Foundation\Bootstrap\SetRequestForConsole::class,
-    \Illuminate\Foundation\Bootstrap\RegisterProviders::class,
-    \Illuminate\Foundation\Bootstrap\BootProviders::class,
+		\Illuminate\Foundation\Bootstrap\HandleExceptions::class,
+		\Illuminate\Foundation\Bootstrap\RegisterFacades::class,
+		\Illuminate\Foundation\Bootstrap\SetRequestForConsole::class,
+		\Illuminate\Foundation\Bootstrap\RegisterProviders::class,
+		\Illuminate\Foundation\Bootstrap\BootProviders::class,
 	];
 
 	/**
@@ -60,6 +59,6 @@ class Kernel extends ConsoleKernel {
 			function () {
 				$this->comment( 'Hello from wp_app()' );
 			}
-		)->describe( 'Display an inspiring quote' );
+		)->describe( 'Display a message from Enpii Base plugin' );
 	}
 }

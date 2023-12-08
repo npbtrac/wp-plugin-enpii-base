@@ -21,8 +21,8 @@ class Add_Telescope_Tinker_Query extends Base_Query {
 		$providers = array_merge(
 			$this->providers,
 			[
-				\Enpii_Base\App\Providers\Telescope_Service_Provider::class,
-				\Enpii_Base\App\Providers\Tinker_Service_Provider::class,
+				\Enpii_Base\App\Providers\Support\Telescope_Service_Provider::class,
+				\Enpii_Base\App\Providers\Support\Tinker_Service_Provider::class,
 			]
 		);
 

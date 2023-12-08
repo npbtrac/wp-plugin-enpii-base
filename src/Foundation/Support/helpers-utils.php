@@ -12,22 +12,17 @@ use Symfony\Component\VarDumper\VarDumper;
  */
 if ( ! function_exists( 'devd' ) ) {
 	function devd( ...$vars ) {
-		$dev_trace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS, 7 );
+		$dev_trace = debug_backtrace( DEBUG_BACKTRACE_IGNORE_ARGS, 50 );
 
 		// We want to put the file name and the 7 steps trace to know where
 		//  where the dump is produced
-		dump( array( '=== start of dump ===', $dev_trace[0]['file'] . ':' . $dev_trace[0]['line'], $dev_trace ) );
 		if (!enpii_base_is_console_mode()) {
-			echo '<pre>';
+			echo 'Traceback: ';
+			dump( $dev_trace );
 		}
-		echo '=== start of dump ===', $dev_trace[0]['file'] . ':' . $dev_trace[0]['line'].' ';
-		print_r($dev_trace);
-		foreach ($vars as $var) {
-			var_dump($var);
-		}
-		if (!enpii_base_is_console_mode()) {
-			echo '</pre>';
-		}
+
+		echo '=== start of dump === '. $dev_trace[0]['file'] . ':' . $dev_trace[0]['line'].': '. "\n";
+		dump(...$vars);
 	}
 }
 
@@ -40,22 +35,20 @@ if ( ! function_exists( 'devdd' ) ) {
 
 if ( ! function_exists( 'dev_error_log' ) ) {
 	function dev_error_log( ...$vars ): void {
-		$cloner = new VarCloner();
-		$cloner->addCasters( ReflectionCaster::UNSET_CLOSURE_FILE_INFO );
-
-		$dev_trace = debug_backtrace( DEBUG_BACKTRACE_PROVIDE_OBJECT, 7 );
-
-		VarDumper::setHandler(
-			function ( $var ) use ( $cloner ) {
-				// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
-				return $var === false ? 'bool value false' : print_r( $var, true );
-			}
-		);
+		$dev_trace = debug_backtrace( DEBUG_BACKTRACE_PROVIDE_OBJECT, 1 );
 
 		$log_message = '';
 		$log_message .= "Debugging dev_error_log \n======= Dev logging start here \n" . $dev_trace[0]['file'] . ':' . $dev_trace[0]['line'] . " \n";
 		foreach ( $vars as $index => $var ) {
-			$log_message .= "Var no $index: type ".(gettype($var) === 'object' ? get_class($var) : gettype($var) )." - " . ($var === false ? 'bool value false' : json_encode($var, JSON_PRETTY_PRINT, 5)) . " \n";
+			$dump_content = null;
+			if ($var === false) {
+				$type = 'NULL';
+			} else {
+				$type = is_object($var) ? get_class($var) : gettype($var);
+
+				$dump_content = is_object($var) ? json_encode($var, JSON_PRETTY_PRINT, 7) : var_export($var, true);
+			}
+			$log_message .= "Var no $index: type ".$type." - " . $dump_content . " \n";
 		}
 		$log_message .= "\n======= Dev logging ends here\n\n\n\n";
 		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_dump
@@ -69,7 +62,7 @@ if ( ! function_exists( 'dev_logger' ) ) {
 		$cloner->addCasters( ReflectionCaster::UNSET_CLOSURE_FILE_INFO );
 		$dumper = new CliDumper();
 
-		$dev_trace = debug_backtrace( DEBUG_BACKTRACE_PROVIDE_OBJECT, 7 );
+		$dev_trace = debug_backtrace( DEBUG_BACKTRACE_PROVIDE_OBJECT, 1 );
 
 		VarDumper::setHandler(
 			function ( $var ) use ( $cloner, $dumper ) {

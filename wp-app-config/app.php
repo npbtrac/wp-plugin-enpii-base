@@ -122,6 +122,37 @@ return [
 
 	'cipher' => 'AES-256-CBC',
 
+	'providers' => [
+		\Enpii_Base\App\Providers\Auth_Service_Provider::class,
+		\Enpii_Base\App\Providers\Broadcast_Service_Provider::class,
+		\Enpii_Base\App\Providers\Cache_Service_Provider::class,
+		\Enpii_Base\App\Providers\Console_Support_Service_Provider::class,
+		\Enpii_Base\App\Providers\Cookie_Service_Provider::class,
+		\Enpii_Base\App\Providers\Database_Service_Provider::class,
+		\Enpii_Base\App\Providers\Encryption_Service_Provider::class,
+		\Enpii_Base\App\Providers\Filesystem_Service_Provider::class,
+		\Enpii_Base\App\Providers\Foundation_Service_Provider::class,
+		\Enpii_Base\App\Providers\Hash_Service_Provider::class,
+		\Enpii_Base\App\Providers\Mail_Service_Provider::class,
+		\Enpii_Base\App\Providers\Notification_Service_Provider::class,
+		\Enpii_Base\App\Providers\Pagination_Service_Provider::class,
+		\Enpii_Base\App\Providers\Pipeline_Service_Provider::class,
+		\Enpii_Base\App\Providers\Queue_Service_Provider::class,
+		\Enpii_Base\App\Providers\Redis_Service_Provider::class,
+		\Enpii_Base\App\Providers\Password_Reset_Service_Provider::class,
+		\Enpii_Base\App\Providers\Session_Service_Provider::class,
+		\Enpii_Base\App\Providers\Translation_Service_Provider::class,
+		\Enpii_Base\App\Providers\Validation_Service_Provider::class,
+		\Enpii_Base\App\Providers\View_Service_Provider::class,
+
+		\Enpii_Base\App\Providers\Support\App_Service_Provider::class,
+		\Enpii_Base\App\Providers\Support\Artisan_Service_Provider::class,
+		\Enpii_Base\App\Providers\Support\Broadcast_Service_Provider::class,
+		\Enpii_Base\App\Providers\Support\Auth_Service_Provider::class,
+		\Enpii_Base\App\Providers\Support\Event_Service_Provider::class,
+		\Enpii_Base\App\Providers\Support\Route_Service_Provider::class,
+	],
+
 	'aliases' => [
 		'App' => \Illuminate\Support\Facades\App::class,
         'Artisan' => \Illuminate\Support\Facades\Artisan::class,

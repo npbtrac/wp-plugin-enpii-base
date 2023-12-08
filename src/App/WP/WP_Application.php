@@ -4,12 +4,16 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\WP;
 
+use Enpii_Base\App\Support\App_Const;
 use Illuminate\Config\Repository;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Mix;
 use Enpii_Base\Foundation\WP\WP_Plugin_Interface;
 use Enpii_Base\Foundation\WP\WP_Theme_Interface;
-use Illuminate\Support\Env;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Foundation\PackageManifest;
+use Illuminate\Foundation\ProviderRepository;
+use Illuminate\Support\Collection;
 use InvalidArgumentException;
 use RuntimeException;
 use TypeError;
@@ -18,7 +22,6 @@ use TypeError;
  * @package Enpii_Base\App\WP
  */
 class WP_Application extends Application {
-
 	/**
      * We override the parent instance for not messing up with other application
      *
@@ -91,6 +94,27 @@ class WP_Application extends Application {
 		}
 
         return parent::runningInConsole();
+    }
+
+	/**
+     * @inheritDoc
+     */
+    public function registerConfiguredProviders()
+    {
+		$providers_list = apply_filters(
+			App_Const::FILTER_WP_APP_MAIN_SERVICE_PROVIDERS,
+			$this->config['app.providers']
+		);
+        $providers = Collection::make($providers_list)
+                        ->partition(function ($provider) {
+                            return (strpos($provider, 'Enpii_Base\\') === 0) ||
+								(strpos($provider, 'Illuminate\\') === 0);
+                        });
+
+		$providers->splice(1, 0, [$this->make(PackageManifest::class)->providers()]);
+
+        (new ProviderRepository($this, new Filesystem, $this->getCachedServicesPath()))
+                    ->load($providers->collapse()->toArray());
     }
 
 	/**
@@ -282,26 +306,6 @@ class WP_Application extends Application {
      *
      * @return void
      */
-    protected function bindPathsInContainer()
-    {
-        $this->instance('path', $this->path());
-        $this->instance('path.base', $this->basePath());
-		$this->instance('path.lang', $this->langPath());
-        $this->instance('path.config', $this->configPath());
-        $this->instance('path.public', $this->publicPath());
-        $this->instance('path.storage', $this->storagePath());
-        $this->instance('path.database', $this->databasePath());
-        $this->instance('path.resources', $this->resourcePath());
-        $this->instance('path.bootstrap', $this->bootstrapPath());
-
-		parent::bindPathsInContainer();
-    }
-
-	/**
-     * @inheritedDoc
-     *
-     * @return void
-     */
     protected function registerBaseBindings() {
         parent::registerBaseBindings();
 
@@ -324,16 +328,13 @@ class WP_Application extends Application {
      * @return void
      */
     protected function registerBaseServiceProviders() {
-		// We allow to change the Base Service Providers via WordPress filter
-		$providers = apply_filters(
-			'enpii_base_wp_app_base_service_providers',
-			[
-				\Enpii_Base\App\Providers\Event_Service_Provider::class,
-				\Enpii_Base\App\Providers\Log_Service_Provider::class,
-				\Enpii_Base\App\Providers\Routing_Service_Provider::class,
-				\Enpii_Base\App\Providers\Bus_Service_Provider::class,
-			]
-		);
+		$providers = [
+			\Enpii_Base\App\Providers\Event_Service_Provider::class,
+			\Enpii_Base\App\Providers\Log_Service_Provider::class,
+			\Enpii_Base\App\Providers\Routing_Service_Provider::class,
+			\Enpii_Base\App\Providers\Bus_Service_Provider::class,
+		];
+
 		foreach ($providers as $provider_classname) {
 			$this->register( $provider_classname );
 		}

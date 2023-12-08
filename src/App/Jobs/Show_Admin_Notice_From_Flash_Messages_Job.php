@@ -20,7 +20,7 @@ class Show_Admin_Notice_From_Flash_Messages_Job extends Base_Job {
 		foreach (['error', 'success', 'warning', 'info'] as $type) {
 			if (Session::has($type)) {
 				wp_admin_notice(
-					implode('<br />', Session::get($type)),
+					$this->build_html_messages((array) Session::get($type)),
 					[
 						'dismissible' => false,
 						'type' => $type,
@@ -28,5 +28,9 @@ class Show_Admin_Notice_From_Flash_Messages_Job extends Base_Job {
 				);
 			}
 		}
+	}
+
+	protected function build_html_messages(array $messages): string {
+		return implode('<br />', $messages);
 	}
 }
