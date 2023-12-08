@@ -1,0 +1,104 @@
+name: "Lint"
+
+#
+# Based on workflows from Composer:
+# 
+# * https://github.com/composer/composer/blob/2.5.4/.github/workflows/lint.yml
+# * https://github.com/composer/composer/blob/2.5.4/.github/workflows/phpstan.yml
+#
+
+on:
+  workflow_dispatch:
+  push:
+    paths-ignore:
+      - 'docs/**'
+    tags-ignore:
+      - '**'
+  pull_request:
+    paths-ignore:
+      - 'docs/**'
+    tags-ignore:
+      - '**'
+
+env:
+  COMPOSER_FLAGS: "--ansi --no-interaction --prefer-dist"
+  SYMFONY_PHPUNIT_VERSION: ""
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: "Lint"
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version:
+          - "7.2"
+          - "latest"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v3"
+
+      - name: "Install PHP"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          coverage: "none"
+          extensions: "intl"
+          ini-values: "memory_limit=-1, error_reporting=E_ALL, display_errors=On"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Lint PHP files"
+        run: "find src/ -type f -name '*.php' -print0 | xargs -0 -L1 -P4 -- php -l -f"
+
+  phpstan:
+    name: "PHPStan"
+
+    runs-on: ubuntu-latest
+    continue-on-error: ${{ matrix.experimental }}
+
+    strategy:
+      matrix:
+        php-version:
+          - "7.2"
+          - "latest"
+
+    steps:
+      - name: "Checkout"
+        uses: "actions/checkout@v3"
+
+      - name: "Setup PHP"
+        uses: "shivammathur/setup-php@v2"
+        with:
+          coverage: "none"
+          extensions: "intl, zip"
+          ini-values: "memory_limit=-1"
+          php-version: "${{ matrix.php-version }}"
+
+      - name: "Determine Composer cache directory"
+        id: "determine-composer-cache-directory"
+        run: "echo \"directory=$(composer config cache-dir)\" >> $GITHUB_OUTPUT"
+
+      - name: "Cache dependencies installed with Composer"
+        uses: "actions/cache@v3"
+        with:
+          path: "${{ steps.determine-composer-cache-directory.outputs.directory }}"
+          key: "php-${{ matrix.php-version }}-symfony-php-unit-version-${{ env.SYMFONY_PHPUNIT_VERSION }}-${{ hashFiles('**/composer.lock') }}"
+          restore-keys: "php-${{ matrix.php-version }}-symfony-php-unit-version-${{ env.SYMFONY_PHPUNIT_VERSION }}"
+
+      - name: "Update dependencies from composer.json"
+        if: "matrix.experimental == true"
+        run: "composer config platform --unset && composer update ${{ env.COMPOSER_FLAGS }}"
+
+      - name: "Install dependencies from composer.lock"
+        if: "matrix.experimental == false"
+        run: "composer config platform --unset && composer install ${{ env.COMPOSER_FLAGS }}"
+
+      - name: "Initialize PHPUnit sources"
+        run: "vendor/bin/simple-phpunit --filter NO_TEST_JUST_AUTOLOAD_THANKS"
+
+      - name: "Run PHPStan"
+        run: "composer lint:phpstan"
