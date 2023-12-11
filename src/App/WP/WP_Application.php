@@ -161,31 +161,35 @@ class WP_Application extends Application {
 			]
 		);
 		$this->instance( $plugin_classsname, $plugin );
-		$this->alias( $plugin_classsname, $plugin_slug );
+		$this->alias( $plugin_classsname, 'plugin-' . $plugin_slug );
 		$this->register( $plugin );
 	}
 
 	public function register_theme(
 		$theme_classsname,
-		$theme_slug,
-		$theme_base_path,
-		$theme_base_url,
-		$parent_theme_base_path = null,
-		$parent_theme_base_url = null
+		$theme_slug
 	): void {
 		$theme = new $theme_classsname( $this );
 		if ( ! ( $theme instanceof WP_Theme_Interface ) ) {
 			throw new InvalidArgumentException( sprintf( 'The target classname %s must implement %s', $theme_classsname, WP_Theme_Interface::class ) );
 		}
 
-		if (get_template_directory() !== get_stylesheet_uri()) {
+		if (get_template_directory() !== get_stylesheet_directory()) {
+			$theme_base_path = get_stylesheet_directory();
+			$theme_base_url = get_stylesheet_directory_uri();
 			$parent_theme_base_path = get_template_directory();
 			$parent_theme_base_url = get_template_directory_uri();
+		} else {
+			$theme_base_path = get_template_directory();
+			$theme_base_url = get_template_directory_uri();
+			$parent_theme_base_path = null;
+			$parent_theme_base_url = null;
 		}
 
 		/** @var \Enpii_Base\Libs\WP_Theme $theme  */
 		$theme->bind_base_params(
 			[
+				WP_Theme_Interface::PARAM_KEY_THEME_SLUG => $theme_slug,
 				WP_Theme_Interface::PARAM_KEY_THEME_BASE_PATH => $theme_base_path,
 				WP_Theme_Interface::PARAM_KEY_THEME_BASE_URL  => $theme_base_url,
 				WP_Theme_Interface::PARAM_KEY_PARENT_THEME_BASE_PATH  => $parent_theme_base_path,
@@ -193,7 +197,7 @@ class WP_Application extends Application {
 			]
 		);
 		$this->instance( $theme_classsname, $theme );
-		$this->alias( $theme_classsname, $theme_slug );
+		$this->alias( $theme_classsname, 'theme-' . $theme_slug );
 		$this->register( $theme );
 	}
 
@@ -205,7 +209,7 @@ class WP_Application extends Application {
 	 * @return void
 	 */
 	public function register_routes($callback, $priority = 10, $accepted_args = 1): void {
-		add_action( 'enpii_base_wp_app_register_routes', $callback, $priority, $accepted_args );
+		add_action( App_Const::ACTION_WP_APP_REGISTER_ROUTES, $callback, $priority, $accepted_args );
 	}
 
 	/**
@@ -216,7 +220,7 @@ class WP_Application extends Application {
 	 * @return void
 	 */
 	public function register_api_routes($callback, $priority = 10, $accepted_args = 1): void {
-		add_action( 'enpii_base_wp_api_register_routes', $callback, $priority, $accepted_args );
+		add_action( App_Const::ACTION_WP_API_REGISTER_ROUTES, $callback, $priority, $accepted_args );
 	}
 
 	/**

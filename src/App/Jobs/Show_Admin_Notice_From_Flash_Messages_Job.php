@@ -22,7 +22,7 @@ class Show_Admin_Notice_From_Flash_Messages_Job extends Base_Job {
 				wp_admin_notice(
 					$this->build_html_messages((array) Session::get($type)),
 					[
-						'dismissible' => false,
+						'dismissible' => true,
 						'type' => $type,
 					]
 				);
@@ -31,6 +31,11 @@ class Show_Admin_Notice_From_Flash_Messages_Job extends Base_Job {
 	}
 
 	protected function build_html_messages(array $messages): string {
-		return implode('<br />', $messages);
+		$extracted_messages = [];
+		array_walk_recursive($messages, function($value) use (&$extracted_messages) {
+			$extracted_messages[] = $value;
+		});
+
+		return implode('<br />', $extracted_messages);
 	}
 }

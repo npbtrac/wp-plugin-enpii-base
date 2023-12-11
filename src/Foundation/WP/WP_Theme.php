@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Enpii_Base\Foundation\WP;
 
 use Enpii_Base\Foundation\Shared\Traits\Config_Trait;
-use Enpii_Base\Foundation\Shared\Traits\Accessor_Set_Get_Has_Trait;
 use Illuminate\Support\ServiceProvider;
 use InvalidArgumentException;
 
@@ -17,12 +16,26 @@ use InvalidArgumentException;
  */
 abstract class WP_Theme extends ServiceProvider implements WP_Theme_Interface {
 	use Config_Trait;
-	use Accessor_Set_Get_Has_Trait;
 
+	/**
+	 * @property string The slug of the theme, it should be the folder name, we use it for the instance name
+	*/
+	protected $theme_slug;
 	protected $base_path;
 	protected $base_url;
 	protected $parent_base_path;
 	protected $parent_base_url;
+
+	/**
+	 * Get the wp_app instance of the plugin
+	 *
+	 * @return static
+	 * @throws BindingResolutionException
+	 */
+	public static function wp_app_instance(): self {
+		// We return the wp_app instance of the successor's class
+		return wp_app( static::class );
+	}
 
 	/**
 	 * We want to bind the the base params using an array
@@ -42,10 +55,57 @@ abstract class WP_Theme extends ServiceProvider implements WP_Theme_Interface {
 	 * @return void
 	 */
 	public function register() {
+		// We need to ensure all needed properties are set
+		$this->validate_needed_properties();
+
 		// We want to handle the hooks first
 		$this->manipulate_hooks();
+	}
 
-		$this->app->instance( __CLASS__, $this );
+	public function get_theme_slug(): string {
+		return $this->theme_slug;
+	}
+
+	public function get_base_path(): string {
+		return $this->base_path;
+	}
+
+	public function get_base_url(): string {
+		return $this->base_url;
+	}
+
+	public function get_parent_base_path(): string {
+		return $this->parent_base_path;
+	}
+
+	public function get_parent_base_url(): string {
+		return $this->parent_base_url;
+	}
+
+	// phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	/**
+	 * Translate a text using the plugin's text domain.
+	 *
+	 * @param mixed $untranslated_text Text to be translated
+	 * @return string Translated tet
+	 * @throws BindingResolutionException
+	 */
+	public function _t($untranslated_text) {
+		return __($untranslated_text, $this->get_text_domain());
+	}
+
+	protected function validate_needed_properties(): void {
+		if ( empty( $this->theme_slug) || !preg_match('/^[a-zA-Z0-9_-]+$/i', $this->theme_slug) ) {
+			throw new InvalidArgumentException(
+				sprintf(
+					__('Property %s must be set for %s.', 'enpii') . ' ' . __('Value must contain only alphanumeric characters _ -', 'enpii'),
+					// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+					'theme_slug',
+					// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+					get_class( $this )
+				)
+			);
+		}
 	}
 
 	/**

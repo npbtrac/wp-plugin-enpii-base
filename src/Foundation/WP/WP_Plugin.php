@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Enpii_Base\Foundation\WP;
 
 use Illuminate\Support\ServiceProvider;
-use Enpii_Base\Foundation\Shared\Traits\Accessor_Set_Get_Has_Trait;
 use Enpii_Base\Foundation\Shared\Traits\Config_Trait;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use InvalidArgumentException;
@@ -21,7 +20,6 @@ use InvalidArgumentException;
  */
 abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface {
 	use Config_Trait;
-	use Accessor_Set_Get_Has_Trait;
 
 	protected $plugin_slug;
 	// phpcs:ignore PHPCompatibility.Classes.NewTypedProperties.Found
@@ -68,6 +66,18 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 		$this->prepare_views_paths( $this->get_plugin_slug() );
 	}
 
+	public function get_plugin_slug(): string {
+		return $this->plugin_slug;
+	}
+
+	public function get_base_path(): string {
+		return $this->base_path;
+	}
+
+	public function get_base_url(): string {
+		return $this->base_url;
+	}
+
 	public function get_views_path() {
 		return $this->get_base_path() . DIR_SEP . 'resources' . DIR_SEP . 'views';
 	}
@@ -105,6 +115,18 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 					)
 				);
 			}
+		}
+
+		if ( !preg_match('/^[a-zA-Z0-9_-]+$/i', $this->plugin_slug) ) {
+			throw new InvalidArgumentException(
+				sprintf(
+					__('Property %s must be set for %s.', 'enpii') . ' ' . __('Value must contain only alphanumeric characters _ -', 'enpii'),
+					// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+					'plugin_slug',
+					// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+					get_class( $this )
+				)
+			);
 		}
 	}
 
