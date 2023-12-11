@@ -17,10 +17,10 @@ class Show_Admin_Notice_From_Flash_Messages_Job extends Base_Job {
 	 * @return void
 	 */
 	public function handle() {
-		foreach (['error', 'success', 'warning', 'info'] as $type) {
-			if (Session::has($type)) {
+		foreach ( [ 'error', 'success', 'warning', 'info' ] as $type ) {
+			if ( Session::has( $type ) ) {
 				wp_admin_notice(
-					$this->build_html_messages((array) Session::get($type)),
+					$this->build_html_messages( (array) Session::get( $type ) ),
 					[
 						'dismissible' => true,
 						'type' => $type,
@@ -30,12 +30,15 @@ class Show_Admin_Notice_From_Flash_Messages_Job extends Base_Job {
 		}
 	}
 
-	protected function build_html_messages(array $messages): string {
+	protected function build_html_messages( array $messages ): string {
 		$extracted_messages = [];
-		array_walk_recursive($messages, function($value) use (&$extracted_messages) {
-			$extracted_messages[] = $value;
-		});
+		array_walk_recursive(
+			$messages,
+			function ( $value ) use ( &$extracted_messages ) {
+				$extracted_messages[] = $value;
+			}
+		);
 
-		return implode('<br />', $extracted_messages);
+		return implode( '<br />', $extracted_messages );
 	}
 }

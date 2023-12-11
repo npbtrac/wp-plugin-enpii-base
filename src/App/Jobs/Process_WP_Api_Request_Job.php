@@ -23,7 +23,7 @@ class Process_WP_Api_Request_Job extends Base_Job {
 		$response = $kernel->handle( $request );
 
 		// We want to call WordPress shutdown action here
-		do_action( 'shutdon' );
+		do_action( 'shutdown' );
 		$response->send();
 		$kernel->terminate( $request, $response );
 	}

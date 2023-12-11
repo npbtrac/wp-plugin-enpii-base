@@ -24,13 +24,13 @@ class Process_Artisan_Job extends Base_Job {
 
 		// We need to remove 2 first items to match the artisan arguments
 		$args = $_SERVER['argv'];
-		if (!in_array('artisan', $args)) {
-			throw new InvalidArgumentException('Not an artisan command');
+		if ( ! in_array( 'artisan', $args ) ) {
+			throw new InvalidArgumentException( 'Not an artisan command' );
 		}
 
 		$artisan_args = [];
-		foreach ($args as $arg) {
-			if ($arg === 'artisan' || !empty($artisan_args) ) {
+		foreach ( $args as $arg ) {
+			if ( $arg === 'artisan' || ! empty( $artisan_args ) ) {
 				$artisan_args[] = $arg;
 			}
 		}

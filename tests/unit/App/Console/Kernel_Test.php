@@ -53,7 +53,7 @@ class Kernel_Test extends Unit_Test_Case {
 				->andReturnSelf();
 
 		// Assert that the mock objects and their methods were called as expected
-		$this->invoke_method( $kernel, 'schedule', [ $schedule ] );
+		$this->invoke_protected_method( $kernel, 'schedule', [ $schedule ] );
 	}
 
 	/**
@@ -75,6 +75,6 @@ class Kernel_Test extends Unit_Test_Case {
 					->once();
 
 		// Call the commands method
-		$this->invoke_method( $kernel, 'commands' );
+		$this->invoke_protected_method( $kernel, 'commands' );
 	}
 }

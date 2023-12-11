@@ -30,7 +30,6 @@ abstract class WP_Theme extends ServiceProvider implements WP_Theme_Interface {
 	 * Get the wp_app instance of the plugin
 	 *
 	 * @return static
-	 * @throws BindingResolutionException
 	 */
 	public static function wp_app_instance(): self {
 		// We return the wp_app instance of the successor's class
@@ -53,6 +52,7 @@ abstract class WP_Theme extends ServiceProvider implements WP_Theme_Interface {
 	 * Register any application services.
 	 *
 	 * @return void
+	 * @throws \Exception
 	 */
 	public function register() {
 		// We need to ensure all needed properties are set
@@ -82,23 +82,28 @@ abstract class WP_Theme extends ServiceProvider implements WP_Theme_Interface {
 		return $this->parent_base_url;
 	}
 
-	// phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
 	/**
 	 * Translate a text using the plugin's text domain.
 	 *
 	 * @param mixed $untranslated_text Text to be translated
 	 * @return string Translated tet
-	 * @throws BindingResolutionException
+	 * @throws \Exception
 	 */
-	public function _t($untranslated_text) {
-		return __($untranslated_text, $this->get_text_domain());
+	// phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	public function _t( $untranslated_text ): string {
+		// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText, WordPress.WP.I18n.NonSingularStringLiteralDomain
+		return __( $untranslated_text, $this->get_text_domain() );
 	}
 
+	/**
+	 * @throws \Exception
+	 */
 	protected function validate_needed_properties(): void {
-		if ( empty( $this->theme_slug) || !preg_match('/^[a-zA-Z0-9_-]+$/i', $this->theme_slug) ) {
+		if ( empty( $this->theme_slug ) || ! preg_match( '/^[a-zA-Z0-9_-]+$/i', $this->theme_slug ) ) {
 			throw new InvalidArgumentException(
 				sprintf(
-					__('Property %s must be set for %s.', 'enpii') . ' ' . __('Value must contain only alphanumeric characters _ -', 'enpii'),
+				    // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped, WordPress.WP.I18n.MissingTranslatorsComment, WordPress.Security.EscapeOutput.ExceptionNotEscaped
+					__( 'Property %1$s must be set for %2$s.', 'enpii' ) . ' ' . __( 'Value must contain only alphanumeric characters _ -', 'enpii' ),
 					// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
 					'theme_slug',
 					// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped

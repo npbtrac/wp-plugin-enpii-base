@@ -46,7 +46,6 @@ class WP_Plugin_Test extends Unit_Test_Case {
 	}
 
 	/**
-	 * @throws \Illuminate\Contracts\Container\BindingResolutionException
 	 */
 	public function test_wp_app_instance() {
 		// Set up the WP_Plugin mock
@@ -95,14 +94,78 @@ class WP_Plugin_Test extends Unit_Test_Case {
 
 	public function test_boot() {
 		// Set up the abstract WP_Plugin class mock
-		$wp_plugin_mock = Mockery::mock( WP_Plugin::class )
-								->shouldAllowMockingMethod( 'boot' )
-								->shouldAllowMockingProtectedMethods()
-								->makePartial();
-		$wp_plugin_mock->shouldReceive( 'prepare_views_paths' )->once();
+		$mockClass = $this->getMockBuilder( WP_Plugin::class )
+							->disableOriginalConstructor()
+							->onlyMethods( [ 'prepare_views_paths', 'get_plugin_slug' ] )
+							->getMockForAbstractClass();
 
-		// Call the boot method
-		$wp_plugin_mock->boot();
+		// Set the expectation that the method 'prepare_views_paths' will be called with the result of 'get_plugin_slug'
+		$mockClass->expects( $this->once() )
+					->method( 'prepare_views_paths' )
+					->with( $mockClass->get_plugin_slug() );
+
+		// Call the 'boot' method
+		$mockClass->boot();
+	}
+
+	/**
+	 * @throws \ReflectionException
+	 */
+	public function test_get_plugin_slug(): void {
+		// Set the plugin slug
+		$expected = 'my-plugin';
+
+		// Mock the WP_Plugin class
+		$wp_plugin_mock = $this->getMockBuilder( WP_Plugin::class )
+								->disableOriginalConstructor()
+								->getMockForAbstractClass();
+		$this->set_property_value( $wp_plugin_mock, 'plugin_slug', $expected );
+
+		// Get the actual result
+		$actual = $wp_plugin_mock->get_plugin_slug();
+
+		// Assert that the actual result matches the expected result
+		$this->assertEquals( $expected, $actual );
+	}
+
+	/**
+	 * @throws \ReflectionException
+	 */
+	public function test_get_base_path(): void {
+		// Set the base path
+		$expected = 'my-base-path';
+
+		// Mock the WP_Plugin class
+		$wp_plugin_mock = $this->getMockBuilder( WP_Plugin::class )
+								->disableOriginalConstructor()
+								->getMockForAbstractClass();
+		$this->set_property_value( $wp_plugin_mock, 'base_path', $expected );
+
+		// Get the actual result
+		$actual = $wp_plugin_mock->get_base_path();
+
+		// Assert that the actual result matches the expected result
+		$this->assertEquals( $expected, $actual );
+	}
+
+	/**
+	 * @throws \ReflectionException
+	 */
+	public function test_get_base_url(): void {
+		// Set the base url
+		$expected = 'my-base-url';
+
+		// Mock the WP_Plugin class
+		$wp_plugin_mock = $this->getMockBuilder( WP_Plugin::class )
+								->disableOriginalConstructor()
+								->getMockForAbstractClass();
+		$this->set_property_value( $wp_plugin_mock, 'base_url', $expected );
+
+		// Get the actual result
+		$actual = $wp_plugin_mock->get_base_url();
+
+		// Assert that the actual result matches the expected result
+		$this->assertEquals( $expected, $actual );
 	}
 
 	public function test_get_views_path() {
@@ -121,6 +184,47 @@ class WP_Plugin_Test extends Unit_Test_Case {
 
 	public function test_view() {
 		// Todo: We need to test later. Blocker: Unable to mock global wp_app_view() function
+	}
+
+	/**
+	 * @throws \ReflectionException
+	 */
+	public function test_get_plugin_basename(): void {
+		// Mock the WP_Plugin class
+		$wp_plugin_mock = $this->getMockBuilder( WP_Plugin::class )
+								->disableOriginalConstructor()
+								->getMockForAbstractClass();
+		$this->set_property_value( $wp_plugin_mock, 'base_path', '/path/to/base' );
+		$this->set_property_value( $wp_plugin_mock, 'plugin_slug', 'your-plugin' );
+		\WP_Mock::userFunction( 'plugin_basename' )
+				->once()
+				->andReturn( $wp_plugin_mock->get_base_path() . DIR_SEP . $wp_plugin_mock->get_plugin_slug() . '.php' );
+
+		// Get the actual result
+		$actual_result = $wp_plugin_mock->get_plugin_basename();
+		$this->assertEquals( $wp_plugin_mock->get_base_path() . DIR_SEP . $wp_plugin_mock->get_plugin_slug() . '.php', $actual_result );
+	}
+
+	/**
+	 * @throws \Exception
+	 */
+	public function test_translate() {
+		// Mock the WP_Plugin class
+		$wp_plugin_mock = $this->getMockBuilder( WP_Plugin::class )
+								->onlyMethods( [ '_t', 'get_text_domain' ] )
+								->disableOriginalConstructor()
+								->getMockForAbstractClass();
+
+		// Set the expectation that the _t() function will be called
+		$wp_plugin_mock->expects( $this->once() )
+						->method( '_t' )
+						->withAnyParameters()
+						->willReturn( 'Translated' );
+
+		// Call the '_t' method and assert the returned value
+		$translated_text = $wp_plugin_mock->_t( 'Untranslated Text' );
+
+		$this->assertEquals( 'Translated', $translated_text );
 	}
 
 	/**
