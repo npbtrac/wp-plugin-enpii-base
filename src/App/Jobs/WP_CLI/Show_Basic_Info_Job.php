@@ -20,11 +20,11 @@ class Show_Basic_Info_Job extends Base_Job {
 		/** @var array $wp_app_info */
 		$wp_app_info = Get_WP_App_Info::dispatchSync();
 
-		foreach ($wp_app_info as $info_key => $info_value) {
-			WP_CLI::success("Key $info_key: ". $info_value);
+		foreach ( $wp_app_info as $info_key => $info_value ) {
+			WP_CLI::success( "Key $info_key: " . $info_value );
 		}
 
 		// Exit 0 for telling that the command is a successful one
-		exit(0);
+		exit( 0 );
 	}
 }

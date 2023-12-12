@@ -43,7 +43,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 			|
 			*/
 
-			'driver' => env('SESSION_DRIVER', 'file'),
+			'driver' => env( 'SESSION_DRIVER', 'file' ),
 
 			/*
 			|--------------------------------------------------------------------------
@@ -56,7 +56,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 			|
 			*/
 
-			'lifetime' => env('SESSION_LIFETIME', 120),
+			'lifetime' => env( 'SESSION_LIFETIME', 120 ),
 
 			'expire_on_close' => false,
 
@@ -84,7 +84,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 			|
 			*/
 
-			'files' => storage_path('framework/sessions'),
+			'files' => storage_path( 'framework/sessions' ),
 
 			/*
 			|--------------------------------------------------------------------------
@@ -97,7 +97,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 			|
 			*/
 
-			'connection' => env('SESSION_CONNECTION'),
+			'connection' => env( 'SESSION_CONNECTION' ),
 
 			/*
 			|--------------------------------------------------------------------------
@@ -125,7 +125,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 			|
 			*/
 
-			'store' => env('SESSION_STORE'),
+			'store' => env( 'SESSION_STORE' ),
 
 			/*
 			|--------------------------------------------------------------------------
@@ -138,7 +138,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 			|
 			*/
 
-			'lottery' => [2, 100],
+			'lottery' => [ 2, 100 ],
 
 			/*
 			|--------------------------------------------------------------------------
@@ -153,7 +153,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 
 			'cookie' => env(
 				'SESSION_COOKIE',
-				Str::slug(env('APP_NAME', 'laravel'), '_').'_session'
+				Str::slug( env( 'APP_NAME', 'laravel' ), '_' ) . '_session'
 			),
 
 			/*
@@ -180,7 +180,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 			|
 			*/
 
-			'domain' => env('SESSION_DOMAIN'),
+			'domain' => env( 'SESSION_DOMAIN' ),
 
 			/*
 			|--------------------------------------------------------------------------
@@ -193,7 +193,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 			|
 			*/
 
-			'secure' => env('SESSION_SECURE_COOKIE'),
+			'secure' => env( 'SESSION_SECURE_COOKIE' ),
 
 			/*
 			|--------------------------------------------------------------------------

@@ -9,18 +9,17 @@ use Illuminate\Support\Facades\Route;
 use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
 use Enpii_Base\Foundation\Shared\Base_Job;
 
-class Register_Base_WP_App_Routes_Job extends Base_Job
-{
-    use Dispatchable_Trait;
+class Register_Base_WP_App_Routes_Job extends Base_Job {
 
-    /**
-     * Execute the job.
-     *
-     * @return void
-     */
-    public function handle(): void
-    {
-        if (wp_app()->is_debug_mode()) {
+	use Dispatchable_Trait;
+
+	/**
+	 * Execute the job.
+	 *
+	 * @return void
+	 */
+	public function handle(): void {
+		if ( wp_app()->is_debug_mode() ) {
 			// For Frontend
 			Route::get( '/', [ Main_Controller::class, 'index' ] );
 			Route::get( '/post', [ Main_Controller::class, 'post' ] );
@@ -44,7 +43,7 @@ class Register_Base_WP_App_Routes_Job extends Base_Job
 							],
 						],
 						function () {
-							Route::get( 'setup', [ Admin_Main_Controller::class, 'setup' ] )->name('admin-setup');
+							Route::get( 'setup', [ Admin_Main_Controller::class, 'setup' ] )->name( 'admin-setup' );
 						}
 					);
 				}
@@ -54,11 +53,12 @@ class Register_Base_WP_App_Routes_Job extends Base_Job
 			Route::group(
 				[
 					'prefix' => '/api',
-				], function () {
+				],
+				function () {
 					Route::get( '/', [ Api_Main_Controller::class, 'home' ] );
 					Route::get( '/info', [ Api_Main_Controller::class, 'info' ] );
 				}
 			);
 		}
-    }
+	}
 }

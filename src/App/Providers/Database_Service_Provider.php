@@ -73,7 +73,7 @@ class Database_Service_Provider extends DatabaseServiceProvider {
 			$default_mysql_config['collate'] = $wpdb->collate;
 		}
 
-		$config = array(
+		$config = [
 
 			/*
 			|--------------------------------------------------------------------------
@@ -104,7 +104,7 @@ class Database_Service_Provider extends DatabaseServiceProvider {
 			|
 			*/
 
-			'connections' => array(
+			'connections' => [
 				'mysql'        => $default_mysql_config,
 				'mysql_logs'   => $default_mysql_config,
 				'mysql_queues' => $default_mysql_config,
@@ -115,7 +115,7 @@ class Database_Service_Provider extends DatabaseServiceProvider {
 						'wpdb'   => $wpdb,
 					]
 				),
-			),
+			],
 
 			/*
 			|--------------------------------------------------------------------------
@@ -128,7 +128,7 @@ class Database_Service_Provider extends DatabaseServiceProvider {
 			|
 			*/
 			'migrations'  => 'migrations',
-		);
+		];
 
 		return $config;
 	}

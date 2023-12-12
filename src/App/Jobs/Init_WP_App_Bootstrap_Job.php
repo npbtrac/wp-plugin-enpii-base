@@ -35,9 +35,9 @@ class Init_WP_App_Bootstrap_Job extends Base_Job {
 		);
 
 		// As we may not use Contracts\Kernel::handle(), we need to call bootstrap method
-		//	to iinitialize all boostrappers
-		$wp_app->instance('request', \Enpii_Base\App\Http\Request::capture());
-		$wp_app->make(\Illuminate\Contracts\Http\Kernel::class)->bootstrap();
-		$wp_app->make(\Illuminate\Contracts\Console\Kernel::class)->bootstrap();
+		//  to iinitialize all boostrappers
+		$wp_app->instance( 'request', \Enpii_Base\App\Http\Request::capture() );
+		$wp_app->make( \Illuminate\Contracts\Http\Kernel::class )->bootstrap();
+		$wp_app->make( \Illuminate\Contracts\Console\Kernel::class )->bootstrap();
 	}
 }

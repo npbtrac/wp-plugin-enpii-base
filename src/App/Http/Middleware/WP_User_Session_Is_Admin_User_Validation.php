@@ -17,7 +17,8 @@ class WP_User_Session_Is_Admin_User_Validation {
 	 * @throws BindingResolutionException
 	 */
 	public function handle( Request $request, Closure $next ): Response {
-		if ( ! current_user_can('administrator') ) {
+		// phpcs:ignore WordPress.WP.Capabilities.RoleFound
+		if ( ! current_user_can( 'administrator' ) ) {
 			wp_app_abort( 403, 'Access Denied' );
 		}
 

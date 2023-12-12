@@ -54,7 +54,7 @@ class Hash_Service_Provider extends HashServiceProvider {
 			*/
 
 			'bcrypt' => [
-				'rounds' => env('BCRYPT_ROUNDS', 12),
+				'rounds' => env( 'BCRYPT_ROUNDS', 12 ),
 				'verify' => true,
 			],
 

@@ -33,7 +33,7 @@ class Register_Main_Service_Providers_Job extends Base_Job {
 	 */
 	public function handle(): void {
 		// The order of Providers matters
-		//	So we need to consider
+		//  So we need to consider
 		$providers = ! empty( $this->get_providers() )
 			? $this->get_providers()
 			: [
@@ -41,8 +41,8 @@ class Register_Main_Service_Providers_Job extends Base_Job {
 				\Enpii_Base\App\Providers\Database_Service_Provider::class,
 				\Enpii_Base\App\Providers\Cache_Service_Provider::class,
 				\Enpii_Base\App\Providers\Auth_Service_Provider::class,
-				\Enpii_Base\App\Providers\Route_Service_Provider::class,
-				\Enpii_Base\App\Providers\Artisan_Service_Provider::class,
+				\Enpii_Base\App\Providers\Support\Route_Service_Provider::class,
+				\Enpii_Base\App\Providers\Support\Artisan_Service_Provider::class,
 				\Enpii_Base\App\Providers\Queue_Service_Provider::class,
 				\Enpii_Base\App\Providers\Composer_Service_Provider::class,
 				\Enpii_Base\App\Providers\Migration_Service_Provider::class,

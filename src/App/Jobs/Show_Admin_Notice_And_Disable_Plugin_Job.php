@@ -18,26 +18,29 @@ class Show_Admin_Notice_And_Disable_Plugin_Job extends Base_Job {
 	protected $plugin;
 	protected $extra_messages;
 
-	public function __construct(WP_Plugin_Interface $plugin, array $extra_messages = [])
-	{
+	public function __construct( WP_Plugin_Interface $plugin, array $extra_messages = [] ) {
 		$this->plugin = $plugin;
 		$this->extra_messages = $extra_messages;
 	}
 
+	/**
+	 * @throws \Exception
+	 */
 	public function handle() {
-		foreach ($this->extra_messages as $message) {
+		foreach ( $this->extra_messages as $message ) {
 			Session::push( 'warning', $message );
 		}
 
 		Session::push(
 			'warning',
 			sprintf(
-				__('Plugin <strong>%s</strong> is disabled.', $this->plugin->get_text_domain()),
-				$this->plugin->get_name(). ' ' . $this->plugin->get_version()
+				// phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment, WordPress.WP.I18n.NonSingularStringLiteralDomain
+				__( 'Plugin <strong>%s</strong> is disabled.', $this->plugin->get_text_domain() ),
+				$this->plugin->get_name() . ' ' . $this->plugin->get_version()
 			)
 		);
 
-		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		deactivate_plugins( $this->plugin->get_plugin_basename() );
 	}
 }

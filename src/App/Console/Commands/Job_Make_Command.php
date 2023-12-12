@@ -178,7 +178,7 @@ class Job_Make_Command extends JobMakeCommand {
 	 *
 	 * @return void
 	 */
-	protected function correct_namespace(mixed $namespace_to_repair ) {
+	protected function correct_namespace( mixed $namespace_to_repair ) {
 		return str_replace( '\\\\', '\\', $namespace_to_repair );
 	}
 }
