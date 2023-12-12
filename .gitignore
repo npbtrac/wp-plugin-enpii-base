@@ -6,7 +6,6 @@
 phpcs.cache
 /tests
 /dev-*
-/composer-standalone*
 
 # WP-CLI
 /wp-cli.local.yml
