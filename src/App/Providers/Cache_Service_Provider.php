@@ -41,7 +41,7 @@ class Cache_Service_Provider extends CacheServiceProvider {
 			|
 			*/
 
-			'default' => env('CACHE_DRIVER', 'file'),
+			'default' => env( 'CACHE_DRIVER', 'file' ),
 
 			/*
 			|--------------------------------------------------------------------------
@@ -96,6 +96,6 @@ class Cache_Service_Provider extends CacheServiceProvider {
 	 * @return string
 	 */
 	protected function generate_file_cache_storage_path(): string {
-		return wp_app_storage_path('framework/cache/data');
+		return wp_app_storage_path( 'framework/cache/data' );
 	}
 }

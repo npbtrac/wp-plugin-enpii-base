@@ -16,11 +16,14 @@ trait Static_Instance_Trait {
 		return static::$instance;
 	}
 
-	public static function init_instance($init_object): void {
-		if (empty(static::$instance)) {
+	/**
+	 * @throws \Exception
+	 */
+	public static function init_instance( $init_object ): void {
+		if ( empty( static::$instance ) ) {
 			static::$instance = $init_object;
 		} else {
-			throw new InvalidArgumentException(__('Instact not empty'));
+			throw new InvalidArgumentException( esc_html( 'Instance not empty' ) );
 		}
 	}
 }

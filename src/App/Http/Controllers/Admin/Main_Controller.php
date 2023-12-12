@@ -12,13 +12,18 @@ class Main_Controller extends Base_Controller {
 		return 'Admin';
 	}
 
+	/**
+	 * @throws \Exception
+	 */
 	public function setup() {
 		enpii_base_wp_app_prepare_folders();
 
-		Artisan::call('wp-app:setup', [
-		]);
+		Artisan::call(
+			'wp-app:setup',
+			[]
+		);
 		$output = Artisan::output();
-		echo(nl2br($output));
+		echo( nl2br( esc_html( $output ) ) );
 
 		return 'Setup';
 	}

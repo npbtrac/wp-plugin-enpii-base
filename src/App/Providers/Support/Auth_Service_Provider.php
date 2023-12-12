@@ -8,16 +8,15 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider;
 
 class Auth_Service_Provider extends AuthServiceProvider {
 	/**
-     * The model to policy mappings for the application.
-     *
-     * @var array<class-string, class-string>
-     */
-    protected $policies = [
-    ];
+	 * The model to policy mappings for the application.
+	 *
+	 * @var array<class-string, class-string>
+	 */
+	protected $policies = [];
 
-    /**
-     * Register any authentication / authorization services.
-     */
-    public function boot(): void {
-    }
+	/**
+	 * Register any authentication / authorization services.
+	 */
+	public function boot(): void {
+	}
 }

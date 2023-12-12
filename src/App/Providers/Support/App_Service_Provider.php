@@ -5,12 +5,12 @@ namespace Enpii_Base\App\Providers\Support;
 use Enpii_Base\App\Support\App_Const;
 use Illuminate\Support\ServiceProvider;
 
-class App_Service_Provider extends ServiceProvider
-{
-    /**
-     * Register any application services.
-     */
-    public function register() {
+class App_Service_Provider extends ServiceProvider {
+
+	/**
+	 * Register any application services.
+	 */
+	public function register() {
 		$this->fetch_config();
 	}
 
@@ -20,7 +20,7 @@ class App_Service_Provider extends ServiceProvider
 			apply_filters(
 				App_Const::FILTER_WP_APP_APP_CONFIG,
 				$this->get_default_config()
-			),
+			)
 		);
 	}
 
@@ -39,31 +39,31 @@ class App_Service_Provider extends ServiceProvider
 				| To learn more: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS
 				|
 				*/
-				'paths' => ['api/*', 'sanctum/csrf-cookie'],
-				'allowed_methods' => ['*'],
-				'allowed_origins' => ['*'],
+				'paths' => [ 'api/*', 'sanctum/csrf-cookie' ],
+				'allowed_methods' => [ '*' ],
+				'allowed_origins' => [ '*' ],
 				'allowed_origins_patterns' => [],
-				'allowed_headers' => ['*'],
+				'allowed_headers' => [ '*' ],
 				'exposed_headers' => [],
 				'max_age' => 0,
 				'supports_credentials' => false,
 			],
 			'services' => [
 				'mailgun' => [
-					'domain' => env('MAILGUN_DOMAIN'),
-					'secret' => env('MAILGUN_SECRET'),
-					'endpoint' => env('MAILGUN_ENDPOINT', 'api.mailgun.net'),
+					'domain' => env( 'MAILGUN_DOMAIN' ),
+					'secret' => env( 'MAILGUN_SECRET' ),
+					'endpoint' => env( 'MAILGUN_ENDPOINT', 'api.mailgun.net' ),
 					'scheme' => 'https',
 				],
 
 				'postmark' => [
-					'token' => env('POSTMARK_TOKEN'),
+					'token' => env( 'POSTMARK_TOKEN' ),
 				],
 
 				'ses' => [
-					'key' => env('AWS_ACCESS_KEY_ID'),
-					'secret' => env('AWS_SECRET_ACCESS_KEY'),
-					'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
+					'key' => env( 'AWS_ACCESS_KEY_ID' ),
+					'secret' => env( 'AWS_SECRET_ACCESS_KEY' ),
+					'region' => env( 'AWS_DEFAULT_REGION', 'us-east-1' ),
 				],
 			],
 		];

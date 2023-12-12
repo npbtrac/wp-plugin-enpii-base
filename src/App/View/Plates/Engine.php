@@ -25,7 +25,7 @@ class Engine implements EngineContract {
 	 * @param  array   $data
 	 * @return string
 	 */
-	public function get( $path, array $data = array() ) {
+	public function get( $path, array $data = [] ) {
 		/** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\FileViewFinder $view_finder */
 		$view_finder = wp_app_view()->getFinder();
 		$template_full = array_keys( $view_finder->getViews() )[0] ?? '';

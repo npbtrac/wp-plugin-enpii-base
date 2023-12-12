@@ -74,12 +74,13 @@ if ( ! function_exists( 'app' ) ) {
 	/**
 	 * Get the available container instance.
 	 *
-	 * @param  string|null  $abstract
+	 * @param  string|null  $app_abstract
 	 * @param  array  $parameters
+	 *
 	 * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Foundation\Application|mixed
 	 */
-	function app( $abstract = null, array $parameters = [] ) {
-		return wp_app( $abstract, $parameters );
+	function app( $app_abstract = null, array $parameters = [] ) {
+		return wp_app( $app_abstract, $parameters );
 	}
 }
 
@@ -194,11 +195,12 @@ if ( ! function_exists( 'config' ) ) {
 	 * If an array is passed as the key, we will assume you want to set an array of values.
 	 *
 	 * @param  array|string|null  $key
-	 * @param  mixed  $default
+	 * @param  mixed  $default_value
+	 *
 	 * @return mixed|\Illuminate\Config\Repository
 	 */
-	function config( $key = null, $default = null ) {
-		return wp_app_config( $key, $default );
+	function config( $key = null, $default_value = null ) {
+		return wp_app_config( $key, $default_value );
 	}
 }
 
@@ -345,6 +347,7 @@ if ( ! function_exists( 'fake' ) && class_exists( \Faker\Factory::class ) ) {
 	 * @return \Faker\Generator
 	 */
 	function fake( $locale = null ) {
+		// phpcs:ignore Squiz.PHP.DisallowMultipleAssignments.Found
 		return wp_app_fake( $locale = null );
 	}
 }
@@ -443,11 +446,12 @@ if ( ! function_exists( 'old' ) ) {
 	 * Retrieve an old input item.
 	 *
 	 * @param  string|null  $key
-	 * @param  mixed  $default
+	 * @param  mixed  $default_value
+	 *
 	 * @return mixed
 	 */
-	function old( $key = null, $default = null ) {
-		return wp_app_old( $key, $default );
+	function old( $key = null, $default_value = null ) {
+		return wp_app_old( $key, $default_value );
 	}
 }
 
@@ -455,13 +459,14 @@ if ( ! function_exists( 'policy' ) ) {
 	/**
 	 * Get a policy instance for a given class.
 	 *
-	 * @param  object|string  $class
+	 * @param  object|string  $class_object
+	 *
 	 * @return mixed
 	 *
 	 * @throws \InvalidArgumentException
 	 */
-	function policy( $class ) {
-		return wp_app_policy( $class );
+	function policy( $class_object ) {
+		return wp_app_policy( $class_object );
 	}
 }
 
@@ -469,11 +474,12 @@ if ( ! function_exists( 'precognitive' ) ) {
 	/**
 	 * Handle a Precognition controller hook.
 	 *
-	 * @param  null|callable  $callable
+	 * @param  null|callable  $callable_value
+	 *
 	 * @return mixed
 	 */
-	function precognitive( $callable = null ) {
-		return wp_app_precognitive( $callable );
+	function precognitive( $callable_value = null ) {
+		return wp_app_precognitive( $callable_value );
 	}
 }
 
@@ -547,11 +553,12 @@ if ( ! function_exists( 'request' ) ) {
 	 * Get an instance of the current request or an input item from the request.
 	 *
 	 * @param  array|string|null  $key
-	 * @param  mixed  $default
+	 * @param  mixed  $default_value
+	 *
 	 * @return mixed|\Illuminate\Http\Request|string|array|null
 	 */
-	function request( $key = null, $default = null ) {
-		return wp_app_request( $key, $default );
+	function request( $key = null, $default_value = null ) {
+		return wp_app_request( $key, $default_value );
 	}
 }
 
@@ -661,11 +668,12 @@ if ( ! function_exists( 'session' ) ) {
 	 * If an array is passed as the key, we will assume you want to set an array of values.
 	 *
 	 * @param  array|string|null  $key
-	 * @param  mixed  $default
+	 * @param  mixed  $default_value
+	 *
 	 * @return mixed|\Illuminate\Session\Store|\Illuminate\Session\SessionManager
 	 */
-	function session( $key = null, $default = null ) {
-		return wp_app_session( $key, $default );
+	function session( $key = null, $default_value = null ) {
+		return wp_app_session( $key, $default_value );
 	}
 }
 

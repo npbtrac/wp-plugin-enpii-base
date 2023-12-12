@@ -22,10 +22,12 @@ use InvalidArgumentException;
 trait Accessor_Set_Get_Has_Trait {
 	/**
 	 * Magic method to work as a bootstrap for all method calls
-	 * @param mixed $method
-	 * @param mixed $args
+	 *
+	 * @param  mixed  $method
+	 * @param  mixed  $args
+	 *
 	 * @return mixed
-	 * @throws BadMethodCallException
+	 * @throws BadMethodCallException | \Exception
 	 */
 	public function __call( $method, $args ) {
 		$parts = preg_split( '/(_[^A-Z]*)/', $method, -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE );
@@ -51,7 +53,7 @@ trait Accessor_Set_Get_Has_Trait {
 		throw new BadMethodCallException(
 			sprintf(
 				"'%s' does not exist in '%s'.",
-				$method,
+				esc_html( $method ),
 				__CLASS__
 			)
 		);
@@ -59,17 +61,19 @@ trait Accessor_Set_Get_Has_Trait {
 
 	/**
 	 * Fallback method for setters, set value to the property
-	 * @param mixed $property
-	 * @param mixed $value
+	 *
+	 * @param  mixed  $property
+	 * @param  mixed  $value
+	 *
 	 * @return void
-	 * @throws InvalidArgumentException
+	 * @throws InvalidArgumentException | \Exception
 	 */
 	public function set_property( $property, $value = null ): void {
 		if ( ! property_exists( $this, $property ) ) {
 			throw new InvalidArgumentException(
 				sprintf(
 					"Property '%s' does not exist in '%s'.",
-					$property,
+					esc_html( $property ),
 					__CLASS__
 				)
 			);
@@ -82,14 +86,14 @@ trait Accessor_Set_Get_Has_Trait {
 	 * Fallback method for getters, retrieve the value of property and return
 	 * @param mixed $property
 	 * @return mixed
-	 * @throws InvalidArgumentException
+	 * @throws InvalidArgumentException | \Exception
 	 */
 	public function get_property( $property ) {
 		if ( ! property_exists( $this, $property ) ) {
 			throw new InvalidArgumentException(
 				sprintf(
 					"Property '%s' does not exist in '%s'.",
-					$property,
+					esc_html( $property ),
 					__CLASS__
 				)
 			);
@@ -100,16 +104,18 @@ trait Accessor_Set_Get_Has_Trait {
 
 	/**
 	 * Fallback method for hassers, return true is a property is set
-	 * @param mixed $property
+	 *
+	 * @param  mixed  $property
+	 *
 	 * @return bool
-	 * @throws InvalidArgumentException
+	 * @throws InvalidArgumentException | \Exception
 	 */
-	public function has_property( $property ) {
+	public function has_property( $property ): bool {
 		if ( ! property_exists( $this, $property ) ) {
 			throw new InvalidArgumentException(
 				sprintf(
 					"Property '%s' does not exist in '%s'.",
-					$property,
+					esc_html( $property ),
 					__CLASS__
 				)
 			);

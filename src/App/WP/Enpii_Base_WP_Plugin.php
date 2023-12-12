@@ -48,16 +48,22 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		// We trigger the action when wp_app is registered
 		do_action( App_Const::ACTION_WP_APP_REGISTERED );
 
-		if ($this->app->runningInConsole()) {
+		if ( $this->app->runningInConsole() ) {
 			// Register migrations rules
-			$this->publishes([
-				$this->get_base_path().'/database/migrations' => database_path('migrations'),
-			], ['enpii-base-migrations', 'laravel-migrations']);
+			$this->publishes(
+				[
+					$this->get_base_path() . '/database/migrations' => database_path( 'migrations' ),
+				],
+				[ 'enpii-base-migrations', 'laravel-migrations' ]
+			);
 
 			// Register assets
-			$this->publishes([
-				$this->get_base_path().'/public-assets/dist' => wp_app_public_path('plugins/'. $this->get_plugin_slug()),
-			], ['enpii-base-assets', 'laravel-assets']);
+			$this->publishes(
+				[
+					$this->get_base_path() . '/public-assets/dist' => wp_app_public_path( 'plugins/' . $this->get_plugin_slug() ),
+				],
+				[ 'enpii-base-assets', 'laravel-assets' ]
+			);
 		}
 
 		parent::boot();
@@ -74,11 +80,11 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( App_Const::ACTION_WP_APP_REGISTER_ROUTES, [ $this, 'register_base_wp_app_routes' ] );
 		add_action( App_Const::ACTION_WP_API_REGISTER_ROUTES, [ $this, 'register_base_wp_api_routes' ] );
 
-		add_filter( App_Const::FILTER_WP_APP_MAIN_SERVICE_PROVIDERS , [ $this, 'register_telescope_tinker' ] );
+		add_filter( App_Const::FILTER_WP_APP_MAIN_SERVICE_PROVIDERS, [ $this, 'register_telescope_tinker' ] );
 
 		/** Other hooks */
-		if ($this->is_blade_for_template_available()) {
-			add_filter( 'template_include', [ $this, 'use_blade_to_compile_template' ], 99999);
+		if ( $this->is_blade_for_template_available() ) {
+			add_filter( 'template_include', [ $this, 'use_blade_to_compile_template' ], 99999 );
 		}
 
 		add_action( 'admin_print_footer_scripts', [ $this, 'write_setup_client_script' ] );
@@ -86,18 +92,15 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( 'admin_head', [ $this, 'handle_admin_head' ] );
 	}
 
-	public function get_name(): string
-	{
+	public function get_name(): string {
 		return 'Enpii Base';
 	}
 
-	public function get_version(): string
-	{
+	public function get_version(): string {
 		return ENPII_BASE_PLUGIN_VERSION;
 	}
 
-	public function get_text_domain(): string
-	{
+	public function get_text_domain(): string {
 		return 'enpii';
 	}
 
@@ -131,15 +134,15 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	public function register_wp_cli_commands(): void {
 		WP_CLI::add_command(
 			'enpii-base info',
-			wp_app_resolve(\Enpii_Base\App\WP_CLI\Enpii_Base_Info_WP_CLI::class)
+			wp_app_resolve( \Enpii_Base\App\WP_CLI\Enpii_Base_Info_WP_CLI::class )
 		);
 		WP_CLI::add_command(
 			'enpii-base prepare-folders',
-			$this->app->make(\Enpii_Base\App\WP_CLI\Enpii_Base_Prepare_Folders_WP_CLI::class)
+			$this->app->make( \Enpii_Base\App\WP_CLI\Enpii_Base_Prepare_Folders_WP_CLI::class )
 		);
 		WP_CLI::add_command(
 			'enpii-base artisan',
-			$this->app->make(\Enpii_Base\App\WP_CLI\Enpii_Base_Artisan_WP_CLI::class)
+			$this->app->make( \Enpii_Base\App\WP_CLI\Enpii_Base_Artisan_WP_CLI::class )
 		);
 	}
 
@@ -161,7 +164,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 
 	/**
 	 * We put the action 'enpii_base_wp_app_parse_request' here for the parse request step of wp-app
-	 * 	and return false to exit on WordPress parse request method
+	 *  and return false to exit on WordPress parse request method
 	 * @return bool
 	 */
 	public function wp_app_parse_request(): bool {
@@ -172,14 +175,14 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 
 	/**
 	 * We put the action 'enpii_base_wp_app_do_main_query' here for other actions
-	 * 	and return false to skip the main query execution
+	 *  and return false to skip the main query execution
 	 * @param mixed $request
 	 * @param WP_Query $query
 	 * @return mixed
 	 */
 	public function skip_wp_main_query( $request, $query ) {
 		/** @var WP_Query $query */
-		if( $query->is_main_query() && ! $query->is_admin ) {
+		if ( $query->is_main_query() && ! $query->is_admin ) {
 			do_action( App_Const::ACTION_WP_APP_DO_WP_MAIN_QUERY, $request, $query );
 
 			return false;
@@ -188,11 +191,11 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		return $request;
 	}
 
-	public function wp_app_render_content($wp): void {
+	public function wp_app_render_content( $wp ): void {
 		Process_WP_App_Request_Job::dispatchSync();
 	}
 
-	public function wp_api_process_request($wp): void {
+	public function wp_api_process_request( $wp ): void {
 		Process_WP_Api_Request_Job::dispatchSync();
 	}
 
@@ -207,7 +210,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 
 	/**
 	 * We want to skip using wp theme for APIs
-	 * 	and add an action 'enpii_base_wp_app_skip_use_wp_theme' for further actions
+	 *  and add an action 'enpii_base_wp_app_skip_use_wp_theme' for further actions
 	 * @return mixed
 	 */
 	public function skip_use_wp_theme() {
@@ -216,23 +219,23 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		return false;
 	}
 
-	public function use_blade_to_compile_template( $template) {
+	public function use_blade_to_compile_template( $template ) {
 		/** @var \Illuminate\View\Factory $view */
 		$view = wp_app_view();
 		// We want to have blade to compile the php file as well
-		$view->addExtension('php', 'blade');
+		$view->addExtension( 'php', 'blade' );
 
 		/** @var \Illuminate\View\View $wp_app_view */
 		// $wp_app_view = wp_app_view(basename($template, '.php'))
 
 		// We catch exception if view is not rendered correctly
-		// 	exception InvalidArgumentException for view file not found in FileViewFinder
+		//  exception InvalidArgumentException for view file not found in FileViewFinder
 		try {
-			$tmp = wp_app_view(basename($template, '.php'));
+			$tmp = wp_app_view( basename( $template, '.php' ) );
 			echo $tmp;
 			$template = false;
-		} catch (InvalidArgumentException $e) {
-		} catch (Exception $e) {
+		} catch ( InvalidArgumentException $e ) {
+		} catch ( Exception $e ) {
 			throw $e;
 		}
 
@@ -243,18 +246,18 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		// We only want to run this
 		do_action( App_Const::ACTION_WP_APP_COMPLETE_EXECUTION );
 
-		if (\function_exists('fastcgi_finish_request')) {
-            fastcgi_finish_request();
-        } elseif (\function_exists('litespeed_finish_request')) {
-            litespeed_finish_request();
-        } elseif (!\in_array(\PHP_SAPI, ['cli', 'phpdbg'], true)) {
-            Response::closeOutputBuffers(0, true);
-            flush();
-        }
+		if ( \function_exists( 'fastcgi_finish_request' ) ) {
+			fastcgi_finish_request();
+		} elseif ( \function_exists( 'litespeed_finish_request' ) ) {
+			litespeed_finish_request();
+		} elseif ( ! \in_array( \PHP_SAPI, [ 'cli', 'phpdbg' ], true ) ) {
+			Response::closeOutputBuffers( 0, true );
+			flush();
+		}
 	}
 
-	public function register_telescope_tinker($providers) {
-		return Add_Telescope_Tinker_Query::dispatchSync($providers);
+	public function register_telescope_tinker( $providers ) {
+		return Add_Telescope_Tinker_Query::dispatchSync( $providers );
 	}
 
 	/**
@@ -272,11 +275,15 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 * @return void
 	 */
 	private function prevent_defaults(): void {
-		if (wp_app()->is_wp_app_mode() || wp_app()->is_wp_api_mode()) {
+		if ( wp_app()->is_wp_app_mode() || wp_app()->is_wp_api_mode() ) {
 			// We want to cancel all headers set by WP
-			add_filter( 'wp_headers', function () {
-				return [];
-			}, 999999);
+			add_filter(
+				'wp_headers',
+				function () {
+					return [];
+				},
+				999999
+			);
 		}
 	}
 
@@ -286,34 +293,34 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 */
 	private function enroll_self_hooks(): void {
 		// For `enpii_base_wp_app_bootstrap`
-		//	We add this hook to perform the bootstrap actions needed for WP App
+		//  We add this hook to perform the bootstrap actions needed for WP App
 		add_action( 'after_setup_theme', [ $this, 'wp_app_bootstrap' ], 5 );
 
 		// For `enpii_base_wp_app_init`
-		//	We want this hook works after all the init steps worked on all plugins
-		//	for other plugins can hook to this process
-		add_action( 'init', [$this, 'wp_app_init'], 999999 );
+		//  We want this hook works after all the init steps worked on all plugins
+		//  for other plugins can hook to this process
+		add_action( 'init', [ $this, 'wp_app_init' ], 999999 );
 
-		if (wp_app()->is_wp_app_mode() || wp_app()->is_wp_api_mode()) {
-			add_filter( 'do_parse_request', [$this, 'wp_app_parse_request'], 9999, 0 );
-			add_filter( 'posts_request', [$this, 'skip_wp_main_query'], 9999, 2 );
+		if ( wp_app()->is_wp_app_mode() || wp_app()->is_wp_api_mode() ) {
+			add_filter( 'do_parse_request', [ $this, 'wp_app_parse_request' ], 9999, 0 );
+			add_filter( 'posts_request', [ $this, 'skip_wp_main_query' ], 9999, 2 );
 		}
 
-		if (wp_app()->is_wp_app_mode()) {
-			add_action( 'template_redirect', [$this, 'wp_app_render_content'], 9999, 1 );
-			add_filter( 'template_include', [$this, 'skip_wp_template_include'], 9999, 1 );
-			add_action( 'shutdown', [$this, 'wp_app_complete_execution'], 9999, 0 );
+		if ( wp_app()->is_wp_app_mode() ) {
+			add_action( 'template_redirect', [ $this, 'wp_app_render_content' ], 9999, 1 );
+			add_filter( 'template_include', [ $this, 'skip_wp_template_include' ], 9999, 1 );
+			add_action( 'shutdown', [ $this, 'wp_app_complete_execution' ], 9999, 0 );
 		}
 
-		if (wp_app()->is_wp_api_mode()) {
-			add_filter( 'wp_using_themes', [$this, 'skip_use_wp_theme'], 9999, 0 );
-			add_action( 'wp', [$this, 'wp_api_process_request'], 9999, 1 );
-			add_action( 'shutdown', [$this, 'wp_app_complete_execution'], 9999, 0 );
+		if ( wp_app()->is_wp_api_mode() ) {
+			add_filter( 'wp_using_themes', [ $this, 'skip_use_wp_theme' ], 9999, 0 );
+			add_action( 'wp', [ $this, 'wp_api_process_request' ], 9999, 1 );
+			add_action( 'shutdown', [ $this, 'wp_app_complete_execution' ], 9999, 0 );
 		}
 	}
 
 	private function is_blade_for_template_available(): bool {
 		// We only want to use Blade
-		return !wp_app()->is_wp_app_mode();
+		return ! wp_app()->is_wp_app_mode();
 	}
 }

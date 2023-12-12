@@ -19,22 +19,22 @@ class Tinker_Service_Provider extends TinkerServiceProvider {
 			}
 		);
 
-		$this->commands( array( 'command.tinker' ) );
+		$this->commands( [ 'command.tinker' ] );
 	}
 
 	protected function fetch_config(): void {
 		wp_app_config(
-			array(
+			[
 				'tinker' => apply_filters(
 					App_Const::FILTER_WP_APP_TINKER_CONFIG,
 					$this->get_default_config()
 				),
-			)
+			]
 		);
 	}
 
 	protected function get_default_config(): array {
-		$config = array(
+		$config = [
 			/*
 			|--------------------------------------------------------------------------
 			| Console Commands
@@ -46,9 +46,9 @@ class Tinker_Service_Provider extends TinkerServiceProvider {
 			|
 			*/
 
-			'commands' => array(
+			'commands' => [
 				// App\Console\Commands\ExampleCommand::class,
-			),
+			],
 
 			/*
 			|--------------------------------------------------------------------------
@@ -61,9 +61,9 @@ class Tinker_Service_Provider extends TinkerServiceProvider {
 			|
 			*/
 
-			'alias' => array(
+			'alias' => [
 				//
-			),
+			],
 
 			/*
 			|--------------------------------------------------------------------------
@@ -76,11 +76,11 @@ class Tinker_Service_Provider extends TinkerServiceProvider {
 			|
 			*/
 
-			'dont_alias' => array(
+			'dont_alias' => [
 				'App\Nova',
-			),
+			],
 
-		);
+		];
 
 		return $config;
 	}

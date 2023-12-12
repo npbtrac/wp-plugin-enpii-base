@@ -23,6 +23,7 @@ class Process_Artisan_Job extends Base_Job {
 		);
 
 		// We need to remove 2 first items to match the artisan arguments
+		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized, WordPress.Security.ValidatedSanitizedInput.InputNotValidated
 		$args = $_SERVER['argv'];
 		if ( ! in_array( 'artisan', $args ) ) {
 			throw new InvalidArgumentException( 'Not an artisan command' );
@@ -41,7 +42,7 @@ class Process_Artisan_Job extends Base_Job {
 			$input,
 			new \Symfony\Component\Console\Output\ConsoleOutput()
 		);
-
+		// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		exit( $status );
 	}
 }

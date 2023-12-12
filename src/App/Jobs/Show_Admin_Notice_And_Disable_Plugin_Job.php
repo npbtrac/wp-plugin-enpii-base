@@ -23,6 +23,9 @@ class Show_Admin_Notice_And_Disable_Plugin_Job extends Base_Job {
 		$this->extra_messages = $extra_messages;
 	}
 
+	/**
+	 * @throws \Exception
+	 */
 	public function handle() {
 		foreach ( $this->extra_messages as $message ) {
 			Session::push( 'warning', $message );
@@ -31,6 +34,7 @@ class Show_Admin_Notice_And_Disable_Plugin_Job extends Base_Job {
 		Session::push(
 			'warning',
 			sprintf(
+				// phpcs:ignore WordPress.WP.I18n.MissingTranslatorsComment, WordPress.WP.I18n.NonSingularStringLiteralDomain
 				__( 'Plugin <strong>%s</strong> is disabled.', $this->plugin->get_text_domain() ),
 				$this->plugin->get_name() . ' ' . $this->plugin->get_version()
 			)

@@ -6,7 +6,7 @@ use Illuminate\Filesystem\Filesystem;
 
 if ( ! function_exists( 'enpii_base_is_console_mode' ) ) {
 	function enpii_base_is_console_mode(): bool {
-		return (\PHP_SAPI === 'cli' || \PHP_SAPI === 'phpdbg');
+		return ( \PHP_SAPI === 'cli' || \PHP_SAPI === 'phpdbg' );
 	}
 }
 
@@ -51,8 +51,8 @@ if ( ! function_exists( 'enpii_base_wp_app_prepare_folders' ) ) {
 	 * @param int $chmod We may want to use `0755` if running this function in console
 	 * @return void
 	 */
-	function enpii_base_wp_app_prepare_folders( $chmod = 0777, string $wp_app_base_path = null): void {
-		if (empty($wp_app_base_path)) {
+	function enpii_base_wp_app_prepare_folders( $chmod = 0777, string $wp_app_base_path = null ): void {
+		if ( empty( $wp_app_base_path ) ) {
 			$wp_app_base_path = enpii_base_wp_app_get_base_path();
 		}
 
