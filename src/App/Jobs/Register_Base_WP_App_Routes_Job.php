@@ -10,7 +10,6 @@ use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
 use Enpii_Base\Foundation\Shared\Base_Job;
 
 class Register_Base_WP_App_Routes_Job extends Base_Job {
-
 	use Dispatchable_Trait;
 
 	/**
@@ -19,46 +18,45 @@ class Register_Base_WP_App_Routes_Job extends Base_Job {
 	 * @return void
 	 */
 	public function handle(): void {
-		if ( wp_app()->is_debug_mode() ) {
-			// For Frontend
-			Route::get( '/', [ Main_Controller::class, 'index' ] );
-			Route::get( '/post', [ Main_Controller::class, 'post' ] );
-			Route::get( '/page', [ Main_Controller::class, 'page' ] );
+		// For Frontend
+		Route::get( '/', [ Main_Controller::class, 'index' ] );
+		Route::get( '/post', [ Main_Controller::class, 'post' ] );
+		Route::get( '/page', [ Main_Controller::class, 'page' ] );
+		Route::post( 'queue-work', [ Main_Controller::class, 'queue_work' ] )->name( 'wp-app-queue-work' );
 
-			// For Admin
-			Route::group(
-				[
-					'prefix' => '/wp-admin',
-					'middleware' => [
-						'wp_user_session_validation',
-					],
+		// For Admin
+		Route::group(
+			[
+				'prefix' => '/wp-admin',
+				'middleware' => [
+					'wp_user_session_validation',
 				],
-				function () {
-					Route::get( '/', [ Admin_Main_Controller::class, 'home' ] );
-					Route::group(
-						[
-							'prefix' => '/admin',
-							'middleware' => [
-								'wp_user_session_is_admin_user_validation',
-							],
+			],
+			function () {
+				Route::get( '/', [ Admin_Main_Controller::class, 'home' ] );
+				Route::group(
+					[
+						'prefix' => '/admin',
+						'middleware' => [
+							'wp_user_session_is_admin_user_validation',
 						],
-						function () {
-							Route::get( 'setup', [ Admin_Main_Controller::class, 'setup' ] )->name( 'admin-setup' );
-						}
-					);
-				}
-			);
+					],
+					function () {
+						Route::get( 'setup', [ Admin_Main_Controller::class, 'setup' ] )->name( 'wp-app-admin-setup' );
+					}
+				);
+			}
+		);
 
-			// For API
-			Route::group(
-				[
-					'prefix' => '/api',
-				],
-				function () {
-					Route::get( '/', [ Api_Main_Controller::class, 'home' ] );
-					Route::get( '/info', [ Api_Main_Controller::class, 'info' ] );
-				}
-			);
-		}
+		// For API
+		Route::group(
+			[
+				'prefix' => '/api',
+			],
+			function () {
+				Route::get( '/', [ Api_Main_Controller::class, 'home' ] );
+				Route::get( '/info', [ Api_Main_Controller::class, 'info' ] );
+			}
+		);
 	}
 }

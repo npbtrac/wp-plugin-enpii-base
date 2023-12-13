@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Queries;
 
-use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
 use Enpii_Base\Foundation\Shared\Base_Query;
+use Enpii_Base\Foundation\Support\Executable_Trait;
 
 class Add_Telescope_Tinker_Query extends Base_Query {
 
-	use Dispatchable_Trait;
+	use Executable_Trait;
 
 	private $providers = [];
 

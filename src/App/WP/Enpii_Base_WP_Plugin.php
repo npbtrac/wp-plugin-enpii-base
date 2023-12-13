@@ -11,6 +11,7 @@ use Enpii_Base\App\Jobs\Register_Base_WP_Api_Routes_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_App_Routes_Job;
 use Enpii_Base\App\Jobs\Register_Main_Service_Providers_Job;
 use Enpii_Base\App\Jobs\Show_Admin_Notice_From_Flash_Messages_Job;
+use Enpii_Base\App\Jobs\Write_Queue_Work_Script_Job;
 use Enpii_Base\App\Jobs\Write_Setup_Client_Script_Job;
 use Enpii_Base\App\Queries\Add_Telescope_Tinker_Query;
 use Enpii_Base\App\Support\App_Const;
@@ -87,7 +88,9 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 			add_filter( 'template_include', [ $this, 'use_blade_to_compile_template' ], 99999 );
 		}
 
-		add_action( 'admin_print_footer_scripts', [ $this, 'write_setup_client_script' ] );
+		add_action( 'admin_print_footer_scripts', [ $this, 'write_setup_wp_app_client_script' ] );
+		add_action( 'admin_print_footer_scripts', [ $this, 'write_queue_work_client_script' ] );
+		add_action( 'wp_footer', [ $this, 'write_queue_work_client_script' ] );
 
 		add_action( 'admin_head', [ $this, 'handle_admin_head' ] );
 	}
@@ -108,8 +111,12 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		Init_WP_App_Bootstrap_Job::dispatchSync();
 	}
 
-	public function write_setup_client_script(): void {
+	public function write_setup_wp_app_client_script(): void {
 		Write_Setup_Client_Script_Job::dispatchSync();
+	}
+
+	public function write_queue_work_client_script(): void {
+		Write_Queue_Work_Script_Job::dispatchSync();
 	}
 
 	/**
@@ -228,17 +235,18 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		// We want to have blade to compile the php file as well
 		$view->addExtension( 'php', 'blade' );
 
-		/** @var \Illuminate\View\View $wp_app_view */
-		// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
-		// $wp_app_view = wp_app_view(basename($template, '.php'))
-
 		// We catch exception if view is not rendered correctly
 		//  exception InvalidArgumentException for view file not found in FileViewFinder
 		try {
 			$tmp = wp_app_view( basename( $template, '.php' ) );
-			echo esc_html( $tmp );
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo $tmp;
 			$template = false;
-		} catch ( InvalidArgumentException | Exception $e ) {
+
+		// We simply want to do nothing on the InvalidArgumentException
+		// phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch
+		} catch ( InvalidArgumentException $invalid_argument_exception ) {
+		} catch ( Exception $e ) {
 			throw $e;
 		}
 
@@ -260,7 +268,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	}
 
 	public function register_telescope_tinker( $providers ) {
-		return Add_Telescope_Tinker_Query::dispatchSync( $providers );
+		return Add_Telescope_Tinker_Query::execute_now( $providers );
 	}
 
 	/**

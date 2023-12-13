@@ -7,10 +7,28 @@ namespace Enpii_Base\App\Http\Controllers;
 use Enpii_Base\App\Models\Post;
 use Enpii_Base\App\WP\Enpii_Base_WP_Plugin;
 use Enpii_Base\Foundation\Http\Base_Controller;
+use Illuminate\Support\Facades\Artisan;
 
 class Main_Controller extends Base_Controller {
 	public function index() {
 		return Enpii_Base_WP_Plugin::wp_app_instance()->view( 'main/index' );
+	}
+
+	public function queue_work() {
+		Artisan::call(
+			'queue:work',
+			[
+				'connection' => 'database',
+				'--queue' => 'high,default,low',
+				'--tries' => 3,
+				'--quiet' => true,
+				'--stop-when-empty' => true,
+				'--timeout' => 60,
+				'--memory' => 256,
+			]
+		);
+
+		return ' Queue Work ';
 	}
 
 	public function post() {

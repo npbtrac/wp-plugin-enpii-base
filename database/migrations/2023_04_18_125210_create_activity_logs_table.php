@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
+class CreateActivityLogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('activity_logs', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->bigIncrements('id');
+            $table->unsignedBigInteger('user_id')->index();
+            $table->string('url')->length(255);
+            $table->string('method')->length(16);
+            $table->text('params')->nullable();
+            $table->timestamp('created_at', 1)->nullable();
         });
     }
 

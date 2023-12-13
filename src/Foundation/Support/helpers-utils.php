@@ -45,6 +45,9 @@ if ( ! function_exists( 'dev_error_log' ) ) {
 	function dev_error_log( ...$vars ): void {
 		// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_debug_backtrace
 		$dev_trace = debug_backtrace( DEBUG_BACKTRACE_PROVIDE_OBJECT, 1 );
+		$dumper = new CliDumper();
+		$cloner = new VarCloner();
+		$cloner->addCasters( ReflectionCaster::UNSET_CLOSURE_FILE_INFO );
 
 		$log_message = '';
 		$log_message .= "Debugging dev_error_log \n======= Dev logging start here \n" . $dev_trace[0]['file'] . ':' . $dev_trace[0]['line'] . " \n";
@@ -54,8 +57,9 @@ if ( ! function_exists( 'dev_error_log' ) ) {
 				$type = 'NULL';
 			} else {
 				$type = is_object( $var ) ? get_class( $var ) : gettype( $var );
+
 				// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_export
-				$dump_content = is_object( $var ) ? wp_json_encode( $var, JSON_PRETTY_PRINT, 7 ) : var_export( $var, true );
+				$dump_content = is_object( $var ) ? $dumper->dump( $cloner->cloneVar( $var ), true ) : var_export( $var, true );
 			}
 			$log_message .= "Var no $index: type " . $type . ' - ' . $dump_content . " \n";
 		}
