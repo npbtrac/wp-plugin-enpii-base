@@ -15,8 +15,6 @@ use Illuminate\Foundation\PackageManifest;
 use Illuminate\Foundation\ProviderRepository;
 use Illuminate\Support\Collection;
 use InvalidArgumentException;
-use RuntimeException;
-use TypeError;
 
 /**
  * @package Enpii_Base\App\WP
@@ -33,10 +31,10 @@ class WP_Application extends Application {
 	 * Config array needed for the initialization process
 	 * @var array
 	 */
-	protected static array $config;
+	protected static $config;
 
-	protected string $wp_app_slug = 'wp-app';
-	protected string $wp_api_slug = 'wp-api';
+	protected $wp_app_slug = 'wp-app';
+	protected $wp_api_slug = 'wp-api';
 
 	/**
 	 * We don't want to have this class publicly initialized
@@ -60,7 +58,7 @@ class WP_Application extends Application {
 	 * @param  string  $path
 	 * @return string
 	 */
-	public function resourcePath( $path = '' ) {
+	public function resourcePath( $path = '' ): string {
 		// Todo: refactor this using constant
 		return dirname( dirname( dirname( __DIR__ ) ) ) . DIRECTORY_SEPARATOR . 'resources' . ( $path ? DIRECTORY_SEPARATOR . $path : $path );
 	}
@@ -72,18 +70,18 @@ class WP_Application extends Application {
 	 *
 	 * @throws \RuntimeException
 	 */
-	public function getNamespace() {
+	public function getNamespace(): string {
 		if ( ! is_null( $this->namespace ) ) {
 			return $this->namespace;
 		}
-
-		return $this->namespace = 'Enpii_Base\\';
+		$this->namespace = 'Enpii_Base\\';
+		return $this->namespace;
 	}
 
 	/**
 	 * @inheritDoc
 	 */
-	public function runningInConsole() {
+	public function runningInConsole(): ?bool {
 		if ( $this->isRunningInConsole === null ) {
 			if ( strpos( wp_app_request()->getPathInfo(), 'wp-admin/admin/setup' ) !== false && wp_app_request()->get( 'force_app_running_in_console' ) ) {
 				$this->isRunningInConsole = true;
@@ -118,10 +116,10 @@ class WP_Application extends Application {
 	/**
 	 * We want to use the array to load the config
 	 *
-	 * @param mixed $config
+	 * @param  null  $basePath
+	 * @param  mixed  $config
+	 *
 	 * @return WP_Application
-	 * @throws TypeError
-	 * @throws \Illuminate\Contracts\Container\BindingResolutionException
 	 */
 	public static function init_instance_with_config( $basePath = null, $config = null ): self {
 		$instance = static::$instance;
@@ -139,6 +137,9 @@ class WP_Application extends Application {
 		return $instance;
 	}
 
+	/**
+	 * @throws \Exception
+	 */
 	public function register_plugin(
 		$plugin_classsname,
 		$plugin_slug,
@@ -147,7 +148,13 @@ class WP_Application extends Application {
 	): void {
 		$plugin = new $plugin_classsname( $this );
 		if ( ! ( $plugin instanceof WP_Plugin_Interface ) ) {
-			throw new InvalidArgumentException( sprintf( 'The target classname %s must implement %s', $plugin_classsname, WP_Plugin_Interface::class ) );
+			throw new InvalidArgumentException(
+				sprintf(
+					'The target classname %s must implement %s',
+					esc_html( $plugin_classsname ),
+					WP_Plugin_Interface::class
+				)
+			);
 		}
 
 		/** @var \Enpii_Base\Foundation\WP\WP_Plugin $plugin  */
@@ -163,13 +170,22 @@ class WP_Application extends Application {
 		$this->register( $plugin );
 	}
 
+	/**
+	 * @throws \Exception
+	 */
 	public function register_theme(
 		$theme_classsname,
 		$theme_slug
 	): void {
 		$theme = new $theme_classsname( $this );
 		if ( ! ( $theme instanceof WP_Theme_Interface ) ) {
-			throw new InvalidArgumentException( sprintf( 'The target classname %s must implement %s', $theme_classsname, WP_Theme_Interface::class ) );
+			throw new InvalidArgumentException(
+				sprintf(
+					'The target classname %s must implement %s',
+					esc_html( $theme_classsname ),
+					WP_Theme_Interface::class
+				)
+			);
 		}
 
 		if ( get_template_directory() !== get_stylesheet_directory() ) {
@@ -184,7 +200,7 @@ class WP_Application extends Application {
 			$parent_theme_base_url = null;
 		}
 
-		/** @var \Enpii_Base\Libs\WP_Theme $theme  */
+		/** @var \Enpii_Base\Foundation\WP\WP_Theme $theme  */
 		$theme->bind_base_params(
 			[
 				WP_Theme_Interface::PARAM_KEY_THEME_SLUG => $theme_slug,
@@ -245,6 +261,7 @@ class WP_Application extends Application {
 	 * For checking if the request uri is for 'wp-app'
 	 *
 	 * @return bool
+	 * @throws \Exception
 	 */
 	public function is_wp_app_mode(): bool {
 		$wp_app_prefix = $this->wp_app_slug;
@@ -257,6 +274,7 @@ class WP_Application extends Application {
 	 * For checking if the request uri is for 'wp-app'
 	 *
 	 * @return bool
+	 * @throws \Exception
 	 */
 	public function is_wp_api_mode(): bool {
 		$wp_site_prefix = $this->wp_api_slug;
@@ -269,6 +287,7 @@ class WP_Application extends Application {
 	 * For checking if the request uri is for 'wp-app'
 	 *
 	 * @return bool
+	 * @throws \Exception
 	 */
 	public function is_wp_site_mode(): bool {
 		$wp_site_prefix = 'site';
@@ -277,8 +296,7 @@ class WP_Application extends Application {
 		return ( strpos( $uri, '/' . $wp_site_prefix . '/' ) === 0 || $uri === '/' . $wp_site_prefix );
 	}
 
-	public function get_laravel_major_version() {
-		return enpii_base_get_major_version( Application::VERSION );
+	public function get_laravel_major_version(): int {
 		return (int) enpii_base_get_major_version( Application::VERSION );
 	}
 
@@ -311,6 +329,7 @@ class WP_Application extends Application {
 		$config = static::$config;
 		$this->singleton(
 			'config',
+			// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
 			function ( $app ) use ( $config ) {
 				return new Repository( $config );
 			}

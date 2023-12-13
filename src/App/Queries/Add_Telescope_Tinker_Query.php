@@ -11,7 +11,7 @@ class Add_Telescope_Tinker_Query extends Base_Query {
 
 	use Dispatchable_Trait;
 
-	private array $providers = [];
+	private $providers = [];
 
 	public function __construct( array $providers ) {
 		$this->providers = $providers;

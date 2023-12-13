@@ -78,6 +78,7 @@ class Mail_Service_Provider extends MailServiceProvider {
 
 				'mailgun' => [
 					'transport' => 'mailgun',
+					// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 					// 'client' => [
 					//     'timeout' => 5,
 					// ],
@@ -85,6 +86,7 @@ class Mail_Service_Provider extends MailServiceProvider {
 
 				'postmark' => [
 					'transport' => 'postmark',
+					// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 					// 'message_stream_id' => null,
 					// 'client' => [
 					//     'timeout' => 5,

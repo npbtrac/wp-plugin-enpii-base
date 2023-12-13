@@ -219,6 +219,9 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		return false;
 	}
 
+	/**
+	 * @throws \Exception
+	 */
 	public function use_blade_to_compile_template( $template ) {
 		/** @var \Illuminate\View\Factory $view */
 		$view = wp_app_view();
@@ -226,16 +229,16 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		$view->addExtension( 'php', 'blade' );
 
 		/** @var \Illuminate\View\View $wp_app_view */
+		// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 		// $wp_app_view = wp_app_view(basename($template, '.php'))
 
 		// We catch exception if view is not rendered correctly
 		//  exception InvalidArgumentException for view file not found in FileViewFinder
 		try {
 			$tmp = wp_app_view( basename( $template, '.php' ) );
-			echo $tmp;
+			echo esc_html( $tmp );
 			$template = false;
-		} catch ( InvalidArgumentException $e ) {
-		} catch ( Exception $e ) {
+		} catch ( InvalidArgumentException | Exception $e ) {
 			throw $e;
 		}
 

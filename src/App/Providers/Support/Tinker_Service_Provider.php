@@ -47,6 +47,7 @@ class Tinker_Service_Provider extends TinkerServiceProvider {
 			*/
 
 			'commands' => [
+				// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 				// App\Console\Commands\ExampleCommand::class,
 			],
 
