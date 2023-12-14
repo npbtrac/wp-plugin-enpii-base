@@ -279,6 +279,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 			// We want to cancel all headers set by WP
 			add_filter(
 				'wp_headers',
+				// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
 				function ( $headers ) {
 					return [];
 				},

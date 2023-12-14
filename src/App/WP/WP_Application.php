@@ -146,6 +146,10 @@ class WP_Application extends Application {
 		$plugin_base_path,
 		$plugin_base_url
 	): void {
+		if ( $this->has( $plugin_classsname ) ) {
+			return;
+		}
+
 		$plugin = new $plugin_classsname( $this );
 		if ( ! ( $plugin instanceof WP_Plugin_Interface ) ) {
 			throw new InvalidArgumentException(
@@ -165,7 +169,13 @@ class WP_Application extends Application {
 				WP_Plugin_Interface::PARAM_KEY_PLUGIN_BASE_URL => $plugin_base_url,
 			]
 		);
-		$this->instance( $plugin_classsname, $plugin );
+		$this->singleton(
+			$plugin_classsname,
+			// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
+			function ( $app ) use ( &$plugin ) {
+				return $plugin;
+			}
+		);
 		$this->alias( $plugin_classsname, 'plugin-' . $plugin_slug );
 		$this->register( $plugin );
 	}
@@ -177,6 +187,10 @@ class WP_Application extends Application {
 		$theme_classsname,
 		$theme_slug
 	): void {
+		if ( $this->has( $theme_classsname ) ) {
+			return;
+		}
+
 		$theme = new $theme_classsname( $this );
 		if ( ! ( $theme instanceof WP_Theme_Interface ) ) {
 			throw new InvalidArgumentException(
@@ -210,7 +224,13 @@ class WP_Application extends Application {
 				WP_Theme_Interface::PARAM_KEY_PARENT_THEME_BASE_URL => $parent_theme_base_url,
 			]
 		);
-		$this->instance( $theme_classsname, $theme );
+		$this->singleton(
+			$theme_classsname,
+			// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
+			function ( $app ) use ( $theme ) {
+				return $theme;
+			}
+		);
 		$this->alias( $theme_classsname, 'theme-' . $theme_slug );
 		$this->register( $theme );
 	}

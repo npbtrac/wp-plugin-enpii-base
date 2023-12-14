@@ -16,5 +16,10 @@ class Perform_Setup_WP_App_Job extends Base_Job {
 			'wp-app:setup',
 			[]
 		);
+
+		if (wp_app_config('app.debug')) {
+			$output = Artisan::output();
+			echo( nl2br( esc_html( $output ) ) );
+		}
 	}
 }
