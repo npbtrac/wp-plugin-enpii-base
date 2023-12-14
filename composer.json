@@ -2,7 +2,7 @@
   "name": "enpii/enpii-base",
   "type": "wordpress-muplugin",
   "require": {
-    "laravel/framework": "^7.0.0|^8.0.0|^9.0.0|^10.0.0",
+    "laravel/framework": "^8.0.0|^9.0.0|^10.0.0",
     "laravel/telescope": "^3.5.1|^4.17",
     "laravel/tinker": "^2.8",
     "mcaskill/composer-exclude-files": "^3.0.0",
@@ -52,6 +52,10 @@
     }
   },
   "config": {
+    "platform": {
+      "php": "8.1.0"
+    },
+    "platform-check": false,
     "allow-plugins": {
       "composer/installers": true,
       "mcaskill/composer-exclude-files": true,
@@ -72,12 +76,12 @@
     "phpunit": [
       "./vendor/bin/phpunit"
     ],
-    "codecept": [
+    "codecept-run": [
       "./vendor/bin/codecept run"
     ],
     "test": [
       "@phpcs",
-      "@phpunit"
+      "@codecept-run unit"
     ]
   }
 }

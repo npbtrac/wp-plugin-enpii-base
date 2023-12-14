@@ -6,11 +6,11 @@ use Enpii_Base\App\Http\Controllers\Admin\Main_Controller as Admin_Main_Controll
 use Enpii_Base\App\Http\Controllers\Api\Main_Controller as Api_Main_Controller;
 use Enpii_Base\App\Http\Controllers\Main_Controller;
 use Illuminate\Support\Facades\Route;
-use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
 use Enpii_Base\Foundation\Shared\Base_Job;
+use Enpii_Base\Foundation\Support\Executable_Trait;
 
 class Register_Base_WP_App_Routes_Job extends Base_Job {
-	use Dispatchable_Trait;
+	use Executable_Trait;
 
 	/**
 	 * Execute the job.
@@ -22,7 +22,6 @@ class Register_Base_WP_App_Routes_Job extends Base_Job {
 		Route::get( '/', [ Main_Controller::class, 'index' ] );
 		Route::get( '/post', [ Main_Controller::class, 'post' ] );
 		Route::get( '/page', [ Main_Controller::class, 'page' ] );
-		Route::post( 'queue-work', [ Main_Controller::class, 'queue_work' ] )->name( 'wp-app-queue-work' );
 
 		// For Admin
 		Route::group(

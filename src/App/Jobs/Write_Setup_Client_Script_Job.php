@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Jobs;
 
-use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
 use Enpii_Base\Foundation\Shared\Base_Job;
+use Enpii_Base\Foundation\Support\Executable_Trait;
 use PHPUnit\Framework\ExpectationFailedException;
 use Exception;
 
 class Write_Setup_Client_Script_Job extends Base_Job {
-	use Dispatchable_Trait;
+	use Executable_Trait;
 
 	/**
 	 * We write client script to send ajax request to the setup url on the screen right after

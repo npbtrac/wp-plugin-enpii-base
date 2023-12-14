@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\WP;
 
+use Enpii_Base\App\Jobs\Conclude_WP_App_Request_Job;
 use Enpii_Base\App\Jobs\Init_WP_App_Bootstrap_Job;
+use Enpii_Base\App\Jobs\Perform_Setup_WP_App_Job;
 use Enpii_Base\App\Jobs\Process_WP_Api_Request_Job;
 use Enpii_Base\App\Jobs\Process_WP_App_Request_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_Api_Routes_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_App_Routes_Job;
-use Enpii_Base\App\Jobs\Register_Main_Service_Providers_Job;
 use Enpii_Base\App\Jobs\Show_Admin_Notice_From_Flash_Messages_Job;
 use Enpii_Base\App\Jobs\Write_Queue_Work_Script_Job;
 use Enpii_Base\App\Jobs\Write_Setup_Client_Script_Job;
 use Enpii_Base\App\Queries\Add_Telescope_Tinker_Query;
 use Enpii_Base\App\Support\App_Const;
 use Illuminate\Contracts\Container\BindingResolutionException;
-use Illuminate\Http\Response;
 use Enpii_Base\Foundation\WP\WP_Plugin;
 use Exception;
 use InvalidArgumentException;
@@ -70,6 +70,18 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		parent::boot();
 	}
 
+	public function get_name(): string {
+		return 'Enpii Base';
+	}
+
+	public function get_version(): string {
+		return ENPII_BASE_PLUGIN_VERSION;
+	}
+
+	public function get_text_domain(): string {
+		return 'enpii';
+	}
+
 	public function manipulate_hooks(): void {
 		/** WP CLI */
 		add_action( 'cli_init', [ $this, 'register_wp_cli_commands' ] );
@@ -80,6 +92,8 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 
 		add_action( App_Const::ACTION_WP_APP_REGISTER_ROUTES, [ $this, 'register_base_wp_app_routes' ] );
 		add_action( App_Const::ACTION_WP_API_REGISTER_ROUTES, [ $this, 'register_base_wp_api_routes' ] );
+		add_action( App_Const::ACTION_WP_APP_QUEUE_WORK, [ $this, 'queue_work' ] );
+		add_action( App_Const::ACTION_WP_APP_SETUP_APP, [ $this, 'setup_app' ] );
 
 		add_filter( App_Const::FILTER_WP_APP_MAIN_SERVICE_PROVIDERS, [ $this, 'register_telescope_tinker' ] );
 
@@ -95,47 +109,28 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( 'admin_head', [ $this, 'handle_admin_head' ] );
 	}
 
-	public function get_name(): string {
-		return 'Enpii Base';
-	}
-
-	public function get_version(): string {
-		return ENPII_BASE_PLUGIN_VERSION;
-	}
-
-	public function get_text_domain(): string {
-		return 'enpii';
+	public function setup_app(): void {
+		Perform_Setup_WP_App_Job::dispatchSync();
 	}
 
 	public function bootstrap_wp_app(): void {
-		Init_WP_App_Bootstrap_Job::dispatchSync();
+		Init_WP_App_Bootstrap_Job::execute_now();
 	}
 
 	public function write_setup_wp_app_client_script(): void {
-		Write_Setup_Client_Script_Job::dispatchSync();
+		Write_Setup_Client_Script_Job::execute_now();
 	}
 
 	public function write_queue_work_client_script(): void {
-		Write_Queue_Work_Script_Job::dispatchSync();
-	}
-
-	/**
-	 * We want to register main Service Providers for the wp_app()
-	 * You can remove this handler to replace with the Service Providers you want
-	 * @return void
-	 * @throws BindingResolutionException
-	 * @throws InvalidArgumentException
-	 */
-	public function register_main_service_providers(): void {
-		Register_Main_Service_Providers_Job::dispatchSync();
+		Write_Queue_Work_Script_Job::execute_now();
 	}
 
 	public function register_base_wp_app_routes(): void {
-		Register_Base_WP_App_Routes_Job::dispatchSync();
+		Register_Base_WP_App_Routes_Job::execute_now();
 	}
 
 	public function register_base_wp_api_routes(): void {
-		Register_Base_WP_Api_Routes_Job::dispatchSync();
+		Register_Base_WP_Api_Routes_Job::execute_now();
 	}
 
 	public function register_wp_cli_commands(): void {
@@ -199,11 +194,11 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	}
 
 	public function wp_app_render_content( $wp ): void {
-		Process_WP_App_Request_Job::dispatchSync();
+		Process_WP_App_Request_Job::execute_now();
 	}
 
 	public function wp_api_process_request( $wp ): void {
-		Process_WP_Api_Request_Job::dispatchSync();
+		Process_WP_Api_Request_Job::execute_now();
 	}
 
 	/**
@@ -243,7 +238,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 			echo $tmp;
 			$template = false;
 
-		// We simply want to do nothing on the InvalidArgumentException
+			// We simply want to do nothing on the InvalidArgumentException
 		// phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch
 		} catch ( InvalidArgumentException $invalid_argument_exception ) {
 		} catch ( Exception $e ) {
@@ -254,17 +249,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	}
 
 	public function wp_app_complete_execution(): void {
-		// We only want to run this
-		do_action( App_Const::ACTION_WP_APP_COMPLETE_EXECUTION );
-
-		if ( \function_exists( 'fastcgi_finish_request' ) ) {
-			fastcgi_finish_request();
-		} elseif ( \function_exists( 'litespeed_finish_request' ) ) {
-			litespeed_finish_request();
-		} elseif ( ! \in_array( \PHP_SAPI, [ 'cli', 'phpdbg' ], true ) ) {
-			Response::closeOutputBuffers( 0, true );
-			flush();
-		}
+		Conclude_WP_App_Request_Job::execute_now();
 	}
 
 	public function register_telescope_tinker( $providers ) {
@@ -278,7 +263,11 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 * @throws BindingResolutionException
 	 */
 	public function handle_admin_head() {
-		Show_Admin_Notice_From_Flash_Messages_Job::dispatchSync();
+		Show_Admin_Notice_From_Flash_Messages_Job::execute_now();
+	}
+
+	public function queue_work() {
+		Show_Admin_Notice_From_Flash_Messages_Job::execute_now();
 	}
 
 	/**
@@ -290,7 +279,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 			// We want to cancel all headers set by WP
 			add_filter(
 				'wp_headers',
-				function () {
+				function ( $headers ) {
 					return [];
 				},
 				999999
@@ -325,8 +314,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 
 		if ( wp_app()->is_wp_api_mode() ) {
 			add_filter( 'wp_using_themes', [ $this, 'skip_use_wp_theme' ], 9999, 0 );
-			add_action( 'wp', [ $this, 'wp_api_process_request' ], 9999, 1 );
-			add_action( 'shutdown', [ $this, 'wp_app_complete_execution' ], 9999, 0 );
+			add_action( 'wp_loaded', [ $this, 'wp_api_process_request' ], 9999, 1 );
 		}
 	}
 

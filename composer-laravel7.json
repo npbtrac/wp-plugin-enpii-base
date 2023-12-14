@@ -36,6 +36,9 @@
     }
   },
   "config": {
+    "platform": {
+      "php": "7.2.10"
+    },
     "allow-plugins": {
       "mcaskill/composer-exclude-files": true
     },
