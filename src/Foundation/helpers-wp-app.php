@@ -638,18 +638,16 @@ if ( ! function_exists( 'wp_app_precognitive' ) ) {
 	 *
 	 * @return mixed
 	 */
-	// phpcs:ignore PHPCompatibility.Operators.NewOperators.t_coalesce_equalFound
 	function wp_app_precognitive( $callable_value = null ) {
-		// phpcs:ignore PHPCompatibility.Operators.NewOperators.t_coalesce_equalFound
-		$callable_value ??= function () {
+		$callable_value = $callable_value ? $callable_value : function () {
 			//
 		};
 
 		$payload = $callable_value(
 			function ( $default_value, $precognition = null ) {
 				$response = wp_app_request()->isPrecognitive()
-				? ( $precognition ?? $default_value )
-				: $default_value;
+					? ( isset( $precognition ) ? $precognition : $default_value )
+					: $default_value;
 
 				wp_app_abort( Router::toResponse( request(), value( $response ) ) );
 			}
@@ -808,6 +806,20 @@ if ( ! function_exists( 'wp_app_route' ) ) {
 	 */
 	function wp_app_route( $name, $parameters = [], $absolute = true ) {
 		return wp_app( 'url' )->route( $name, $parameters, $absolute );
+	}
+}
+
+if ( ! function_exists( 'wp_app_route_wp_url' ) ) {
+	/**
+	 * Generate the URL of a full WordPress URL with domain name to a named route.
+	 *
+	 * @param  array|string  $name
+	 * @param  mixed  $parameters
+	 * @param  bool  $absolute
+	 * @return string
+	 */
+	function wp_app_route_wp_url( $name, $parameters = [] ) {
+		return rtrim( home_url(), '/' ) . wp_app_route( $name, $parameters, false );
 	}
 }
 

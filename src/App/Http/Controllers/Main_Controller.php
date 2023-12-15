@@ -39,7 +39,7 @@ class Main_Controller extends Base_Controller {
 		$wp_query = new \WP_Query(
 			[
 				'p' => $post->ID,
-			] 
+			]
 		);
 		$wp_query->the_post();
 
@@ -52,7 +52,7 @@ class Main_Controller extends Base_Controller {
 		$wp_query = new \WP_Query(
 			[
 				'page_id' => 2,
-			] 
+			]
 		);
 		$wp_query->the_post();
 

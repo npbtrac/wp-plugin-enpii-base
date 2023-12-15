@@ -89,7 +89,7 @@ class Auth_Service_Provider extends AuthServiceProvider {
 					'driver' => 'eloquent',
 					'model' => App\Models\User::class,
 				],
-
+				// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 				// 'users' => [
 				//     'driver' => 'database',
 				//     'table' => 'users',

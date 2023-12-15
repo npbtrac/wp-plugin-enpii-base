@@ -38,6 +38,10 @@
     }
   },
   "config": {
+    "platform": {
+      "php": "8.1.0"
+    },
+    "platform-check": false,
     "allow-plugins": {
       "composer/installers": true,
       "mcaskill/composer-exclude-files": true,
@@ -58,12 +62,12 @@
     "phpunit": [
       "./vendor/bin/phpunit"
     ],
-    "codecept": [
+    "codecept-run": [
       "./vendor/bin/codecept run"
     ],
     "test": [
       "@phpcs",
-      "@phpunit"
+      "@codecept-run unit"
     ]
   }
 }

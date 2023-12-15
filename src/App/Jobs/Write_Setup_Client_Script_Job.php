@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Jobs;
 
-use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
 use Enpii_Base\Foundation\Shared\Base_Job;
+use Enpii_Base\Foundation\Support\Executable_Trait;
 use PHPUnit\Framework\ExpectationFailedException;
 use Exception;
 
 class Write_Setup_Client_Script_Job extends Base_Job {
-	use Dispatchable_Trait;
+	use Executable_Trait;
 
 	/**
 	 * We write client script to send ajax request to the setup url on the screen right after
@@ -26,10 +26,9 @@ class Write_Setup_Client_Script_Job extends Base_Job {
 
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		if ( is_admin() && $current_screen->id === 'plugins' && $current_screen->parent_file === 'plugins.php' && ! empty( $_GET['activate'] ) ) {
-			// phpcs:ignore Generic.Strings.UnnecessaryStringConcat.Found
-			$setup_url = esc_url( home_url() . '/' . enpii_base_get_wp_app_prefix() . '' . '/wp-admin/admin/setup?force_app_running_in_console=1' );
+			$setup_url = esc_js( wp_app_route_wp_url( 'wp-app-admin-setup' ) . '/?force_app_running_in_console=1' );
 
-			$script_to_print = <<<SCRIPT
+			$script = <<<SCRIPT
 			<script type="text/javascript">
 				let enpii_base_setup_url = '$setup_url';
 				if (typeof(jQuery) !== 'undefined') {
@@ -42,7 +41,11 @@ class Write_Setup_Client_Script_Job extends Base_Job {
 				}
 			</script>
 SCRIPT;
-			echo esc_html( $script_to_print );
+
+			// We suppress phpcs rule here because we escape the variable already
+			//  the rest of the script are static text
+			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo $script;
 		}
 	}
 }

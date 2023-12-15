@@ -5,6 +5,7 @@ namespace Enpii_Base\App\Jobs;
 use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
 use Enpii_Base\Foundation\Shared\Base_Job;
 use Illuminate\Console\Command;
+use Illuminate\Filesystem\Filesystem;
 use InvalidArgumentException;
 
 class Setup_WP_App_In_Console_Job extends Base_Job {
@@ -65,10 +66,19 @@ class Setup_WP_App_In_Console_Job extends Base_Job {
 			]
 		);
 
-		$console_command->comment( 'Publishing Telescope Assets...' );
+		$console_command->comment( 'Doing Migrations...' );
 		$console_command->call(
 			'migrate',
-			[]
+			[
+				'--no-interaction' => true,
+				'--quiet' => true,
+			]
 		);
+
+		// We need to cleanup the migrations file in fake base path database folder
+		//  for security reason
+		$console_command->comment( 'Cleanup migrations rule' );
+		$filesystem = new Filesystem();
+		$filesystem->cleanDirectory( wp_app()->databasePath( 'migrations' ) );
 	}
 }

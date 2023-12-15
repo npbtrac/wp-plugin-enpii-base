@@ -22,16 +22,19 @@ class Post extends Model {
 	protected $connection = 'wpdb';
 
 	public static function insert( ...$params ) {
+		// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 		// Use wp_insert_post() instead
 		throw new Exception( 'Invalid Method Call' );
 	}
 
 	public function update( array $attributes = [], array $options = [] ) {
+		// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 		// Use wp_update_post() instead
 		throw new Exception( 'Invalid Method Call' );
 	}
 
 	public function delete() {
+		// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 		// Use wp_delete_post() instead
 		throw new Exception( 'Invalid Method Call' );
 	}
