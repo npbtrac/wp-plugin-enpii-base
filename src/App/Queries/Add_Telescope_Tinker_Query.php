@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Queries;
 
-use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
 use Enpii_Base\Foundation\Shared\Base_Query;
+use Enpii_Base\Foundation\Support\Executable_Trait;
 
 class Add_Telescope_Tinker_Query extends Base_Query {
 
-	use Dispatchable_Trait;
+	use Executable_Trait;
 
-	private array $providers = [];
+	private $providers = [];
 
 	public function __construct( array $providers ) {
 		$this->providers = $providers;
@@ -21,8 +21,8 @@ class Add_Telescope_Tinker_Query extends Base_Query {
 		$providers = array_merge(
 			$this->providers,
 			[
-				\Enpii_Base\App\Providers\Telescope_Service_Provider::class,
-				\Enpii_Base\App\Providers\Tinker_Service_Provider::class,
+				\Enpii_Base\App\Providers\Support\Telescope_Service_Provider::class,
+				\Enpii_Base\App\Providers\Support\Tinker_Service_Provider::class,
 			]
 		);
 

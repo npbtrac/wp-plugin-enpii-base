@@ -272,10 +272,11 @@ if ( ! function_exists( 'wp_app_config' ) ) {
 	 * If an array is passed as the key, we will assume you want to set an array of values.
 	 *
 	 * @param  array|string|null  $key
-	 * @param  mixed  $default
+	 * @param  mixed  $default_value
+	 *
 	 * @return mixed|\Illuminate\Config\Repository
 	 */
-	function wp_app_config( $key = null, $default = null ) {
+	function wp_app_config( $key = null, $default_value = null ) {
 		if ( is_null( $key ) ) {
 			return wp_app( 'config' );
 		}
@@ -284,7 +285,7 @@ if ( ! function_exists( 'wp_app_config' ) ) {
 			return wp_app( 'config' )->set( $key );
 		}
 
-		return wp_app( 'config' )->get( $key, $default );
+		return wp_app( 'config' )->get( $key, $default_value );
 	}
 }
 
@@ -501,19 +502,20 @@ if ( ! function_exists( 'wp_app_factory' ) ) {
 	/**
 	 * Create a model factory builder for a given class and amount.
 	 *
-	 * @param  string  $class
+	 * @param  string  $class_object
 	 * @param  int  $amount
+	 *
 	 * @return \Illuminate\Database\Eloquent\FactoryBuilder
 	 */
 	// phpcs:ignore Universal.NamingConventions.NoReservedKeywordParameterNames.abstractFound
-	function wp_app_factory( $class, $amount = null ) {
+	function wp_app_factory( $class_object, $amount = null ) {
 		$factory = wp_app( EloquentFactory::class );
 
 		if ( isset( $amount ) && is_int( $amount ) ) {
-			return $factory->of( $class )->times( $amount );
+			return $factory->of( $class_object )->times( $amount );
 		}
 
-		return $factory->of( $class );
+		return $factory->of( $class_object );
 	}
 }
 
@@ -581,6 +583,7 @@ if ( ! function_exists( 'wp_app_mix' ) ) {
 	 *
 	 * @throws \Exception
 	 */
+	// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
 	function wp_app_mix( $path, $manifestDirectory = '' ) {
 		return wp_app( Mix::class )( ...func_get_args() );
 	}
@@ -603,11 +606,12 @@ if ( ! function_exists( 'wp_app_old' ) ) {
 	 * Retrieve an old input item.
 	 *
 	 * @param  string|null  $key
-	 * @param  mixed  $default
+	 * @param  mixed  $default_value
+	 *
 	 * @return mixed
 	 */
-	function wp_app_old( $key = null, $default = null ) {
-		return wp_app( 'request' )->old( $key, $default );
+	function wp_app_old( $key = null, $default_value = null ) {
+		return wp_app( 'request' )->old( $key, $default_value );
 	}
 }
 
@@ -615,13 +619,14 @@ if ( ! function_exists( 'wp_app_policy' ) ) {
 	/**
 	 * Get a policy instance for a given class.
 	 *
-	 * @param  object|string  $class
+	 * @param  object|string  $class_object
+	 *
 	 * @return mixed
 	 *
 	 * @throws \InvalidArgumentException
 	 */
-	function wp_app_policy( $class ) {
-		return wp_app( Gate::class )->getPolicyFor( $class );
+	function wp_app_policy( $class_object ) {
+		return wp_app( Gate::class )->getPolicyFor( $class_object );
 	}
 }
 
@@ -629,20 +634,20 @@ if ( ! function_exists( 'wp_app_precognitive' ) ) {
 	/**
 	 * Handle a Precognition controller hook.
 	 *
-	 * @param  null|callable  $callable
+	 * @param  null|callable  $callable_value
+	 *
 	 * @return mixed
 	 */
-	function wp_app_precognitive( $callable = null ) {
-		// phpcs:ignore PHPCompatibility.Operators.NewOperators.t_coalesce_equalFound
-		$callable ??= function () {
+	function wp_app_precognitive( $callable_value = null ) {
+		$callable_value = $callable_value ? $callable_value : function () {
 			//
 		};
 
-		$payload = $callable(
-			function ( $default, $precognition = null ) {
+		$payload = $callable_value(
+			function ( $default_value, $precognition = null ) {
 				$response = wp_app_request()->isPrecognitive()
-				? ( $precognition ?? $default )
-				: $default;
+					? ( isset( $precognition ) ? $precognition : $default_value )
+					: $default_value;
 
 				wp_app_abort( Router::toResponse( request(), value( $response ) ) );
 			}
@@ -704,10 +709,11 @@ if ( ! function_exists( 'wp_app_request' ) ) {
 	 * Get an instance of the current request or an input item from the request.
 	 *
 	 * @param  array|string|null  $key
-	 * @param  mixed  $default
+	 * @param  mixed  $default_value
+	 *
 	 * @return \Illuminate\Http\Request|string|array
 	 */
-	function wp_app_request( $key = null, $default = null ) {
+	function wp_app_request( $key = null, $default_value = null ) {
 		if ( is_null( $key ) ) {
 			return wp_app( 'request' );
 		}
@@ -718,7 +724,7 @@ if ( ! function_exists( 'wp_app_request' ) ) {
 
 		$value = wp_app( 'request' )->__get( $key );
 
-		return is_null( $value ) ? value( $default ) : $value;
+		return is_null( $value ) ? value( $default_value ) : $value;
 	}
 }
 
@@ -803,6 +809,20 @@ if ( ! function_exists( 'wp_app_route' ) ) {
 	}
 }
 
+if ( ! function_exists( 'wp_app_route_wp_url' ) ) {
+	/**
+	 * Generate the URL of a full WordPress URL with domain name to a named route.
+	 *
+	 * @param  array|string  $name
+	 * @param  mixed  $parameters
+	 * @param  bool  $absolute
+	 * @return string
+	 */
+	function wp_app_route_wp_url( $name, $parameters = [] ) {
+		return rtrim( home_url(), '/' ) . wp_app_route( $name, $parameters, false );
+	}
+}
+
 if ( ! function_exists( 'wp_app_secure_asset' ) ) {
 	/**
 	 * Generate an asset path for the application.
@@ -835,10 +855,11 @@ if ( ! function_exists( 'wp_app_session' ) ) {
 	 * If an array is passed as the key, we will assume you want to set an array of values.
 	 *
 	 * @param  array|string|null  $key
-	 * @param  mixed  $default
+	 * @param  mixed  $default_value
+	 *
 	 * @return mixed|\Illuminate\Session\Store|\Illuminate\Session\SessionManager
 	 */
-	function wp_app_session( $key = null, $default = null ) {
+	function wp_app_session( $key = null, $default_value = null ) {
 		if ( is_null( $key ) ) {
 			return wp_app( 'session' );
 		}
@@ -847,7 +868,7 @@ if ( ! function_exists( 'wp_app_session' ) ) {
 			return wp_app( 'session' )->put( $key );
 		}
 
-		return wp_app( 'session' )->get( $key, $default );
+		return wp_app( 'session' )->get( $key, $default_value );
 	}
 }
 

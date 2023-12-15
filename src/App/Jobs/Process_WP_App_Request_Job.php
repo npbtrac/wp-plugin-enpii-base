@@ -2,12 +2,11 @@
 
 namespace Enpii_Base\App\Jobs;
 
-use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
 use Enpii_Base\Foundation\Shared\Base_Job;
+use Enpii_Base\Foundation\Support\Executable_Trait;
 
 class Process_WP_App_Request_Job extends Base_Job {
-
-	use Dispatchable_Trait;
+	use Executable_Trait;
 
 	/**
 	 * Execute the job.
@@ -22,10 +21,9 @@ class Process_WP_App_Request_Job extends Base_Job {
 		$request = \Enpii_Base\App\Http\Request::capture();
 		$response = $kernel->handle( $request );
 
-
+		// We don't want to call Response::send() here because we don't want
+		//  to end the request here
 		$response->sendHeaders();
 		$response->sendContent();
-
-		$kernel->terminate( $request, $response );
 	}
 }

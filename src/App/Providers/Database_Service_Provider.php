@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Providers;
 
+use Enpii_Base\App\Support\App_Const;
 use Enpii_Base\Foundation\Database\Connectors\Connection_Factory;
 use Illuminate\Database\DatabaseServiceProvider;
 
 class Database_Service_Provider extends DatabaseServiceProvider {
 	public function register() {
-		$this->before_register();
+		$this->fetch_config();
 
 		parent::register();
 
@@ -38,11 +39,11 @@ class Database_Service_Provider extends DatabaseServiceProvider {
 		);
 	}
 
-	protected function before_register(): void {
+	protected function fetch_config(): void {
 		wp_app_config(
 			[
 				'database' => apply_filters(
-					'enpii_base_wp_app_database_config',
+					App_Const::FILTER_WP_APP_DATABASE_CONFIG,
 					$this->get_default_config()
 				),
 			]
@@ -72,7 +73,7 @@ class Database_Service_Provider extends DatabaseServiceProvider {
 			$default_mysql_config['collate'] = $wpdb->collate;
 		}
 
-		$config = array(
+		$config = [
 
 			/*
 			|--------------------------------------------------------------------------
@@ -103,7 +104,7 @@ class Database_Service_Provider extends DatabaseServiceProvider {
 			|
 			*/
 
-			'connections' => array(
+			'connections' => [
 				'mysql'        => $default_mysql_config,
 				'mysql_logs'   => $default_mysql_config,
 				'mysql_queues' => $default_mysql_config,
@@ -114,7 +115,7 @@ class Database_Service_Provider extends DatabaseServiceProvider {
 						'wpdb'   => $wpdb,
 					]
 				),
-			),
+			],
 
 			/*
 			|--------------------------------------------------------------------------
@@ -127,7 +128,7 @@ class Database_Service_Provider extends DatabaseServiceProvider {
 			|
 			*/
 			'migrations'  => 'migrations',
-		);
+		];
 
 		return $config;
 	}

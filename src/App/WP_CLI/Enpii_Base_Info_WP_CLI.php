@@ -7,6 +7,7 @@ namespace Enpii_Base\App\WP_CLI;
 use Enpii_Base\App\Jobs\WP_CLI\Show_Basic_Info_Job;
 
 class Enpii_Base_Info_WP_CLI {
+	// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
 	public function __invoke( $args ) {
 		Show_Basic_Info_Job::dispatchSync();
 

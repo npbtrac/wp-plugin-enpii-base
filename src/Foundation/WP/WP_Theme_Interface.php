@@ -12,14 +12,6 @@ interface WP_Theme_Interface {
 	public const PARAM_KEY_PARENT_THEME_BASE_URL = 'parent_base_url';
 
 	/**
-	 * Create a new service provider instance.
-	 *
-	 * @param  \Illuminate\Contracts\Foundation\Application  $app
-	 * @return void
-	 */
-	public function __construct( $app );
-
-	/**
 	 * Register any application services.
 	 *
 	 * @return void
@@ -31,4 +23,22 @@ interface WP_Theme_Interface {
 	 * @return void
 	 */
 	public function manipulate_hooks(): void;
+
+	/**
+	 * The plugin should have a human readable name
+	 * @return string
+	 */
+	public function get_name(): string;
+
+	/**
+	 * The plugin should have a version for being tracked
+	 * @return string
+	 */
+	public function get_version(): string;
+
+	/**
+	 * The plugin should have a text domain
+	 * @return string
+	 */
+	public function get_text_domain(): string;
 }

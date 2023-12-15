@@ -25,7 +25,7 @@ class Engine implements EngineContract {
 	 * @param  array   $data
 	 * @return string
 	 */
-	public function get( $path, array $data = array() ) {
+	public function get( $path, array $data = [] ) {
 		/** @var \Enpii\WP_Plugin\Enpii_Base\Dependencies\Illuminate\View\FileViewFinder $view_finder */
 		$view_finder = wp_app_view()->getFinder();
 		$template_full = array_keys( $view_finder->getViews() )[0] ?? '';
@@ -43,16 +43,18 @@ class Engine implements EngineContract {
 		$view_paths = wp_app_config( 'view.paths' );
 		if ( $namespace_slug ) {
 			$themes = [];
+			// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 			// foreach ($paths as $tmp_index => $path) {
 			//  $themes[] = PlatesTheme::new($path, 'plate_theme_'.$tmp_index);
 			// }
 			$themes[] = PlatesTheme::new( wp_app( $namespace_slug )->get_views_path(), 'plate_theme_0' );
 			for ( $tmp_index = count( $view_paths ) - 1; $tmp_index >= 0; $tmp_index-- ) {
-				$themes[] = PlatesTheme::new( $view_paths[ $tmp_index ] . DIR_SEP . '_plugins' . DIR_SEP . $namespace_slug, 'plate_theme_' . $tmp_index + 1 );
+				$themes[] = PlatesTheme::new( $view_paths[ $tmp_index ] . DIR_SEP . '_plugins' . DIR_SEP . $namespace_slug, 'plate_theme_' . ( $tmp_index + 1 ) );
 			}
 			$engine = PlatesEngine::fromTheme( PlatesTheme::hierarchy( $themes ), 'php' );
 
 			$view_paths[] = wp_app( $namespace_slug )->get_views_path();
+			// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 			// dev_dump($engine);
 		} else {
 			$engine = $this->engine;

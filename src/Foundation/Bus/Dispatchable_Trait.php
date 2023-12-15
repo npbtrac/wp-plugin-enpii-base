@@ -6,9 +6,11 @@ namespace Enpii_Base\Foundation\Bus;
 
 use Closure;
 use Illuminate\Contracts\Bus\Dispatcher;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Foundation\Bus\PendingChain;
 use Illuminate\Foundation\Bus\PendingDispatch;
 use Illuminate\Support\Fluent;
+use InvalidArgumentException;
 
 trait Dispatchable_Trait {
 	/**

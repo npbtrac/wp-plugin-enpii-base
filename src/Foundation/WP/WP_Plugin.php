@@ -5,9 +5,7 @@ declare(strict_types=1);
 namespace Enpii_Base\Foundation\WP;
 
 use Illuminate\Support\ServiceProvider;
-use Enpii_Base\Foundation\Shared\Traits\Accessor_Set_Get_Has_Trait;
 use Enpii_Base\Foundation\Shared\Traits\Config_Trait;
-use Illuminate\Contracts\Container\BindingResolutionException;
 use InvalidArgumentException;
 
 /**
@@ -15,23 +13,20 @@ use InvalidArgumentException;
  * We consider each plugin a Laravel Service provider
  * @package \Enpii_Base\App\WP
  * @property \Enpii_Base\App\WP\WP_Application $app
- * @method get_plugin_slug() string the slug name of the plugin (folder name)
- * @method get_base_path() string   the directory path of the plugin
- * @method get_base_url() string    the url to plugin directory
  */
 abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface {
 	use Config_Trait;
-	use Accessor_Set_Get_Has_Trait;
 
 	protected $plugin_slug;
+	// phpcs:ignore PHPCompatibility.Classes.NewTypedProperties.Found
 	protected $base_path;
+	// phpcs:ignore PHPCompatibility.Classes.NewTypedProperties.Found
 	protected $base_url;
 
 	/**
 	 * Get the wp_app instance of the plugin
 	 *
 	 * @return static
-	 * @throws BindingResolutionException
 	 */
 	public static function wp_app_instance(): self {
 		// We return the wp_app instance of the successor's class
@@ -53,6 +48,7 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 	 * Register any application services.
 	 *
 	 * @return void
+	 * @throws \Exception
 	 */
 	public function register() {
 		// We need to ensure all needed properties are set
@@ -66,7 +62,19 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 		$this->prepare_views_paths( $this->get_plugin_slug() );
 	}
 
-	public function get_views_path() {
+	public function get_plugin_slug(): string {
+		return $this->plugin_slug;
+	}
+
+	public function get_base_path(): string {
+		return $this->base_path;
+	}
+
+	public function get_base_url(): string {
+		return $this->base_url;
+	}
+
+	public function get_views_path(): string {
 		return $this->get_base_path() . DIR_SEP . 'resources' . DIR_SEP . 'views';
 	}
 
@@ -74,17 +82,53 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 		return wp_app_view( $this->get_plugin_slug() . '::' . $view );
 	}
 
+	public function get_plugin_basename(): string {
+		return plugin_basename( $this->get_base_path() . DIR_SEP . $this->get_plugin_slug() . '.php' );
+	}
+
+	/**
+	 * Translate a text using the plugin's text domain
+	 *
+	 * @param mixed $untranslated_text Text to be translated
+	 *
+	 * @return string Translated tet
+	 * @throws \Exception
+	 */
+	// phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
+	public function _t( $untranslated_text ): string {
+		// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText, WordPress.WP.I18n.NonSingularStringLiteralDomain
+		return __( $untranslated_text, $this->get_text_domain() );
+	}
+
+	/**
+	 * @throws \Exception
+	 */
 	protected function validate_needed_properties(): void {
-		foreach ( array( 'plugin_slug', 'base_path', 'base_url' ) as $property ) {
+		foreach ( [ 'plugin_slug', 'base_path', 'base_url' ] as $property ) {
 			if ( empty( $this->$property ) ) {
 				throw new InvalidArgumentException(
 					sprintf(
 						'Property %s must be set for %s',
+						// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
 						$property,
+						// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
 						get_class( $this )
 					)
 				);
 			}
+		}
+
+		if ( ! preg_match( '/^[a-zA-Z0-9_-]+$/i', $this->plugin_slug ) ) {
+			throw new InvalidArgumentException(
+				sprintf(
+					// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped, WordPress.WP.I18n.MissingTranslatorsComment, WordPress.Security.EscapeOutput.ExceptionNotEscaped
+					__( 'Property %1$s must be set for %2$s.', 'enpii' ) . ' ' . __( 'Value must contain only alphanumeric characters _ -', 'enpii' ),
+					// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+					'plugin_slug',
+					// phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
+					get_class( $this )
+				)
+			);
 		}
 	}
 
