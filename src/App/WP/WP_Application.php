@@ -83,7 +83,10 @@ class WP_Application extends Application {
 	 */
 	public function runningInConsole(): ?bool {
 		if ( $this->isRunningInConsole === null ) {
-			if ( strpos( wp_app_request()->getPathInfo(), 'wp-admin/admin/setup' ) !== false && wp_app_request()->get( 'force_app_running_in_console' ) ) {
+			if (
+				strpos( wp_app_request()->getPathInfo(), 'wp-admin/admin/setup' ) !== false && wp_app_request()->get( 'force_app_running_in_console' ) ||
+				strpos( wp_app_request()->getPathInfo(), 'queue-work' ) !== false && wp_app_request()->get( 'force_app_running_in_console' )
+			) {
 				$this->isRunningInConsole = true;
 			}
 		}

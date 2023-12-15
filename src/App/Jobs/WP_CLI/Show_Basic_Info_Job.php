@@ -18,7 +18,7 @@ class Show_Basic_Info_Job extends Base_Job {
 	 */
 	public function handle(): void {
 		/** @var array $wp_app_info */
-		$wp_app_info = Get_WP_App_Info::dispatchSync();
+		$wp_app_info = Get_WP_App_Info::execute_now();
 
 		foreach ( $wp_app_info as $info_key => $info_value ) {
 			WP_CLI::success( "Key $info_key: " . $info_value );

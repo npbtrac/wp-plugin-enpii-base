@@ -6,6 +6,7 @@ namespace Enpii_Base\App\WP;
 
 use Enpii_Base\App\Jobs\Conclude_WP_App_Request_Job;
 use Enpii_Base\App\Jobs\Init_WP_App_Bootstrap_Job;
+use Enpii_Base\App\Jobs\Perform_Queue_Work_Job;
 use Enpii_Base\App\Jobs\Perform_Setup_WP_App_Job;
 use Enpii_Base\App\Jobs\Process_WP_Api_Request_Job;
 use Enpii_Base\App\Jobs\Process_WP_App_Request_Job;
@@ -107,6 +108,18 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( 'wp_footer', [ $this, 'write_queue_work_client_script' ] );
 
 		add_action( 'admin_head', [ $this, 'handle_admin_head' ] );
+
+		if ( ! wp_app()->is_wp_app_mode() && ! wp_app()->is_wp_api_mode() ) {
+			// We need to have wp_app() terminated before shutting down WP
+			add_action(
+				'shutdown',
+				function () {
+					/** @var \Illuminate\Foundation\Http\Kernel $kernel */
+					wp_app()->terminate();
+				},
+				9999 
+			);
+		}
 	}
 
 	public function setup_app(): void {
@@ -267,7 +280,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	}
 
 	public function queue_work() {
-		Show_Admin_Notice_From_Flash_Messages_Job::execute_now();
+		Perform_Queue_Work_Job::dispatchSync();
 	}
 
 	/**
