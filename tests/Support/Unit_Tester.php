@@ -18,7 +18,7 @@ namespace Enpii_Base\Tests\Support;
 */
 class Unit_Tester extends \Codeception\Actor {
 
-	use _generated\UnitTesterActions;
+	use _generated\Unit_TesterActions;
 
 	/**
 	 * Define custom actions here
