@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Enpii_Base\App\Providers\Support;
 
 use Enpii_Base\App\Support\App_Const;

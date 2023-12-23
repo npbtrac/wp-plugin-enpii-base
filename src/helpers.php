@@ -36,6 +36,12 @@ if ( ! function_exists( 'enpii_base_setup_wp_app' ) ) {
 				'wp_api_slug' => ENPII_BASE_WP_API_PREFIX,
 			]
 		);
+		if ( empty( $config['app']['key'] ) ) {
+			$auth_key = md5( uniqid() );
+			$config['app']['key'] = $auth_key;
+			add_option( 'wp_app_auth_key', $auth_key );
+		}
+
 		// We initiate the WP Application instance
 		\Enpii_Base\App\WP\WP_Application::init_instance_with_config(
 			$wp_app_base_path,

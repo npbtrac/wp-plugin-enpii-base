@@ -2,6 +2,7 @@
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="VIP Coding Standards" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
 	<description>The custom ruleset for the VIP Coding Standards itself.</description>
 
+	<file>wp-app-config/</file>
 	<file>src/</file>
 	<file>tests/</file>
 
