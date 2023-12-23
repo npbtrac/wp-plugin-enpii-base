@@ -18,7 +18,7 @@ class Process_WP_App_Request_Job extends Base_Job {
 		$kernel = wp_app()->make( \Illuminate\Contracts\Http\Kernel::class );
 
 		/** @var \Enpii_Base\App\Http\Request $request */
-		$request = \Enpii_Base\App\Http\Request::capture();
+		$request = wp_app_request();
 		$response = $kernel->handle( $request );
 
 		// We don't want to call Response::send() here because we don't want

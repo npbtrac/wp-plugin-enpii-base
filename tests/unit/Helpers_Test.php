@@ -28,7 +28,7 @@ class Helpers_Test extends Unit_Test_Case {
 		// Mock the apply_filters() function
 		$mockConfig = $this->get_wp_app_config();
 
-		WP_Mock::userFunction( 'home_url' )
+		WP_Mock::userFunction( 'site_url' )
 			->once()
 			->andReturn( 'http://enpii-dev.local' );
 

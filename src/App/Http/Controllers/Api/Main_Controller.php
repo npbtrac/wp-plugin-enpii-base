@@ -4,11 +4,15 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Http\Controllers\Api;
 
+use Enpii_Base\App\Models\User;
 use Enpii_Base\App\Queries\Get_WP_App_Info;
 use Enpii_Base\App\Support\App_Const;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Enpii_Base\Foundation\Http\Base_Controller;
+use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Laravel\Passport\PersonalAccessTokenFactory;
 
 class Main_Controller extends Base_Controller {
 	public function home(): JsonResponse {
@@ -40,6 +44,32 @@ class Main_Controller extends Base_Controller {
 			[
 				'message' => 'Queue executed',
 			]
+		);
+	}
+
+	public function user_login( FormRequest $request ): JsonResponse {
+		$username = $request->get( 'username' );
+		$password = $request->get( 'password' );
+		/** @var \WP_User $wp_user */
+		$wp_user = wp_authenticate_username_password( null, $username, $password );
+
+		if ( ! empty( $wp_user->data ) ) {
+			$user = new User( (array) $wp_user->data );
+			return wp_app_response()->json(
+				[
+					'data' => [
+						'user' => $user,
+						'personal_access' => $user->personal_access_by_request(),
+					],
+				]
+			);
+		}
+
+		return wp_app_response()->json(
+			[
+				'message' => 'failed',
+			],
+			401
 		);
 	}
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Enpii_Base\App\Providers\Support;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider;
+use Laravel\Passport\Passport;
 
 class Auth_Service_Provider extends AuthServiceProvider {
 	/**
@@ -18,5 +19,12 @@ class Auth_Service_Provider extends AuthServiceProvider {
 	 * Register any authentication / authorization services.
 	 */
 	public function boot(): void {
+		if ( method_exists( Passport::class, 'routes' ) ) {
+			Passport::routes();
+		}
+
+		Passport::tokensExpireIn( now()->addDays( 15 ) );
+		Passport::refreshTokensExpireIn( now()->addDays( 30 ) );
+		Passport::personalAccessTokensExpireIn( now()->addDays( 180 ) );
 	}
 }

@@ -43,7 +43,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 			|
 			*/
 
-			'driver' => env( 'SESSION_DRIVER', 'file' ),
+			'driver' => env( 'WP_APP_SESSION_DRIVER', 'file' ),
 
 			/*
 			|--------------------------------------------------------------------------
@@ -56,7 +56,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 			|
 			*/
 
-			'lifetime' => env( 'SESSION_LIFETIME', 120 ),
+			'lifetime' => env( 'WP_APP_SESSION_LIFETIME', 120 ),
 
 			'expire_on_close' => false,
 
@@ -97,7 +97,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 			|
 			*/
 
-			'connection' => env( 'SESSION_CONNECTION' ),
+			'connection' => env( 'WP_APP_SESSION_CONNECTION' ),
 
 			/*
 			|--------------------------------------------------------------------------
@@ -125,7 +125,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 			|
 			*/
 
-			'store' => env( 'SESSION_STORE' ),
+			'store' => env( 'WP_APP_SESSION_STORE' ),
 
 			/*
 			|--------------------------------------------------------------------------
@@ -152,7 +152,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 			*/
 
 			'cookie' => env(
-				'SESSION_COOKIE',
+				'WP_APP_SESSION_COOKIE',
 				Str::slug( env( 'APP_NAME', 'laravel' ), '_' ) . '_session'
 			),
 
@@ -180,7 +180,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 			|
 			*/
 
-			'domain' => env( 'SESSION_DOMAIN' ),
+			'domain' => env( 'WP_APP_SESSION_DOMAIN' ),
 
 			/*
 			|--------------------------------------------------------------------------
@@ -193,7 +193,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 			|
 			*/
 
-			'secure' => env( 'SESSION_SECURE_COOKIE' ),
+			'secure' => env( 'WP_APP_SESSION_SECURE_COOKIE' ),
 
 			/*
 			|--------------------------------------------------------------------------
