@@ -12,7 +12,7 @@
 
 namespace bcmath_compat;
 
-use phpseclib3\Math\BigInteger;
+use phpseclib\Math\BigInteger;
 
 /**
  * BCMath Emulation Class
