@@ -48,15 +48,6 @@ class Setup_WP_App_In_Console_Job extends Base_Job {
 			]
 		);
 
-		$console_command->comment( 'Publishing Telescope Migrations...' );
-		$console_command->call(
-			'vendor:publish',
-			[
-				'--tag' => 'telescope-migrations',
-				'--force' => true,
-			]
-		);
-
 		$console_command->comment( 'Publishing Telescope Assets...' );
 		$console_command->call(
 			'vendor:publish',

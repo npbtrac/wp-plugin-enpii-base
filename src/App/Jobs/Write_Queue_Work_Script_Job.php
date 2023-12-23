@@ -23,7 +23,7 @@ class Write_Queue_Work_Script_Job extends Base_Job {
 	 */
 	public function handle(): void {
 		// We want to add the trailing slash to avoid the redirect in WP webserver rule
-		$queue_work_url = esc_js( wp_app_route_wp_url( 'wp-api-queue-work' ) . '/' );
+		$queue_work_url = esc_js( wp_app_route_wp_url( 'wp-api::queue-work' ) . '/' );
 
 		// We want to have an interval that works every 2 mins (120 000 miliseconds)
 		//  To perform the queue execution because we set timeout

@@ -15,11 +15,15 @@ use Enpii_Base\App\Jobs\Register_Base_WP_App_Routes_Job;
 use Enpii_Base\App\Jobs\Show_Admin_Notice_From_Flash_Messages_Job;
 use Enpii_Base\App\Jobs\Write_Queue_Work_Script_Job;
 use Enpii_Base\App\Jobs\Write_Setup_Client_Script_Job;
+use Enpii_Base\App\Models\User;
+use Enpii_Base\App\Queries\Add_More_Providers_Query;
 use Enpii_Base\App\Queries\Add_Telescope_Tinker_Query;
 use Enpii_Base\App\Support\App_Const;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Enpii_Base\Foundation\WP\WP_Plugin;
 use Exception;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use InvalidArgumentException;
 use WP_CLI;
 use WP_Query;
@@ -96,7 +100,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( App_Const::ACTION_WP_APP_QUEUE_WORK, [ $this, 'queue_work' ] );
 		add_action( App_Const::ACTION_WP_APP_SETUP_APP, [ $this, 'setup_app' ] );
 
-		add_filter( App_Const::FILTER_WP_APP_MAIN_SERVICE_PROVIDERS, [ $this, 'register_telescope_tinker' ] );
+		add_filter( App_Const::FILTER_WP_APP_MAIN_SERVICE_PROVIDERS, [ $this, 'register_more_providers' ] );
 
 		/** Other hooks */
 		if ( $this->is_blade_for_template_available() ) {
@@ -117,7 +121,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 					/** @var \Illuminate\Foundation\Http\Kernel $kernel */
 					wp_app()->terminate();
 				},
-				9999 
+				9999
 			);
 		}
 	}
@@ -265,8 +269,8 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		Conclude_WP_App_Request_Job::execute_now();
 	}
 
-	public function register_telescope_tinker( $providers ) {
-		return Add_Telescope_Tinker_Query::execute_now( $providers );
+	public function register_more_providers( $providers ) {
+		return Add_More_Providers_Query::execute_now( $providers );
 	}
 
 	/**

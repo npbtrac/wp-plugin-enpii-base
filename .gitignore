@@ -6,6 +6,8 @@
 phpcs.cache
 /tests
 /dev-*
+phpcs.xml
+codeception*
 
 # WP-CLI
 /wp-cli.local.yml
