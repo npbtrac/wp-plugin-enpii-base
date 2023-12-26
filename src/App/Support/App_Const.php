@@ -19,7 +19,6 @@ class App_Const {
 	const ACTION_WP_APP_QUEUE_WORK = 'enpii_base_wp_app_queue_work';
 	const ACTION_WP_APP_SETUP_APP = 'enpii_base_wp_app_setup_app';
 
-	const FILTER_WP_APP_MAIN_SERVICE_PROVIDERS = 'enpii_base_wp_app_main_service_providers';
 	const FILTER_WP_APP_APP_CONFIG = 'enpii_base_wp_app_app_config';
 	const FILTER_WP_APP_AUTH_CONFIG = 'enpii_base_wp_app_auth_config';
 	const FILTER_WP_APP_BROADCASTING_CONFIG = 'enpii_base_wp_app_broadcasting_config';
@@ -34,5 +33,5 @@ class App_Const {
 	const FILTER_WP_APP_TELESCOPE_CONFIG = 'enpii_base_wp_app_telescope_config';
 	const FILTER_WP_APP_TINKER_CONFIG = 'enpii_base_wp_app_tinker_config';
 	const FILTER_WP_APP_VIEW_CONFIG = 'enpii_base_wp_app_view_config';
-	const FILTER_WP_APP_PASSPORT_CONFIG = 'enpii_base_wp_app_passport_config';
+	const FILTER_WP_APP_MAIN_SERVICE_PROVIDERS = 'enpii_base_wp_app_main_service_providers';
 }

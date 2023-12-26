@@ -17,8 +17,6 @@ docker-compose.override.yml
 docker-compose.local.yml
 
 # package management
-/vendor
-/vendor-*
 /node_modules
 
 # zip files

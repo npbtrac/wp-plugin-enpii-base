@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Providers;
 
-use Enpii_Base\App\Auth\Auth_Manager;
-use Enpii_Base\App\Models\User;
 use Enpii_Base\App\Support\App_Const;
 use Illuminate\Auth\AuthServiceProvider;
 
@@ -13,17 +11,6 @@ class Auth_Service_Provider extends AuthServiceProvider {
 	public function register() {
 		$this->fetch_config();
 		parent::register();
-	}
-
-	/**
-	 * Register the authenticator services.
-	 *
-	 * @return void
-	 */
-	protected function registerAuthenticator() {
-		$this->app->singleton( 'auth', fn ( $app ) => new Auth_Manager( $app ) );
-
-		$this->app->singleton( 'auth.driver', fn ( $app ) => $app['auth']->guard() );
 	}
 
 	protected function fetch_config(): void {
@@ -72,17 +59,10 @@ class Auth_Service_Provider extends AuthServiceProvider {
 			| Supported: "session"
 			|
 			*/
+
 			'guards' => [
 				'web' => [
 					'driver' => 'session',
-					'provider' => 'users',
-				],
-				'web-is-administrator' => [
-					'driver' => 'session',
-					'provider' => 'users',
-				],
-				'api' => [
-					'driver' => 'passport',
 					'provider' => 'users',
 				],
 			],
@@ -105,15 +85,14 @@ class Auth_Service_Provider extends AuthServiceProvider {
 			*/
 
 			'providers' => [
-				// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 				'users' => [
 					'driver' => 'eloquent',
-					'model' => User::class,
+					'model' => App\Models\User::class,
 				],
 				// phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 				// 'users' => [
-				//  'driver' => 'database',
-				//  'table' => 'users',
+				//     'driver' => 'database',
+				//     'table' => 'users',
 				// ],
 			],
 
