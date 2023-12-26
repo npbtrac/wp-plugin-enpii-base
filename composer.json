@@ -2,7 +2,7 @@
   "name": "enpii/enpii-base",
   "type": "wordpress-muplugin",
   "require": {
-    "php": "^7.2.5|^8.0.0",
+    "php": "^7.3|^8.0.0",
     "doctrine/dbal": "^3.0",
     "laravel/framework": "^8.0.0|^9.0.0|^10.0.0",
     "laravel/passport": "^11.10",

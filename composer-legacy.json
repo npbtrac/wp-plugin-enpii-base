@@ -3,16 +3,16 @@
   "type": "wordpress-muplugin",
   "description": "For using with with PHP <= 8.0",
   "require": {
-    "php": "^7.2.5|~8.0.0",
+    "php": "^7.3.0|~8.0.0",
     "doctrine/dbal": "^2.13",
     "guzzlehttp/guzzle": "^7.8.1",
-    "laravel/framework": "~7.30.6",
-    "laravel/passport": "^9.4",
-    "laravel/telescope": "^3.5.1",
+    "laravel/framework": "^8.6.0",
+    "laravel/passport": "^10.4",
+    "laravel/telescope": "~4.10.2",
     "laravel/tinker": "^2.8",
     "mcaskill/composer-exclude-files": "^3.0.0",
     "psr/log": "~1.1.4",
-    "ramsey/uuid": "^3.0.0",
+    "ramsey/uuid": "~4.2.3",
     "symfony/console": "^5.4.0",
     "symfony/contracts": "^2.5.0",
     "symfony/deprecation-contracts": "^2.5.0",
@@ -39,12 +39,12 @@
   },
   "config": {
     "platform": {
-      "php": "7.2.10"
+      "php": "7.3.0"
     },
     "allow-plugins": {
       "mcaskill/composer-exclude-files": true
     },
-    "vendor-dir": "./vendor-laravel7",
+    "vendor-dir": "./vendor-legacy",
     "sort-packages": true
   },
   "extra": {

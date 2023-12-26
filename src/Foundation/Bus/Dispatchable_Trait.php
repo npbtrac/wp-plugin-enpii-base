@@ -82,11 +82,7 @@ trait Dispatchable_Trait {
 	 */
 	// phpcs:ignore WordPress.NamingConventions.ValidFunctionName.MethodNameInvalid
 	public static function dispatchSync( ...$arguments ) {
-		if ( enpii_base_get_major_version( \Illuminate\Foundation\Application::VERSION ) >= 8 ) {
-			return wp_app( Dispatcher::class )->dispatchSync( new static( ...$arguments ) );
-		} else {
-			return wp_app( Dispatcher::class )->dispatchNow( new static( ...$arguments ) );
-		}
+		return wp_app( Dispatcher::class )->dispatchSync( new static( ...$arguments ) );
 	}
 
 	/**

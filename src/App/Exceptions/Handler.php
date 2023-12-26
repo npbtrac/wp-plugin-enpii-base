@@ -4,21 +4,9 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Exceptions;
 
-use Enpii_Base\App\WP\Enpii_Base_WP_Plugin;
-use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-use Illuminate\Foundation\Exceptions\WhoopsHandler;
-use Illuminate\Http\Request;
-use Monolog\Handler\HandlerInterface;
-use Symfony\Component\HttpFoundation\RedirectResponse as SymfonyRedirectResponse;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
-use Exception;
-use Illuminate\Http\RedirectResponse;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\ViewErrorBag;
-use Throwable;
 
 class Handler extends ExceptionHandler {
 
