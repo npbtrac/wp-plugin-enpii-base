@@ -16,7 +16,7 @@ class Hash_Service_Provider extends HashServiceProvider {
 	protected function fetch_config(): void {
 		wp_app_config(
 			[
-				'hasing' => apply_filters(
+				'hashing' => apply_filters(
 					App_Const::FILTER_WP_APP_HASHING_CONFIG,
 					$this->get_default_config()
 				),
@@ -54,7 +54,7 @@ class Hash_Service_Provider extends HashServiceProvider {
 			*/
 
 			'bcrypt' => [
-				'rounds' => env( 'BCRYPT_ROUNDS', 12 ),
+				'rounds' => env( 'WP_APP_BCRYPT_ROUNDS', 12 ),
 				'verify' => true,
 			],
 

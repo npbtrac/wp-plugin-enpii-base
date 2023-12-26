@@ -819,7 +819,7 @@ if ( ! function_exists( 'wp_app_route_wp_url' ) ) {
 	 * @return string
 	 */
 	function wp_app_route_wp_url( $name, $parameters = [] ) {
-		return rtrim( home_url(), '/' ) . wp_app_route( $name, $parameters, false );
+		return rtrim( site_url(), '/' ) . wp_app_route( $name, $parameters, false );
 	}
 }
 

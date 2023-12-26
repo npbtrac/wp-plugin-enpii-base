@@ -32,6 +32,8 @@ class Route_Service_Provider extends RouteServiceProvider {
 	 */
 	public function map() {
 		Route::prefix( '/' . wp_app()->get_wp_app_slug() )
+			->as( 'wp-app::' )
+			->middleware( [ 'web' ] )
 			->group(
 				function () {
 					do_action( 'enpii_base_wp_app_register_routes' );
@@ -39,6 +41,8 @@ class Route_Service_Provider extends RouteServiceProvider {
 			);
 
 		Route::prefix( '/' . wp_app()->get_wp_api_slug() )
+			->as( 'wp-api::' )
+			->middleware( [ 'api' ] )
 			->group(
 				function () {
 					do_action( 'enpii_base_wp_api_register_routes' );
