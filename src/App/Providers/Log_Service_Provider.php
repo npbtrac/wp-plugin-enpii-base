@@ -6,6 +6,10 @@ namespace Enpii_Base\App\Providers;
 
 use Enpii_Base\App\Support\App_Const;
 use Illuminate\Log\LogServiceProvider;
+use Monolog\Handler\NullHandler;
+use Monolog\Handler\StreamHandler;
+use Monolog\Handler\SyslogUdpHandler;
+use Monolog\Processor\PsrLogMessageProcessor;
 
 class Log_Service_Provider extends LogServiceProvider {
 	public function register() {

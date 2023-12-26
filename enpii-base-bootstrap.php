@@ -27,7 +27,7 @@ require_once __DIR__ . DIR_SEP . 'src' . DIR_SEP . 'helpers.php';
 // We include the vendor in the repo if there is no vendor loaded before
 if ( version_compare( phpversion(), '8.1.0', '<' ) ) {
 	// Lower that 8.1, we load dependencies for <= 8.0, we use Laravel 7
-	$autoload_file = __DIR__ . DIR_SEP . 'vendor-laravel7' . DIR_SEP . 'autoload.php';
+	$autoload_file = __DIR__ . DIR_SEP . 'vendor-legacy' . DIR_SEP . 'autoload.php';
 } else {
 	// PHP >= 8.1, we use Laravel 10 as the latest
 	$autoload_file = __DIR__ . DIR_SEP . 'vendor' . DIR_SEP . 'autoload.php';

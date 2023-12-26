@@ -325,8 +325,8 @@ class WP_Application extends Application {
 
 	public function get_composer_folder_name(): string {
 		// We only want to have these Watches on Laravel 8+
-		if ( version_compare( '8.0.0', Application::VERSION, '>' ) ) {
-			return 'vendor-laravel7';
+		if ( version_compare( '9.0.0', Application::VERSION, '>' ) ) {
+			return 'vendor-legacy';
 		}
 
 		return 'vendor';
