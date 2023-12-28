@@ -24,5 +24,6 @@ class Process_WP_Api_Request_Job extends Base_Job {
 		$response->send();
 
 		$kernel->terminate( $request, $response );
+		do_action( 'shutdown' );
 	}
 }

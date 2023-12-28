@@ -35,4 +35,8 @@ class App_Const {
 	const FILTER_WP_APP_TINKER_CONFIG = 'enpii_base_wp_app_tinker_config';
 	const FILTER_WP_APP_VIEW_CONFIG = 'enpii_base_wp_app_view_config';
 	const FILTER_WP_APP_PASSPORT_CONFIG = 'enpii_base_wp_app_passport_config';
+
+	const QUEUE_HIGH = 'high';
+	const QUEUE_DEFAULT = 'default';
+	const QUEUE_LOW = 'low';
 }
