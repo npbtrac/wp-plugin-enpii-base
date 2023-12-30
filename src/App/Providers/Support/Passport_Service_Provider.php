@@ -115,7 +115,7 @@ class Passport_Service_Provider extends PassportServiceProvider {
 			|
 			*/
 
-			'guard' => 'web-is-administrator',
+			'guard' => 'web',
 
 			/*
 			|--------------------------------------------------------------------------

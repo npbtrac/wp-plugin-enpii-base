@@ -4,8 +4,12 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\WP;
 
+use Enpii_Base\App\Http\Response;
 use Enpii_Base\App\Jobs\Conclude_WP_App_Request_Job;
 use Enpii_Base\App\Jobs\Init_WP_App_Bootstrap_Job;
+use Enpii_Base\App\Jobs\Log_Out_WP_App_User;
+use Enpii_Base\App\Jobs\Login_WP_App_User;
+use Enpii_Base\App\Jobs\Logout_WP_App_User;
 use Enpii_Base\App\Jobs\Perform_Queue_Work_Job;
 use Enpii_Base\App\Jobs\Perform_Setup_WP_App_Job;
 use Enpii_Base\App\Jobs\Process_WP_Api_Request_Job;
@@ -13,20 +17,21 @@ use Enpii_Base\App\Jobs\Process_WP_App_Request_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_Api_Routes_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_App_Routes_Job;
 use Enpii_Base\App\Jobs\Show_Admin_Notice_From_Flash_Messages_Job;
+use Enpii_Base\App\Jobs\Sync_WP_User_To_WP_App_User_Job;
 use Enpii_Base\App\Jobs\Write_Queue_Work_Script_Job;
 use Enpii_Base\App\Jobs\Write_Setup_Client_Script_Job;
-use Enpii_Base\App\Models\User;
 use Enpii_Base\App\Queries\Add_More_Providers_Query;
-use Enpii_Base\App\Queries\Add_Telescope_Tinker_Query;
 use Enpii_Base\App\Support\App_Const;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Enpii_Base\Foundation\WP\WP_Plugin;
 use Exception;
+use Illuminate\Contracts\Routing\ResponseFactory;
+use Illuminate\Http\Response as HttpResponse;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 use InvalidArgumentException;
 use WP_CLI;
 use WP_Query;
+use WP_User;
 
 /**
  * @package Enpii_Base\App\WP
@@ -94,6 +99,10 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		/** WP App hooks */
 		// We want to initialize wp_app bootstrap after plugins loaded
 		add_action( App_Const::ACTION_WP_APP_BOOTSTRAP, [ $this, 'bootstrap_wp_app' ], 5 );
+		add_action( App_Const::ACTION_WP_APP_INIT, [ $this, 'build_wp_app_response_via_middleware' ], 5 );
+		add_action( App_Const::ACTION_WP_APP_INIT, [ $this, 'sync_wp_user_to_wp_app_user' ] );
+		add_action( 'wp_login', [ $this, 'login_wp_app_user' ], 10, 2 );
+		add_action( 'wp_logout', [ $this, 'logout_wp_app_user' ] );
 
 		add_action( App_Const::ACTION_WP_APP_REGISTER_ROUTES, [ $this, 'register_base_wp_app_routes' ] );
 		add_action( App_Const::ACTION_WP_API_REGISTER_ROUTES, [ $this, 'register_base_wp_api_routes' ] );
@@ -112,17 +121,37 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( 'wp_footer', [ $this, 'write_queue_work_client_script' ] );
 
 		add_action( 'admin_head', [ $this, 'handle_admin_head' ] );
+		add_action( 'show_user_profile', [ $this, 'add_client_app_fields' ] );
+		add_action( 'edit_user_profile', [ $this, 'add_client_app_fields' ] );
+
+		add_filter(
+			'wp_headers',
+			function ( $headers ) {
+				$headers['X-Test'] = 'A test header';
+
+				return $headers;
+			}
+		);
 
 		if ( ! wp_app()->is_wp_app_mode() && ! wp_app()->is_wp_api_mode() ) {
 			// We need to have wp_app() terminated before shutting down WP
 			add_action(
 				'shutdown',
-				function () {
-					/** @var \Illuminate\Foundation\Http\Kernel $kernel */
-					wp_app()->terminate();
-				},
+				[ $this, 'perform_wp_app_termination' ],
 				9999
 			);
+
+			if ( is_admin() ) {
+				add_action(
+					'admin_init',
+					[ $this, 'send_wp_app_headers' ]
+				);
+			} else {
+				add_action(
+					'send_headers',
+					[ $this, 'send_wp_app_headers' ]
+				);
+			}
 		}
 	}
 
@@ -283,8 +312,116 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		Show_Admin_Notice_From_Flash_Messages_Job::execute_now();
 	}
 
+	/**
+	 * Actions to be performed on Queue Work polling Ajax
+	 * @return void
+	 * @throws BindingResolutionException
+	 */
 	public function queue_work() {
 		Perform_Queue_Work_Job::dispatchSync();
+	}
+
+	/**
+	 * Generate HTML fields for profile page
+	 * @return void
+	 */
+	public function add_client_app_fields( $user ) {
+		// We ignore the escape rule becase we handle that in the view file
+		// @codingStandardsIgnoreStart WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo $this->view(
+			'admin/users/client-app-fields',
+			[
+				'user' => $user,
+				'wp_plugin' => $this,
+			]
+		);
+		// @codingStandardsIgnoreEnd
+	}
+
+	/**
+	 * We want to let the request go through Laravel middleware
+	 *  including StartSession to have Laravel session working with WP as well
+	 * @return void
+	 */
+	public function build_wp_app_response_via_middleware() {
+		if ( ! wp_app()->is_wp_app_mode() && ! wp_app()->is_wp_api_mode() ) {
+			/** @var \Enpii_Base\App\Http\Kernel $kernel */
+			$kernel = wp_app()->make( \Illuminate\Contracts\Http\Kernel::class );
+
+			$wp_app_request = wp_app_request();
+			/** @var Response $wp_app_response */
+			$wp_app_response = $kernel->send_request_through_middleware(
+				$wp_app_request,
+				[
+					\Illuminate\Cookie\Middleware\EncryptCookies::class,
+					\Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+					\Illuminate\Session\Middleware\StartSession::class,
+					\Illuminate\View\Middleware\ShareErrorsFromSession::class,
+				],
+				function ( $request ) {
+					$response = new Response();
+					$response->set_request( $request );
+					return $response;
+				}
+			);
+			wp_app()->bind(
+				ResponseFactory::class,
+				// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
+				function ( $app ) use ( $wp_app_response ) {
+					return $wp_app_response;
+				}
+			);
+			wp_app()->set_request( $wp_app_response->get_request() );
+		}
+	}
+
+	/**
+	 * We want to merge WordPress header with Laravel headers and send them to the client
+	 * @return void
+	 * @throws BindingResolutionException
+	 * @throws InvalidArgumentException
+	 */
+	public function send_wp_app_headers(): void {
+		$wp_headers = wp_app()->get_wp_headers();
+
+		/** @var Response $wp_app_response */
+		$wp_app_response = wp_app_response();
+		foreach ( (array) $wp_headers as $wp_header_key => $wp_header_value ) {
+			$wp_app_response->header( $wp_header_key, $wp_header_value );
+		}
+
+		$wp_app_response->sendHeaders();
+	}
+
+	/**
+	 * We want to sync WP logged in user to Laravel User
+	 * @return void
+	 */
+	public function sync_wp_user_to_wp_app_user() {
+		if ( ! empty( get_current_user_id() ) ) {
+			Sync_WP_User_To_WP_App_User_Job::execute_now( get_current_user_id() );
+		}
+	}
+
+	public function login_wp_app_user( $user_login, WP_User $wp_user ) {
+		Login_WP_App_User::execute_now( $wp_user->ID );
+	}
+
+	public function logout_wp_app_user( $user_id ) {
+		dev_error_log( 'logout_wp_app_user', $user_id, Auth::getSession() );
+		Logout_WP_App_User::execute_now();
+	}
+
+	/**
+	 * We want to terminate the wp_app on shutdown event
+	 * @return void
+	 * @throws BindingResolutionException
+	 * @throws InvalidArgumentException
+	 */
+	public function perform_wp_app_termination() {
+		/** @var \Enpii_Base\App\Http\Kernel $kernel */
+		$kernel = wp_app()->make( \Illuminate\Contracts\Http\Kernel::class );
+		$kernel->terminate( wp_app_request(), wp_app_response() );
 	}
 
 	/**
@@ -292,17 +429,16 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 * @return void
 	 */
 	private function prevent_defaults(): void {
-		if ( wp_app()->is_wp_app_mode() || wp_app()->is_wp_api_mode() ) {
-			// We want to cancel all headers set by WP
-			add_filter(
-				'wp_headers',
-				// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
-				function ( $headers ) {
-					return [];
-				},
-				999999
-			);
-		}
+		add_filter(
+			'wp_headers',
+			// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
+			function ( $headers ) {
+				wp_app()->set_wp_headers( $headers );
+				return [];
+			},
+			999999,
+			1
+		);
 	}
 
 	/**

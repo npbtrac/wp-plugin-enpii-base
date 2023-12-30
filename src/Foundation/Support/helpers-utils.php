@@ -59,7 +59,7 @@ if ( ! function_exists( 'dev_error_log' ) ) {
 				$type = is_object( $var ) ? get_class( $var ) : gettype( $var );
 
 				// phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_var_export
-				$dump_content = is_object( $var ) ? $dumper->dump( $cloner->cloneVar( $var ), true ) : var_export( $var, true );
+				$dump_content = $dumper->dump( $cloner->cloneVar( $var ), true );
 			}
 			$log_message .= "Var no $index: type " . $type . ' - ' . $dump_content . " \n";
 		}

@@ -180,7 +180,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 			|
 			*/
 
-			'domain' => env( 'WP_APP_SESSION_DOMAIN' ),
+			'domain' => defined( 'COOKIE_DOMAIN' ) ? COOKIE_DOMAIN : '',
 
 			/*
 			|--------------------------------------------------------------------------
@@ -193,7 +193,7 @@ class Session_Service_Provider extends SessionServiceProvider {
 			|
 			*/
 
-			'secure' => env( 'WP_APP_SESSION_SECURE_COOKIE' ),
+			'secure' => env( 'WP_APP_SESSION_SECURE_COOKIE', false ),
 
 			/*
 			|--------------------------------------------------------------------------

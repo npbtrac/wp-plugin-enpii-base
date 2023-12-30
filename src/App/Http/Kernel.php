@@ -4,9 +4,14 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Http;
 
+use Closure;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Pipeline\Pipeline;
 
 class Kernel extends HttpKernel {
+	public $pipeline;
 
 	/**
 	 * The application's global HTTP middleware stack.
@@ -101,5 +106,16 @@ class Kernel extends HttpKernel {
 	protected $routeMiddleware = [
 		'wp_user_session_validation' => \Enpii_Base\App\Http\Middleware\WP_User_Session_Validation::class,
 		'wp_user_session_is_admin_user_validation' => \Enpii_Base\App\Http\Middleware\WP_User_Session_Is_Admin_User_Validation::class,
+		'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+		'auth' => \Enpii_Base\App\Http\Middleware\Authenticate::class,
 	];
+
+	public function send_request_through_middleware( Request $request, array $middleware = [], Closure $closure ) {
+		/** @var \Illuminate\Pipeline\Pipeline $this->pipeline */
+		$this->pipeline = ( new Pipeline( $this->app ) );
+		return $this->pipeline
+			->send( $request )
+			->through( $middleware )
+			->then( $closure );
+	}
 }

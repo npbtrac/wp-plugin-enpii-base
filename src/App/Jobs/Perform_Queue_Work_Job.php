@@ -15,7 +15,7 @@ class Perform_Queue_Work_Job extends Base_Job {
 			'queue:work',
 			[
 				'connection' => 'database',
-				'--queue' => App_Const::QUEUE_HIGH . ','. App_Const::QUEUE_DEFAULT .','. App_Const::QUEUE_LOW,
+				'--queue' => App_Const::QUEUE_HIGH . ',' . App_Const::QUEUE_DEFAULT . ',' . App_Const::QUEUE_LOW,
 				'--tries' => 3,
 				'--quiet' => true,
 				'--stop-when-empty' => true,

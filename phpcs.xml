@@ -2,6 +2,7 @@
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="VIP Coding Standards" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/squizlabs/PHP_CodeSniffer/master/phpcs.xsd">
 	<description>The custom ruleset for the VIP Coding Standards itself.</description>
 
+	<file>resources/views/</file>
 	<file>wp-app-config/</file>
 	<file>src/</file>
 	<file>tests/</file>
@@ -50,8 +51,13 @@
 	<!-- Disallow Yoda conditions. -->
 	<rule ref="Generic.ControlStructures.DisallowYodaConditions"/>
 
+	<!-- Suppress no code rule. -->
+	<rule ref="Internal.NoCodeFound">
+		<severity>0</severity>
+	</rule>
+
 	<!-- Check code for cross-version PHP compatibility. -->
-	<config name="testVersion" value="7.2-"/>
+	<config name="testVersion" value="7.3-"/>
 	<rule ref="PHPCompatibility">
 		<!-- Exclude PHP constants back-filled by PHPCS. -->
 		<exclude name="PHPCompatibility.PHP.NewConstants.t_finallyFound"/>

@@ -2,10 +2,8 @@
 
 namespace Enpii_Base\App\Jobs;
 
-use Enpii_Base\App\Http\Response;
 use Enpii_Base\Foundation\Shared\Base_Job;
 use Enpii_Base\Foundation\Support\Executable_Trait;
-use Illuminate\Session\Middleware\StartSession;
 
 class Init_WP_App_Bootstrap_Job extends Base_Job {
 	use Executable_Trait;

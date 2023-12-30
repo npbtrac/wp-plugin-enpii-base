@@ -13,6 +13,7 @@ use Enpii_Base\Foundation\WP\WP_Theme_Interface;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\PackageManifest;
 use Illuminate\Foundation\ProviderRepository;
+use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use InvalidArgumentException;
 
@@ -35,6 +36,12 @@ class WP_Application extends Application {
 
 	protected $wp_app_slug = 'wp-app';
 	protected $wp_api_slug = 'wp-api';
+
+	/**
+	 * Should contains WP headers, we will merge them with Laravel headers to send later
+	 * @var mixed
+	 */
+	protected $wp_headers;
 
 	/**
 	 * We don't want to have this class publicly initialized
@@ -338,6 +345,18 @@ class WP_Application extends Application {
 
 	public static function isset(): bool {
 		return ! is_null( static::$instance );
+	}
+
+	public function set_wp_headers( $headers ) {
+		$this->wp_headers = $headers;
+	}
+
+	public function get_wp_headers() {
+		return $this->wp_headers;
+	}
+
+	public function set_request( Request $request ) {
+		return $this->instance( 'request', $request );
 	}
 
 	/**

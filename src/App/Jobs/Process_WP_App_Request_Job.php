@@ -14,7 +14,7 @@ class Process_WP_App_Request_Job extends Base_Job {
 	 * @return void
 	 */
 	public function handle(): void {
-		/** @var \Illuminate\Foundation\Http\Kernel $kernel */
+		/** @var \Enpii_Base\App\Http\Kernel $kernel */
 		$kernel = wp_app()->make( \Illuminate\Contracts\Http\Kernel::class );
 
 		/** @var \Enpii_Base\App\Http\Request $request */

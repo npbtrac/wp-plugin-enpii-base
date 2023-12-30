@@ -4,6 +4,7 @@
   "description": "For using with with PHP <= 8.0",
   "require": {
     "php": "^7.3.0|~8.0.0",
+    "laravelcollective/html": "^6.4",
     "doctrine/dbal": "^2.13",
     "guzzlehttp/guzzle": "^7.8.1",
     "laravel/framework": "^8.6.0",

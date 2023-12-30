@@ -151,6 +151,7 @@ return [
 		\Enpii_Base\App\Providers\Support\Auth_Service_Provider::class,
 		\Enpii_Base\App\Providers\Support\Event_Service_Provider::class,
 		\Enpii_Base\App\Providers\Support\Route_Service_Provider::class,
+		\Enpii_Base\App\Providers\Support\Html_Service_Provider::class,
 	],
 
 	'aliases' => [
