@@ -43,6 +43,57 @@ class WP_Application extends Application {
 	 */
 	protected $wp_headers;
 
+	public static function isset(): bool {
+		return ! is_null( static::$instance );
+	}
+
+	public static function instance_base_path(): string {
+		return defined( 'WP_APP_BASE_PATH' ) && realpath( WP_APP_BASE_PATH ) ?
+			WP_APP_BASE_PATH :
+			rtrim( WP_CONTENT_DIR, '/' ) . DIR_SEP . 'uploads' . DIR_SEP . 'wp-app';
+	}
+
+	public static function load_instance() {
+		add_action(
+			ENPII_BASE_SETUP_HOOK_NAME,
+			function () {
+				// We only want to run the setup once
+				if ( static::isset() ) {
+					return;
+				}
+
+				/**
+				| Create a wp_app() instance to be used in the whole application
+				*/
+				$wp_app_base_path = static::instance_base_path();
+				$config = apply_filters(
+					App_Const::FILTER_WP_APP_PREPARE_CONFIG,
+					[
+						'app'         => require_once dirname(
+							dirname( dirname( __DIR__ ) )
+						) . DIR_SEP . 'wp-app-config' . DIR_SEP . 'app.php',
+						'wp_app_slug' => ENPII_BASE_WP_APP_PREFIX,
+						'wp_api_slug' => ENPII_BASE_WP_API_PREFIX,
+					]
+				);
+				if ( empty( $config['app']['key'] ) ) {
+					$auth_key = md5( uniqid() );
+					$config['app']['key'] = $auth_key;
+					add_option( 'wp_app_auth_key', $auth_key );
+				}
+
+				// We initiate the WP Application instance
+				static::init_instance_with_config(
+					$wp_app_base_path,
+					$config
+				);
+
+				do_action( App_Const::ACTION_WP_APP_LOADED );
+			},
+			-100 
+		);
+	}
+
 	/**
 	 * We don't want to have this class publicly initialized
 	 *
@@ -91,7 +142,7 @@ class WP_Application extends Application {
 	public function runningInConsole(): ?bool {
 		if ( $this->isRunningInConsole === null ) {
 			if (
-				strpos( wp_app_request()->getPathInfo(), 'wp-admin/admin/setup' ) !== false && wp_app_request()->get( 'force_app_running_in_console' ) ||
+				strpos( wp_app_request()->getPathInfo(), 'wp-admin' ) !== false && wp_app_request()->get( 'force_app_running_in_console' ) ||
 				strpos( wp_app_request()->getPathInfo(), 'queue-work' ) !== false && wp_app_request()->get( 'force_app_running_in_console' )
 			) {
 				$this->isRunningInConsole = true;
@@ -120,7 +171,20 @@ class WP_Application extends Application {
 		$providers->splice( 1, 0, [ $this->make( PackageManifest::class )->providers() ] );
 
 		( new ProviderRepository( $this, new Filesystem(), $this->getCachedServicesPath() ) )
-					->load( $providers->collapse()->toArray() );
+			->load( $providers->collapse()->toArray() );
+
+		// We trigger the action when wp_app (with providers) is registered
+		do_action( App_Const::ACTION_WP_APP_REGISTERED );
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function boot() {
+		parent::boot();
+
+		// We trigger the action when wp_app (with providers) are booted
+		do_action( App_Const::ACTION_WP_APP_BOOTED );
 	}
 
 	/**
@@ -341,10 +405,6 @@ class WP_Application extends Application {
 
 	public function get_composer_path(): string {
 		return defined( 'COMPOSER_VENDOR_DIR' ) ? COMPOSER_VENDOR_DIR : dirname( $this->resourcePath() ) . DIR_SEP . $this->get_composer_folder_name();
-	}
-
-	public static function isset(): bool {
-		return ! is_null( static::$instance );
 	}
 
 	public function set_wp_headers( $headers ) {

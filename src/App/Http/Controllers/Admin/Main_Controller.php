@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class Main_Controller extends Base_Controller {
 	public function home() {
-		dump( 'wp-admin index', Auth::getSession() );
 		$user = Auth::user();
 		return sprintf( 'Logged in use is here, username %s, user ID %s', $user->ID, $user->user_login );
 	}

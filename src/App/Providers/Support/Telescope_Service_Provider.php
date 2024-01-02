@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Enpii_Base\App\Providers\Support;
 
 use Enpii_Base\App\Support\App_Const;
-use Illuminate\Foundation\Application;
 use Laravel\Telescope\TelescopeServiceProvider;
 
 class Telescope_Service_Provider extends TelescopeServiceProvider {
@@ -39,7 +38,7 @@ class Telescope_Service_Provider extends TelescopeServiceProvider {
 			|
 			*/
 
-			'domain' => env( 'TELESCOPE_DOMAIN' ),
+			'domain' => env( 'WP_APP_TELESCOPE_DOMAIN' ),
 
 			/*
 			|--------------------------------------------------------------------------
@@ -52,7 +51,7 @@ class Telescope_Service_Provider extends TelescopeServiceProvider {
 			|
 			*/
 
-			'path' => env( 'TELESCOPE_PATH', ENPII_BASE_WP_APP_PREFIX . '/telescope' ),
+			'path' => env( 'WP_APP_TELESCOPE_PATH', ENPII_BASE_WP_APP_PREFIX . '/telescope' ),
 
 			/*
 			|--------------------------------------------------------------------------
@@ -65,7 +64,7 @@ class Telescope_Service_Provider extends TelescopeServiceProvider {
 			|
 			*/
 
-			'driver' => env( 'TELESCOPE_DRIVER', 'database' ),
+			'driver' => env( 'WP_APP_TELESCOPE_DRIVER', 'database' ),
 
 			'storage' => [
 				'database' => [
@@ -85,7 +84,7 @@ class Telescope_Service_Provider extends TelescopeServiceProvider {
 			|
 			*/
 
-			'enabled' => env( 'TELESCOPE_ENABLED', true ),
+			'enabled' => env( 'WP_APP_TELESCOPE_ENABLED', true ),
 
 			/*
 			|--------------------------------------------------------------------------
@@ -138,38 +137,38 @@ class Telescope_Service_Provider extends TelescopeServiceProvider {
 
 			'watchers' => [
 				\Laravel\Telescope\Watchers\CacheWatcher::class => [
-					'enabled' => env( 'TELESCOPE_CACHE_WATCHER', true ),
+					'enabled' => env( 'WP_APP_TELESCOPE_CACHE_WATCHER', true ),
 					'hidden' => [],
 				],
 
 				\Laravel\Telescope\Watchers\CommandWatcher::class => [
-					'enabled' => env( 'TELESCOPE_COMMAND_WATCHER', true ),
+					'enabled' => env( 'WP_APP_TELESCOPE_COMMAND_WATCHER', true ),
 					'ignore' => [],
 				],
 
 				\Laravel\Telescope\Watchers\DumpWatcher::class => [
-					'enabled' => env( 'TELESCOPE_DUMP_WATCHER', true ),
-					'always' => env( 'TELESCOPE_DUMP_WATCHER_ALWAYS', false ),
+					'enabled' => env( 'WP_APP_TELESCOPE_DUMP_WATCHER', true ),
+					'always' => env( 'WP_APP_TELESCOPE_DUMP_WATCHER_ALWAYS', false ),
 				],
 
 				\Laravel\Telescope\Watchers\EventWatcher::class => [
-					'enabled' => env( 'TELESCOPE_EVENT_WATCHER', true ),
+					'enabled' => env( 'WP_APP_TELESCOPE_EVENT_WATCHER', true ),
 					'ignore' => [],
 				],
 
-				\Laravel\Telescope\Watchers\ExceptionWatcher::class => env( 'TELESCOPE_EXCEPTION_WATCHER', true ),
+				\Laravel\Telescope\Watchers\ExceptionWatcher::class => env( 'WP_APP_TELESCOPE_EXCEPTION_WATCHER', true ),
 
-				\Laravel\Telescope\Watchers\JobWatcher::class => env( 'TELESCOPE_JOB_WATCHER', true ),
+				\Laravel\Telescope\Watchers\JobWatcher::class => env( 'WP_APP_TELESCOPE_JOB_WATCHER', true ),
 
 				\Laravel\Telescope\Watchers\LogWatcher::class => [
-					'enabled' => env( 'TELESCOPE_LOG_WATCHER', true ),
+					'enabled' => env( 'WP_APP_TELESCOPE_LOG_WATCHER', true ),
 					'level' => 'error',
 				],
 
-				\Laravel\Telescope\Watchers\MailWatcher::class => env( 'TELESCOPE_MAIL_WATCHER', true ),
+				\Laravel\Telescope\Watchers\MailWatcher::class => env( 'WP_APP_TELESCOPE_MAIL_WATCHER', true ),
 
 				\Laravel\Telescope\Watchers\ModelWatcher::class => [
-					'enabled' => env( 'TELESCOPE_MODEL_WATCHER', true ),
+					'enabled' => env( 'WP_APP_TELESCOPE_MODEL_WATCHER', true ),
 					'events' => [ 'eloquent.*' ],
 					'hydrations' => true,
 				],
@@ -177,42 +176,39 @@ class Telescope_Service_Provider extends TelescopeServiceProvider {
 				\Laravel\Telescope\Watchers\NotificationWatcher::class => env( 'TELESCOPE_NOTIFICATION_WATCHER', true ),
 
 				\Laravel\Telescope\Watchers\QueryWatcher::class => [
-					'enabled' => env( 'TELESCOPE_QUERY_WATCHER', true ),
+					'enabled' => env( 'WP_APP_TELESCOPE_QUERY_WATCHER', true ),
 					'ignore_packages' => true,
 					'ignore_paths' => [],
 					'slow' => 100,
 				],
 
 				\Laravel\Telescope\Watchers\RequestWatcher::class => [
-					'enabled' => env( 'TELESCOPE_REQUEST_WATCHER', true ),
-					'size_limit' => env( 'TELESCOPE_RESPONSE_SIZE_LIMIT', 64 ),
+					'enabled' => env( 'WP_APP_TELESCOPE_REQUEST_WATCHER', true ),
+					'size_limit' => env( 'WP_APP_TELESCOPE_RESPONSE_SIZE_LIMIT', 64 ),
 					'ignore_http_methods' => [],
 					'ignore_status_codes' => [],
 				],
 
-				\Laravel\Telescope\Watchers\ScheduleWatcher::class => env( 'TELESCOPE_SCHEDULE_WATCHER', true ),
-				\Laravel\Telescope\Watchers\ViewWatcher::class => env( 'TELESCOPE_VIEW_WATCHER', true ),
+				\Laravel\Telescope\Watchers\ScheduleWatcher::class => env( 'WP_APP_TELESCOPE_SCHEDULE_WATCHER', true ),
+				\Laravel\Telescope\Watchers\ViewWatcher::class => env( 'WP_APP_TELESCOPE_VIEW_WATCHER', true ),
 			],
 		];
 
 		if ( class_exists( \Laravel\Telescope\Watchers\GateWatcher::class ) ) {
 			$config['watchers'][ \Laravel\Telescope\Watchers\GateWatcher::class ] = [
-				'enabled' => env( 'TELESCOPE_GATE_WATCHER', true ),
+				'enabled' => env( 'WP_APP_TELESCOPE_GATE_WATCHER', true ),
 				'ignore_abilities' => [],
 				'ignore_packages' => true,
 				'ignore_paths' => [],
 			];
 		}
 
-		// We only want to have these Watches on Laravel 8+
-		if ( version_compare( '8.0.0', Application::VERSION, '<' ) ) {
-			if ( class_exists( \Laravel\Telescope\Watchers\BatchWatcher::class ) ) {
-				$config['watchers'][ \Laravel\Telescope\Watchers\BatchWatcher::class ] = env( 'TELESCOPE_BATCH_WATCHER', true );
-			}
+		if ( class_exists( \Laravel\Telescope\Watchers\BatchWatcher::class ) ) {
+			$config['watchers'][ \Laravel\Telescope\Watchers\BatchWatcher::class ] = env( 'WP_APP_TELESCOPE_BATCH_WATCHER', true );
+		}
 
-			if ( class_exists( \Laravel\Telescope\Watchers\ClientRequestWatcher::class ) ) {
-				$config['watchers'][ \Laravel\Telescope\Watchers\ClientRequestWatcher::class ] = env( 'TELESCOPE_CLIENT_REQUEST_WATCHER', true );
-			}
+		if ( class_exists( \Laravel\Telescope\Watchers\ClientRequestWatcher::class ) ) {
+			$config['watchers'][ \Laravel\Telescope\Watchers\ClientRequestWatcher::class ] = env( 'WP_APP_TELESCOPE_CLIENT_REQUEST_WATCHER', true );
 		}
 
 		return $config;

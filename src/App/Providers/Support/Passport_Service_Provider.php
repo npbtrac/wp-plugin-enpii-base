@@ -14,7 +14,6 @@ use phpseclib\Crypt\RSA as LegacyRSA;
 use phpseclib3\Crypt\RSA;
 
 class Passport_Service_Provider extends PassportServiceProvider {
-
 	/**
 	 * Register the service provider.
 	 *

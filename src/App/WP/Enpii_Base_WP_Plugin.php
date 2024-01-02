@@ -7,7 +7,6 @@ namespace Enpii_Base\App\WP;
 use Enpii_Base\App\Http\Response;
 use Enpii_Base\App\Jobs\Conclude_WP_App_Request_Job;
 use Enpii_Base\App\Jobs\Init_WP_App_Bootstrap_Job;
-use Enpii_Base\App\Jobs\Log_Out_WP_App_User;
 use Enpii_Base\App\Jobs\Login_WP_App_User;
 use Enpii_Base\App\Jobs\Logout_WP_App_User;
 use Enpii_Base\App\Jobs\Perform_Queue_Work_Job;
@@ -17,7 +16,6 @@ use Enpii_Base\App\Jobs\Process_WP_App_Request_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_Api_Routes_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_App_Routes_Job;
 use Enpii_Base\App\Jobs\Show_Admin_Notice_From_Flash_Messages_Job;
-use Enpii_Base\App\Jobs\Sync_WP_User_To_WP_App_User_Job;
 use Enpii_Base\App\Jobs\Write_Queue_Work_Script_Job;
 use Enpii_Base\App\Jobs\Write_Setup_Client_Script_Job;
 use Enpii_Base\App\Queries\Add_More_Providers_Query;
@@ -26,7 +24,6 @@ use Illuminate\Contracts\Container\BindingResolutionException;
 use Enpii_Base\Foundation\WP\WP_Plugin;
 use Exception;
 use Illuminate\Contracts\Routing\ResponseFactory;
-use Illuminate\Http\Response as HttpResponse;
 use Illuminate\Support\Facades\Auth;
 use InvalidArgumentException;
 use WP_CLI;
@@ -56,9 +53,6 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	}
 
 	public function boot() {
-		// We trigger the action when wp_app is registered
-		do_action( App_Const::ACTION_WP_APP_REGISTERED );
-
 		if ( $this->app->runningInConsole() ) {
 			// Register migrations rules
 			$this->publishes(
@@ -121,8 +115,11 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( 'wp_footer', [ $this, 'write_queue_work_client_script' ] );
 
 		add_action( 'admin_head', [ $this, 'handle_admin_head' ] );
-		add_action( 'show_user_profile', [ $this, 'add_client_app_fields' ] );
-		add_action( 'edit_user_profile', [ $this, 'add_client_app_fields' ] );
+
+		if ( defined( 'WP_APP_PASSPORT_ENABLED' ) && WP_APP_PASSPORT_ENABLED ) {
+			add_action( 'show_user_profile', [ $this, 'add_client_app_fields' ] );
+			add_action( 'edit_user_profile', [ $this, 'add_client_app_fields' ] );
+		}
 
 		add_filter(
 			'wp_headers',
@@ -398,8 +395,8 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 * @return void
 	 */
 	public function sync_wp_user_to_wp_app_user() {
-		if ( ! empty( get_current_user_id() ) ) {
-			Sync_WP_User_To_WP_App_User_Job::execute_now( get_current_user_id() );
+		if ( ! empty( get_current_user_id() ) && empty( Auth::user() ) ) {
+			Login_WP_App_User::execute_now( get_current_user_id() );
 		}
 	}
 

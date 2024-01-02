@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Auth;
 
 class Main_Controller extends Base_Controller {
 	public function index() {
-		dump( 'index', Auth::getSession() );
 		return Enpii_Base_WP_Plugin::wp_app_instance()->view(
 			'main/index',
 			[

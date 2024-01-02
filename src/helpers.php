@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-use Illuminate\Filesystem\Filesystem;
-
 if ( ! function_exists( 'enpii_base_is_console_mode' ) ) {
 	function enpii_base_is_console_mode(): bool {
 		return ( \PHP_SAPI === 'cli' || \PHP_SAPI === 'phpdbg' );
@@ -14,39 +12,6 @@ if ( ! function_exists( 'enpii_base_get_major_version' ) ) {
 	function enpii_base_get_major_version( $version ): int {
 		$parts = explode( '.', $version );
 		return (int) filter_var( $parts[0], FILTER_SANITIZE_NUMBER_INT );
-	}
-}
-
-if ( ! function_exists( 'enpii_base_setup_wp_app' ) ) {
-	function enpii_base_setup_wp_app() {
-		// We only want to run the setup once
-		if ( \Enpii_Base\App\WP\WP_Application::isset() ) {
-			return;
-		}
-
-		/**
-		| Create a wp_app() instance to be used in the whole application
-		*/
-		$wp_app_base_path = enpii_base_wp_app_get_base_path();
-		$config = apply_filters(
-			'enpii_base_wp_app_prepare_config',
-			[
-				'app'         => require_once dirname( __DIR__ ) . DIR_SEP . 'wp-app-config' . DIR_SEP . 'app.php',
-				'wp_app_slug' => ENPII_BASE_WP_APP_PREFIX,
-				'wp_api_slug' => ENPII_BASE_WP_API_PREFIX,
-			]
-		);
-		if ( empty( $config['app']['key'] ) ) {
-			$auth_key = md5( uniqid() );
-			$config['app']['key'] = $auth_key;
-			add_option( 'wp_app_auth_key', $auth_key );
-		}
-
-		// We initiate the WP Application instance
-		\Enpii_Base\App\WP\WP_Application::init_instance_with_config(
-			$wp_app_base_path,
-			$config
-		);
 	}
 }
 
@@ -62,7 +27,7 @@ if ( ! function_exists( 'enpii_base_wp_app_prepare_folders' ) ) {
 			$wp_app_base_path = enpii_base_wp_app_get_base_path();
 		}
 
-		$file_system = new Filesystem();
+		$file_system = new \Illuminate\Filesystem\Filesystem();
 		$file_system->ensureDirectoryExists( $wp_app_base_path, $chmod );
 
 		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'config', $chmod );
