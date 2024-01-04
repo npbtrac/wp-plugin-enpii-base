@@ -2,15 +2,15 @@
 
 namespace Enpii_Base\App\Jobs;
 
-use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
 use Enpii_Base\Foundation\Shared\Base_Job;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Foundation\Bus\Dispatchable;
 use InvalidArgumentException;
 
 class Setup_WP_App_In_Console_Job extends Base_Job {
 
-	use Dispatchable_Trait;
+	use Dispatchable;
 
 	protected $console_command;
 
@@ -30,6 +30,17 @@ class Setup_WP_App_In_Console_Job extends Base_Job {
 		/** @var \Illuminate\Console\Command $console_command */
 		$console_command = $this->console_command;
 
+		$console_command->comment( 'Publishing Telescope Assets...' );
+		$console_command->call(
+			'vendor:publish',
+			[
+				'--tag' => 'telescope-assets',
+				'--force' => true,
+			]
+		);
+
+		// We need to publish Enpii Base assets and Migrations latest
+		//  to be able to override other assets
 		$console_command->comment( 'Publishing Enpii Base Migrations...' );
 		$console_command->call(
 			'vendor:publish',
@@ -44,15 +55,6 @@ class Setup_WP_App_In_Console_Job extends Base_Job {
 			'vendor:publish',
 			[
 				'--tag' => 'enpii-base-assets',
-				'--force' => true,
-			]
-		);
-
-		$console_command->comment( 'Publishing Telescope Assets...' );
-		$console_command->call(
-			'vendor:publish',
-			[
-				'--tag' => 'telescope-assets',
 				'--force' => true,
 			]
 		);

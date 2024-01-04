@@ -46,7 +46,7 @@ class Register_Base_WP_App_Routes_Job extends Base_Job {
 						],
 					],
 					function () {
-						Route::get( 'setup', [ Admin_Main_Controller::class, 'setup' ] )->name( 'admin-setup' );
+						Route::get( 'setup_app', [ Admin_Main_Controller::class, 'setup_app' ] )->name( 'admin-setup-app' );
 					}
 				);
 			}

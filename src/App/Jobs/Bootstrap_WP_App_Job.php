@@ -5,7 +5,7 @@ namespace Enpii_Base\App\Jobs;
 use Enpii_Base\Foundation\Shared\Base_Job;
 use Enpii_Base\Foundation\Support\Executable_Trait;
 
-class Init_WP_App_Bootstrap_Job extends Base_Job {
+class Bootstrap_WP_App_Job extends Base_Job {
 	use Executable_Trait;
 
 	/**
@@ -35,8 +35,13 @@ class Init_WP_App_Bootstrap_Job extends Base_Job {
 
 		// As we may not use Contracts\Kernel::handle(), we need to call bootstrap method
 		//  to iinitialize all boostrappers
-		$wp_app->instance( 'request', \Enpii_Base\App\Http\Request::capture() );
-		$wp_app->make( \Illuminate\Contracts\Http\Kernel::class )->bootstrap();
-		$wp_app->make( \Illuminate\Contracts\Console\Kernel::class )->bootstrap();
+		/** @var \Enpii_Base\App\Http\Kernel $http_kernel */
+		$http_kernel = $wp_app->make( \Illuminate\Contracts\Http\Kernel::class );
+		$http_kernel->capture_request();
+		$http_kernel->bootstrap();
+
+		/** @var \Enpii_Base\App\Console\Kernel $http_kernel */
+		$console_kernel = $wp_app->make( \Illuminate\Contracts\Console\Kernel::class );
+		$console_kernel->bootstrap();
 	}
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Providers\Support;
 
+use Enpii_Base\App\Support\App_Const;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Route;
 
@@ -36,7 +37,7 @@ class Route_Service_Provider extends RouteServiceProvider {
 			->middleware( [ 'web' ] )
 			->group(
 				function () {
-					do_action( 'enpii_base_wp_app_register_routes' );
+					do_action( App_Const::ACTION_WP_APP_REGISTER_ROUTES );
 				}
 			);
 
@@ -45,7 +46,7 @@ class Route_Service_Provider extends RouteServiceProvider {
 			->middleware( [ 'api' ] )
 			->group(
 				function () {
-					do_action( 'enpii_base_wp_api_register_routes' );
+					do_action( App_Const::ACTION_WP_API_REGISTER_ROUTES );
 				}
 			);
 	}

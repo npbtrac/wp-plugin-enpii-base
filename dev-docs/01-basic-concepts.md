@@ -10,6 +10,19 @@
 - **wp_app()** should skip the WordPress rest api as well on **wp_api mode** (domain.com/wp-api)
 
 ## How Enpii Base works
+- Enpii Base is loaded as a MU plugin (this should be the choice), normal plugin or a dependency of plugins or themes.
+- When Enpii Base plugin loaded, the WP_Application instance would be initialized and the Enpii_Base_WP_Plugin would be initialized next to work as the service provider for WP_Application. At Enpii_Base_WP_Plugin, we created several hooks for WP App based on the WP Hooks:
+  1. The const `ENPII_BASE_SETUP_HOOK_NAME` defines the moment when we setup the WP App.
+  2. `enpii_base_wp_app_loaded` is the event when the WP App is loaded, we should use this event to init WP Plugins, WP Themes.
+  3. The `manipulate_hooks` method of the WP_Plugin, WP_Theme would happen at this stage so hooks registered here can interfere
+  4. `enpii_base_wp_app_registered` is the action happens when the WP App and all service providers registered. We use this event to register WP Plugins, WP Themes to the WP Application
+  5. `enpii_base_wp_app_booted` is the action happens when the WP App and all service providers are booted
+- Here are stages of the WP App via a request:
+  1. `enpii_base_wp_app_bootstrap` is the action for the first event for putting the `wp_app()` to the business (happens at `after_theme_setup`). At this stage, we add a handler to bootstrap the `wp_app()`. We init the Kernel services (for Console and Http) and the Error Handler service and bind them to the Service Container (`WP_Application::$instance`).
+  2. `enpii_base_wp_app_init` is the equivalent instance of the WP `init` action. We use another name to know that, this is for `wp_app()`. At this stage, the `wp_app()` should have all Service Providers registered and booted and of course, all available things from the action `init` of WordPress as well.
+  3. `enpii_base_wp_app_complete_execution` is the action happens to complete the request hanling. (We usually terminate the `wp_app()` here)
+
+
 Enpii Base plugin will split WordPress into 3 modes:
 - Normal WordPress workflow
 - WP App mode: use Laravel to handle the request and response with Laravel
@@ -17,10 +30,21 @@ Enpii Base plugin will split WordPress into 3 modes:
 
 ### Normal WordPress workflow
 1. All behavious of WordPress must be kept
-2. Enpii Base is loaded as a MU plugin (this should be the choice), normal plugin or a dependency of plugins or themes.
-3. When Enpii Base plugin loaded, the WP_Application instance would be initialized and the Enpii_Base_WP_Plugin would be initialized next to work as the service provider for WP_Application.
-4. At Enpii_Base_WP_Plugin, we created several hooks for WP App based on the WP Hooks:
-   1. The const `ENPII_BASE_SETUP_HOOK_NAME` defines the moment when we setup the WP App.
-   2. `enpii_base_wp_app_loaded` is the event when the WP App is loaded, we should use this event to register WP Plugins, WP Themes.
-   3. `enpii_base_wp_app_registered` is the action happens when the WP App and all service providers registered
-   4. `enpii_base_wp_app_booted` is the action happens when the WP App and all service providers are booted
+2. At `enpii_base_wp_app_init` action, we need to do the following:
+  1. Because we don't let the Laravel kernel to handle the request and use the Laravel response as the main response but we need to have the `request` and `response` instance for some reason (especially for start the session via the middleware `StartSesssion`). We capture the current request and let it go through all needed middleware to have several Laravel features ready.
+  2. We need to synchronize the WP logged user to Laravel session (`Auth::user()` should have data).
+3. We interfere the `template_include` filter skip the usage of WP `locate_template` to use Blade template to compile and render the HTML. Therefore, we can use Blade template syntax on the WP template file.
+4. At `enpii_base_wp_app_complete_execution` action, we need to call the kernel's `terminate()` method for the `wp_app()` to have needed events to trigger several actions (e.g. logging or Telescope logging, Telescope send the logging to database via the terminate event)
+
+### WP App workflow
+1. `wp_app()` should be registered, booted and bootstrapped at the hook `enpii_base_wp_app_init`
+2. We specify the WP App mode by the request uri prefix e.g. `<domain>/wp-app/abc`.
+3. At the action `wp_loaded` we skip the WP handling for the request and started to use the Laravel Http kernel to handle the request and send Laravel headers and response. As we use the `wp_loaded` to switch to WP App mode (https://wp-kama.com/hooks/actions-order), so no WP loop working and the WP main query would not work either. The reason we use `wp_loaded` is to wait for WP widgets, navigations
+4. The action `shutdown` would be invoked as WP register the callback to execute that hook via `register_shutdown_function` so we don't need to explicitly call that action
+5. We use this action `App_Const::ACTION_WP_APP_REGISTER_ROUTES` to register WP App mode routes. All WP App mode routes are prefixed with `wp-app::`.
+
+
+### WP Api workflow
+1. Same workflow of WP App
+2. Instead of using `wp_loaded` action, we use the very late handler on the action `init` (for other plugins to complete execution as `init` is the main action plugins use to start) and we skip several middleware as we don't want to use Cookie, Session as we want it stateless (we should keep `SubstituteBindings` middleware)
+3. We use this action `App_Const::ACTION_WP_API_REGISTER_ROUTES` to register WP Api mode routes. All WP Api mode routes are prefixed with `wp-api::`.

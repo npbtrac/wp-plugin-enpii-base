@@ -10,7 +10,10 @@ interface WP_Plugin_Interface {
 	public const PARAM_KEY_PLUGIN_BASE_URL = 'base_url';
 
 	/**
-	 * We want to use this method to register and deregister all hooks and related things to be used in the plugin
+	 * We want to use this method to register and deregister
+	 *  all hooks and related things to be used in the plugin
+	 *  We can even use the hook App_Const::FILTER_WP_APP_MAIN_SERVICE_PROVIDERS to
+	 *  control the service providers to be registered
 	 * @return void
 	 */
 	public function manipulate_hooks(): void;

@@ -57,24 +57,6 @@ if ( ! function_exists( 'enpii_base_wp_app_prepare_folders' ) ) {
 
 if ( ! function_exists( 'enpii_base_wp_app_get_base_path' ) ) {
 	function enpii_base_wp_app_get_base_path() {
-		return rtrim( WP_CONTENT_DIR, '/' ) . DIR_SEP . 'uploads' . DIR_SEP . 'wp-app';
-	}
-}
-
-if ( ! function_exists( 'enpii_base_get_wp_app_prefix' ) ) {
-	function enpii_base_get_wp_app_prefix(): string {
-		return ENPII_BASE_WP_APP_PREFIX;
-	}
-}
-
-if ( ! function_exists( 'enpii_base_get_wp_api_prefix' ) ) {
-	function enpii_base_get_wp_api_prefix(): string {
-		return ENPII_BASE_WP_API_PREFIX;
-	}
-}
-
-if ( ! function_exists( 'enpii_base_wp_cli_register_commands' ) ) {
-	function enpii_base_wp_cli_register_commands(): void {
-		\WP_CLI::add_command( 'enpii-base', Enpii_Base\App\WP_CLI\Enpii_Base_WP_CLI::class );
+		return defined( 'ENPII_BASE_WP_APP_BASE_PATH' ) && ENPII_BASE_WP_APP_BASE_PATH ? ENPII_BASE_WP_APP_BASE_PATH : rtrim( wp_upload_dir(), '/' ) . DIR_SEP . 'wp-app';
 	}
 }

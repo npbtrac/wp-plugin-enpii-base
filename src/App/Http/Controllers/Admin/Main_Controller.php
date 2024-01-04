@@ -17,7 +17,7 @@ class Main_Controller extends Base_Controller {
 	/**
 	 * @throws \Exception
 	 */
-	public function setup() {
+	public function setup_app() {
 		do_action( App_Const::ACTION_WP_APP_SETUP_APP );
 		return 'Complete Setup';
 	}

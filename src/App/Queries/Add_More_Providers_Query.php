@@ -18,6 +18,7 @@ class Add_More_Providers_Query extends Base_Query {
 	}
 
 	public function handle(): array {
+		$more_providers = [];
 		if ( defined( 'WP_APP_TELESCOPE_ENABLED' ) && WP_APP_TELESCOPE_ENABLED ) {
 			$more_providers[] = \Enpii_Base\App\Providers\Support\Telescope_Service_Provider::class;
 		}

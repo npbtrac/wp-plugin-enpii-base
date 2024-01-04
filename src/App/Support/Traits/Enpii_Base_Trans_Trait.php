@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Enpii_Base\App\Support;
+namespace Enpii_Base\App\Support\Traits;
 
 use Enpii_Base\App\WP\Enpii_Base_WP_Plugin;
 

@@ -14,12 +14,13 @@ defined( 'ENPII_BASE_PLUGIN_SLUG' ) || define( 'ENPII_BASE_PLUGIN_SLUG', 'enpii-
 // The prefix for wp_app request
 defined( 'ENPII_BASE_WP_APP_PREFIX' ) || define(
 	'ENPII_BASE_WP_APP_PREFIX',
-	!empty( getenv( 'ENPII_BASE_WP_APP_PREFIX' ) ) ? : 'wp-app'
+	!empty( getenv( 'ENPII_BASE_WP_APP_PREFIX' ) ) ? getenv( 'ENPII_BASE_WP_APP_PREFIX' ) : 'wp-app'
 );
 
+// The prefix for wp_api request
 defined( 'ENPII_BASE_WP_API_PREFIX' ) || define(
 	'ENPII_BASE_WP_API_PREFIX',
-	!empty( getenv( 'ENPII_BASE_WP_API_PREFIX' ) ) ? : 'wp-api'
+	!empty( getenv( 'ENPII_BASE_WP_API_PREFIX' ) ) ? getenv( 'ENPII_BASE_WP_API_PREFIX' ) : 'wp-api'
 );
 
 defined( 'ENPII_BASE_SETUP_HOOK_NAME' ) || define(
