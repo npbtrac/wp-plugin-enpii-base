@@ -13,4 +13,4 @@
 // 	for putting into composer autoload and
 // 	for easier including on other section e.g. unit test
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'enpii-base-bootstrap.php';
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'enpii-base-init.php';
+require __DIR__ . DIRECTORY_SEPARATOR . 'enpii-base-init.php';
