@@ -27,11 +27,6 @@ class Add_More_Providers_Query extends Base_Query {
 			$more_providers[] = \Enpii_Base\App\Providers\Support\Tinker_Service_Provider::class;
 		}
 
-		if ( defined( 'WP_APP_PASSPORT_ENABLED' ) && WP_APP_PASSPORT_ENABLED ) {
-			$more_providers[] = \Enpii_Base\App\Providers\Support\Passport_Service_Provider::class;
-		}
-
-
 		$providers = array_merge(
 			$this->providers,
 			$more_providers

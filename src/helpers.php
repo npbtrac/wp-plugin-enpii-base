@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use Enpii_Base\App\Support\App_Const;
+
 if ( ! function_exists( 'enpii_base_is_console_mode' ) ) {
 	function enpii_base_is_console_mode(): bool {
 		return ( \PHP_SAPI === 'cli' || \PHP_SAPI === 'phpdbg' );
@@ -59,6 +61,14 @@ if ( ! function_exists( 'enpii_base_wp_app_prepare_folders' ) ) {
 if ( ! function_exists( 'enpii_base_wp_app_get_base_path' ) ) {
 	function enpii_base_wp_app_get_base_path() {
 		return defined( 'ENPII_BASE_WP_APP_BASE_PATH' ) && ENPII_BASE_WP_APP_BASE_PATH ? ENPII_BASE_WP_APP_BASE_PATH : rtrim( wp_upload_dir()['basedir'], '/' ) . DIR_SEP . 'wp-app';
+	}
+}
+
+if ( ! function_exists( 'enpii_base_wp_app_web_page_title' ) ) {
+	function enpii_base_wp_app_web_page_title() {
+		$title = empty( wp_title( '', false ) ) ? get_bloginfo( 'name' ) . ' | ' . ( get_bloginfo( 'description' ) ?: 'WP App' ) : wp_title( '', false );
+
+		return apply_filters( App_Const::FILTER_WP_APP_WEB_PAGE_TITLE, $title );
 	}
 }
 

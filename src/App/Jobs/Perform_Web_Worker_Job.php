@@ -7,7 +7,7 @@ use Enpii_Base\Foundation\Shared\Base_Job;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Support\Facades\Artisan;
 
-class Perform_Queue_Work_Job extends Base_Job {
+class Perform_Web_Worker_Job extends Base_Job {
 	use Dispatchable;
 
 	public function handle() {

@@ -6,6 +6,7 @@ namespace Enpii_Base\Foundation\WP;
 
 use Enpii_Base\App\Support\App_Const;
 use Enpii_Base\Foundation\Shared\Traits\Config_Trait;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 use InvalidArgumentException;
 
@@ -205,5 +206,56 @@ abstract class WP_Theme extends ServiceProvider implements WP_Theme_Interface {
 				$wp_app->register( $theme );
 			}
 		);
+	}
+
+	/**
+	 * We want give info that this theme is activated
+	 * @return void
+	 * @throws Exception
+	 */
+	protected function setup_activated_info() {
+		Session::push(
+			'info',
+			sprintf(
+				$this->_t( 'Theme <strong>%s</strong> activated' ),
+				$this->get_name()
+			)
+		);
+	}
+
+	/**
+	 * We want to check if ACF Pro plugin is loaded,
+	 *  if not, flash a caution (warning)
+	 * @return void
+	 * @throws Exception
+	 */
+	protected function check_acf_pro_plugin() {
+		if ( ! class_exists( 'acf_pro' ) ) {
+			Session::push(
+				'caution',
+				sprintf(
+					$this->_t( 'This theme needs <strong>%s</strong> to work properly.' ),
+					'Plugin ACF Pro'
+				)
+			);
+		}
+	}
+
+	/**
+	 * We want to check if Enpii Html Components plugin is loaded,
+	 *  if not, flash a caution (warning)
+	 * @return void
+	 * @throws Exception
+	 */
+	protected function check_enpii_html_components_plugin() {
+		if ( ! defined( 'ENPII_HTML_COMPONENTS_VERSION' ) ) {
+			Session::push(
+				'caution',
+				sprintf(
+					$this->_t( 'This theme needs <strong>%s</strong> to work properly.' ),
+					'Plugin Enpii Html Components'
+				)
+			);
+		}
 	}
 }

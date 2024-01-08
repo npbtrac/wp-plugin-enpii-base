@@ -1,12 +1,29 @@
 {
   "name": "enpii/enpii-base",
   "type": "wordpress-muplugin",
+  "description": "The base plugin to have powerful Laravel development on WordPress",
+  "version": "0.3.1",
+  "time": "2024-01-08 13:25:04",
+  "homepage": "https://enpii.com/wp-plugin-enpii-base",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Trac Nguyen",
+      "email": "npbtrac@yahoo.com",
+      "homepage": "https://enpii.com/users/trac-nguyen",
+      "role": "Developer"
+    },
+    {
+      "name": "Loi Le",
+      "homepage": "https://enpii.com/users/loi-le",
+      "role": "Developer"
+    }
+  ],
   "require": {
     "php": "^7.3|^8.0.0",
-    "laravelcollective/html": "^6.4",
+    "spatie/laravel-html": "^3.3",
     "doctrine/dbal": "^3.0",
     "laravel/framework": "^8.0.0|^9.0.0|^10.0.0",
-    "laravel/passport": "^10.4.2|^11.10",
     "laravel/telescope": "^3.5.1|^4.17",
     "laravel/tinker": "^2.8",
     "mcaskill/composer-exclude-files": "^3.0.0",
