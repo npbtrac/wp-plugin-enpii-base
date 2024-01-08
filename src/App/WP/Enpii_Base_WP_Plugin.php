@@ -186,10 +186,6 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 			wp_app_resolve( \Enpii_Base\App\WP_CLI\Enpii_Base_Info_WP_CLI::class )
 		);
 		WP_CLI::add_command(
-			'enpii-base prepare-folders',
-			$this->app->make( \Enpii_Base\App\WP_CLI\Enpii_Base_Prepare_Folders_WP_CLI::class )
-		);
-		WP_CLI::add_command(
 			'enpii-base artisan',
 			$this->app->make( \Enpii_Base\App\WP_CLI\Enpii_Base_Artisan_WP_CLI::class )
 		);

@@ -47,6 +47,7 @@ if ( ! function_exists( 'enpii_base_wp_app_prepare_folders' ) ) {
 		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'framework' . DIR_SEP . 'views', $chmod );
 		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'framework' . DIR_SEP . 'cache', $chmod );
 		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'framework' . DIR_SEP . 'cache' . DIR_SEP . 'data', $chmod );
+		$file_system->ensureDirectoryExists( $wp_app_base_path . DIR_SEP . 'storage' . DIR_SEP . 'framework' . DIR_SEP . 'sessions', $chmod );
 
 		$file_system->chmod( $wp_app_base_path . DIR_SEP . 'bootstrap' . DIR_SEP . 'cache', $chmod );
 		$file_system->chmod( $wp_app_base_path . DIR_SEP . 'storage', $chmod );
@@ -57,6 +58,17 @@ if ( ! function_exists( 'enpii_base_wp_app_prepare_folders' ) ) {
 
 if ( ! function_exists( 'enpii_base_wp_app_get_base_path' ) ) {
 	function enpii_base_wp_app_get_base_path() {
-		return defined( 'ENPII_BASE_WP_APP_BASE_PATH' ) && ENPII_BASE_WP_APP_BASE_PATH ? ENPII_BASE_WP_APP_BASE_PATH : rtrim( wp_upload_dir(), '/' ) . DIR_SEP . 'wp-app';
+		return defined( 'ENPII_BASE_WP_APP_BASE_PATH' ) && ENPII_BASE_WP_APP_BASE_PATH ? ENPII_BASE_WP_APP_BASE_PATH : rtrim( wp_upload_dir()['basedir'], '/' ) . DIR_SEP . 'wp-app';
+	}
+}
+
+if ( ! function_exists( 'enpii_base_prepare' ) ) {
+	function enpii_base_prepare() {
+		WP_CLI::add_command(
+			'enpii-base prepare',
+			function () {
+				enpii_base_wp_app_prepare_folders();
+			}
+		);
 	}
 }

@@ -26,6 +26,7 @@ class Show_Admin_Notice_From_Flash_Messages_Job extends Base_Job {
 						'type' => $type,
 					]
 				);
+				Session::remove( $type );
 			}
 		}
 	}

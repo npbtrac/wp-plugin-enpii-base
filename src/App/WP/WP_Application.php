@@ -23,7 +23,7 @@ class WP_Application extends Application {
 	/**
 	 * We override the parent instance for not messing up with other application
 	 *
-	 * @var static
+	 * @var WP_Application
 	 */
 	protected static $instance;
 
@@ -80,6 +80,10 @@ class WP_Application extends Application {
 					$wp_app_base_path,
 					$config
 				);
+
+				if ( ! file_exists( dirname( wp_app()->getCachedConfigPath() ) ) ) {
+					enpii_base_wp_app_prepare_folders();
+				}
 
 				do_action( App_Const::ACTION_WP_APP_LOADED );
 			},
