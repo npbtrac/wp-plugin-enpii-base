@@ -1,6 +1,7 @@
 {
   "name": "enpii/enpii-base",
   "type": "wordpress-muplugin",
+  "license": "MIT",
   "require": {
     "php": "^7.3|^8.0.0",
     "laravelcollective/html": "^6.4",
