@@ -9,6 +9,7 @@ use Illuminate\Support\ServiceProvider;
 use Enpii_Base\Foundation\Shared\Traits\Config_Trait;
 use Exception;
 use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Support\Facades\Session;
 use InvalidArgumentException;
 
 /**
@@ -233,5 +234,36 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 			realpath( $this->get_base_path() . DIR_SEP . 'resources' . DIR_SEP . 'views' ),
 			$namespace
 		);
+	}
+
+	/**
+	 * We want give info that this plugin is activated
+	 * @return void
+	 * @throws Exception
+	 */
+	protected function setup_activated_info() {
+		$info_messages = (array) Session::get( 'info' );
+		$info_messages[] = sprintf(
+			$this->_t( 'Plugin <strong>%s</strong> activated' ),
+			$this->get_name()
+		);
+		Session::put( 'info', $info_messages );
+	}
+
+	/**
+	 * We want to check if ACF Pro plugin is loaded,
+	 *  if not, flash a caution (warning)
+	 * @return void
+	 * @throws Exception
+	 */
+	protected function check_acf_pro_plugin() {
+		$caution_messages = (array) Session::get( 'caution' );
+		if ( ! class_exists( 'acf_pro' ) ) {
+			$caution_messages[] = sprintf(
+				$this->_t( 'This theme needs <strong>%s</strong> to work properly.' ),
+				'Plugin ACF Pro'
+			);
+		}
+		Session::put( 'caution', $caution_messages );
 	}
 }

@@ -13,9 +13,10 @@ class App_Const {
 	const ACTION_WP_API_REGISTER_ROUTES = 'enpii_base_wp_api_register_routes';
 	const ACTION_WP_APP_INIT = 'enpii_base_wp_app_init';
 	const ACTION_WP_APP_COMPLETE_EXECUTION = 'enpii_base_wp_app_complete_execution';
-	const ACTION_WP_APP_QUEUE_WORK = 'enpii_base_wp_app_queue_work';
+	const ACTION_WP_APP_WEB_WORKER = 'enpii_base_wp_app_web_worker';
 	const ACTION_WP_APP_SETUP_APP = 'enpii_base_wp_app_setup_app';
 	const ACTION_WP_APP_BROADCAST_CHANNELS = 'enpii_base_wp_app_broadcast_channels';
+	const ACTION_WP_APP_AUTH_BOOT = 'enpii_base_wp_app_auth_boot';
 
 	const FILTER_WP_APP_PREPARE_CONFIG = 'enpii_base_wp_app_prepare_config';
 	const FILTER_WP_APP_MAIN_SERVICE_PROVIDERS = 'enpii_base_wp_app_main_service_providers';
@@ -34,6 +35,7 @@ class App_Const {
 	const FILTER_WP_APP_TINKER_CONFIG = 'enpii_base_wp_app_tinker_config';
 	const FILTER_WP_APP_VIEW_CONFIG = 'enpii_base_wp_app_view_config';
 	const FILTER_WP_APP_PASSPORT_CONFIG = 'enpii_base_wp_app_passport_config';
+	const FILTER_WP_APP_WEB_PAGE_TITLE = 'enpii_base_wp_app_web_page_title';
 
 	const QUEUE_HIGH = 'high';
 	const QUEUE_DEFAULT = 'default';

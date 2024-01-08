@@ -8,15 +8,15 @@ use Enpii_Base\App\Http\Response;
 use Enpii_Base\App\Jobs\Bootstrap_WP_App_Job;
 use Enpii_Base\App\Jobs\Login_WP_App_User;
 use Enpii_Base\App\Jobs\Logout_WP_App_User;
-use Enpii_Base\App\Jobs\Perform_Queue_Work_Job;
 use Enpii_Base\App\Jobs\Perform_Setup_WP_App_Job;
+use Enpii_Base\App\Jobs\Perform_Web_Worker_Job;
 use Enpii_Base\App\Jobs\Process_WP_Api_Request_Job;
 use Enpii_Base\App\Jobs\Process_WP_App_Request_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_Api_Routes_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_App_Routes_Job;
 use Enpii_Base\App\Jobs\Show_Admin_Notice_From_Flash_Messages_Job;
-use Enpii_Base\App\Jobs\Write_Queue_Work_Script_Job;
 use Enpii_Base\App\Jobs\Write_Setup_Client_Script_Job;
+use Enpii_Base\App\Jobs\Write_Web_Worker_Script_Job;
 use Enpii_Base\App\Queries\Add_More_Providers_Query;
 use Enpii_Base\App\Support\App_Const;
 use Enpii_Base\Foundation\WP\WP_Plugin;
@@ -104,7 +104,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( App_Const::ACTION_WP_APP_REGISTER_ROUTES, [ $this, 'register_base_wp_app_routes' ] );
 		add_action( App_Const::ACTION_WP_API_REGISTER_ROUTES, [ $this, 'register_base_wp_api_routes' ] );
 
-		add_action( App_Const::ACTION_WP_APP_QUEUE_WORK, [ $this, 'queue_work' ] );
+		add_action( App_Const::ACTION_WP_APP_WEB_WORKER, [ $this, 'web_worker' ] );
 		add_action( App_Const::ACTION_WP_APP_SETUP_APP, [ $this, 'setup_app' ] );
 
 		add_filter( App_Const::FILTER_WP_APP_MAIN_SERVICE_PROVIDERS, [ $this, 'register_more_providers' ] );
@@ -127,15 +127,10 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( 'wp_logout', [ $this, 'logout_wp_app_user' ] );
 
 		add_action( 'admin_print_footer_scripts', [ $this, 'write_setup_wp_app_client_script' ] );
-		add_action( 'admin_print_footer_scripts', [ $this, 'write_queue_work_client_script' ] );
-		add_action( 'wp_footer', [ $this, 'write_queue_work_client_script' ] );
+		add_action( 'admin_print_footer_scripts', [ $this, 'write_web_worker_client_script' ] );
+		add_action( 'wp_footer', [ $this, 'write_web_worker_client_script' ] );
 
 		add_action( 'admin_head', [ $this, 'handle_admin_head' ] );
-
-		if ( defined( 'WP_APP_PASSPORT_ENABLED' ) && WP_APP_PASSPORT_ENABLED ) {
-			add_action( 'show_user_profile', [ $this, 'add_client_app_fields' ] );
-			add_action( 'edit_user_profile', [ $this, 'add_client_app_fields' ] );
-		}
 
 		if ( ! wp_app()->is_wp_app_mode() && ! wp_app()->is_wp_api_mode() ) {
 			// We want to merge the WP and WP App headers and send at once
@@ -168,8 +163,8 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		Write_Setup_Client_Script_Job::execute_now();
 	}
 
-	public function write_queue_work_client_script(): void {
-		Write_Queue_Work_Script_Job::execute_now();
+	public function write_web_worker_client_script(): void {
+		Write_Web_Worker_Script_Job::execute_now();
 	}
 
 	public function register_base_wp_app_routes(): void {
@@ -245,25 +240,8 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 * @return void
 	 * @throws BindingResolutionException
 	 */
-	public function queue_work() {
-		Perform_Queue_Work_Job::dispatchSync();
-	}
-
-	/**
-	 * Generate HTML fields for profile page
-	 * @return void
-	 */
-	public function add_client_app_fields( $user ) {
-		// We ignore the escape rule becase we handle that in the view file
-		// @codingStandardsIgnoreStart WordPress.Security.EscapeOutput.OutputNotEscaped
-		echo $this->view(
-			'admin/users/client-app-fields',
-			[
-				'user' => $user,
-				'wp_plugin' => $this,
-			]
-		);
-		// @codingStandardsIgnoreEnd
+	public function web_worker() {
+		Perform_Web_Worker_Job::dispatchSync();
 	}
 
 	/**

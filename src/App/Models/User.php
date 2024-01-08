@@ -4,16 +4,27 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Models;
 
-use DateTimeImmutable;
 use Enpii_Base\App\Support\Passport\Has_Api_Tokens;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Support\Carbon;
-use Laravel\Passport\Bridge\AccessTokenRepository;
-use Laravel\Passport\ClientRepository;
-use League\OAuth2\Server\Repositories\AccessTokenRepositoryInterface;
 
+/**
+ * User model for the table `wp_users` of WordPress
+ * @property bigint $ID
+ * @property string $user_login
+ * @property string $user_nicename
+ * @property string $user_email
+ * @property string $user_url
+ * @property string $user_registered
+ * @property string $user_activation_key
+ * @property int $user_status
+ * @property string $display_name
+ * @property string $remember_token
+ * @property tinyint $spam
+ *
+ * @package Enpii_Base\App\Models
+ */
 class User extends Authenticatable {
 	use Has_Api_Tokens;
 	use HasFactory;
@@ -36,14 +47,8 @@ class User extends Authenticatable {
 		'user_status',
 		'display_name',
 		'spam',
-		'deleted',
 		'remember_token',
 	];
 
 	protected $primaryKey = 'ID';
-
-	public function personal_access_by_request() {
-		$name = wp_app_config( 'app.name' );
-		return $this->createToken( $name, [ '*' ] );
-	}
 }

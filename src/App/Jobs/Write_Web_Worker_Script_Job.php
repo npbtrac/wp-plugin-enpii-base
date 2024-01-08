@@ -10,7 +10,7 @@ use Illuminate\Contracts\Container\BindingResolutionException;
 use PHPUnit\Framework\ExpectationFailedException;
 use Exception;
 
-class Write_Queue_Work_Script_Job extends Base_Job {
+class Write_Web_Worker_Script_Job extends Base_Job {
 	use Executable_Trait;
 
 	/**
@@ -23,29 +23,28 @@ class Write_Queue_Work_Script_Job extends Base_Job {
 	 */
 	public function handle(): void {
 		// We want to add the trailing slash to avoid the redirect in WP webserver rule
-		$queue_work_url = esc_js( wp_app_route_wp_url( 'wp-api::queue-work' ) . '/' );
+		$web_worker_url = esc_js( wp_app_route_wp_url( 'wp-api::web-worker' ) . '/' );
 
-		// We want to have an interval that works every 2 mins (120 000 miliseconds)
-		//  To perform the queue execution because we set timeout
-		//  for the queue-work endpoint to 60 seconds
+		// We want to have an interval that works every 5 mins (300 000 miliseconds)
+		//  to perform the web worker (queue, scheduler worker) execution
 		$script = <<<SCRIPT
 		<script type="text/javascript">
-			var enpii_base_queue_work_url = '$queue_work_url';
-			function ajax_request_to_queue_work() {
+			var enpii_base_web_worker_url = '$web_worker_url';
+			function ajax_request_to_web_worker() {
 				if (typeof(jQuery) !== 'undefined') {
 					jQuery.ajax({
-						url: enpii_base_queue_work_url,
+						url: enpii_base_web_worker_url,
 						method: "POST"
 					});
 				} else {
-					const response = fetch(enpii_base_queue_work_url);
+					const response = fetch(enpii_base_web_worker_url);
 				}
 			}
-			var ajax_request_to_queue_work_interval = window.setInterval(function(){
-				ajax_request_to_queue_work();
+			var ajax_request_to_web_worker_interval = window.setInterval(function(){
+				ajax_request_to_web_worker();
 			}, 300000);
 			window.setTimeout(function() {
-				ajax_request_to_queue_work();
+				ajax_request_to_web_worker();
 			}, 12000);
 		</script>
 SCRIPT;

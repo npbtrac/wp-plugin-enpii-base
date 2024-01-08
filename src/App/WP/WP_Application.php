@@ -98,13 +98,7 @@ class WP_Application extends Application {
 	 * @return void
 	 */
 	protected function __construct( $basePath = null ) {
-		if ( $basePath ) {
-			$this->setBasePath( $basePath );
-		}
-
-		$this->registerBaseBindings();
-		$this->registerBaseServiceProviders();
-		$this->registerCoreContainerAliases();
+		parent::__construct( $basePath );
 	}
 
 	/**
@@ -140,7 +134,7 @@ class WP_Application extends Application {
 		if ( $this->isRunningInConsole === null ) {
 			if (
 				strpos( wp_app_request()->getPathInfo(), 'wp-admin' ) !== false && wp_app_request()->get( 'force_app_running_in_console' ) ||
-				strpos( wp_app_request()->getPathInfo(), 'queue-work' ) !== false && wp_app_request()->get( 'force_app_running_in_console' )
+				strpos( wp_app_request()->getPathInfo(), 'web-worker' ) !== false && wp_app_request()->get( 'force_app_running_in_console' )
 			) {
 				$this->isRunningInConsole = true;
 			}
