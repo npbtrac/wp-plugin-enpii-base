@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Enpii Base
- * Plugin URI:  https://enpii.com/
+ * Plugin URI:  https://enpii.com/wp-plugin-enpii-base/
  * Description: Base plugin for WP development using Laravel
  * Author:      dev@enpii.com, nptrac@yahoo.com
- * Author URI:  https://enpii.com/
- * Version:     0.3.0
+ * Author URI:  https://enpii.com/enpii-team/
+ * Version:     0.3.1
  * Text Domain: enpii
  */
 
