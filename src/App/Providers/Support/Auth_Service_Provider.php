@@ -20,10 +20,15 @@ class Auth_Service_Provider extends AuthServiceProvider {
 	 */
 	public function boot(): void {
 		if ( method_exists( Passport::class, 'routes' ) ) {
-			Passport::routes();
+			Passport::routes(
+				null,
+				[
+					'prefix' => ENPII_BASE_WP_APP_PREFIX . '/oauth',
+				]
+			);
 		}
 
-		Passport::tokensExpireIn( now()->addDays( 15 ) );
+		Passport::tokensExpireIn( now()->addMinutes( 30 ) );
 		Passport::refreshTokensExpireIn( now()->addDays( 30 ) );
 		Passport::personalAccessTokensExpireIn( now()->addDays( 180 ) );
 	}

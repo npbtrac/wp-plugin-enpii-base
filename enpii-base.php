@@ -5,7 +5,7 @@
  * Description: Base plugin for WP development using Laravel
  * Author:      dev@enpii.com, nptrac@yahoo.com
  * Author URI:  https://enpii.com/
- * Version:     0.2.4
+ * Version:     0.3.0
  * Text Domain: enpii
  */
 
@@ -13,15 +13,4 @@
 // 	for putting into composer autoload and
 // 	for easier including on other section e.g. unit test
 require_once __DIR__ . DIRECTORY_SEPARATOR . 'enpii-base-bootstrap.php';
-
-// We init wp_app() here
-//	then initialization in `enpii-base-init.php` file is for non-plugin mode
-enpii_base_setup_wp_app();
-
-// We register Enpii_Base plugin as a Service Provider
-wp_app()->register_plugin(
-	\Enpii_Base\App\WP\Enpii_Base_WP_Plugin::class,
-	ENPII_BASE_PLUGIN_SLUG,
-	__DIR__,
-	plugin_dir_url( __FILE__ )
-);
+require __DIR__ . DIRECTORY_SEPARATOR . 'enpii-base-init.php';

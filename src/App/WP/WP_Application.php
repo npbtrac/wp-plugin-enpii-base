@@ -8,13 +8,13 @@ use Enpii_Base\App\Support\App_Const;
 use Illuminate\Config\Repository;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Mix;
-use Enpii_Base\Foundation\WP\WP_Plugin_Interface;
-use Enpii_Base\Foundation\WP\WP_Theme_Interface;
+use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\PackageManifest;
 use Illuminate\Foundation\ProviderRepository;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Collection;
-use InvalidArgumentException;
 
 /**
  * @package Enpii_Base\App\WP
@@ -23,7 +23,7 @@ class WP_Application extends Application {
 	/**
 	 * We override the parent instance for not messing up with other application
 	 *
-	 * @var static
+	 * @var WP_Application
 	 */
 	protected static $instance;
 
@@ -35,6 +35,61 @@ class WP_Application extends Application {
 
 	protected $wp_app_slug = 'wp-app';
 	protected $wp_api_slug = 'wp-api';
+
+	/**
+	 * Should contains WP headers, we will merge them with Laravel headers to send later
+	 * @var mixed
+	 */
+	protected $wp_headers;
+
+	public static function isset(): bool {
+		return ! is_null( static::$instance );
+	}
+
+	public static function load_instance() {
+		add_action(
+			ENPII_BASE_SETUP_HOOK_NAME,
+			function () {
+				// We only want to run the setup once
+				if ( static::isset() ) {
+					return;
+				}
+
+				/**
+				| Create a wp_app() instance to be used in the whole application
+				*/
+				$wp_app_base_path = enpii_base_wp_app_get_base_path();
+				$config = apply_filters(
+					App_Const::FILTER_WP_APP_PREPARE_CONFIG,
+					[
+						'app'         => require_once dirname(
+							dirname( dirname( __DIR__ ) )
+						) . DIR_SEP . 'wp-app-config' . DIR_SEP . 'app.php',
+						'wp_app_slug' => ENPII_BASE_WP_APP_PREFIX,
+						'wp_api_slug' => ENPII_BASE_WP_API_PREFIX,
+					]
+				);
+				if ( empty( $config['app']['key'] ) ) {
+					$auth_key = md5( uniqid() );
+					$config['app']['key'] = $auth_key;
+					add_option( 'wp_app_auth_key', $auth_key );
+				}
+
+				// We initiate the WP Application instance
+				static::init_instance_with_config(
+					$wp_app_base_path,
+					$config
+				);
+
+				if ( ! file_exists( dirname( wp_app()->getCachedConfigPath() ) ) ) {
+					enpii_base_wp_app_prepare_folders();
+				}
+
+				do_action( App_Const::ACTION_WP_APP_LOADED );
+			},
+			-100
+		);
+	}
 
 	/**
 	 * We don't want to have this class publicly initialized
@@ -84,7 +139,7 @@ class WP_Application extends Application {
 	public function runningInConsole(): ?bool {
 		if ( $this->isRunningInConsole === null ) {
 			if (
-				strpos( wp_app_request()->getPathInfo(), 'wp-admin/admin/setup' ) !== false && wp_app_request()->get( 'force_app_running_in_console' ) ||
+				strpos( wp_app_request()->getPathInfo(), 'wp-admin' ) !== false && wp_app_request()->get( 'force_app_running_in_console' ) ||
 				strpos( wp_app_request()->getPathInfo(), 'queue-work' ) !== false && wp_app_request()->get( 'force_app_running_in_console' )
 			) {
 				$this->isRunningInConsole = true;
@@ -113,7 +168,20 @@ class WP_Application extends Application {
 		$providers->splice( 1, 0, [ $this->make( PackageManifest::class )->providers() ] );
 
 		( new ProviderRepository( $this, new Filesystem(), $this->getCachedServicesPath() ) )
-					->load( $providers->collapse()->toArray() );
+			->load( $providers->collapse()->toArray() );
+
+		// We trigger the action when wp_app (with providers) is registered
+		do_action( App_Const::ACTION_WP_APP_REGISTERED, $this );
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function boot() {
+		parent::boot();
+
+		// We trigger the action when wp_app (with providers) are booted
+		do_action( App_Const::ACTION_WP_APP_BOOTED );
 	}
 
 	/**
@@ -138,104 +206,6 @@ class WP_Application extends Application {
 		static::$instance = $instance;
 
 		return $instance;
-	}
-
-	/**
-	 * @throws \Exception
-	 */
-	public function register_plugin(
-		$plugin_classsname,
-		$plugin_slug,
-		$plugin_base_path,
-		$plugin_base_url
-	): void {
-		if ( $this->has( $plugin_classsname ) ) {
-			return;
-		}
-
-		$plugin = new $plugin_classsname( $this );
-		if ( ! ( $plugin instanceof WP_Plugin_Interface ) ) {
-			throw new InvalidArgumentException(
-				sprintf(
-					'The target classname %s must implement %s',
-					esc_html( $plugin_classsname ),
-					WP_Plugin_Interface::class
-				)
-			);
-		}
-
-		/** @var \Enpii_Base\Foundation\WP\WP_Plugin $plugin  */
-		$plugin->bind_base_params(
-			[
-				WP_Plugin_Interface::PARAM_KEY_PLUGIN_SLUG => $plugin_slug,
-				WP_Plugin_Interface::PARAM_KEY_PLUGIN_BASE_PATH => $plugin_base_path,
-				WP_Plugin_Interface::PARAM_KEY_PLUGIN_BASE_URL => $plugin_base_url,
-			]
-		);
-		$this->singleton(
-			$plugin_classsname,
-			// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
-			function ( $app ) use ( &$plugin ) {
-				return $plugin;
-			}
-		);
-		$this->alias( $plugin_classsname, 'plugin-' . $plugin_slug );
-		$this->register( $plugin );
-	}
-
-	/**
-	 * @throws \Exception
-	 */
-	public function register_theme(
-		$theme_classsname,
-		$theme_slug
-	): void {
-		if ( $this->has( $theme_classsname ) ) {
-			return;
-		}
-
-		$theme = new $theme_classsname( $this );
-		if ( ! ( $theme instanceof WP_Theme_Interface ) ) {
-			throw new InvalidArgumentException(
-				sprintf(
-					'The target classname %s must implement %s',
-					esc_html( $theme_classsname ),
-					WP_Theme_Interface::class
-				)
-			);
-		}
-
-		if ( get_template_directory() !== get_stylesheet_directory() ) {
-			$theme_base_path = get_stylesheet_directory();
-			$theme_base_url = get_stylesheet_directory_uri();
-			$parent_theme_base_path = get_template_directory();
-			$parent_theme_base_url = get_template_directory_uri();
-		} else {
-			$theme_base_path = get_template_directory();
-			$theme_base_url = get_template_directory_uri();
-			$parent_theme_base_path = null;
-			$parent_theme_base_url = null;
-		}
-
-		/** @var \Enpii_Base\Foundation\WP\WP_Theme $theme  */
-		$theme->bind_base_params(
-			[
-				WP_Theme_Interface::PARAM_KEY_THEME_SLUG => $theme_slug,
-				WP_Theme_Interface::PARAM_KEY_THEME_BASE_PATH => $theme_base_path,
-				WP_Theme_Interface::PARAM_KEY_THEME_BASE_URL => $theme_base_url,
-				WP_Theme_Interface::PARAM_KEY_PARENT_THEME_BASE_PATH => $parent_theme_base_path,
-				WP_Theme_Interface::PARAM_KEY_PARENT_THEME_BASE_URL => $parent_theme_base_url,
-			]
-		);
-		$this->singleton(
-			$theme_classsname,
-			// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
-			function ( $app ) use ( $theme ) {
-				return $theme;
-			}
-		);
-		$this->alias( $theme_classsname, 'theme-' . $theme_slug );
-		$this->register( $theme );
 	}
 
 	/**
@@ -336,8 +306,26 @@ class WP_Application extends Application {
 		return defined( 'COMPOSER_VENDOR_DIR' ) ? COMPOSER_VENDOR_DIR : dirname( $this->resourcePath() ) . DIR_SEP . $this->get_composer_folder_name();
 	}
 
-	public static function isset(): bool {
-		return ! is_null( static::$instance );
+	public function set_wp_headers( $headers ) {
+		$this->wp_headers = $headers;
+	}
+
+	public function get_wp_headers() {
+		return $this->wp_headers;
+	}
+
+	public function set_request( Request $request ) {
+		$this->instance( 'request', $request );
+	}
+
+	public function set_response( Response $response ) {
+		$this->bind(
+			ResponseFactory::class,
+			// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
+			function ( $app ) use ( $response ) {
+				return $response;
+			}
+		);
 	}
 
 	/**

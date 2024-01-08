@@ -4,8 +4,11 @@ declare(strict_types=1);
 
 namespace Enpii_Base\Foundation\WP;
 
+use Enpii_Base\App\Support\App_Const;
 use Illuminate\Support\ServiceProvider;
 use Enpii_Base\Foundation\Shared\Traits\Config_Trait;
+use Exception;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use InvalidArgumentException;
 
 /**
@@ -34,6 +37,33 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 	}
 
 	/**
+	 * Initialize a WP Plugin and attach it to WP Application container
+	 * @param string $slug
+	 * @param string $base_path
+	 * @param string $base_url
+	 * @return WP_Plugin_Interface
+	 * @throws BindingResolutionException
+	 * @throws InvalidArgumentException
+	 * @throws Exception
+	 */
+	public static function init_with_wp_app( string $slug, string $base_path, string $base_url ): WP_Plugin_Interface {
+		if ( wp_app()->has( static::class ) ) {
+			return wp_app( static::class );
+		}
+
+		$plugin = new static( wp_app() );
+		$plugin->init_with_needed_params( $slug, $base_path, $base_url );
+
+		// Attch the
+		$plugin->attach_to_wp_app();
+
+		// We want to handle the hooks first
+		$plugin->manipulate_hooks();
+
+		return $plugin;
+	}
+
+	/**
 	 * We want to bind the the base params using an array
 	 *
 	 * @param array $base_params_arr
@@ -42,20 +72,6 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 	 */
 	public function bind_base_params( array $base_params_arr ): void {
 		$this->bind_config( $base_params_arr, true );
-	}
-
-	/**
-	 * Register any application services.
-	 *
-	 * @return void
-	 * @throws \Exception
-	 */
-	public function register() {
-		// We need to ensure all needed properties are set
-		$this->validate_needed_properties();
-
-		// We want to handle the hooks first
-		$this->manipulate_hooks();
 	}
 
 	public function boot() {
@@ -113,6 +129,51 @@ abstract class WP_Plugin extends ServiceProvider implements WP_Plugin_Interface 
 	public function _x( $untranslated_text, $context ): string {
 		// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralContext, WordPress.WP.I18n.NonSingularStringLiteralText, WordPress.WP.I18n.NonSingularStringLiteralDomain
 		return _x( $untranslated_text, $context, $this->get_text_domain() );
+	}
+
+	/**
+	 * We want to init all needed properties with this method
+	 *
+	 * @param string $slug
+	 * @param string $base_path
+	 * @param string $base_url
+	 * @return void
+	 * @throws InvalidArgumentException
+	 * @throws Exception
+	 */
+	protected function init_with_needed_params( string $slug, string $base_path, string $base_url ): void {
+		$this->bind_base_params(
+			[
+				static::PARAM_KEY_PLUGIN_SLUG => $slug,
+				static::PARAM_KEY_PLUGIN_BASE_PATH => $base_path,
+				static::PARAM_KEY_PLUGIN_BASE_URL => $base_url,
+			]
+		);
+
+		// We need to ensure all needed properties are set
+		$this->validate_needed_properties();
+	}
+
+	/**
+	 * We do needed things to attach and register the plugin to WP Application
+	 *
+	 * @return void
+	 * @throws InvalidArgumentException
+	 * @throws Exception
+	 */
+	protected function attach_to_wp_app(): void {
+		wp_app()->instance( static::class, $this );
+		wp_app()->alias( static::class, 'plugin-' . $this->get_plugin_slug() );
+
+		// We want to register the WP_Plugin after all needed Service Providers
+		$plugin = $this;
+		add_action(
+			App_Const::ACTION_WP_APP_REGISTERED,
+			function ( $wp_app ) use ( $plugin ) {
+				/** @var \Enpii_Base\App\WP\WP_Application $wp_app */
+				$wp_app->register( $plugin );
+			}
+		);
 	}
 
 	/**

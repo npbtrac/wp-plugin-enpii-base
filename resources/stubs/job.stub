@@ -2,12 +2,12 @@
 
 namespace {{ namespace }};
 
-use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
 use Enpii_Base\Foundation\Jobs\Base_Job;
+use Illuminate\Foundation\Bus\Dispatchable;
 
 class {{ class }} extends Base_Job
 {
-    use Dispatchable_Trait;
+    use Dispatchable;
 
     /**
      * Create a new job instance.

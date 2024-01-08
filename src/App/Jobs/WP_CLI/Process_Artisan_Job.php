@@ -2,14 +2,13 @@
 
 namespace Enpii_Base\App\Jobs\WP_CLI;
 
-use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
 use Enpii_Base\Foundation\Shared\Base_Job;
+use Illuminate\Foundation\Bus\Dispatchable;
 use InvalidArgumentException;
-use WP_CLI;
 
 class Process_Artisan_Job extends Base_Job {
 
-	use Dispatchable_Trait;
+	use Dispatchable;
 
 	/**
 	 * Execute the job.

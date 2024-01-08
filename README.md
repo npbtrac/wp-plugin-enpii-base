@@ -138,3 +138,7 @@ docker compose exec --user=devuser wordpress chmod -R 777 /var/www/html/wp-conte
 	```
 
 	5. Remove the previous part added to `wp-config.php` (item 1)
+
+## License
+
+The Enpii Base plugin is open-sourced software licensed under the [MIT license](LICENSE.md).

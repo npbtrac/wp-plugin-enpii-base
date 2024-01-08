@@ -3,11 +3,11 @@
 
 namespace Enpii_Base\Tests\Unit\Foundation\Bus;
 
-use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
+use Illuminate\Foundation\Bus\Dispatchable;
 
 class Fake_Job {
 
-	use Dispatchable_Trait;
+	use Dispatchable;
 
 	public function __construct( $arg1, $arg2 ) {
 		$this->init( $arg1, $arg2 );
