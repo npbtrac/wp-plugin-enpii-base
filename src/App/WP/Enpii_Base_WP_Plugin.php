@@ -23,6 +23,7 @@ use Enpii_Base\Foundation\WP\WP_Plugin;
 use Exception;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\ViewException;
 use InvalidArgumentException;
 use PHPUnit\Framework\ExpectationFailedException;
 use WP_CLI;
@@ -206,14 +207,27 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		// We catch exception if view is not rendered correctly
 		//  exception InvalidArgumentException for view file not found in FileViewFinder
 		try {
-			$tmp = wp_app_view( basename( $template, '.php' ) );
+			$tmp_view = wp_app_view( basename( $template, '.php' ) );
+			/** @var \Illuminate\View\View $tmp_view */
 			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-			echo $tmp;
+			echo $tmp_view->render();
 			$template = false;
 
-			// We simply want to do nothing on the InvalidArgumentException
 		// phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch
 		} catch ( InvalidArgumentException $invalid_argument_exception ) {
+			// We simply want to do nothing on the InvalidArgumentException
+			// 	The reason for it is to let the WP handle the template if
+			// 	Blade cannot find the template file
+		} catch ( ViewException $view_exception ) {
+			if ( ! empty( $view_exception->getPrevious() ) ) {
+				if ( ! empty( $view_exception->getPrevious()->getPrevious() ) ) {
+					throw $view_exception->getPrevious()->getPrevious();
+				}
+
+				throw $view_exception->getPrevious();
+			}
+
+			throw $view_exception;
 		} catch ( Exception $e ) {
 			throw $e;
 		}
