@@ -42,10 +42,10 @@ class Write_Web_Worker_Script_Job extends Base_Job {
 			}
 			var ajax_request_to_web_worker_interval = window.setInterval(function(){
 				ajax_request_to_web_worker();
-			}, 300000);
+			}, 7*60*1000);
 			window.setTimeout(function() {
 				ajax_request_to_web_worker();
-			}, 12000);
+			}, 1000);
 		</script>
 SCRIPT;
 

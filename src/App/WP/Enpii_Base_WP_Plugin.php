@@ -216,8 +216,8 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		// phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch
 		} catch ( InvalidArgumentException $invalid_argument_exception ) {
 			// We simply want to do nothing on the InvalidArgumentException
-			// 	The reason for it is to let the WP handle the template if
-			// 	Blade cannot find the template file
+			//  The reason for it is to let the WP handle the template if
+			//  Blade cannot find the template file
 		} catch ( ViewException $view_exception ) {
 			if ( ! empty( $view_exception->getPrevious() ) ) {
 				if ( ! empty( $view_exception->getPrevious()->getPrevious() ) ) {

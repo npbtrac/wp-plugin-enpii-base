@@ -40,6 +40,7 @@ class App_Const {
 	const QUEUE_HIGH = 'high';
 	const QUEUE_DEFAULT = 'default';
 	const QUEUE_LOW = 'low';
+	const QUEUE_BACKOFF = 'queue_backoff';
 
 	const USER_META_CLIENT_CREDENTIALS_APP_ID = 'client_credentials_app_id';
 	const USER_META_CLIENT_CREDENTIALS_APP_SECRET = 'client_credentials_app_secret';

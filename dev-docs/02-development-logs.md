@@ -66,3 +66,5 @@ to perform the queue execution with the timeout set to 60 seconds.
 - We tried to use Job to put to Laravel queue but Telescope cannot record the Job. After several days, we found out that, on normal WP request, we didn't use the `$kernel->terminate()`, and Telescope used the event `terminating` of app() to send all entries to the DB, therefore, Telescope didn't log the entries for Jobs. We need to apply the `$kernel->terminate()` to the shutdown action.
 - Laravel 7 has many difference than Laravel 10 so we decided to switch to Laravel 8 and support PHP 7.3+
 - Laravel Session cannot be saved correctly, therefore the Session Id is not persistent per request. It turns out that the WP sent headers before and it causes the Laravel headers cannot be sent correctly.
+- Controller cannot inject the custom request class, we need to add alias of the custom request class to the request instance for the WP App to make the correct one to inject to the Controller.
+- On multisite mode, if we enqueue a job, it may being handle incorrectly because the different site so we need to enqueue the job to it's site queue, the queue name should be `default_queue_for_site_<site_id>`
