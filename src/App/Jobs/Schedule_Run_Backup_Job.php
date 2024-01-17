@@ -25,7 +25,6 @@ class Schedule_Run_Backup_Job extends Base_Job {
 
 		// We need to have the correct ARTISAN_BINARY value to the second section
 		//  of the above console command
-		$schedule->command( 'wp-app:hello' )->everyMinute();
 		$schedule->command( 'backup:clean' )->daily()->at( '01:00' );
 		$schedule->command( 'backup:run' )->daily()->at( '02:00' );
 		$schedule->command( 'telescope:prune' )->daily()->at( '03:00' );

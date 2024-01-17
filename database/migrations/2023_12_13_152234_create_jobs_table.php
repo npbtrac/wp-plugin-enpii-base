@@ -16,6 +16,7 @@ class CreateJobsTable extends Migration {
 			'jobs',
 			function ( Blueprint $table ) {
 				$table->bigIncrements( 'id' );
+				$table->uuid('uuid')->nullable();
 				$table->string( 'queue' )->index();
 				$table->longText( 'payload' );
 				$table->unsignedTinyInteger( 'attempts' );
