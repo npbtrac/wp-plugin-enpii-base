@@ -20,5 +20,6 @@ class Register_Base_WP_Api_Routes_Job extends Base_Job {
 		// For API
 		Route::get( '/', [ Main_Controller::class, 'home' ] );
 		Route::post( 'web-worker', [ Main_Controller::class, 'web_worker' ] )->name( 'web-worker' );
+		Route::get( 'web-worker', [ Main_Controller::class, 'web_worker' ] )->name( 'web-worker' );
 	}
 }

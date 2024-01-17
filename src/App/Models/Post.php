@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace Enpii_Base\App\Models;
 
+use Enpii_Base\App\Support\Traits\Model_Multisite_Trait;
 use Exception;
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model {
+	use Model_Multisite_Trait;
+
 	/**
 	 * The table associated with the model.
 	 *

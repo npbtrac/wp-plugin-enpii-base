@@ -14,6 +14,7 @@ class App_Const {
 	const ACTION_WP_APP_INIT = 'enpii_base_wp_app_init';
 	const ACTION_WP_APP_COMPLETE_EXECUTION = 'enpii_base_wp_app_complete_execution';
 	const ACTION_WP_APP_WEB_WORKER = 'enpii_base_wp_app_web_worker';
+	const ACTION_WP_APP_SCHEDULE_RUN = 'enpii_base_wp_app_schedule_run';
 	const ACTION_WP_APP_SETUP_APP = 'enpii_base_wp_app_setup_app';
 	const ACTION_WP_APP_BROADCAST_CHANNELS = 'enpii_base_wp_app_broadcast_channels';
 	const ACTION_WP_APP_AUTH_BOOT = 'enpii_base_wp_app_auth_boot';

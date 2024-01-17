@@ -42,18 +42,25 @@ both are configurable.
 ### Adding more Laravel features to the plugin
 - Use Session flash messages to display messages on WordPress application.
 - We want to have the Laravel queue to WordPress and use database connection as the queue connection.
-- We can add a http endpoint then use this code
+- We can add a http endpoint then use the code for the queue and scheduler, we call it the web worker
 ```
 Artisan::call('queue:work', [
-	'connection' => 'database',
-	'--queue' => 'high,default,low',
-	'--tries' => 3,
-	'--quiet' => true,
-	'--stop-when-empty' => true,
-	'--timeout' => 60,
-	'--memory' => 256,
+	...
 ]);
 ```
+and
+```
+Artisan::call('schedule:run', [
+	...
+]);
+```
+- To be able to have the schedule console working correctly, you need to define the constant `ARTISAN_BINARY` to the value 'wp enpii-base artisan'. Because, when running the schedule, Laravel execute the console command like
+```
+'/opt/homebrew/Cellar/php@8.0/8.0.30_1/bin/php' 'artisan' wp-app:hello > '/dev/null' 2>&1
+```
+therefore, we need to have the correct ARTISAN_BINARY value to the second section of the above console command. So we skip the scheduler for now.
+
+
 to perform the queue execution with the timeout set to 60 seconds.
 - Then we need to write a js script to have ajax request to that http endpoint to perform the queue execution when someone access the website.
 

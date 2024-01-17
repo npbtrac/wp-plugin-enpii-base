@@ -21,13 +21,6 @@ use Illuminate\Support\Collection;
  */
 class WP_Application extends Application {
 	/**
-	 * We override the parent instance for not messing up with other application
-	 *
-	 * @var WP_Application
-	 */
-	protected static $instance;
-
-	/**
 	 * Config array needed for the initialization process
 	 * @var array
 	 */
