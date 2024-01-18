@@ -5,7 +5,7 @@
  * Description: Base plugin for WP development using Laravel
  * Author:      dev@enpii.com, nptrac@yahoo.com
  * Author URI:  https://enpii.com/enpii-team/
- * Version:     0.3.1
+ * Version:     0.3.2
  * Text Domain: enpii
  */
 

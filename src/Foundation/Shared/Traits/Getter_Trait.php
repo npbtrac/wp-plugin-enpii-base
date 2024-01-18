@@ -10,7 +10,7 @@ namespace Enpii_Base\Foundation\Shared\Traits;
 trait Getter_Trait {
 	public function __get( $name ) {
 		$method_name = 'get_' . $name;
-		if ( method_exists( $this, 'get_' . $name ) ) {
+		if ( method_exists( $this, $method_name ) ) {
 			return $this->$method_name();
 		}
 

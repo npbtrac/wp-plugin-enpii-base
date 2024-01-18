@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Enpii_Base\App\Console;
 
 use Enpii_Base\App\Console\Commands\WP_App_Setup_Command;
+use Enpii_Base\App\Support\App_Const;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 use Illuminate\Support\Facades\Artisan;
@@ -43,9 +44,7 @@ class Kernel extends ConsoleKernel {
 	 * @return void
 	 */
 	protected function schedule( Schedule $schedule ) {
-		$schedule->command( 'backup:clean' )->daily()->at( '01:00' );
-		$schedule->command( 'backup:run' )->daily()->at( '02:00' );
-		$schedule->command( 'telescope:prune' )->daily()->at( '03:00' );
+		do_action( App_Const::ACTION_WP_APP_SCHEDULE_RUN, $schedule );
 	}
 
 	/**
@@ -57,7 +56,7 @@ class Kernel extends ConsoleKernel {
 		Artisan::command(
 			'wp-app:hello',
 			function () {
-				$this->comment( 'Hello from wp_app()' );
+				$this->comment( 'Hello from Enpii Base wp_app()' );
 			}
 		)->describe( 'Display a message from Enpii Base plugin' );
 	}

@@ -21,13 +21,6 @@ use Illuminate\Support\Collection;
  */
 class WP_Application extends Application {
 	/**
-	 * We override the parent instance for not messing up with other application
-	 *
-	 * @var WP_Application
-	 */
-	protected static $instance;
-
-	/**
 	 * Config array needed for the initialization process
 	 * @var array
 	 */
@@ -99,6 +92,10 @@ class WP_Application extends Application {
 	 */
 	protected function __construct( $basePath = null ) {
 		parent::__construct( $basePath );
+
+		// We need to add the aliases to the custom classes for
+		//  the controller to be able to inject the correct class
+		$this->alias( 'request', \Enpii_Base\App\Http\Request::class );
 	}
 
 	/**

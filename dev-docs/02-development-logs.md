@@ -42,18 +42,25 @@ both are configurable.
 ### Adding more Laravel features to the plugin
 - Use Session flash messages to display messages on WordPress application.
 - We want to have the Laravel queue to WordPress and use database connection as the queue connection.
-- We can add a http endpoint then use this code
+- We can add a http endpoint then use the code for the queue and scheduler, we call it the web worker
 ```
 Artisan::call('queue:work', [
-	'connection' => 'database',
-	'--queue' => 'high,default,low',
-	'--tries' => 3,
-	'--quiet' => true,
-	'--stop-when-empty' => true,
-	'--timeout' => 60,
-	'--memory' => 256,
+	...
 ]);
 ```
+and
+```
+Artisan::call('schedule:run', [
+	...
+]);
+```
+- To be able to have the schedule console working correctly, you need to define the constant `ARTISAN_BINARY` to the value 'wp enpii-base artisan'. Because, when running the schedule, Laravel execute the console command like
+```
+'/opt/homebrew/Cellar/php@8.0/8.0.30_1/bin/php' 'artisan' wp-app:hello > '/dev/null' 2>&1
+```
+therefore, we need to have the correct ARTISAN_BINARY value to the second section of the above console command. So we skip the scheduler for now.
+
+
 to perform the queue execution with the timeout set to 60 seconds.
 - Then we need to write a js script to have ajax request to that http endpoint to perform the queue execution when someone access the website.
 
@@ -66,3 +73,5 @@ to perform the queue execution with the timeout set to 60 seconds.
 - We tried to use Job to put to Laravel queue but Telescope cannot record the Job. After several days, we found out that, on normal WP request, we didn't use the `$kernel->terminate()`, and Telescope used the event `terminating` of app() to send all entries to the DB, therefore, Telescope didn't log the entries for Jobs. We need to apply the `$kernel->terminate()` to the shutdown action.
 - Laravel 7 has many difference than Laravel 10 so we decided to switch to Laravel 8 and support PHP 7.3+
 - Laravel Session cannot be saved correctly, therefore the Session Id is not persistent per request. It turns out that the WP sent headers before and it causes the Laravel headers cannot be sent correctly.
+- Controller cannot inject the custom request class, we need to add alias of the custom request class to the request instance for the WP App to make the correct one to inject to the Controller.
+- On multisite mode, if we enqueue a job, it may being handle incorrectly because the different site so we need to enqueue the job to it's site queue, the queue name should be `default_queue_for_site_<site_id>`

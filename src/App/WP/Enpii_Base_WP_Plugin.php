@@ -8,12 +8,14 @@ use Enpii_Base\App\Http\Response;
 use Enpii_Base\App\Jobs\Bootstrap_WP_App_Job;
 use Enpii_Base\App\Jobs\Login_WP_App_User;
 use Enpii_Base\App\Jobs\Logout_WP_App_User;
+use Enpii_Base\App\Jobs\Perform_Schedule_Run_Job;
 use Enpii_Base\App\Jobs\Perform_Setup_WP_App_Job;
 use Enpii_Base\App\Jobs\Perform_Web_Worker_Job;
 use Enpii_Base\App\Jobs\Process_WP_Api_Request_Job;
 use Enpii_Base\App\Jobs\Process_WP_App_Request_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_Api_Routes_Job;
 use Enpii_Base\App\Jobs\Register_Base_WP_App_Routes_Job;
+use Enpii_Base\App\Jobs\Schedule_Run_Backup_Job;
 use Enpii_Base\App\Jobs\Show_Admin_Notice_From_Flash_Messages_Job;
 use Enpii_Base\App\Jobs\Write_Setup_Client_Script_Job;
 use Enpii_Base\App\Jobs\Write_Web_Worker_Script_Job;
@@ -21,6 +23,7 @@ use Enpii_Base\App\Queries\Add_More_Providers_Query;
 use Enpii_Base\App\Support\App_Const;
 use Enpii_Base\Foundation\WP\WP_Plugin;
 use Exception;
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\ViewException;
@@ -105,6 +108,7 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		add_action( App_Const::ACTION_WP_APP_REGISTER_ROUTES, [ $this, 'register_base_wp_app_routes' ] );
 		add_action( App_Const::ACTION_WP_API_REGISTER_ROUTES, [ $this, 'register_base_wp_api_routes' ] );
 
+		add_action( App_Const::ACTION_WP_APP_SCHEDULE_RUN, [ $this, 'schedule_run_backup' ] );
 		add_action( App_Const::ACTION_WP_APP_WEB_WORKER, [ $this, 'web_worker' ] );
 		add_action( App_Const::ACTION_WP_APP_SETUP_APP, [ $this, 'setup_app' ] );
 
@@ -216,8 +220,8 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 		// phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch
 		} catch ( InvalidArgumentException $invalid_argument_exception ) {
 			// We simply want to do nothing on the InvalidArgumentException
-			// 	The reason for it is to let the WP handle the template if
-			// 	Blade cannot find the template file
+			//  The reason for it is to let the WP handle the template if
+			//  Blade cannot find the template file
 		} catch ( ViewException $view_exception ) {
 			if ( ! empty( $view_exception->getPrevious() ) ) {
 				if ( ! empty( $view_exception->getPrevious()->getPrevious() ) ) {
@@ -256,6 +260,17 @@ final class Enpii_Base_WP_Plugin extends WP_Plugin {
 	 */
 	public function web_worker() {
 		Perform_Web_Worker_Job::dispatchSync();
+	}
+
+	/**
+	 * Execution for `schedule:run`
+	 * @param Schedule $schedule
+	 * @return void
+	 * @throws BindingResolutionException
+	 * @throws InvalidArgumentException
+	 */
+	public function schedule_run_backup( Schedule $schedule ) {
+		Schedule_Run_Backup_Job::execute_now( $schedule );
 	}
 
 	/**
