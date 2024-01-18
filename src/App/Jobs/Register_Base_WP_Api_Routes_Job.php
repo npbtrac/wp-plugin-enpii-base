@@ -19,22 +19,6 @@ class Register_Base_WP_Api_Routes_Job extends Base_Job {
 	public function handle(): void {
 		// For API
 		Route::get( '/', [ Main_Controller::class, 'home' ] );
-		Route::post( 'queue-work', [ Main_Controller::class, 'queue_work' ] )->name( 'queue-work' );
-
-		Route::post( 'user-login', [ Main_Controller::class, 'user_login' ] );
-		Route::get( 'users/info', [ User_Controller::class, 'info' ] )->middleware( 'auth:api' );
-
-		// For API with session validation
-		Route::group(
-			[
-				'prefix' => '/wp-admin',
-				'middleware' => [
-					'wp_user_session_validation',
-				],
-			],
-			function () {
-				Route::get( '/', [ Main_Controller::class, 'wp_admin' ] );
-			}
-		);
+		Route::post( 'web-worker', [ Main_Controller::class, 'web_worker' ] )->name( 'web-worker' );
 	}
 }

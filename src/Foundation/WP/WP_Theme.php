@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Enpii_Base\Foundation\WP;
 
+use Enpii_Base\App\Support\App_Const;
 use Enpii_Base\Foundation\Shared\Traits\Config_Trait;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\ServiceProvider;
 use InvalidArgumentException;
 
@@ -34,6 +36,23 @@ abstract class WP_Theme extends ServiceProvider implements WP_Theme_Interface {
 	public static function wp_app_instance(): self {
 		// We return the wp_app instance of the successor's class
 		return wp_app( static::class );
+	}
+
+	public static function init_with_wp_app( string $slug ): WP_Theme_Interface {
+		if ( wp_app()->has( static::class ) ) {
+			return wp_app( static::class );
+		}
+
+		$theme = new static( wp_app() );
+		$theme->init_with_needed_params( $slug );
+
+		// Attch the instance to WP Application
+		$theme->attach_to_wp_app();
+
+		// We want to handle the hooks first
+		$theme->manipulate_hooks();
+
+		return $theme;
 	}
 
 	/**
@@ -136,6 +155,107 @@ abstract class WP_Theme extends ServiceProvider implements WP_Theme_Interface {
 		$this->loadViewsFrom( realpath( $this->get_base_path() ), $theme_namespace );
 		if ( ! empty( $this->get_parent_base_path() ) ) {
 			$this->loadViewsFrom( realpath( $this->get_parent_base_path() ), $theme_namespace );
+		}
+	}
+
+	protected function init_with_needed_params( string $theme_slug ): void {
+		if ( get_template_directory() !== get_stylesheet_directory() ) {
+			$theme_base_path = get_stylesheet_directory();
+			$theme_base_url = get_stylesheet_directory_uri();
+			$parent_theme_base_path = get_template_directory();
+			$parent_theme_base_url = get_template_directory_uri();
+		} else {
+			$theme_base_path = get_template_directory();
+			$theme_base_url = get_template_directory_uri();
+			$parent_theme_base_path = null;
+			$parent_theme_base_url = null;
+		}
+
+		/** @var \Enpii_Base\Foundation\WP\WP_Theme $theme  */
+		$this->bind_base_params(
+			[
+				WP_Theme_Interface::PARAM_KEY_THEME_SLUG => $theme_slug,
+				WP_Theme_Interface::PARAM_KEY_THEME_BASE_PATH => $theme_base_path,
+				WP_Theme_Interface::PARAM_KEY_THEME_BASE_URL => $theme_base_url,
+				WP_Theme_Interface::PARAM_KEY_PARENT_THEME_BASE_PATH => $parent_theme_base_path,
+				WP_Theme_Interface::PARAM_KEY_PARENT_THEME_BASE_URL => $parent_theme_base_url,
+			]
+		);
+
+		// We need to ensure all needed properties are set
+		$this->validate_needed_properties();
+	}
+
+	/**
+	 * We do needed things to attach and register the theme to WP Application
+	 *
+	 * @return void
+	 * @throws InvalidArgumentException
+	 * @throws Exception
+	 */
+	protected function attach_to_wp_app(): void {
+		wp_app()->instance( static::class, $this );
+		wp_app()->alias( static::class, 'theme-' . $this->get_theme_slug() );
+
+		// We want to register the WP_Thee after all needed Service Providers
+		$theme = $this;
+		add_action(
+			App_Const::ACTION_WP_APP_REGISTERED,
+			function ( $wp_app ) use ( $theme ) {
+				/** @var \Enpii_Base\App\WP\WP_Application $wp_app */
+				$wp_app->register( $theme );
+			}
+		);
+	}
+
+	/**
+	 * We want give info that this theme is activated
+	 * @return void
+	 * @throws Exception
+	 */
+	protected function setup_activated_info() {
+		Session::push(
+			'info',
+			sprintf(
+				$this->_t( 'Theme <strong>%s</strong> activated' ),
+				$this->get_name()
+			)
+		);
+	}
+
+	/**
+	 * We want to check if ACF Pro plugin is loaded,
+	 *  if not, flash a caution (warning)
+	 * @return void
+	 * @throws Exception
+	 */
+	protected function check_acf_pro_plugin() {
+		if ( ! class_exists( 'acf_pro' ) ) {
+			Session::push(
+				'caution',
+				sprintf(
+					$this->_t( 'This theme needs <strong>%s</strong> to work properly.' ),
+					'Plugin ACF Pro'
+				)
+			);
+		}
+	}
+
+	/**
+	 * We want to check if Enpii Html Components plugin is loaded,
+	 *  if not, flash a caution (warning)
+	 * @return void
+	 * @throws Exception
+	 */
+	protected function check_enpii_html_components_plugin() {
+		if ( ! defined( 'ENPII_HTML_COMPONENTS_VERSION' ) ) {
+			Session::push(
+				'caution',
+				sprintf(
+					$this->_t( 'This theme needs <strong>%s</strong> to work properly.' ),
+					'Plugin Enpii Html Components'
+				)
+			);
 		}
 	}
 }

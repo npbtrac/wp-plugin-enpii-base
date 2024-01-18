@@ -3,13 +3,13 @@
 namespace Enpii_Base\App\Jobs\WP_CLI;
 
 use Enpii_Base\App\Queries\Get_WP_App_Info;
-use Enpii_Base\Foundation\Bus\Dispatchable_Trait;
 use Enpii_Base\Foundation\Shared\Base_Job;
+use Illuminate\Foundation\Bus\Dispatchable;
 use WP_CLI;
 
 class Show_Basic_Info_Job extends Base_Job {
 
-	use Dispatchable_Trait;
+	use Dispatchable;
 
 	/**
 	 * Execute the job.

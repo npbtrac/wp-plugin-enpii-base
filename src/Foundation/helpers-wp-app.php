@@ -31,6 +31,7 @@ use Illuminate\Support\HtmlString;
 use Symfony\Component\HttpFoundation\Response;
 use Enpii_Base\App\WP\WP_Application;
 use Illuminate\Routing\Router;
+use Spatie\Html\Html;
 
 if ( ! function_exists( 'wp_app_abort' ) ) {
 	/**
@@ -985,5 +986,14 @@ if ( ! function_exists( 'wp_app_view' ) ) {
 		}
 
 		return $factory->make( $view, $data, $mergeData );
+	}
+}
+
+if ( ! function_exists( 'wp_app_html' ) ) {
+	/**
+	 * @return \Spatie\Html\Html
+	 */
+	function wp_app_html() {
+		return wp_app( Html::class );
 	}
 }

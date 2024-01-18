@@ -26,7 +26,7 @@ class Write_Setup_Client_Script_Job extends Base_Job {
 
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended
 		if ( is_admin() && $current_screen->id === 'plugins' && $current_screen->parent_file === 'plugins.php' && ! empty( $_GET['activate'] ) ) {
-			$setup_url = esc_js( wp_app_route_wp_url( 'wp-app::admin-setup' ) . '/?force_app_running_in_console=1' );
+			$setup_url = esc_js( wp_app_route_wp_url( 'wp-app::admin-setup-app' ) . '?force_app_running_in_console=1' );
 
 			$script = <<<SCRIPT
 			<script type="text/javascript">

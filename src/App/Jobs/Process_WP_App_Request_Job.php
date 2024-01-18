@@ -14,16 +14,14 @@ class Process_WP_App_Request_Job extends Base_Job {
 	 * @return void
 	 */
 	public function handle(): void {
-		/** @var \Illuminate\Foundation\Http\Kernel $kernel */
+		/** @var \Enpii_Base\App\Http\Kernel $kernel */
 		$kernel = wp_app()->make( \Illuminate\Contracts\Http\Kernel::class );
 
 		/** @var \Enpii_Base\App\Http\Request $request */
 		$request = wp_app_request();
 		$response = $kernel->handle( $request );
+		$response->send();
 
-		// We don't want to call Response::send() here because we don't want
-		//  to end the request here
-		$response->sendHeaders();
-		$response->sendContent();
+		$kernel->terminate( $request, $response );
 	}
 }

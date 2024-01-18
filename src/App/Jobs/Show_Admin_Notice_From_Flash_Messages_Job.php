@@ -17,17 +17,21 @@ class Show_Admin_Notice_From_Flash_Messages_Job extends Base_Job {
 	 * @return void
 	 */
 	public function handle() {
-		foreach ( [ 'error', 'success', 'warning', 'info' ] as $type ) {
-			if ( Session::has( $type ) ) {
+		$flash_keys = [ 'admin-error', 'admin-success', 'admin-info', 'admin-caution' ];
+		foreach ( $flash_keys as $type ) {
+			if ( Session::has( $type ) && ! empty( Session::get( $type ) ) ) {
+				$display_type = str_replace( 'admin-', '', $type );
 				wp_admin_notice(
 					$this->build_html_messages( (array) Session::get( $type ) ),
 					[
 						'dismissible' => true,
-						'type' => $type,
+						'type' => ( $display_type === 'caution' ? 'warning' : $display_type ),
 					]
 				);
+				Session::forget( $type );
 			}
 		}
+		Session::save();
 	}
 
 	protected function build_html_messages( array $messages ): string {

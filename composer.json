@@ -1,8 +1,42 @@
 {
   "name": "enpii/enpii-base",
   "type": "wordpress-muplugin",
+  "description": "The base plugin to have powerful Laravel development on WordPress",
+  "version": "v0.3.2",
+  "time": "2024-01-09 09:25:04",
+  "homepage": "https://enpii.com/wp-plugin-enpii-base",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Trac Nguyen",
+      "email": "npbtrac@yahoo.com",
+      "homepage": "https://enpii.com/users/trac-nguyen",
+      "role": "Developer"
+    },
+    {
+      "name": "Loi Le",
+      "homepage": "https://enpii.com/users/loi-le",
+      "role": "Developer"
+    }
+  ],
   "require": {
-    "php": "^7.3|^8.0.0"
+    "php": "^7.3|^8.0.0",
+    "spatie/laravel-html": "^3.3",
+    "doctrine/dbal": "^3.0",
+    "laravel/framework": "^8.0.0|^9.0.0|^10.0.0",
+    "laravel/telescope": "^3.5.1|^4.17",
+    "laravel/tinker": "^2.8",
+    "mcaskill/composer-exclude-files": "^3.0.0",
+    "symfony/var-dumper": "^5.4.29|^6.2.0"
+  },
+  "require-dev": {
+    "10up/wp_mock": "^1.0.0",
+    "automattic/vipwpcs": "^3.0.0",
+    "codeception/codeception": "^5.0.0",
+    "codeception/module-asserts": "^3.0.0",
+    "codeception/module-phpbrowser": "^3.0.0",
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
+    "phpcompatibility/php-compatibility": "^9.3.5"
   },
   "minimum-stability": "dev",
   "prefer-stable": true,
